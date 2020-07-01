@@ -9,4 +9,5 @@ create table mbti(
       mbti_j number(1) not null, 
       mbti_p number(1) not null 
 )   
---완료2
+
+insert into mbti values ('istp',0,1,1,0,1,0,0,1);
