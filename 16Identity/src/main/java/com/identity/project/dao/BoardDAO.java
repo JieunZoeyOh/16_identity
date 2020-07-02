@@ -15,6 +15,10 @@ public class BoardDAO {
 	public List<String> getBookList() {
 		return sqlSession.selectList("Books.isbnList");
 	}
+
+	public List<String> getBookList_mbti(String m_mbti) {
+		return sqlSession.selectList("Books.isbn_mbti_List", m_mbti);
+	}
 	
 	
 	

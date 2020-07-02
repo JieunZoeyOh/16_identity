@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Members">
-	<select id="list" resultType="String">
-		select m_id from member
+	<select id="statelist" resultType="member">
+		select m_id, substate,m_mbti from member
 	</select>
 </mapper>

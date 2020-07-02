@@ -7,5 +7,9 @@
 	<select id="isbnList" resultType="String">
 		select isbn from book
 	</select>
+	
+	<select id="isbn_mbti_List" resultType="string">
+		select isbn from book where mbti=#{m_mbti}
+	</select>
 
 </mapper>

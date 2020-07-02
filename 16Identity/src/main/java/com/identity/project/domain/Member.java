@@ -11,6 +11,8 @@ public class Member {
 	private String m_phone;
 	private int m_address_no;
 	private String m_address;
+	private String substate;
+	private String subsdate;
 	
 	public String getM_id() {
 		return m_id;
@@ -45,7 +47,7 @@ public class Member {
 	public String getM_password() {
 		return m_password;
 	}
-	public void setM_pass(String m_password) {
+	public void setM_password(String m_password) {
 		this.m_password = m_password;
 	}
 	public String getM_mbti() {
@@ -71,6 +73,15 @@ public class Member {
 	}
 	public void setM_address(String m_address) {
 		this.m_address = m_address;
+	}
+	public String getSubstate() {
+		return substate;
+	}
+	public void setSubstate(String substate) {
+		this.substate = substate;
+	}
+	public String getSubsdate() {
+		return subsdate;
 	}
 	
 }

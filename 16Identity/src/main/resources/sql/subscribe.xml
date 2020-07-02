@@ -8,6 +8,6 @@
 	</select>
 	
 	<insert id="subBook">
-		insert into subscribe values (sub_seq.NEXTVAL, #{m_id}, #{isbn}, sysdate, null)
+		insert into subscribe values (sub_seq.NEXTVAL, #{m_id}, #{isbn}, sysdate)
 	</insert>
 </mapper>
