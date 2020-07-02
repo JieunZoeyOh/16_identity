@@ -1,6 +1,6 @@
 create table member(
      m_id varchar2(50) not null primary key, 
-     m_name varchar2(5) not null, 
+     m_name varchar2(50) not null, 
      m_nickname varchar2(13) not null unique, 
      m_original varchar2(50) not null, 
      m_file varchar2(50) not null, 
@@ -12,4 +12,4 @@ create table member(
      foreign key (m_mbti) references mbti(mbti) on delete cascade
 )
 
---완료 3
+insert into member values ('rlagofl913@gmail.com','김해리','도치와뿌꾸',null,null,'1234','istp','010-1234-5678','02488','서울특별시 동대문구 청량리동 33-15');

@@ -10,4 +10,9 @@ create table book(
       b_datetime date not null
 )
 
+insert into book values ('123456','굿','굿','ㅋ','ㅋ','istp','z','1',sysdate);
+insert into book values ('123457','가나다라','가나다라','ㅋ','ㅋ','istp','z','1',sysdate);
+insert into book values ('123458','아메리카노','아메리카노','ㅋ','ㅋ','istp','z','1',sysdate);
+insert into book values ('123459','아이스베어','아메리카노','ㅋ','ㅋ','istp','z','1',sysdate);
+insert into book values ('123460','케로로','아메리카노','ㅋ','ㅋ','istp','z','1',sysdate);
 -- 완료1
