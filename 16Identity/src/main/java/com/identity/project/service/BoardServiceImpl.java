@@ -18,4 +18,9 @@ public class BoardServiceImpl implements BoardService {
 		return dao.getBookList();
 	}
 
+	@Override
+	public List<String> getBookISBN_mbti(String m_mbti) {
+		return dao.getBookList_mbti(m_mbti);
+	}
+
 }

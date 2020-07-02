@@ -1,3 +1,5 @@
+drop table member;
+
 create table member(
      m_id varchar2(50) not null primary key, 
      m_name varchar2(50) not null, 
@@ -9,7 +11,15 @@ create table member(
      m_phone varchar2(13) not null, 
      m_address_no number(5) not null, 
      m_address varchar2(100) not null, 
+     substate varchar2(20),
+     subsdate date,
      foreign key (m_mbti) references mbti(mbti) on delete cascade
 )
 
-insert into member values ('rlagofl913@gmail.com','김해리','도치와뿌꾸',null,null,'1234','istp','010-1234-5678','02488','서울특별시 동대문구 청량리동 33-15');
+alter table member add (substate varchar2(20));
+alter table member add (subsdate date);
+
+insert into member values ('user3@gmail.com','사용자3','사용자3','1.png','1.png','1234','istp','010-1234-5678','02488','서울특별시 동대문구 청량리동 33-15',null,sysdate);
+
+
+

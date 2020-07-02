@@ -5,7 +5,6 @@ public class Subscribe {
 	private String m_id;
 	private String isbn;
 	private String updatedate;
-	private String subsdate;
 	
 	public int getNo() {
 		return no;
@@ -31,12 +30,5 @@ public class Subscribe {
 	public void setUpdatedate(String updatedate) {
 		this.updatedate = updatedate;
 	}
-	public String getSubsdate() {
-		return subsdate;
-	}
-	public void setSubsdate(String subsdate) {
-		this.subsdate = subsdate;
-	}
-	
 	
 }
