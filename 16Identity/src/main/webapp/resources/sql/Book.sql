@@ -16,3 +16,9 @@ insert into book values ('123458','아메리카노','아메리카노','ㅋ','ㅋ
 insert into book values ('123459','아이스베어','아메리카노','ㅋ','ㅋ','istp','z','1',sysdate);
 insert into book values ('123460','케로로','아메리카노','ㅋ','ㅋ','istp','z','1',sysdate);
 -- 완료1
+
+ALTER TABLE book MODIFY(isbn VARCHAR(30));
+insert into book values ('8996991341 9788996991342','이민지_test','아메리카노','ㅋ','ㅋ','istj','z','1',sysdate);
+
+SELECT * FROM book;
+
