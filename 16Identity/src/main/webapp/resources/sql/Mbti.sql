@@ -11,3 +11,6 @@ create table mbti(
 )   
 
 insert into mbti values ('istp',0,1,1,0,1,0,0,1);
+insert into mbti values ('istj',0,1,1,0,1,0,1,0);
+
+select * from mbti;
