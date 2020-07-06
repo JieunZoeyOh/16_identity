@@ -6,6 +6,7 @@ import com.identity.project.domain.Subscribe;
 
 public interface AdminService {
 
-	List<String> getBookISBN(String string);
+	List<String> getBookISBN(String m_id);
 	void SubBook(Subscribe sub);
+	List<Subscribe> getList();
 }

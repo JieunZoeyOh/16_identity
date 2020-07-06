@@ -6,4 +6,6 @@ public interface BoardService {
 
 	List<String> getBookISBN();
 
+	List<String> getBookISBN_mbti(String m_mbti);
+
 }

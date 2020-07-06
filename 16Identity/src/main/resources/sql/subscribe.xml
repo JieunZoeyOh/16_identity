@@ -8,6 +8,17 @@
 	</select>
 	
 	<insert id="subBook">
-		insert into subscribe values (sub_seq.NEXTVAL, #{m_id}, #{isbn}, sysdate, null)
+		insert into subscribe values (sub_seq.NEXTVAL, #{m_id}, #{isbn}, sysdate)
 	</insert>
+	
+	<select id="list" resultMap="resultList">
+		select m_id from subscribe group by m_id order by m_id
+	</select>
+	<resultMap type="com.identity.project.domain.SubList" id="resultList">
+		<result property="subscribe.m_id" column="m_id"/>
+		<collection property="sublist" column="m_id">
+			<result property="subscribe.isbn" column="isbn"/>
+			<result property="subscribe.updatedate" column="updatedate"/>
+		</collection>
+	</resultMap>
 </mapper>

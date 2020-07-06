@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:auto;
+	background-image:url("../image/background.jpg");
+	background-size:100% auto;
+	overflow: auto;
+	
+}
+
+#wrap{
+	width:80%;
+	height:auto;
+	margin: 0 auto;
+	padding-left: 50px;
+	padding-right:50px;
+	background-color:white;
+	background-repeat: repeat-y;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -40%)
+}
+
+#book_img{
+	width:200px;
+	height:200px;
+	display:inline-block;
+	
+}
+
+#book_info{
+	display:inline-block;
+	margin: 74px 0px;
+	width:900px;
+	padding-left:150px;
+}
+
+.btn-like {
+  color: transparent;
+  text-shadow: 0 0 2px rgba(255,255,255,.7), 0 0 0 #000;
+  margin-right: 350px;
+  margin-left: 60px;
+  width: 70px;
+  height:30px;
+}
+.btn-like:hover {
+  text-shadow: 0 0 0 #ff0000;
+}
+.btn-like.done {
+  color: inherit;
+  text-shadow: 0;
+}
+.btn-like.done:hover {
+  color: transparent;
+  text-shadow: 0 0 0 #ff0000 ;
+}
