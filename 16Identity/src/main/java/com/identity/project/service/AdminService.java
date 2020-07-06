@@ -8,4 +8,5 @@ public interface AdminService {
 
 	List<String> getBookISBN(String m_id);
 	void SubBook(Subscribe sub);
+	List<Subscribe> getList();
 }

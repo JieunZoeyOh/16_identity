@@ -1,8 +1,8 @@
 create table subscribe(
    no number primary key,
    m_id varchar2(50) REFERENCES member(m_id) on delete cascade,
-   isbn varchar2(13) REFERENCES book(isbn) ON delete CASCADE,
-   updatedate date
+   isbn varchar2(30) REFERENCES book(isbn) ON delete CASCADE,
+   updateday date
 );
 
 drop table subscribe;
