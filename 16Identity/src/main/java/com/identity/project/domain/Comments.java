@@ -8,6 +8,15 @@ public class Comments {
 	private String cmt_content;
 	private String cmt_date;
 	private int cmt_like;
+	private String cmt_nickname;
+	
+	
+	public String getCmt_nickname() {
+		return cmt_nickname;
+	}
+	public void setCmt_nickname(String cmt_nickname) {
+		this.cmt_nickname = cmt_nickname;
+	}
 	public int getCmt_no() {
 		return cmt_no;
 	}

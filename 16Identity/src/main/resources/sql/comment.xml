@@ -4,12 +4,35 @@
 
 <mapper namespace="Comments">
 	<insert id="insert" parameterType="C">
-		INSERT INTO comments (cmt_no, isbn, cmt_mbti, cmt_id, cmt_content,  cmt_date) values(cmt_no.nextval, #{isbn}, #{cmt_mbti}, #{cmt_id}, #{cmt_content},  sysdate)
+		INSERT INTO comments (cmt_no, isbn, cmt_mbti, cmt_nickname, cmt_content,  cmt_date) values(cmt_no.nextval, #{isbn}, #{cmt_mbti}, #{cmt_nickname}, #{cmt_content},  sysdate)
 	</insert>
 	
-	<select id="member_mbti" parameterType="String" resultType="String">
-		select m_mbti from member where m_id=#{id}
+	<select id="member_info" parameterType="String" resultType="member">
+		select * from member where m_id=#{id}
 	</select>
 	
+	<insert id="book_insert" parameterType="book">
+	INSERT INTO book(ISBN, B_TITLE, B_THUMBNAIL, B_CONTENT, B_AUTHORS, B_PUBLISHER, B_SALEPRICE, B_DATETIME) values (#{isbn},#{b_title},#{b_thumbnail},#{b_content},#{b_authors}, #{b_publisher},#{b_saleprice},#{b_datetime})
+	</insert>
+	
+	<select id="book_check" parameterType="String" resultType="book">
+		select * from book where isbn=#{isbn}
+	</select>
+	
+	<select id="comments_count" parameterType="String" resultType="int">
+		select count(*) from comments where isbn =#{isbn}
+	</select>
+	
+	<select id="comments_list" parameterType="map" resultType="C">
+		select * 
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date
+			   from (
+					  select cmt_no, cmt_nickname, cmt_content, cmt_date
+					  from comments where isbn = #{isbn}			   
+			  		   order by cmt_date desc
+					 )		   
+		   )
+		   where rnum &gt;=#{start} and rnum &lt;= #{end}
+	</select>
 	
 </mapper>

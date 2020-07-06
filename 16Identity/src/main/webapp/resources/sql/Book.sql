@@ -22,3 +22,6 @@ insert into book values ('8996991341 9788996991342','이민지_test','아메리�
 
 
 SELECT * FROM book;
+
+ALTER TABLE book MODIFY(b_thumbnail VARCHAR(200));
+ALTER TABLE book MODIFY(b_authors VARCHAR(100));
