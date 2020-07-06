@@ -61,5 +61,6 @@ public class SubscribeTask {
 			}
 			else;
 		}
+		System.out.println("정기구독 완료");
 	}
 }

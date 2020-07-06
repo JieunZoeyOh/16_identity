@@ -24,4 +24,9 @@ public class AdminServiceImpl implements AdminService {
 		dao.subBook(sub);
 	}
 
+	@Override
+	public List<Subscribe> getList() {
+		return dao.getList();
+	}
+
 }

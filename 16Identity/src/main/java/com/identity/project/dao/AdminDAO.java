@@ -21,5 +21,9 @@ public class AdminDAO {
 	public int subBook(Subscribe sub) {
 		return sqlSession.insert("Subscribe.subBook",sub);
 	}
+
+	public List<Subscribe> getList() {
+		return sqlSession.selectList("Subscribe.list");
+	}
 	
 }
