@@ -1,11 +1,13 @@
 package com.identity.project.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Member {
 	private String m_id;
 	private String m_name;
 	private String m_nickname;
-	private String m_original;
-	private String m_file;
+	private String m_original = "/default.png";
+	private String m_file = "/default.png";
 	private String m_password;
 	private String m_mbti;
 	private String m_phone;
@@ -13,7 +15,17 @@ public class Member {
 	private String m_address;
 	private String substate;
 	private String subsdate;
+	private MultipartFile uploadfile;
 	
+	public MultipartFile getUploadfile() {
+		return uploadfile;
+	}
+	public void setUploadfile(MultipartFile uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+	public void setSubsdate(String subsdate) {
+		this.subsdate = subsdate;
+	}
 	public String getM_id() {
 		return m_id;
 	}

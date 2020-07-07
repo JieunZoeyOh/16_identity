@@ -17,5 +17,13 @@ public class MemberDAO {
 	public List<Member> list() {
 		return sqlSession.selectList("Members.statelist");
 	}
+
+	public Member isId(String m_id) {
+		return sqlSession.selectOne("Members.idcheck",m_id);
+	}
+
+	public int insert(Member member) {
+		return sqlSession.insert("Members.insert", member);
+	}
 	
 }
