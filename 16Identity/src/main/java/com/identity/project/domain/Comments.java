@@ -48,7 +48,7 @@ public class Comments {
 		this.cmt_content = cmt_content;
 	}
 	public String getCmt_date() {
-		return cmt_date;
+		return cmt_date.substring(0,11);
 	}
 	public void setCmt_date(String cmt_date) {
 		this.cmt_date = cmt_date;

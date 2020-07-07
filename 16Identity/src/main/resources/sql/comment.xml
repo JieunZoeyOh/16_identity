@@ -25,9 +25,9 @@
 	
 	<select id="comments_list" parameterType="map" resultType="C">
 		select * 
-		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti
 			   from (
-					  select cmt_no, cmt_nickname, cmt_content, cmt_date
+					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti
 					  from comments where isbn = #{isbn}			   
 			  		   order by cmt_date desc
 					 )		   
