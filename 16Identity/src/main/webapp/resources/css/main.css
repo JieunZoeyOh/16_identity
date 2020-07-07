@@ -1,1 +1,339 @@
 @charset "UTF-8";
+body{
+	margin:0;
+	padding:0;
+}
+
+#main_background{
+    z-index: 0;
+}
+
+#main_mbti_recommend {
+	width:100%;
+    height:600px;
+	background-image:url("../image/bookstore1.jpg");
+	background-repeat: repeat-y;
+    background-size: 100% auto;
+    
+}
+
+.main_mbti_recommend_nav {
+    width:100%; height:100px;
+    box-sizing: border-box;
+    padding-top: 52px;
+}
+
+#main_mbti_recommend_opacity{
+    width:100%; height: 450px;
+    background-color: black;
+    opacity: 50%;
+}
+
+#main_mbti_best_review {
+    width:100%; height: 1200px;
+    background-color: #f8b24f;
+}
+
+#main_mbti_best_recommend {
+    width:100%; height: 700px;
+    background-color: #ea9a96;
+}
+
+.wrap {
+    width:100%;
+    height:auto;
+}
+
+#main_mbti_recommend_section {
+    position: absolute;
+    top: 300px;
+    left: 23%;
+    width: 1000px;
+    height: 2500px;
+    margin: 0 auto;
+    z-index: 1;
+    
+}
+@media screen and (min-width: 1801px) {
+    #main_mbti_recommend_section {
+        left: 23%;
+    }
+}
+
+@media screen and (min-width: 1601px) and (max-width: 1800px) {
+    #main_mbti_recommend_section {
+        left: 18%;
+    }
+}
+
+@media screen and (min-width: 1471px) and (max-width: 1600px) {
+    #main_mbti_recommend_section {
+        left: 15%;
+    }
+}
+
+
+.fa{
+    color:#e6dada;
+    font-size: 20px;
+}
+
+#nav_left_arrow, #nav_right_arrow {
+    display: block;
+    height: 30px;
+    width: 28px;
+    float: left;
+    text-align: center;
+}
+
+
+
+#nav_left_arrow>i, #nav_right_arrow>i {
+    line-height: 39px;
+}
+
+#recommend_mbti_list_box {
+    display: block;
+    float: left;
+    width:944px;
+    height:39px;
+    overflow: hidden;
+    margin:0;
+    padding:0;
+}
+#recommend_mbti_list {
+    display: inline-block;
+    margin:0;
+    padding:0;
+    width: 1890px;
+    height:39px;
+    transition: margin 1s ease-out;
+}
+
+#recommend_mbti_list li{
+    display: block;
+    width: 100px;
+    height: 28px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ea9a96;
+    text-align: center;
+    line-height: 28px;
+    color: white;
+    padding: 3px;
+    margin: 2px 6px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family: 'NanumBarunGothic', sans-serif;
+    float: left;
+}
+
+#nav_left_arrow, #nav_right_arrow {
+    cursor: pointer;
+}
+
+
+
+#recommend_mbti_list li.active{
+    background-color: #f8b24f;
+}
+
+#main_mbti_recommend_part{
+    width:100%; height: 500px;
+}
+
+.mbti_recommend_arrow{
+    display: block;
+    width: 40px;
+    height: 450px;
+    text-align: center;
+    position: relative;
+    top: 0px;
+    float: left;
+}
+
+.fa-angle-double-left, .fa-angle-double-right{
+    font-size: 50px;
+    cursor: pointer;
+    line-height: 450px;
+}
+#mbti_recommend_box{
+    display: block;
+    width:920px;
+    height:450px;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+#mbti_recommend_list {
+    display: block;
+    width:920px;
+    height:910px;
+    text-align: center;
+    transition: margin 500ms ease-out;
+}
+
+#mbti_recommend_section{
+    display: inline-block;
+    width:920px;
+    height:450px;
+
+}
+
+.mbti_recommend_book{
+    position: relative;
+    display: inline-block;
+    width:200px;
+    height:300px;
+    margin: 77px 10px 0 10px;
+}
+
+.mbti_recommend_book>img {
+    width: 200px;
+    height: 300px;
+}
+
+.mbti_recommend_book>img:hover {
+    cursor: pointer;
+}
+
+.mbti_recommend_book_description{
+    position: absolute;
+    bottom: 0px;
+    width:200px;
+    height:170px;
+    background-color: black;
+    opacity: 0.85;
+    visibility: hidden;
+}
+
+.mbti_recommend_book:hover .mbti_recommend_book_description {
+    cursor: pointer;
+    visibility: visible;
+}
+
+.mbti_recommend_book_description dd,
+.best_recommend_book_description dd {
+    color: blanchedalmond;
+    text-align: left;
+    margin: 0 22px;
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+
+.mbti_recommend_book_description dd:nth-child(2),
+.best_recommend_book_description dd:nth-child(2) {
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.mbti_recommend_book_description dd:nth-child(3),
+.best_recommend_book_description dd:nth-child(3) {
+    margin-bottom: 2px;
+}
+
+#main_best_review_part {
+    width:100%; height: 1200px;
+    display: inline-block;
+}
+#title_box {
+    text-align: center;
+    padding: 35px;
+}
+.line {
+    height:2px; background:#303960;
+    font-size:0; line-height:0; padding:0; margin:0;
+    position: relative;
+    top: 84px;
+    z-index: -1;
+}
+
+#main_best_review_part p, #main_best_recommend_part p{
+    display: inline-block;
+    color: #303960;
+    font-size: 52px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-family: 'Staatliches', cursive;
+    padding: 0 18px;
+}
+
+#best_review_wrap {
+    width: 846px; height: 810px;
+    margin: 0 auto;
+}
+
+.best_review_book {
+    float: left;
+    width:423px; height:405px;
+    
+}
+
+.best_review_book_box {
+    width: 242px; height: 346px;
+    margin: 24.5px auto;
+}
+
+.best_review_book_box img {
+    width: 242px; height: 346px;
+}
+
+.best_review_book_box img:hover {
+    cursor: pointer;
+}
+
+#main_best_recommend_part {
+    width:100%;
+    height: 699px;
+    display: inline-block;
+}
+
+#best_recommend_wrap {
+    width:100%;
+    height:428px;
+}
+
+.best_recommend_book {
+    
+    width: 220px;
+    height: 330px;
+    margin: 18px 10px 0 10px;
+    float: left;
+}
+
+.best_recommend_book>img{
+    width: 220px;
+    height: 330px;
+}
+
+.best_recommend_book_description{
+    position: relative;
+    right: 11px;
+    bottom: 169px;
+    width: 242px;
+    height: 170px;
+    background-color: black;
+    opacity: 0.85;
+    visibility: hidden;
+}
+
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.hvr-grow:hover>.best_recommend_book_description {
+    
+    visibility: visible;
+}

@@ -32,4 +32,6 @@
    
    <task:annotation-driven/>
 	
+	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	<context:property-placeholder location="classpath:pro/savefolder.properties"/>
 </beans:beans>
