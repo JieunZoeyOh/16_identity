@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.identity.project.dao.AdminDAO;
+import com.identity.project.domain.Joinlist;
+import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
 
 @Service
@@ -25,8 +27,33 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<Subscribe> getList() {
+	public List<Joinlist> getList() {
 		return dao.getList();
+	}
+
+	@Override
+	public List<Suborder> getOrderList() {
+		return dao.getOrderList();
+	}
+
+	@Override
+	public void SubOrder(String isbn) {
+		dao.SubOrder(isbn);
+	}
+
+	@Override
+	public List<Subscribe> distinctSub() {
+		return dao.distinctSub();
+	}
+
+	@Override
+	public int getOrderTotal() {
+		return dao.getTotal();
+	}
+
+	@Override
+	public int getOrderPrice() {
+		return dao.getPrice();
 	}
 
 }

@@ -74,26 +74,16 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody><!--  
+                                    <tbody> 
 	                                    <c:forEach var="m" items="${list }">
 	                                        <tr>
 	                                            <td>${m.m_id }</td>
-	                                            <c:forEach var="s" items="${sublist}">
-		                                            <td>${s.jan }</td>
-		                                            <td>${s.feb }</td>
-		                                            <td>${s.mar }</td>
-		                                            <td>${s.apr }</td>
-		                                            <td>${s.may }</td>
-		                                            <td>${s.jun }</td>
-		                                            <td>${s.jul }</td>
-		                                            <td>${s.aug }</td>
-		                                            <td>${s.sep }</td>
-		                                            <td>${s.oct }</td>
-		                                            <td>${s.nov }</td>
-		                                            <td>${s.dec }</td>
+	                                            <c:forEach var="a" items="${m.month}">
+	                                            	<td>${a}</td>
 	                                            </c:forEach>
+	                                            
 	                                        </tr>
-	                                    </c:forEach> -->
+	                                     </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

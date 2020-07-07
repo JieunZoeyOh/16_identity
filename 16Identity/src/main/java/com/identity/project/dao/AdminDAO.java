@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.identity.project.domain.Joinlist;
+import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
 
 @Repository
@@ -22,8 +24,28 @@ public class AdminDAO {
 		return sqlSession.insert("Subscribe.subBook",sub);
 	}
 
-	public List<Subscribe> getList() {
-		return sqlSession.selectList("Subscribe.list");
+	public List<Joinlist> getList() {
+		return sqlSession.selectList("Subscribe.joinlist");
+	}
+
+	public List<Suborder> getOrderList() {
+		return sqlSession.selectList("Subscribe.orderList");
+	}
+
+	public int SubOrder(String isbn) {
+		return sqlSession.insert("Subscribe.subOrder",isbn);
+	}
+
+	public List<Subscribe> distinctSub() {
+		return sqlSession.selectList("Subscribe.distinctSub");
+	}
+
+	public int getTotal() {
+		return sqlSession.selectOne("Subscribe.getTotal");
+	}
+
+	public int getPrice() {
+		return sqlSession.selectOne("Subscribe.getPrice");
 	}
 	
 }

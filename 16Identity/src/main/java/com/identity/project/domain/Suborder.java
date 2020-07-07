@@ -6,6 +6,8 @@ public class Suborder {
 	private String isbn;
 	private String order_date;
 	private String state;
+	private Book book;
+	
 	public int getNo() {
 		return no;
 	}
@@ -35,6 +37,12 @@ public class Suborder {
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	
 	

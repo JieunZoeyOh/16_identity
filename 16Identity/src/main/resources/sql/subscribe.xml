@@ -11,14 +11,57 @@
 		insert into subscribe values (sub_seq.NEXTVAL, #{m_id}, #{isbn}, sysdate)
 	</insert>
 	
-	<select id="list" resultMap="resultList">
-		select m_id from subscribe group by m_id order by m_id
+	<select id="distinctSub" resultType="subscribe">
+		select distinct isbn,updatedate from subscribe
 	</select>
-	<resultMap type="com.identity.project.domain.SubList" id="resultList">
-		<result property="subscribe.m_id" column="m_id"/>
-		<collection property="sublist" column="m_id">
-			<result property="subscribe.isbn" column="isbn"/>
-			<result property="subscribe.updatedate" column="updatedate"/>
+	<insert id="subOrder" parameterType="String">
+		insert into suborder values (order_seq.NEXTVAL, #{isbn}, (select count(*) from subscribe where isbn=#{isbn} and substr(updatedate,0,7)=substr(sysdate,0,7) group by isbn), sysdate, '발주 예정')
+	</insert> 
+	
+	<select id="joinlist" resultMap="joinresultMap" >
+		select * from subscribe left join book on subscribe.isbn=book.isbn
+	</select>
+	<resultMap id="joinresultMap" type="com.identity.project.domain.Joinlist" >
+		<result property="m_id" column="m_id"/>
+		<collection property="subscribe" ofType="com.identity.project.domain.Subscribe">
+			<result property="no" column="no"/>
+			<result property="m_id" column="m_id"/>
+			<result property="updatedate" column="updatedate"/>
+			<result property="isbn" column="isbn"/>
+			<result property="b_title" column="b_title"/>
 		</collection>
 	</resultMap>
+	
+	<select id="orderList" resultMap="suborderMap">
+		select * from suborder left join book on suborder.isbn=book.isbn
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select sum(total) from suborder group by order_date
+	</select>
+	
+	<select id="getPrice" resultType="int">
+		select sum(b_saleprice*(total)) from suborder left join book on suborder.isbn=book.isbn group by order_date
+	</select>
+	
+	<resultMap type="com.identity.project.domain.Suborder" id="suborderMap">
+		<id column="no" property="no" />
+		<result column="total" property="total" />
+		<result column="isbn" property="isbn" />
+		<result column="order_date" property="order_date" />
+		<result column="state" property="state" />
+
+		<association javaType="com.identity.project.domain.Book" property="book">
+			<id property="isbn" column="isbn"/>
+			<result property="b_title" column="b_title"/>
+			<result property="b_thumbnail" column="b_thumbnail"/>
+			<result property="b_content" column="b_content"/>
+			<result property="b_authors" column="b_authors"/>
+			<result property="mbti" column="mbti"/>
+			<result property="b_publisher" column="b_publisher"/>
+			<result property="b_saleprice" column="b_saleprice"/>
+			<result property="b_datetime" column="b_datetime"/>
+		</association>
+	</resultMap>
+	
 </mapper>
