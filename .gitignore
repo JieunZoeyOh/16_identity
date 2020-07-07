@@ -49,6 +49,7 @@ local.properties
 .springBeans
 pom.properties
 MANIFEST.MF
+savefolder.properties
 
 # Code Recommenders
 .recommenders/
