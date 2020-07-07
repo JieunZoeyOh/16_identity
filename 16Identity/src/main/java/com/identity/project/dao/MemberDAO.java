@@ -24,6 +24,12 @@ public class MemberDAO {
 
 	public int insert(Member member) {
 		return sqlSession.insert("Members.insert", member);
+	public int update(Member m) {
+		return sqlSession.update("Members.update" , m);
+	}
+
+	public int delete(String id) {
+		return sqlSession.delete("Members.delete", id);
 	}
 	
 }

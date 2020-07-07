@@ -50,6 +50,20 @@ public class MemberServiceImple implements MemberService {
 	@Override
 	public int insert(Member member) {
 		return dao.insert(member);
+	public Member member_info(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(String id) {
+	    return dao.delete(id);
+		
+	}
+
+	@Override
+	public int update(Member m) {
+		return dao.update(m);
 	}
 	
 }

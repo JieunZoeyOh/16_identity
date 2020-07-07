@@ -13,5 +13,11 @@ public interface MemberService {
 	int isId(String m_id);
 
 	int insert(Member member);
+
+	public Member member_info(String id);
+	
+	public int delete(String id);
+	
+	public int update(Member m);
 	
 }
