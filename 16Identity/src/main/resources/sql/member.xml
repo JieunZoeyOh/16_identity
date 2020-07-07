@@ -6,4 +6,16 @@
 	<select id="statelist" resultType="member">
 		select m_id, substate,m_mbti from member
 	</select>
+	
+	<update id = "update" parameterType = "member">
+		update Member set m_password = #{m_password} ,
+						  m_nickname = #{m_nickname} ,
+					      m_mbti = #{m_mbti},
+		where m_id = #{m_id}
+	</update>
+	
+	<delete id = "delete" parameterType = "String">
+	delete from member where m_id = #{m_id}
+	</delete>
+	
 </mapper>

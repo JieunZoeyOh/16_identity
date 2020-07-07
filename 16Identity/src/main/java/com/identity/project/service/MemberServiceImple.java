@@ -18,5 +18,22 @@ public class MemberServiceImple implements MemberService {
 	public List<Member> getStateList() {
 		return dao.list();
 	}
+
+	@Override
+	public Member member_info(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(String id) {
+	    return dao.delete(id);
+		
+	}
+
+	@Override
+	public int update(Member m) {
+		return dao.update(m);
+	}
 	
 }

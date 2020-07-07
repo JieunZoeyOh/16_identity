@@ -17,5 +17,13 @@ public class MemberDAO {
 	public List<Member> list() {
 		return sqlSession.selectList("Members.statelist");
 	}
+
+	public int update(Member m) {
+		return sqlSession.update("Members.update" , m);
+	}
+
+	public int delete(String id) {
+		return sqlSession.delete("Members.delete", id);
+	}
 	
 }
