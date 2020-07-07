@@ -39,7 +39,7 @@
 <br>
 <hr>
 
-<h2>리뷰 - 댓글:  ${count}개</h2>
+<h2>리뷰 - 댓글</h2>
 <span id="count" style="display:none">${count}</span>
 <hr>
 	<div id="comment">
@@ -49,7 +49,7 @@
             
             <table class="table table_striped">
                <thead>
-                  <tr><td style="width:300px;">아이디</td><td style="width:300px;">내용</td><td style="width:300px;">날짜</td></tr>
+                  <tr><td style="width:300px;">아이디</td><td style="width:300px;">mbti</td><td style="width:300px;">내용</td><td style="width:300px;">날짜</td></tr>
                </thead>
                <tbody>
                

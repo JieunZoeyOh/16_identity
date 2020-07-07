@@ -31,10 +31,56 @@ $.ajax({
 	
 	
 $(function() {	
+$("#comment table").hide(); //1
+var page=1; //더 보기에서 보여줄 페이지를 기억할 변수
+var count =0; //전체 댓글 갯수
+var maxPage = getMaxPage(); //댓글의 총 페이지 수를 구합니다.
 	
 $(".btn-like").click(function() {
 	$(this).toggleClass("done");
 });
+
+function getList(currentPage){
+	$.ajax({
+			type:"post",
+			url:"CommentList.minji",
+			data:{
+				"isbn" : "8996991341 9788996991342",
+				"page" : currentPage
+			},
+			dataType: "json",
+			success: function(rdata){
+				if(rdata.length > 0){
+					$("#comment table").show(); //문서가 로딩될때 hide 했던 부분을 보이게 합니다. (1)
+					$("#comment thead").show(); //글이 없을 때 hide() 부분을 보이게 합니다. (2)
+					output= '';
+					$(rdata).each(function(){
+									output +="<tr><td>"+this.cmt_nickname +"</td>";
+									output +="<td>"+this.cmt_mbti+"</td>";
+									output +="<td>"+this.cmt_content+"</td>";
+									output +="<td>"+this.cmt_date+"</td></tr>";
+								});//each end
+					$("#comment tbody").append(output);
+					
+					console.log("현재:"+currentPage)
+					console.log("max:"+maxPage)
+					//현재 페이지가 마지막 페이지면 "더보기"는 나타나지 않습니다.
+					if(currentPage==maxPage){
+						$("#message").text("");
+					}else{
+						$("#message").text("더보기");
+					}
+					//더 보기를 클릭할 경우 현재 페이지에서 1증가된 페이지를 보여주기 위해 값을 설정합니다.
+					page= currentPage+1;
+				}else{
+					$("#message").text("등록된 댓글이 없습니다.")
+					$("#comment thead").hide(); //2
+					$("#comment tbody").empty(); //데이터가 한 개인 경우 삭제하면서 tbody를 비웁니다.
+				}
+			}
+	}); //ajax end		
+  }
+
 
 $("#button_addcomment").click(function(){
 	var id= "gi5442@naver.com";
@@ -77,6 +123,7 @@ $("#button_addcomment").click(function(){
 		data: data,
 		success: function(){
 			$("#book_comment").val('');
+			$("#comment tbody").empty();
 			getList(1);
 		}
 	});// ajax end
@@ -104,44 +151,9 @@ function getMaxPage(){
 }
 
 
-function getList(currentPage){
-	$.ajax({
-			type:"post",
-			url:"CommentList.minji",
-			data:{
-				"isbn" : "8996991341 9788996991342",
-				"page" : currentPage
-			},
-			dataType: "json",
-			success: function(rdata){
-				if(rdata.length > 0){
-					$("#comment table").show(); //문서가 로딩될때 hide 했던 부분을 보이게 합니다. (1)
-					$("#comment thead").show(); //글이 없을 때 hide() 부분을 보이게 합니다. (2)
-					output= '';
-					$(rdata).each(function(){
-									output +="<tr><td>"+this.cmt_nickname +"</td>";
-									output +="<td>"+this.cmt_content+"</td>";
-									output +="<td>"+this.cmt_date+"</td></tr>";
-								});//each end
-					$("#comment tbody").append(output);
-					
-					console.log("현재:"+currentPage)
-					console.log("max:"+maxPage)
-					//현재 페이지가 마지막 페이지면 "더보기"는 나타나지 않습니다.
-					if(currentPage==maxPage){
-						$("#message").text("");
-					}else{
-						$("#message").text("더보기");
-					}
-					//더 보기를 클릭할 경우 현재 페이지에서 1증가된 페이지를 보여주기 위해 값을 설정합니다.
-					page= currentPage+1;
-				}else{
-					$("#message").text("등록된 댓글이 없습니다.")
-					$("#comment thead").hide(); //2
-					$("#comment tbody").empty(); //데이터가 한 개인 경우 삭제하면서 tbody를 비웁니다.
-				}
-			}
-	}); //ajax end		
-  }
+
+$("#message").click(function(){
+	getList(page);
+});
 });
 
