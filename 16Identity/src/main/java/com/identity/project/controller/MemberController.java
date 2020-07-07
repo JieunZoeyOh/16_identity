@@ -145,7 +145,7 @@ public class MemberController {
 	public String logout(HttpSession session) throws Exception {
 		session.invalidate();
 		return "redirect:login.net";
-	
+	}
 	//updateForm.net
     @RequestMapping(value = "/updateForm.net")
     public ModelAndView member_update(HttpSession session, ModelAndView mv) throws Exception{
