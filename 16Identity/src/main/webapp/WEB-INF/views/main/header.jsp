@@ -3,8 +3,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
 <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="resources/css/main_header.css">
@@ -13,7 +11,7 @@
     <img src="resources/image/logo.png">
     <div id="user_info">
         <span>
-        <b>열정적인 중재자, 지은님 환영합니다.</b> <!-- 닉네임 불러오기 -->
+        <b>열정적인 중재자</b>, 지은님 환영합니다. <!-- 닉네임 불러오기 -->
         </span>
         <span>
         <a href="logout.net">LOGOUT</a>
@@ -34,7 +32,7 @@
                 </ul>
             </li>
             <li id="review_board">
-                <a href="#" class="tooltip">
+                <a href="review.net" class="tooltip">
                     <img src="resources/image/review_board.png" style="width:75px"/>
                     <span class="tooltiptext"><b>리뷰 검색</b></span>
                 </a>

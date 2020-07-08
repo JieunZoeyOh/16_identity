@@ -118,13 +118,13 @@ body{
     border-radius: 20px;
     background-color: #ea9a96;
     text-align: center;
-    line-height: 28px;
+    line-height: 27px;
     color: white;
     padding: 3px;
     margin: 2px 6px;
     letter-spacing: 1px;
     cursor: pointer;
-    font-family: 'NanumBarunGothic', sans-serif;
+     font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
     float: left;
 }
 
@@ -212,23 +212,21 @@ body{
     visibility: visible;
 }
 
-.mbti_recommend_book_description dd,
-.best_recommend_book_description dd {
+.mbti_recommend_book_description dd {
     color: blanchedalmond;
     text-align: left;
-    margin: 0 22px;
-    font-family: 'NanumBarunGothic', sans-serif;
+    margin: 0 22px; font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    font-weight: 300;
 }
 
-.mbti_recommend_book_description dd:nth-child(2),
-.best_recommend_book_description dd:nth-child(2) {
-    font-weight: 800;
+.mbti_recommend_book_description dd:nth-child(2){
+    font-weight: 600; font-size: 16px;
     margin-bottom: 12px;
 }
 
-.mbti_recommend_book_description dd:nth-child(3),
-.best_recommend_book_description dd:nth-child(3) {
-    margin-bottom: 2px;
+.mbti_recommend_book_description dd:nth-child(3){
+    margin-bottom: -2px;
 }
 
 #main_best_review_part {
