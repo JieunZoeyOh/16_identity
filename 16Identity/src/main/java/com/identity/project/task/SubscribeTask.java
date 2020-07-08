@@ -1,5 +1,6 @@
 package com.identity.project.task;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,10 @@ public class SubscribeTask {
 		        adminService.SubBook(sub);
 			}
 			else;
+		}
+		List<Subscribe> subList = adminService.distinctSub();
+		for(int i=0; i<subList.size();i++) {
+			adminService.SubOrder(subList.get(i).getIsbn());
 		}
 		System.out.println("정기구독 완료");
 	}

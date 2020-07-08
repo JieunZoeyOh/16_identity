@@ -8,6 +8,7 @@
       <typeAlias alias="member" type="com.identity.project.domain.Member"/>
       <typeAlias alias="book" type="com.identity.project.domain.Book"/>
       <typeAlias alias="C" type="com.identity.project.domain.Comments"/>
+      <typeAlias alias="order" type="com.identity.project.domain.Suborder"/>
    </typeAliases>
    
    <mappers>
