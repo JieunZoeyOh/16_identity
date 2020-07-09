@@ -15,3 +15,8 @@ references book(isbn) on delete cascade
 );
 
 --완료
+
+--sequence 추가
+create sequence like_no increment by 1 start with 1;
+
+ALTER TABLE book_like MODIFY(isbn VARCHAR(30));

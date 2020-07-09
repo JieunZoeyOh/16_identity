@@ -18,27 +18,27 @@ $.ajax({
 		book_date=book_date.substring(0,10);
 		book_contents= msg.documents[0].contents;
 		
+		var isbn_original = msg.documents[0].isbn.slice(-13);
+		var isbn_short= isbn_original.slice(-3);
 		$("#title").append("<h1>"+msg.documents[0].title+"</h1><hr><br>");
-		$("#book_img").append("<img id='book_image' src='"+msg.documents[0].thumbnail+"' style='width:200px;'/>");
+		$("#book_img").append("<img id='book_image' src='http://image.kyobobook.co.kr/images/book/xlarge/"+isbn_short+"/x"+isbn_original+".jpg'>");
 		$("#authors").append("<h3> 저자 : "+msg.documents[0].authors+"</h3>");
 		$("#publisher").append("<h3> 출판사: "+msg.documents[0].publisher+"</h3>");
 		$("#book_price").append("<h3> 정가: "+msg.documents[0].sale_price+"</h3>");
 		$("#book_isbn").append("<h3> ISBN: "+msg.documents[0].isbn+"</h3>");
-		$("#book_date").append("<h3> 출판날짜: "+book_date.substring(0,10)+"</h3>");
-		$("#book_contents").append("<h2> 책소개</h2><br><h4>"+msg.documents[0].contents+"</h4>");
+		$("#book_date").append("<h3> 출판날짜: "+book_date.substring(0,10)+"</h3><br>");
+		$("#book_contents").append("<h2> 책소개</h2><h4>"+msg.documents[0].contents+"</h4>");
 		
 	});
 	
-	
+
+
 $(function() {	
 $("#comment table").hide(); //1
 var page=1; //더 보기에서 보여줄 페이지를 기억할 변수
 var count =0; //전체 댓글 갯수
 var maxPage = getMaxPage(); //댓글의 총 페이지 수를 구합니다.
 	
-$(".btn-like").click(function() {
-	$(this).toggleClass("done");
-});
 
 function getList(currentPage){
 	$.ajax({
@@ -55,10 +55,13 @@ function getList(currentPage){
 					$("#comment thead").show(); //글이 없을 때 hide() 부분을 보이게 합니다. (2)
 					output= '';
 					$(rdata).each(function(){
-									output +="<tr><td>"+this.cmt_nickname +"</td>";
-									output +="<td>"+this.cmt_mbti+"</td>";
-									output +="<td>"+this.cmt_content+"</td>";
-									output +="<td>"+this.cmt_date+"</td></tr>";
+									output +="<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>  <div class='card'>";
+									output +="<div class='body bg-orange' id='each_comment'>";
+									output +="<p id='card_header' class='hangelfont'><a href='reviewpost.minji'>"+this.cmt_nickname +"</a> - ";
+									output +=this.cmt_mbti+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+this.cmt_date;
+                                	output +="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href='comment_delete.minji?cmt_no="+this.cmt_no+"'><img src='resources/image/remove.png' id='review_remove'/></a></p>";
+									output +=this.cmt_content+"<br>";
+									output +="<br></div></div></div>";
 								});//each end
 					$("#comment tbody").append(output);
 					
@@ -155,5 +158,7 @@ function getMaxPage(){
 $("#message").click(function(){
 	getList(page);
 });
+
+
 });
 

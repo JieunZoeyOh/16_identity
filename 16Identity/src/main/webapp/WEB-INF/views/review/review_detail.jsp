@@ -4,60 +4,271 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
 <script src="resources/js/jquery-3.5.0.js"></script>
 <script src="resources/js/review_detail.js"></script>
-<link rel="stylesheet" href="resources/css/review_css.css" type="text/css">
+<title>메인페이지</title>
+<link rel="icon" href="resources/favicon.ico" type="image/x-icon">  
+<!-- Waves Effect Plugin Js -->
+    <script src="resources/plugins/node-waves/waves.js"></script>
+	
+    <!-- Bootstrap Core Css -->
+    <link href="resources/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+    <!-- Waves Effect Css -->
+    <link href="resources/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="resources/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="resources/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Css -->
+    <link href="resources/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="resources/css/themes/all-themes.css" rel="stylesheet" />
+    
+    
 <style>
-#comment > table > tbody > tr > td:nth-child(2){width:60%}
-#comment > table > tbody > tr > td{text-align: center;}
+.hangelfont { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important; }
+body {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:auto;
+	background-color:white;
+	background-size:100% auto;
+	overflow: auto;
+	
+}
+
+#wrap{
+	width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#book_img{
+	width:30%;
+	height: 390px;
+	display:inline-block;
+	float: left;
+}
+#book_img img{
+	width:300px;
+	height:auto;
+}
+#book_info{
+	display:inline-block;
+	width:70%;
+	float:right;
+}
+#book_info td {
+	width: 380px;
+}
+h3, h2 {
+	font-weight: 500;
+	font-size: 18px;
+	font-family: 'Roboto', Arial, Tahoma, sans-serif;
+}
+
+#each_comment{
+font-size: 16px;
+border-radius:8px
+}
+
+.m_p_o_zero {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.button_container {
+   	float:left;
+    border-radius: 20px;
+}
+
+.button_container i{
+    font-size: 5rem;
+    transition: .4s;
+}
+
+.button_container:hover i {
+    color: #f50057;
+}
+
+.fa-heart {
+    color: #f50057;
+    transition: .4s;
+}
+
+#button_addcomment{
+	width: 100px;
+    height: 50px;
+    border: 3px solid #303960;
+    background-color: white !important;
+    color: black;
+    border-radius: 20px;
+    font-size: 14px;
+    position: relative;
+   	left: 125px;
+    top: -55px;
+	margin:20;
+	transition: .3s;
+	box-shadow: none !important;
+}
+#button_addcomment:hover {
+	background-color: #303960 !important;
+	color:white;
+}
+
+.form-line{
+	display:inline-block;
+}
+
+.form-group{
+	width: 900px;
+	display:inline-block;
+	padding-left: 90px;
+}
+
+#main_sidebar #sidebar_list>li:nth-child(1) {
+    padding: 20px 0px 5px 23px;
+}
+
+#main_sidebar #sidebar_list>li:nth-child(3) {
+    padding: 18px 0px 5px 17px;
+}
+#main_sidebar #sidebar_list>li:nth-child(4) {
+    padding: 10px 0px 0px 19px;
+}
+.form-group .form-line:after{
+	border-bottom: 2px solid #303960 !important;
+}
+#each_comment {
+    background-color: #fff !important;
+    color: black !important;
+}
+
+.card {
+    box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    height: 200px;
+}
+#card_header{
+	font-size: 19px;
+}
+
+#review_remove{
+	width:20px; height:20px;
+}
 </style>
+ <jsp:include page="../main/header.jsp"/> 
 </head>
 <body>
 <div id="wrap">
-<p id=title></p>
-<p id="book_img"></p>
- <table id="book_info" >
+<p id=title class="hangelfont"></p>
+<div id="book_img"></div>
+ <table id="book_info" class="hangelfont">
       <tbody>
         <tr>
-           <td id="authors" style="width:1000px;"></td>
-           <td id="publisher" style="width:700px;"></td>
+           <td id="authors"></td>
+           <td id="publisher"></td>
         </tr>
         <tr>
-           <td id="book_price" style="width:700px;"></td>
-           <td id="book_isbn" style="width:700px;"></td>
+           <td id="book_price"></td>
+           <td id="book_isbn"></td>
         </tr>
         <tr>
-        	<td id="book_date" style="width:700px;"></td>
+        	<td id="book_date"></td>
         </tr>
 	  </tbody>
 	</table>
-<button class="btn-like">♥</button>
-<span id="book_contents"></span>
-<h2>통계</h2>
-<br>
-<hr>
-
-<h2>리뷰 - 댓글</h2>
-<span id="count" style="display:none">${count}</span>
-<hr>
-	<div id="comment">
-            <textarea rows="3" cols="150" class="form-control" id="book_comment" 
-            style="resize:none"></textarea>
-            <button id="button_addcomment" class="btn btn-info float-right">등록</button><hr>
-            
+<span id="book_contents" class="hangelfont"></span><br> 	
+<div class="button_container">
+        <i id="btn" class="fa fa-heart-o">&nbsp${like_count}</i>
+    </div>
+<br><br><br><br><br><br><br>
+<!-- <button type="button" class="btn bg-red waves-effect">
+  <i class="material-icons">favorite</i>
+  <span>좋아요</span>
+</button> -->
+<h2 class="hangelfont">통계</h2><hr>
+<h2 class="hangelfont">리뷰 - 댓글</h2>
+<span id="count" style="display:none" class="hangelfont">${count}</span>
+	<div id="comment" class="hangelfont">
             <table class="table table_striped">
                <thead>
-                  <tr><td style="width:300px;">아이디</td><td style="width:300px;">mbti</td><td style="width:300px;">내용</td><td style="width:300px;">날짜</td></tr>
                </thead>
                <tbody>
                
                </tbody>
             </table>
+            
            <div id="message" style="text-align: center;font-weight: bold;text-decoration: underline;"></div>
-
+          <hr><h2 style="padding-left: 90px">리뷰 남기기</h2>
+          <div class="form-group">
+              <div class="form-line" style="width: 900px;">
+                   <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글을 남겨보세요.." style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
+              </div>
+		  </div>
+            <button type="button"  id="button_addcomment" class="btn bg-cyan btn-block btn-lg waves-effect">등록</button><br><br><br>
      </div>
  </div>
+ 
+ <!-- Jquery Core Js -->
+    <script src="resources/plugins/jquery/jquery.min.js"></script>
+	
+    <!-- Bootstrap Core Js -->
+    <script src="resources/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="resources/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="resources/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+     <!-- Custom Js -->
+    <script src="resources/js/admin.js"></script>
+
+    <!-- Demo Js -->
+    <script src="resources/js/demo.js"></script>
+    <script>
+    window.onload = function(){
+        const mypageMenu = document.querySelector("#mypageMenu");
+        const mypageMenuList = mypageMenu.children;
+        for(var i=0; i<mypageMenuList.length; i++){
+            mypageMenuList[i].addEventListener("mouseover", menulist_over);
+            mypageMenuList[i].addEventListener("mouseout", menulist_out);
+        }
+        
+        var btn = document.getElementById('btn');
+
+        btn.addEventListener("click", likeaction);
+
+        function likeaction(){
+            if(btn.classList.contains('fa-heart-o')){
+                btn.classList.remove('fa-heart-o');
+                btn.classList.add('fa-heart');
+            } else {
+                btn.classList.add('fa-heart-o');
+                btn.classList.remove('fa-heart');
+            }
+        }
+    }
+
+    function menulist_over(){
+        this.children[0].style.visibility = "visible";
+    }
+
+    function menulist_out(){
+        this.children[0].style.visibility = "hidden";
+    }
+
+    </script>
+    
 </body>
 </html>

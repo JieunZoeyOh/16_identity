@@ -9,10 +9,12 @@ public interface CommentService {
 
 	int commentsInsert(Comments co);
 
-	int bookInsert(Book book);
 
 	int getListCount(String isbn);
 
 	List<Comments> getCommentList(String isbn, int page);
+
+
+	int comment_delete(String cmt_no);
 
 }

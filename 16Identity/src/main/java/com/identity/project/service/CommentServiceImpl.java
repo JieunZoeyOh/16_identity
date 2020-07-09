@@ -23,11 +23,6 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public int bookInsert(Book book) {
-		return dao.bookInsert(book);
-	}
-
-	@Override
 	public int getListCount(String isbn) {
 		return dao.commentsCount(isbn);
 	}
@@ -43,6 +38,11 @@ public class CommentServiceImpl implements CommentService {
 		map.put("end", endrow);
 		map.put("isbn", isbn);
 		return dao.getCommentlist(map);
+	}
+
+	@Override
+	public int comment_delete(String cmt_no) {
+		return dao.comment_delete(cmt_no);
 	}
 
 }

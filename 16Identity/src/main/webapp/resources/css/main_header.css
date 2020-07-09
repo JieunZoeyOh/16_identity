@@ -139,16 +139,15 @@ ul {
 }
 
 
-.tooltip {
+.img_tooltip {
     position: relative;
     display: inline-block;
   }
   
-  .tooltip .tooltiptext {
+  .img_tooltip .tooltipcontent {
     font-size: 14px;
     visibility: hidden;
     width: 100px;
-    height: 25px;
     line-height: 25px;
     background-color: rgba(255, 255, 255, 0.522);
     color: #303960;
@@ -168,7 +167,7 @@ ul {
     transition: opacity 0.3s;
   }
   
-  .tooltip .tooltiptext::after {
+  .img_tooltip .tooltipcontent::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -179,7 +178,7 @@ ul {
     border-color: transparent transparent transparent rgba(255, 255, 255, 0.522);
   }
   
-  .tooltip:hover .tooltiptext {
+  .img_tooltip:hover .tooltipcontent {
     visibility: visible;
     opacity: 1;
   }

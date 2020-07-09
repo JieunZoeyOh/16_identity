@@ -6,7 +6,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="resources/css/main_header.css">
-
 <header class="m_p_zero">
     <img src="resources/image/logo.png">
     <div id="user_info">
@@ -32,21 +31,21 @@
                 </ul>
             </li>
             <li id="review_board">
-                <a href="review.net" class="tooltip">
+                <a href="review.net" class="img_tooltip">
                     <img src="resources/image/review_board.png" style="width:75px"/>
-                    <span class="tooltiptext"><b>리뷰 검색</b></span>
+                    <span class="tooltipcontent"><b>리뷰 검색</b></span>
                 </a>
             </li>
             <li id="subscribe">
-                <a href="#" class="tooltip">
+                <a href="#" class="img_tooltip">
                     <img src="resources/image/subscribe.png" style="width:63px" />
-                    <span class="tooltiptext"><b>정기 구독</b></span>
+                    <span class="tooltipcontent"><b>정기 구독</b></span>
                 </a>
             </li>
             <li id="homepage">
-                <a href="#" class="tooltip">
+                <a href="#" class="img_tooltip">
                     <img src="resources/image/homepage.png" style="width:63px" />
-                    <span class="tooltiptext"><b>메인으로 이동</b></span>
+                    <span class="tooltipcontent"><b>메인으로 이동</b></span>
                 </a>
             </li>
         </ul>
