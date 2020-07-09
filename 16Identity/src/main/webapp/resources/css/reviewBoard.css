@@ -134,19 +134,14 @@
 	background-size:100%;
 	margin: 0 auto;
 }
-.book_img_box>img {
+.book_img_box>a {
+	width:200px;
+	height:auto;
+}
+.book_img_box img {
 	width:200px;
 	height:auto;
 	box-shadow: 10px 12px 13px -6px rgba(0, 0, 0, 0.42);
-}
-
-.book_img_dark_box {
-	width:200px;
-	height:auto;
-	background-color:black;
-	position:relative;
-	top:0;
-	
 }
 
 .book_article {

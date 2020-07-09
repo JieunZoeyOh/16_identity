@@ -112,7 +112,7 @@ window.onload = function(){
 		        			img = "http://image.kyobobook.co.kr/images/book/xlarge/"+isbn_short+"/x"+isbn_original+".jpg";
 		        			output += '<article class="book_article">'
 		        					+ '<div class="book_img_box">'
-		        					+ '<img src="'+img+'" alt="'+result.documents[i].title+'"/>'
+		        					+ '<a href="reviewpost.minji?isbn='+result.documents[i].isbn +'"><img src="'+img+'" alt="'+result.documents[i].title+'"/></a>'
 		        					+ '</div><dl>'
 		        					+ '<dt>'+ result.documents[i].title +'</dt>'
 		        					+ '<dd>'+ result.documents[i].authors +'</dd>';

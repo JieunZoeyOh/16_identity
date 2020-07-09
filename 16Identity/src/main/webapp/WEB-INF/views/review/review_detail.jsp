@@ -198,6 +198,7 @@ border-radius:8px
 </button> -->
 <h2 class="hangelfont">통계</h2><hr>
 <h2 class="hangelfont">리뷰 - 댓글</h2>
+<span style="display:none" id="isbn_input">${isbn}</span>
 <span id="count" style="display:none" class="hangelfont">${count}</span>
 	<div id="comment" class="hangelfont">
             <table class="table table_striped">
@@ -269,6 +270,6 @@ border-radius:8px
     }
 
     </script>
-    
+
 </body>
 </html>
