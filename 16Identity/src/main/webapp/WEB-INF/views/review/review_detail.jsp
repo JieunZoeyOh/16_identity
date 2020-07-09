@@ -166,7 +166,7 @@ border-radius:8px
 	width:20px; height:20px;
 }
 </style>
- <jsp:include page="../main/header.jsp"/> 
+<jsp:include page="../main/header.jsp"/> 
 </head>
 <body>
 <div id="wrap">

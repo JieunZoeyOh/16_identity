@@ -33,7 +33,23 @@ $.ajax({
 	
 
 
-$(function() {	
+$(function() {
+
+$(".info").on("click", function(){
+    console.log("click")
+    $(".overlay").addClass("on");
+    $(".modal").addClass("on");
+})
+$(".btn_submit").on("click", function(){
+	$('#passchk').submit();
+    
+})
+$(".btn_cancel").on("click", function(){
+	$(".overlay").removeClass("on");
+    $(".modal").removeClass("on");
+    
+})
+	
 $("#comment table").hide(); //1
 var page=1; //더 보기에서 보여줄 페이지를 기억할 변수
 var count =0; //전체 댓글 갯수

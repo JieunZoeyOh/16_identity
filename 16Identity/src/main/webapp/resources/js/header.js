@@ -6,6 +6,20 @@ window.onload = function(){
         mypageMenuList[i].addEventListener("mouseover", menulist_over);
         mypageMenuList[i].addEventListener("mouseout", menulist_out);
     }
+    $(".info").on("click", function(){
+        console.log("click")
+        $(".overlay").addClass("on");
+        $(".modal").addClass("on");
+    })
+    $(".btn_submit").on("click", function(){
+    	$('#passchk').submit();
+        
+    })
+    $(".btn_cancel").on("click", function(){
+    	$(".overlay").removeClass("on");
+        $(".modal").removeClass("on");
+        
+    })
 }
 
 function menulist_over(){

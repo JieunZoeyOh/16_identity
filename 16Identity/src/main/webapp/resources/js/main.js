@@ -1,5 +1,20 @@
 
 window.onload = function(){
+	$(".info").on("click", function(){
+	    console.log("click")
+	    $(".overlay").addClass("on");
+	    $(".modal").addClass("on");
+	})
+	$(".btn_submit").on("click", function(){
+		$('#passchk').submit();
+	    
+	})
+	$(".btn_cancel").on("click", function(){
+		$(".overlay").removeClass("on");
+	    $(".modal").removeClass("on");
+	    
+	})
+	
     const navLeft = document.getElementById("nav_left_arrow");
     const navRight = document.getElementById("nav_right_arrow");
     navLeft.addEventListener("click", navSliders);
