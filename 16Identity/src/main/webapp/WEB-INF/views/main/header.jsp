@@ -24,7 +24,9 @@
     .modal .btn_wrap .btn_submit{background-color: aqua;}
     input[type=submit], input[type=button]{width : 70px; height : 30px ;border :none; border-radius:5px;}
 </style>
-
+<div class="loader-wrapper">
+	<span class="loader"><span class="loader-inner"></span></span>
+</div>
 <header class="m_p_zero">
     <img src="resources/image/logo.png">
     <div id="user_info">
@@ -65,15 +67,13 @@
                 </a>
             </li>
             <li id="homepage">
-                <a href="#" class="img_tooltip">
+                <a href="main.com" class="img_tooltip">
                     <img src="resources/image/homepage.png" style="width:63px" />
                     <span class="tooltipcontent"><b>메인으로 이동</b></span>
                 </a>
             </li>
         </ul>
-    </nav>    
-    
-    
+    </nav>         
         <div class="wrap">
         <div class="overlay"></div>
         <div class="modal">
@@ -91,6 +91,4 @@
             </div>
         </div>
     </div>
-    
-
 </header>

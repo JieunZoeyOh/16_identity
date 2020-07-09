@@ -10,7 +10,6 @@
 <script src="resources/js/jquery-3.5.0.js"></script>
 </head>
 <body>
-
 	<div class="wrap">
         <ul id="main_background" class="m_p_zero">
             <li id="main_mbti_recommend" class="m_p_zero">
@@ -848,6 +847,10 @@
         </section>  
     </div>
     <footer></footer>
-
+    <script>
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut(1000);
+		})
+	</script>
 </body>
 </html>

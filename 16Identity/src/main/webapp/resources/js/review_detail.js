@@ -20,61 +20,60 @@ $(function() {
 	var maxPage = getMaxPage(); // 댓글의 총 페이지 수를 구합니다.
 
 	function getList(currentPage) {
-		$
-				.ajax({
-					type : "post",
-					url : "CommentList.minji",
-					data : {
-						"isbn" : "8996991341 9788996991342",
-						"page" : currentPage
-					},
-					dataType : "json",
-					success : function(rdata) {
-						if (rdata.length > 0) {
-							$("#comment table").show(); // 문서가 로딩될때 hide 했던 부분을
-							// 보이게 합니다. (1)
-							$("#comment thead").show(); // 글이 없을 때 hide() 부분을
-							// 보이게 합니다. (2)
-							output = '';
-							$(rdata)
-									.each(
-											function() {
-												output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>  <div class='card'>";
-												output += "<div class='body bg-orange' id='each_comment'>";
-												output += "<p id='card_header' class='hangelfont'><a href='reviewpost.minji'>"
-														+ this.cmt_nickname
-														+ "</a> - ";
-												output += this.cmt_mbti
-														+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
-														+ this.cmt_date;
-												output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href='comment_delete.minji?cmt_no="
-														+ this.cmt_no
-														+ "'><img src='resources/image/remove.png' id='review_remove'/></a></p>";
-												output += this.cmt_content
-														+ "<br>";
-												output += "<br></div></div></div>";
-											});// each end
-							$("#comment tbody").append(output);
+		$.ajax({
+			type : "post",
+			url : "CommentList.minji",
+			data : {
+				"isbn" : "8996991341 9788996991342",
+				"page" : currentPage
+			},
+			dataType : "json",
+			success : function(rdata) {
+				if (rdata.length > 0) {
+					$("#comment table").show(); // 문서가 로딩될때 hide 했던 부분을
+					// 보이게 합니다. (1)
+					$("#comment thead").show(); // 글이 없을 때 hide() 부분을
+					// 보이게 합니다. (2)
+					output = '';
+					$(rdata)
+							.each(
+									function() {
+										output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>  <div class='card'>";
+										output += "<div class='body bg-orange' id='each_comment'>";
+										output += "<p id='card_header' class='hangelfont'><a href='reviewpost.minji'>"
+												+ this.cmt_nickname
+												+ "</a> - ";
+										output += this.cmt_mbti
+												+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+												+ this.cmt_date;
+										output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href='comment_delete.minji?cmt_no="
+												+ this.cmt_no
+												+ "'><img src='resources/image/remove.png' id='review_remove'/></a></p>";
+										output += this.cmt_content
+												+ "<br>";
+										output += "<br></div></div></div>";
+									});// each end
+					$("#comment tbody").append(output);
 
-							console.log("현재:" + currentPage)
-							console.log("max:" + maxPage)
-							// 현재 페이지가 마지막 페이지면 "더보기"는 나타나지 않습니다.
-							if (currentPage == maxPage) {
-								$("#message").text("");
-							} else {
-								$("#message").text("더보기");
-							}
-							// 더 보기를 클릭할 경우 현재 페이지에서 1증가된 페이지를 보여주기 위해 값을 설정합니다.
-							page = currentPage + 1;
-						} else {
-							$("#message").text("등록된 댓글이 없습니다.")
-							$("#comment thead").hide(); // 2
-							$("#comment tbody").empty(); // 데이터가 한 개인 경우
-							// 삭제하면서 tbody를
-							// 비웁니다.
-						}
+					console.log("현재:" + currentPage)
+					console.log("max:" + maxPage)
+					// 현재 페이지가 마지막 페이지면 "더보기"는 나타나지 않습니다.
+					if (currentPage == maxPage) {
+						$("#message").text("");
+					} else {
+						$("#message").text("더보기");
 					}
-				}); // ajax end
+					// 더 보기를 클릭할 경우 현재 페이지에서 1증가된 페이지를 보여주기 위해 값을 설정합니다.
+					page = currentPage + 1;
+				} else {
+					$("#message").text("등록된 댓글이 없습니다.")
+					$("#comment thead").hide(); // 2
+					$("#comment tbody").empty(); // 데이터가 한 개인 경우
+					// 삭제하면서 tbody를
+					// 비웁니다.
+				}
+			}
+		}); // ajax end
 	}
 
 	$("#button_addcomment").click(function() {
