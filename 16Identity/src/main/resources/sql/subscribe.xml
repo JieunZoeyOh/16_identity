@@ -3,6 +3,11 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Subscribe">
+
+	<select id="getM_id" resultType="subscribe">
+		select m_id from subscribe
+	</select>
+	
 	<select id="isbnList" parameterType="String" resultType="String">
 		select isbn from subscribe where m_id=#{m_id}
 	</select>

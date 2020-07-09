@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -31,6 +32,12 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="resources/css/themes/all-themes.css" rel="stylesheet" />
+    <script src="resources/js/jquery-3.5.0.js"></script>
+	<script>
+		$(function(){
+			$("#DataTables_Table_0_filter > label > input").val("2020").trigger('keyup');
+		})
+	</script>
 </head>
 
 <body class="theme-brown">
@@ -52,10 +59,11 @@
                             <h2>
                                 정기 구독 목록
                             </h2>
+                            <input type="text" value="2020" hidden="" >
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
                                             <th>회원ID</th>
@@ -71,6 +79,7 @@
                                             <th>10월</th>
                                             <th>11월</th>
                                             <th>12월</th>
+                                            <th hidden=""></th>
                                             
                                         </tr>
                                     </thead>
@@ -81,7 +90,9 @@
 	                                            <c:forEach var="a" items="${m.month}">
 	                                            	<td>${a}</td>
 	                                            </c:forEach>
-	                                            
+	                                            <c:forEach var="s" items="${m.subscribe }">
+	                                            <td hidden="">${fn:substring(s.updatedate,0,4) }</td>
+	                                            </c:forEach>
 	                                        </tr>
 	                                     </c:forEach>
                                     </tbody>
