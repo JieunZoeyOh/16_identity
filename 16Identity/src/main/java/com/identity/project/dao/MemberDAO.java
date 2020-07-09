@@ -30,8 +30,12 @@ public class MemberDAO {
 		return sqlSession.update("Members.update" , m);
 	}
 
-	public int delete(String id) {
-		return sqlSession.delete("Members.delete", id);
+	public int delete(Member m) {
+		return sqlSession.delete("Members.delete", m);
+	}
+
+	public Member member_info(String id) {
+		return sqlSession.selectOne("Members.idcheck",id);
 	}
 	
 }

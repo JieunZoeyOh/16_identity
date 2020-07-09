@@ -3,9 +3,12 @@ package com.identity.project.domain;
 public class Deliver {
 	private int no;
 	private String m_id;
-	private int m_sublist_no;
+	private String isbn;
 	private String deliver_date;
 	private String state;
+	private Book book;
+	private Member member;
+	
 	public int getNo() {
 		return no;
 	}
@@ -18,14 +21,14 @@ public class Deliver {
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
 	}
-	public int getM_sublist_no() {
-		return m_sublist_no;
+	public String getIsbn() {
+		return isbn;
 	}
-	public void setM_sublist_no(int m_sublist_no) {
-		this.m_sublist_no = m_sublist_no;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 	public String getDeliver_date() {
-		return deliver_date;
+		return deliver_date.substring(0, 7);
 	}
 	public void setDeliver_date(String deliver_date) {
 		this.deliver_date = deliver_date;
@@ -36,6 +39,17 @@ public class Deliver {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
-	
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
+	}
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
 }

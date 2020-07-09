@@ -1,1 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Suborder">
+	<update id="orderSuccess">
+		update suborder set state='발주 완료', order_date=sysdate where substr(order_date,0,7)=substr(sysdate,0,7)
+	</update>
+</mapper>

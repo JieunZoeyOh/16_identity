@@ -2,6 +2,7 @@ package com.identity.project.service;
 
 import java.util.List;
 
+import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
@@ -16,4 +17,9 @@ public interface AdminService {
 	List<Subscribe> distinctSub();
 	int getOrderTotal();
 	int getOrderPrice();
+	int orderUpdate();
+	int deliveryUpdate();
+	List<Subscribe> getM_id();
+	void deliveryInsert(String m_id);
+	List<Deliver> getDList();
 }

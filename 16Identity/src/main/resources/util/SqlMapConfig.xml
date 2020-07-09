@@ -4,15 +4,19 @@
 
 <configuration>
    <typeAliases>
+   	  <typeAlias alias="suborder" type="com.identity.project.domain.Suborder"/>
    	  <typeAlias alias="subscribe" type="com.identity.project.domain.Subscribe"/>
       <typeAlias alias="member" type="com.identity.project.domain.Member"/>
       <typeAlias alias="book" type="com.identity.project.domain.Book"/>
       <typeAlias alias="C" type="com.identity.project.domain.Comments"/>
       <typeAlias alias="order" type="com.identity.project.domain.Suborder"/>
       <typeAlias alias="book_like" type="com.identity.project.domain.Book_Like"/>
+      <typeAlias alias="deliver" type="com.identity.project.domain.Deliver"/>
    </typeAliases>
    
    <mappers>
+   	  <mapper resource="sql/deliver.xml"/>
+   	  <mapper resource="sql/suborder.xml"/>
    	  <mapper resource="sql/subscribe.xml"/>
       <mapper resource="sql/member.xml"/>
       <mapper resource="sql/book.xml"/>

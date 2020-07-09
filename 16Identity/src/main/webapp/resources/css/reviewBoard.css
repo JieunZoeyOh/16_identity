@@ -74,12 +74,11 @@
 }
 
 .wrapper .search_box .search_field .input{
-  width: 100%;
+  width: 93%;
   height: 100%;
   border: 0px;
   font-size: 16px;
   padding-left: 20px;
-  padding-right: 38px;
   color: #6f768d;
   font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 }
@@ -123,17 +122,17 @@
 .book_article {
 	float:left;
 	display: inline-block;
-    width: 250px;
-    height: auto;
+    width: 273px;
+    height: 505px;
     margin: 30px;
     box-sizing: border-box;
     padding: 20px 25px;
 }
 .book_img_box {
 	width:200px;
-	height:auto;
+	height:320px;
 	background-size:100%;
-	
+	margin: 0 auto;
 }
 .book_img_box>img {
 	width:200px;
@@ -168,7 +167,7 @@
 	height:150px;
 	width:1000px;
 	display: inline-block;
-	padding:50px 400px;
+	padding:50px 300px;
 	box-sizing: border-box;
 }
 
@@ -191,4 +190,29 @@ button.more_button:hover {
 
 button.more_button:focus {
 	outline: none;
+}
+
+#book_total_count {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#book_total_count>span {
+	padding-left: 55px;
+	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+	color : #747474;
+	font-weight: 300;
+}
+
+span#message {
+	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+	color : #747474;
+	font-weight: 300;
+}
+
+#review_main_image {
+	text-align: center;
+}
+#review_main_image>img {
+	width: 500px;
 }

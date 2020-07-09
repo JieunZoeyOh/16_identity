@@ -2,9 +2,28 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
-    margin: 0 0 200px 0;
+    margin: 0 auto;
+    background: url(../image/bookstore3.jpg);
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+   
+
 }
 
+footer { 
+	height : 200px;
+	background-color : #f8b24f; }
+.uploadimg{
+	border-radius: 50%;
+    width: 200px;
+    height: 200px;
+
+}
+
+.logoimg{
+	
+}
 .hero {
     display: inline-block;
     width: 100%;
@@ -20,7 +39,7 @@ body {
     height: 400px;
     background: #2b5876; 
     background: -webkit-linear-gradient(to right, #4e4376, #2b5876); 
-    background: linear-gradient(to right, #4e4376, #2b5876); 
+    background: linear-gradient(to right ,#070d29, #303960); 
     z-index: -1;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
   }
@@ -30,8 +49,10 @@ body {
 form {
     border-radius: 2em;
     position:relative;
-    bottom : 450px;
+	top: -385px;
+	
 }
+//background-image:url("../image/bookstore2.jpg");
 
 input{border-radius:3px; border:1px solid lightgray}
 input[type=text], input[type=password] {
@@ -43,23 +64,24 @@ input[type=text], input[type=password] {
 }
  
 .menu {
-    margin-top: 50px;
-    padding : 10px;
-    position: relative;
-    top: 350px;
-    left: 35px;
+	display: inline-block;
+    padding: 40px;
+
 
 }
 
+.logoimg {
+	margin-top : 20px;
+	width : 300px;
+}
 .menu-control {
     margin: 0 140;
     border: none;
     border-bottom: 1px solid black;
     padding: 13px;
     font-size: 18;
-    position: relative;
-    bottom: 500px;
 }
+
 
 .menu-control>option{
     text-align: center;
@@ -128,8 +150,8 @@ form {
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid lightgray;
     width: 700px; /* Could be more or less, depending on screen size */
-    
     padding: 25px;
+        margin-bottom: 100px
 }
 
 hr {
@@ -158,10 +180,9 @@ b {
 }
 
 .imgcontainer {
-    margin: 0 200;
-    position: relative;
     bottom: 120;
     width: 300px;
+    margin-left: 90px;
 }
 
 img.avatar {
@@ -174,7 +195,7 @@ img.avatar {
     background: #FFF;
     left: 50%;
     position: relative;
-    top: 432;
+    top: -50px;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -moz-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);

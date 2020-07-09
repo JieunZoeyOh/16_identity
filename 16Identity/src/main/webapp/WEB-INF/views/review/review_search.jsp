@@ -23,47 +23,27 @@
 		            </ul>
 		        </div>
 		        <div class="search_field">
-		          <input type="text" class="input" placeholder="16 Identity">
+		          <input type="text" class="input" id="searchBook" placeholder="16 Identity">
 		          <i class="fa fa-search"></i>
 		      </div>
 		    </div>
 		</div>
+		<div id="image_part">
+			<div id="review_main_image" >
+				<img src="resources/image/reviewPageMainImg.jpg" />
+			</div>
+		</div>
+		<div id="book_total_count_part">
+			<div id="book_total_count">
+				<span>검색 결과 : 총  <span id="book_count"></span>권</span>			
+			</div>
+		</div>
 	<div class="board_container">
 		<section class="board_wrap">
-			<article class="book_article">
-				<div class="book_img_box">
-					<img src="resources/image/book/book1.jpg" />
-				</div>			
-				<dl>
-                    <dt>기억 1</dt>
-                    <dd>베르나르 베르베르 저</dd>
-                    <dd>전미연 역</dd>
-                </dl>
-				
-			</article>
-			<article class="book_article">
-				<div class="book_img_box">
-					<img src="resources/image/book/book2.jpg" />
-				</div>
-				<dl>
-                    <dt>기억 1</dt>
-                    <dd>베르나르 베르베르 저</dd>
-                    <dd>전미연 역</dd>
-                </dl>
-			</article>
-			<article class="book_article">
-				<div class="book_img_box">
-					<img src="resources/image/book/book3.jpg" />
-				</div>
-				<dl>
-                    <dt>기억 1</dt>
-                    <dd>베르나르 베르베르 저</dd>
-                    <dd>전미연 역</dd>
-                </dl>
-				
-			</article>
+			
 		</section>
 		<section id="board_more_action">
+			<span id="message"></span>
 			<button class="more_button">더 보 기</button>
 		</section>
 	</div>
