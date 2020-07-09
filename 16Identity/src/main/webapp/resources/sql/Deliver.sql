@@ -7,5 +7,7 @@ create table deliver(
     deliver_date date,
     state VARCHAR2(20)
 );
+
 create sequence del_seq;
---완료
+
+select * from deliver;

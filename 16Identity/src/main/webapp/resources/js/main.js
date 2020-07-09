@@ -24,6 +24,7 @@ window.onload = function(){
         mypageMenuList[i].addEventListener("mouseover", menulist_over);
         mypageMenuList[i].addEventListener("mouseout", menulist_out);
     }
+    
 }
 /*header js 부분*/
 function menulist_over(){
