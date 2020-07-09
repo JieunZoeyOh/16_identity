@@ -53,13 +53,12 @@ public class MemberServiceImple implements MemberService {
 	}
 	
 	public Member member_info(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.member_info(id);
 	}
 
 	@Override
-	public int delete(String id) {
-	    return dao.delete(id);
+	public int delete(Member m) {
+	    return dao.delete(m);
 		
 	}
 

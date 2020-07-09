@@ -11,9 +11,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -146,27 +148,83 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:login.net";
 	}
+	
+	//passchk.net
+	@PostMapping(value = "/passchk.net" )
+	public void passchk(String password, HttpServletResponse response, HttpSession session) throws Exception {
+		String id = (String)session.getAttribute("m_id");
+		int result = memberSerivce.isId(id, password);
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		if(result == 1) {
+			  out.println("location.href='updateForm.net'");
+		} else {
+			String message = "비밀번호가 일치하지 않습니다.";
+			  out.println("alert('"+message+"');");
+			  out.println("history.back();");
+		}
+		out.println("</script>");
+		out.close();
+	}
+	
 	//updateForm.net
     @RequestMapping(value = "/updateForm.net")
     public ModelAndView member_update(HttpSession session, ModelAndView mv) throws Exception{
-    	String id = (String)session.getAttribute("id");
+    	String id = (String)session.getAttribute("m_id");
+    	System.out.println("확인:"+id);
     	Member m = memberSerivce.member_info(id);
+    	System.out.println("확인:"+m.getM_file());
     	mv.setViewName("mypage/updateform");
     	mv.addObject("memberinfo",m);
     	return mv;
     }
 	
 	//updateProcess.net
+    @ResponseBody
 	@RequestMapping(value = "/updateProcess.net", method = RequestMethod.POST)
-	public int updateProcess(Member member) throws Exception{
+	public void updateProcess(Member member, HttpServletResponse response)throws Exception {
+    	response.setContentType("text/html;charset=utf-8");
+    	PrintWriter out =response.getWriter();
+    
+    	String encPassword = passwordEncoder.encode(member.getM_password());
+		System.out.println(encPassword);
+		member.setM_password(encPassword);
+		
     	int result = memberSerivce.update(member);
-    	return result;
-	}
+    	out.println("<script>");
+    	
+    	//삽입이 된 경우 
+    	if(result ==1) {
+    		out.println("alert('수정되었습니다');");
+    	    out.println("location.href='main.com';");
+    	    
+    	} else {
+    		out.println("alert('회원 정보 수정 실패 하였습니다.');");
+			out.println("history.back()");
+		}
+		   out.println("</script>");
+	      	out.close();
+    	}
 	
 	@RequestMapping(value = "/delete.net")
-	public int deleteProcess(String id) throws Exception{
-    	int result = memberSerivce.delete(id);
-    	return result;
+	public void deleteProcess(Member member, HttpServletResponse response,HttpServletRequest request) throws Exception{
+		response.setContentType("text/html;charset=utf-8");
+    	PrintWriter out =response.getWriter();
+    	System.out.println(request.getParameter("id"));
+    	member.setM_id(request.getParameter("id"));
+		int result = memberSerivce.delete(member);
+		out.println("<script>");
+		
+		//탈퇴된 경우 
+		if(result == 1){
+			out.println("alert('탈퇴가 완료 되었습니다.');");
+			out.println("location.href='login.net';");
+		} else {
+		   out.println("history.back()");
+		  }
+		out.println("</script>");
+      	out.close();
     	
 	}
 	
