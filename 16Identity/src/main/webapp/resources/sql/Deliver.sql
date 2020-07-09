@@ -6,4 +6,5 @@ create table deliver(
    state varchar2(10)
 );
 
+select * from deliver;
 --완료

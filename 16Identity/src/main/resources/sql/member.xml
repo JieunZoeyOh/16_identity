@@ -7,8 +7,7 @@
 		select m_id, substate,m_mbti from member
 	</select>
 	<select id="idcheck" parameterType="String" resultType="member">
-		select *
-		from member where m_id = #{m_id}
+		select * from member where m_id = #{m_id}
 	</select>
 	
 	<insert id="insert" parameterType="member">
@@ -17,13 +16,15 @@
 	</insert>
 	
 	<update id = "update" parameterType = "member">
-		update Member set m_password = #{m_password} ,
+		update member set m_password = #{m_password} ,
 						  m_nickname = #{m_nickname} ,
 					      m_mbti = #{m_mbti},
+					      m_file = #{m_file},
+					      m_original = #{m_original}
 		where m_id = #{m_id}
 	</update>
 	
-	<delete id = "delete" parameterType = "String">
+	<delete id = "delete" parameterType = "member">
 	delete from member where m_id = #{m_id}
 	</delete>
 	

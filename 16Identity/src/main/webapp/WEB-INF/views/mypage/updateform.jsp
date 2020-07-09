@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -8,128 +9,96 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="resources/js/jquery-3.5.0.js"></script>
 <script>
+
 $(function(){
-
-    $(".dropbtn").on('click', function(){
-    	
-    	
-	    	
-        swal({
-            title: "탈퇴 하시겠습니까?",
-            text: "탈퇴하시면 모든 정보가 삭제됩니다.",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-        .then((willDelete) => {
-            if (willDelete) {
-            	
-            
-            	$.ajax({
-        	    	url : "delete.net" ,
-        	    	data : {"m_id" : $('#m_id').val()},
-        	    	success : function(result){
-        	    
-        	    		if(result == 1){
-        	    			swal("탈퇴가 완료되었습니다.!", {
-        	                    icon: "success"
-        	                    }); 
-        	    			
-    	                    return "login.net";
-        	    		}
-        	    	} else {
-                		swal("탈퇴가 취소되었습니다.");
-            }
-        });
-    });
-
-    $(".submitbtn").on('click',function(){
-    	
-    	  $.ajax({
-    	    	url : "updateProcess.net" ,
-    	    	data : {"m_id" : $('#m_id').val() , 
-    	    		  	"m_password" : $('#m_password').val() ,
-    	    		  	"m_nickname" : $('#m_nickname').val() , 
-    	    		  	 "m_mbiti" : $('#m_mbti').val()
-    	    		   },
-    	    		   
-    	    	success : function(result){
-    	    		
-    	    		if(result == 1){
-    	    			
-    	    			  swal("수정이 완료되었습니다", "thank you", "success");
-    	    		        return false;
-    	    		}
-    	    	}	   
-    	    })
-    });
+	    $('input[type=file]').on('change', preview);
+		
+		function preview(e) {
+			//선택한 그림의 File 객체를 취득
+			//File객체 리스트에서 첫번째 File객체를 가져옵니다.
+			var file = e.target.files[0];
+			
+			//file.type : 파일의 형식(MIME타입 - 예) text/html
+			if(!file.type.match("image.*")){ //파일 타입이 image인지 확인합니다.
+				alert('확장자는 이미지만 가능합니다.');
+				return;
+			}
+			
+			//파일을 읽기 위한 객체 생성
+			var reader = new FileReader();
+			
+			//DataURL 형식으로 파일을 읽어옵니다.
+			//읽어온 결과는 reader객체의 result 속성에 저장됩니다.
+			reader.readAsDataURL(file);
+			
+			//읽기에 성공했을 때 실행되는 이벤트 핸들러
+			reader.onload = function(e){
+				//result:읽기 결과가 저장됩니다.
+				//reader.result 또는 e.target.result
+				$('.uploadimg').attr("src", e.target.result);
+			}
+				
+		}
 });
 </script>
 
 
 </head>
 <body>
+	<c:set var="m" value ="${memberinfo}"/>
 
+	<div class="hero">
+		<div class="diagonal-hero-bg">
+		<img src = "resources/image/logo.png" class = "logoimg" >
+			<div class="stars">
+			</div>
+		</div>
+	</div>
 	<div class='loader'>
 		<div class='article'>
 			<div class='page'></div>
 		</div>
 	</div>
 
-
-	<div class="hero">
-		<div class="diagonal-hero-bg">
-			<div class="stars">
-				<div class="small"></div>
-				<div class="medium"></div>
-				<div class="big"></div>
-			</div>
-		</div>
-	</div>
-
 	<div class="imgcontainer">
-		<label> <input type="file" name="m_original"
-			accept="image/gif, img/jpeg, image/png" style="display: none">
-			<img src="resources/image/avatar.png" alt="Avatar" class="avatar">
+		<label> 
+			<input type="file" name="m_original" accept="image/gif, img/jpeg, image/png" style="display: none">
+			<img src = 'resources/upload/${m.m_file}' class = "uploadimg">
 		</label>
 	</div>
 
 	<div class="menu">
-		<select class="menu-control">
-			<option value="1"><a href="#">My Info</a></option>
-			<option value="2"><a href="#">My Review</a></option>
-			<option value="3"><a href="#">My Books</a></option>
-			<option value="4"><a href="#">Notice</a></option>
+		<select class="menu-control" onchange="location = this.value;">
+			<option value="updateForm.net">My Info</option>
+			<option value="myReivew.net">My Review</option>
+			<option value="myBooks.net">My Books</option>
+			<option value="notice.net">Notice</option>
 		</select>
 	</div>
 
 	<form name="updateform" action="updateProcess.net" method="post">
-		<b>ID</b> <input type="text" name="m_id" value="${m_id}" required
-			readonly> <b>PASSWORD</b> <input type="password"
-			placeholder="change your password" name="m_password"
-			value="${m_password}" maxLength="13" required> <b>CHECK</b> <input
-			type="password" placeholder="check your password"
-			name="m_passwordcheck" value="${m_password}" maxLength="13" required>
-
-		<b>NICK NAME</b> <input type="text"
-			placeholder="change your nick name" name="m_nickname"
-			value="${m_nickname}" required> <b
-			style="display: inline-block; width: auto">MBTI</b>
-		<button type="button" class="changembti"
-			onclick="location.href='https://www.16personalities.com/ko'">변경</button>
-		<input type="text" placeholder="change your MBTI" name="m_mbti"
-			value="${m_mbti}" required>
-
+		<b>ID</b> 
+		<input type="text" id="m_id" name="m_id" value="${m.m_id}" required readonly>
+		<b>PASSWORD</b> 
+		<input type="password" placeholder="change your password" name="m_password" id="m_password"  maxLength="13" required> 
+		
+		<b>CHECK</b> 
+		<input type="password" placeholder="check your password" name="m_passwordcheck" value="${m_password}" maxLength="13" required>
+		
+		<b>NICK NAME</b> 
+		<input type="text" placeholder="change your nick name" name="m_nickname" id="m_nickname" value="${m.m_nickname}" required> 
+		<b style="display: inline-block; width: auto">MBTI</b>
+		<button type="button" class="changembti" onclick="location.href='https://www.16personalities.com/ko'">변경</button>
+		<input type="text" placeholder="change your MBTI" name="m_mbti" id="m_mbti" value="${m.m_mbti}" required>
 
 		<hr>
 		<div class="clearfix">
-			<button type="button" class="dropbtn"
-				onclick="delete.net?m_id=${m_id}">탈퇴하기</button>
+			<button type="button" class="dropbtn" onclick="location.href='delete.net?id=${m.m_id}'">탈퇴하기</button>
 			<button type="submit" class="submitbtn">수정하기</button>
 		</div>
-
+		
 	</form>
-
-
+	
+ <footer><h3>footer</h3></footer>
 </body>
 </html>

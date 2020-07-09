@@ -16,8 +16,6 @@ create table member(
      foreign key (m_mbti) references mbti(mbti) on delete cascade
 )
 
-alter table member add (substate varchar2(20));
-alter table member add (subsdate date);
 
 insert into member values ('user3@gmail.com','사용자3','사용자3','1.png','1.png','1234','istp','010-1234-5678','02488','서울특별시 동대문구 청량리동 33-15',null,sysdate);
 
@@ -25,3 +23,5 @@ insert into member values ('user3@gmail.com','사용자3','사용자3','1.png','
 ALTER TABLE member MODIFY(m_mbti VARCHAR2(15));
 ALTER TABLE member MODIFY(m_name VARCHAR2(50));
 ALTER TABLE member MODIFY(m_password VARCHAR2(100));
+
+select * from member;

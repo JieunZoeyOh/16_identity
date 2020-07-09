@@ -16,8 +16,8 @@ public interface MemberService {
 
 	public Member member_info(String id);
 	
-	public int delete(String id);
-	
 	public int update(Member m);
+
+	public int delete(Member m);
 	
 }
