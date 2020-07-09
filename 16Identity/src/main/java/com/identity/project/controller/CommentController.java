@@ -29,10 +29,11 @@ public class CommentController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/reviewpost.minji", method = RequestMethod.GET)
-	public ModelAndView  review_detail(ModelAndView mv) {
-		int count = commentService.getListCount("8996991341 9788996991342");
-		int like_count = boardService.getLikeCount("8996991341 9788996991342");
+	public ModelAndView  review_detail(ModelAndView mv, String isbn) {
+		int count = commentService.getListCount(isbn);
+		int like_count = boardService.getLikeCount(isbn);
 		mv.setViewName("review/review_detail");
+		mv.addObject("isbn", isbn);
 		mv.addObject("count", count);
 		mv.addObject("like_count", like_count);
 		
