@@ -92,24 +92,5 @@
         </div>
     </div>
     
-    <script type="text/javascript" src="resources/js/jquery-3.5.0.js"></script>
-        
-    <script>
-    $(function(){
-        $(".info").on("click", function(){
-            console.log("click")
-            $(".overlay").addClass("on");
-            $(".modal").addClass("on");
-        })
-        $(".btn_submit").on("click", function(){
-        	$('#passchk').submit();
-            
-        })
-        $(".btn_cancel").on("click", function(){
-        	$(".overlay").removeClass("on");
-            $(".modal").removeClass("on");
-            
-        })
-    })
-    </script>
+
 </header>

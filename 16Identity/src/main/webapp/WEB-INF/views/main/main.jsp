@@ -7,6 +7,7 @@
 <jsp:include page="header.jsp" />
 <link rel="stylesheet" href="resources/css/main.css">
 <script src="resources/js/main.js"></script>
+<script src="resources/js/jquery-3.5.0.js"></script>
 </head>
 <body>
 

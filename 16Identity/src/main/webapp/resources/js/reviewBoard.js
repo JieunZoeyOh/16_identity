@@ -1,5 +1,19 @@
 
 window.onload = function(){
+	$(".info").on("click", function(){
+	    console.log("click")
+	    $(".overlay").addClass("on");
+	    $(".modal").addClass("on");
+	})
+	$(".btn_submit").on("click", function(){
+		$('#passchk').submit();
+	    
+	})
+	$(".btn_cancel").on("click", function(){
+		$(".overlay").removeClass("on");
+	    $(".modal").removeClass("on");
+	    
+	})
     /*header js 부분*/
     const mypageMenu = document.querySelector("#mypageMenu");
     const mypageMenuList = mypageMenu.children;
