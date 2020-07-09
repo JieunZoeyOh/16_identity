@@ -1,5 +1,6 @@
 package com.identity.project.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
+import com.identity.project.service.BoardService;
 import com.identity.project.service.CommentService;
 
 @Controller
@@ -23,11 +25,16 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	
+	@Autowired
+	private BoardService boardService;
+	
 	@RequestMapping(value = "/reviewpost.minji", method = RequestMethod.GET)
 	public ModelAndView  review_detail(ModelAndView mv) {
 		int count = commentService.getListCount("8996991341 9788996991342");
+		int like_count = boardService.getLikeCount("8996991341 9788996991342");
 		mv.setViewName("review/review_detail");
 		mv.addObject("count", count);
+		mv.addObject("like_count", like_count);
 		
 		return mv;
 	}
@@ -63,7 +70,7 @@ public class CommentController {
 		System.out.println(book_price);
 		System.out.println(book_date);
 		
-		int book_ok = commentService.bookInsert(book);
+		int book_ok = boardService.bookInsert(book);
 		
 		if(book_ok==1) {
 			System.out.println("책 데이터 삽입 성공");
@@ -80,6 +87,12 @@ public class CommentController {
 		if(ok==1) {
 			System.out.println("댓글 데이터 삽입 성공");
 		}
+		
+		int like_ok = boardService.likeInsert(isbn);
+		
+		if(like_ok==1) {
+			System.out.println("좋아요 테이블 삽입 성공");
+		}
 		return "redirect:reviewpost.minji";
 	}
 	
@@ -90,5 +103,25 @@ public class CommentController {
 		List<Comments> list
 			= commentService.getCommentList(isbn, page);
 		return list;
+	}
+	
+	@RequestMapping(value = "comment_delete.minji", method = RequestMethod.GET)
+	public ModelAndView CommentDelete(ModelAndView mv, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		System.out.println(request.getParameter("cmt_no"));
+		String cmt_no =request.getParameter("cmt_no");
+		int delete_ok = commentService.comment_delete(cmt_no);
+		
+		if(delete_ok==1) {
+			System.out.println("댓글삭제");
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('리뷰가 삭제되었습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}
+		mv.setViewName("review/review_detail");
+		return mv;
 	}
 }

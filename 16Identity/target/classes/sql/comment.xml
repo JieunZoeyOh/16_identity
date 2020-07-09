@@ -11,13 +11,6 @@
 		select * from member where m_id=#{id}
 	</select>
 	
-	<insert id="book_insert" parameterType="book">
-	INSERT INTO book(ISBN, B_TITLE, B_THUMBNAIL, B_CONTENT, B_AUTHORS, B_PUBLISHER, B_SALEPRICE, B_DATETIME) values (#{isbn},#{b_title},#{b_thumbnail},#{b_content},#{b_authors}, #{b_publisher},#{b_saleprice},#{b_datetime})
-	</insert>
-	
-	<select id="book_check" parameterType="String" resultType="book">
-		select * from book where isbn=#{isbn}
-	</select>
 	
 	<select id="comments_count" parameterType="String" resultType="int">
 		select count(*) from comments where isbn =#{isbn}
@@ -34,5 +27,9 @@
 		   )
 		   where rnum &gt;=#{start} and rnum &lt;= #{end}
 	</select>
+	
+	<delete id="comments_delete" parameterType="String">
+		delete from comments where cmt_no=#{cmt_no}
+	</delete>
 	
 </mapper>

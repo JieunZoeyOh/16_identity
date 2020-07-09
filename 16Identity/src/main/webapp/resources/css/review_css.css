@@ -8,7 +8,6 @@ body {
 	padding:0;
 	width:100%;
 	height:auto;
-	background-image:url("../image/background.jpg");
 	background-size:100% auto;
 	overflow: auto;
 	
@@ -23,7 +22,7 @@ body {
 	background-color:white;
 	background-repeat: repeat-y;
 	position: absolute;
-	top:50%;
+	top:100%;
 	left:50%;
 	transform: translate(-50%, -40%)
 }
@@ -49,15 +48,4 @@ body {
   margin-left: 60px;
   width: 70px;
   height:30px;
-}
-.btn-like:hover {
-  text-shadow: 0 0 0 #ff0000;
-}
-.btn-like.done {
-  color: inherit;
-  text-shadow: 0;
-}
-.btn-like.done:hover {
-  color: transparent;
-  text-shadow: 0 0 0 #ff0000 ;
 }

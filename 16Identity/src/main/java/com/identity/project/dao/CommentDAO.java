@@ -28,20 +28,6 @@ public class CommentDAO {
 		return sqlSession.insert("Comments.insert", co);
 	}
 
-	public int bookInsert(Book book) {
-		String isbn = book.getIsbn();
-		Book check_book = new Book();
-		
-		check_book = sqlSession.selectOne("Comments.book_check",isbn);
-		
-		if(check_book==null) {
-			return sqlSession.insert("Comments.book_insert", book);
-		}
-		else {
-			return 0;
-		}
-		
-	}
 
 	public int commentsCount(String isbn) {
 		return sqlSession.selectOne("Comments.comments_count",isbn);
@@ -49,5 +35,10 @@ public class CommentDAO {
 
 	public List<Comments> getCommentlist(Map<String, Object> map) {
 		return sqlSession.selectList("Comments.comments_list",map);
+	}
+
+
+	public int comment_delete(String cmt_no) {
+		return sqlSession.delete("Comments.comments_delete", cmt_no);
 	}
 }

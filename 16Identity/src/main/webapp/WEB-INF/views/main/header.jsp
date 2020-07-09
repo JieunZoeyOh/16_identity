@@ -6,26 +6,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="resources/css/main_header.css">
-    <style>
-        .blind{display:none;}
-        .btn_cancel{background: pink;}
-        .wrap{position:relative;width: 100%;height:100%;}
-        .overlay{display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,.5);z-index: 2;}
-        .overlay.on{display: block;}
-        .modal{display: none;position:fixed;top:50%;left:50%;z-index: 3;width: 500px;transform: translate(-50%, -50%);background-color: #fff;border-radius: 10px;}
-        .modal.on{display: block;}
-     
-        .modal p{padding-left: 30px;;}
-        .modal .form_wrap{padding: 10px 30px 70px;height:100%;}
-        .modal .form_wrap form label{display: block;}
-        .modal .form_wrap form input[type=password]{width: 100%;border-radius: 10px;border:1px solid gray;padding:10px 10px;}
-        .modal .btn_wrap {position: absolute;bottom:10px;right:30px;}
-        .modal .btn_wrap button{padding:5px 20px;border:none;border-radius: 5px;}
-        .modal .btn_wrap .btn_submit{background-color: aqua;}
-        input[type=submit], input[type=button]{width : 70px; height : 30px ;border :none; border-radius:5px;}
+<style>
+    .blind{display:none;}
+    .btn_cancel{background: pink;}
+    .wrap{position:relative;width: 100%;height:100%;}
+    .overlay{display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,.5);z-index: 2;}
+    .overlay.on{display: block;}
+    .modal{display: none;position:fixed;top:50%;left:50%;z-index: 3;width: 500px;transform: translate(-50%, -50%);background-color: #fff;border-radius: 10px;}
+    .modal.on{display: block;}
 
-    </style>
-    
+    .modal p{padding-left: 30px;;}
+    .modal .form_wrap{padding: 10px 30px 70px;height:100%;}
+    .modal .form_wrap form label{display: block;}
+    .modal .form_wrap form input[type=password]{width: 100%;border-radius: 10px;border:1px solid gray;padding:10px 10px;}
+    .modal .btn_wrap {position: absolute;bottom:10px;right:30px;}
+    .modal .btn_wrap button{padding:5px 20px;border:none;border-radius: 5px;}
+    .modal .btn_wrap .btn_submit{background-color: aqua;}
+    input[type=submit], input[type=button]{width : 70px; height : 30px ;border :none; border-radius:5px;}
+</style>
+
 <header class="m_p_zero">
     <img src="resources/image/logo.png">
     <div id="user_info">
@@ -54,21 +53,21 @@
             </li>
             
             <li id="review_board">
-                <a href="review.net" class="tooltip">
+                <a href="review.net" class="img_tooltip">
                     <img src="resources/image/review_board.png" style="width:75px"/>
-                    <span class="tooltiptext"><b>리뷰 검색</b></span>
+                    <span class="tooltipcontent"><b>리뷰 검색</b></span>
                 </a>
             </li>
             <li id="subscribe">
-                <a href="#" class="tooltip">
+                <a href="#" class="img_tooltip">
                     <img src="resources/image/subscribe.png" style="width:63px" />
-                    <span class="tooltiptext"><b>정기 구독</b></span>
+                    <span class="tooltipcontent"><b>정기 구독</b></span>
                 </a>
             </li>
             <li id="homepage">
-                <a href="#" class="tooltip">
+                <a href="#" class="img_tooltip">
                     <img src="resources/image/homepage.png" style="width:63px" />
-                    <span class="tooltiptext"><b>메인으로 이동</b></span>
+                    <span class="tooltipcontent"><b>메인으로 이동</b></span>
                 </a>
             </li>
         </ul>

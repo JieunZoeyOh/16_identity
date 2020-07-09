@@ -10,6 +10,7 @@
       <typeAlias alias="book" type="com.identity.project.domain.Book"/>
       <typeAlias alias="C" type="com.identity.project.domain.Comments"/>
       <typeAlias alias="order" type="com.identity.project.domain.Suborder"/>
+      <typeAlias alias="book_like" type="com.identity.project.domain.Book_Like"/>
       <typeAlias alias="deliver" type="com.identity.project.domain.Deliver"/>
    </typeAliases>
    

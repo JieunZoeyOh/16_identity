@@ -12,4 +12,23 @@
 		select isbn from book where mbti=#{m_mbti}
 	</select>
 
+	<insert id="book_insert" parameterType="book">
+	INSERT INTO book(ISBN, B_TITLE, B_THUMBNAIL, B_CONTENT, B_AUTHORS, B_PUBLISHER, B_SALEPRICE, B_DATETIME) values (#{isbn},#{b_title},#{b_thumbnail},#{b_content},#{b_authors}, #{b_publisher},#{b_saleprice},#{b_datetime})
+	</insert>
+	
+	<insert id="like_insert" parameterType="string">
+	INSERT INTO book_like(like_no,isbn) values (like_no.nextval, #{isbn})
+	</insert>
+	
+	<select id="like_check" parameterType="String" resultType="book_like">
+		select * from book_like where isbn=#{isbn}
+	</select>
+	
+	<select id="book_check" parameterType="String" resultType="book">
+		select * from book where isbn=#{isbn}
+	</select>
+	
+	<select id="like_count" parameterType="String" resultType="book_like">
+		select * from book_like where isbn=#{isbn}
+	</select>
 </mapper>
