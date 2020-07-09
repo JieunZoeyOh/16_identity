@@ -27,7 +27,7 @@ public class Suborder {
 		this.isbn = isbn;
 	}
 	public String getOrder_date() {
-		return order_date;
+		return order_date.substring(0, 7);
 	}
 	public void setOrder_date(String order_date) {
 		this.order_date = order_date;

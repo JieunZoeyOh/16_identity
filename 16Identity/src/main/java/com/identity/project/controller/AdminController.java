@@ -2,17 +2,19 @@ package com.identity.project.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
@@ -31,18 +33,39 @@ public class AdminController {
 	@RequestMapping(value = "/order.net", method = RequestMethod.GET)
 	public ModelAndView order(ModelAndView mv, HttpSession session) {
 		List<Suborder> list = adminService.getOrderList();
-		int total= adminService.getOrderTotal();
-		int price = adminService.getOrderPrice();
 		mv.setViewName("admin/admin_order");
 		mv.addObject("list", list);
-		mv.addObject("total", total);
-		mv.addObject("price", price);
 		return mv;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/orderSucess.net", method = RequestMethod.POST)
+	public void orderSucess(HttpServletResponse response) throws Exception {
+		int result = adminService.orderUpdate();
+		List<Deliver> Dlist = adminService.getDList();
+		if(Dlist.size()==0) {
+			List<Subscribe> list = adminService.getM_id();
+			for(int i=0; i<list.size(); i++) {
+				System.out.println("m_id:"+list.get(i).getM_id());
+				adminService.deliveryInsert(list.get(i).getM_id());
+			}
+		}
+		response.getWriter().print(result);
+	}
+	
 	@RequestMapping(value = "/delivery.net", method = RequestMethod.GET)
-	public String delivery() {
-		return "admin/admin_delivery";
+	public ModelAndView delivery(ModelAndView mv, HttpSession session) {
+		List<Deliver> list = adminService.getDList();
+		mv.setViewName("admin/admin_delivery");
+		mv.addObject("list", list);
+		return mv;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/deliverSucess.net", method = RequestMethod.POST)
+	public void deliverSucess(HttpServletResponse response) throws Exception {
+		int result = adminService.deliveryUpdate();
+		response.getWriter().print(result);
 	}
 	
 	@RequestMapping(value = "/member.net", method = RequestMethod.GET)
@@ -84,6 +107,7 @@ public class AdminController {
 			}
 			sublist.setMonth(a);
 		}
+
 		mv.setViewName("admin/admin_subscribe");
 		mv.addObject("list", list);
 		return mv;
