@@ -37,5 +37,9 @@ public class MemberDAO {
 	public Member member_info(String id) {
 		return sqlSession.selectOne("Members.idcheck",id);
 	}
+
+	public String getMbti(String m_id) {
+		return sqlSession.selectOne("Members.mbti",m_id);
+	}
 	
 }

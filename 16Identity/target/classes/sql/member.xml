@@ -28,4 +28,7 @@
 	delete from member where m_id = #{m_id}
 	</delete>
 	
+	<select id="mbti" resultType="String">
+		select m_mbti from member where m_id = #{m_id}
+	</select>
 </mapper>

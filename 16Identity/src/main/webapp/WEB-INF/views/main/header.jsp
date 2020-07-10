@@ -6,6 +6,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="resources/css/main_header.css">
+<script src="resources/js/jquery-3.5.0.js"></script>
+<script>
+window.screen.width
+window.screen.height
+var popupWidth = 500;
+var popupHeight = 600;
+var popupX = (window.screen.width/2) - (popupWidth/2);
+var popupY= (window.screen.height/2) - (popupHeight/2);
+function openWin(){  
+    window.open("subscribe_apply.com?m_id=${m_id }", "정기구독", 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+} 
+</script>
 <style>
     .blind{display:none;}
     .btn_cancel{background: pink;}
@@ -31,7 +43,7 @@
     <img src="resources/image/logo.png">
     <div id="user_info">
         <span>
-        <b>열정적인 중재자</b>, 지은님 환영합니다. <!-- 닉네임 불러오기 -->
+        <b>열정적인 중재자</b>, ${m_id }지은님 환영합니다. <!-- 닉네임 불러오기 -->
         </span>
         <span>
         <a href="logout.net">LOGOUT</a>
@@ -60,8 +72,9 @@
                     <span class="tooltipcontent"><b>리뷰 검색</b></span>
                 </a>
             </li>
+            
             <li id="subscribe">
-                <a href="#" class="img_tooltip">
+                <a href="javascript:openWin();" class="img_tooltip">
                     <img src="resources/image/subscribe.png" style="width:63px" />
                     <span class="tooltipcontent"><b>정기 구독</b></span>
                 </a>
