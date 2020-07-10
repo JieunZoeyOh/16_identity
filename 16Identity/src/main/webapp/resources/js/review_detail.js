@@ -1,4 +1,5 @@
 $(function() {
+	console.log($('#m_id').text());
 	$(".info").on("click", function() {
 		console.log("click")
 		$(".overlay").addClass("on");
@@ -35,24 +36,25 @@ $(function() {
 					$("#comment thead").show(); // 글이 없을 때 hide() 부분을
 					// 보이게 합니다. (2)
 					output = '';
-					$(rdata)
-							.each(
-									function() {
-										output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>  <div class='card'>";
-										output += "<div class='body bg-orange' id='each_comment'>";
-										output += "<p id='card_header' class='hangelfont'><a href='reviewpost.minji'>"
-												+ this.cmt_nickname
-												+ "</a> - ";
-										output += this.cmt_mbti
-												+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
-												+ this.cmt_date;
-										output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href='comment_delete.minji?cmt_no="
-												+ this.cmt_no
-												+ "'><img src='resources/image/remove.png' id='review_remove'/></a></p>";
-										output += this.cmt_content
-												+ "<br>";
-										output += "<br></div></div></div>";
-									});// each end
+					$(rdata).each(
+						function() {
+							output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>  <div class='card'>";
+							output += "<div class='body bg-orange' id='each_comment'>";
+							output += "<p id='card_header' class='hangelfont'><a href='reviewpost.minji'>"
+									+ this.cmt_nickname
+									+ "</a> - ";
+							output += this.cmt_mbti
+									+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+									+ this.cmt_date;
+							output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href='comment_delete.minji?cmt_no="
+									+ this.cmt_no
+									+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
+									+ "<a id='review_modify2'><img src='resources/image/comment_modify.png' id='review_modify'/>" 
+									+"</a></p>";
+							output += this.cmt_content
+									+ "<br>";
+							output += "<br></div></div></div>";
+					});// each end
 					$("#comment tbody").append(output);
 
 					console.log("현재:" + currentPage)
@@ -77,7 +79,7 @@ $(function() {
 	}
 
 	$("#button_addcomment").click(function() {
-		var id = "gi5442@naver.com";
+		var id = $('#m_id').text();
 		var content = document.getElementById('book_comment').value;
 		var book_image = $("#book_image").attr("src");
 
@@ -202,4 +204,8 @@ $(function() {
 							+ "</h4>");
 	
 				});
+	
+	$("#review_modify2").on('click',  function(){
+		console.log('수정합시다');
+	});
 });
