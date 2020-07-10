@@ -19,8 +19,8 @@
 		update member set m_password = #{m_password} ,
 						  m_nickname = #{m_nickname} ,
 					      m_mbti = #{m_mbti},
-					      m_file = #{m_file},
-					      m_original = #{m_original}
+					      m_file = #{m_file, jdbcType=VARCHAR},
+					      m_original = #{m_original, jdbcType=VARCHAR}
 		where m_id = #{m_id}
 	</update>
 	

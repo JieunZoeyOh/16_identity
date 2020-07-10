@@ -1,6 +1,10 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
 @charset "UTF-8";
+
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0 auto;
     background: url(../image/bookstore3.jpg);
@@ -110,7 +114,7 @@ input[type=text]:focus, input[type=password]:focus {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    cursor: pointer; /* ì†ê°€ë½ ì»¤ì„œ ëª¨ì–‘ */
+    cursor: pointer; /* ¼Õ°¡¶ô Ä¿¼­ ¸ğ¾ç */
     width: 50%;
     opacity: 0.9;
     border-radius: 30em;
@@ -123,7 +127,7 @@ input[type=text]:focus, input[type=password]:focus {
     font-weight: bold;
     margin: 8px 0;
     border: none;
-    cursor: pointer; /* ì†ê°€ë½ ì»¤ì„œ ëª¨ì–‘ */
+    cursor: pointer; /* ¼Õ°¡¶ô Ä¿¼­ ¸ğ¾ç */
     width: 50%;
     opacity: 0.9;
     border-radius: 30em;

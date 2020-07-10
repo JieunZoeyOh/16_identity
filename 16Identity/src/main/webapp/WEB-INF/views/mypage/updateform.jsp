@@ -8,6 +8,7 @@
 	rel="stylesheet">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="resources/js/jquery-3.5.0.js"></script>
+<script src ="resources/js/updateform.js"></script>
 <script>
 
 $(function(){
@@ -37,9 +38,8 @@ $(function(){
 				//reader.result 또는 e.target.result
 				$('.uploadimg').attr("src", e.target.result);
 			}
-				
 		}
-});
+	   });
 </script>
 
 
@@ -61,8 +61,7 @@ $(function(){
 	</div>
 
 	<div class="imgcontainer">
-		<label> 
-			<input type="file" name="m_original" accept="image/gif, img/jpeg, image/png" style="display: none">
+		<label for="image"> 
 			<img src = 'resources/upload/${m.m_file}' class = "uploadimg">
 		</label>
 	</div>
@@ -76,7 +75,8 @@ $(function(){
 		</select>
 	</div>
 
-	<form name="updateform" action="updateProcess.net" method="post">
+	<form id="updateform" action="updateProcess.net" method="post" enctype="multipart/form-data">
+	<input type = "hidden" name = "m_file" value = "${m.m_file}"> <!-- 수정했는데 기존값들 그대로 쓸 경우오리지널 파일 넘겨주려고 -->
 		<b>ID</b> 
 		<input type="text" id="m_id" name="m_id" value="${m.m_id}" required readonly>
 		<b>PASSWORD</b> 
@@ -96,7 +96,8 @@ $(function(){
 			<button type="button" class="dropbtn" onclick="location.href='delete.net?id=${m.m_id}'">탈퇴하기</button>
 			<button type="submit" class="submitbtn">수정하기</button>
 		</div>
-		
+		<input type="file" name="uploadfile" accept="image/gif, img/jpeg, image/png" style="display: none" id="image">
+		<span id="filevalue" style="display:none;" >${m.m_original}</span>
 	</form>
 	
  <footer><h3>footer</h3></footer>

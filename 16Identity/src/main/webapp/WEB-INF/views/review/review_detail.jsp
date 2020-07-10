@@ -165,6 +165,14 @@ border-radius:8px
 #review_remove{
 	width:20px; height:20px;
 }
+
+.modal.on{
+height: 200px;
+}
+
+.modal p {
+    padding-top: 10px;
+  }
 </style>
 <jsp:include page="../main/header.jsp"/> 
 </head>
