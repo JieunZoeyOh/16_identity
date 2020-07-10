@@ -165,6 +165,10 @@ border-radius:8px
 #review_remove{
 	width:20px; height:20px;
 }
+
+#review_modify{
+	width:20px; height:20px;
+}
 </style>
 <jsp:include page="../main/header.jsp"/> 
 </head>
@@ -199,6 +203,7 @@ border-radius:8px
 <h2 class="hangelfont">통계</h2><hr>
 <h2 class="hangelfont">리뷰 - 댓글</h2>
 <span style="display:none" id="isbn_input">${isbn}</span>
+<span style="display:none" id="m_id">${m_id}</span>
 <span id="count" style="display:none" class="hangelfont">${count}</span>
 	<div id="comment" class="hangelfont">
             <table class="table table_striped">
@@ -238,7 +243,9 @@ border-radius:8px
     <!-- Demo Js -->
     <script src="resources/js/demo.js"></script>
     <script>
-    window.onload = function(){
+
+	$(window).on("load",function(){
+		$(".loader-wrapper").fadeOut(1000);
         const mypageMenu = document.querySelector("#mypageMenu");
         const mypageMenuList = mypageMenu.children;
         for(var i=0; i<mypageMenuList.length; i++){
@@ -247,9 +254,9 @@ border-radius:8px
         }
         
         var btn = document.getElementById('btn');
-
+		
         btn.addEventListener("click", likeaction);
-
+		
         function likeaction(){
             if(btn.classList.contains('fa-heart-o')){
                 btn.classList.remove('fa-heart-o');
@@ -259,7 +266,7 @@ border-radius:8px
                 btn.classList.remove('fa-heart');
             }
         }
-    }
+	})
 
     function menulist_over(){
         this.children[0].style.visibility = "visible";
