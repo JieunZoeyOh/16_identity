@@ -243,7 +243,9 @@ border-radius:8px
     <!-- Demo Js -->
     <script src="resources/js/demo.js"></script>
     <script>
-    window.onload = function(){
+
+	$(window).on("load",function(){
+		$(".loader-wrapper").fadeOut(1000);
         const mypageMenu = document.querySelector("#mypageMenu");
         const mypageMenuList = mypageMenu.children;
         for(var i=0; i<mypageMenuList.length; i++){
@@ -264,7 +266,7 @@ border-radius:8px
                 btn.classList.remove('fa-heart');
             }
         }
-    }
+	})
 
     function menulist_over(){
         this.children[0].style.visibility = "visible";

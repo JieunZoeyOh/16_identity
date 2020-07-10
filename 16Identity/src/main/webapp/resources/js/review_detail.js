@@ -25,7 +25,7 @@ $(function() {
 			type : "post",
 			url : "CommentList.minji",
 			data : {
-				"isbn" : $('#isbn_input').text(),
+				"isbn" : "8996991341 9788996991342",
 				"page" : currentPage
 			},
 			dataType : "json",
