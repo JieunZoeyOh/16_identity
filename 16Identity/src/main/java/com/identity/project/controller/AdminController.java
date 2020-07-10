@@ -89,7 +89,7 @@ public class AdminController {
 		List<Subscribe> sub = new ArrayList<Subscribe>();
 		for(Joinlist sublist : list ) {
 			sub =sublist.getSubscribe();
-			String[] a = new String[12];
+			String[] a = new String[13];
 			for(Subscribe s : sub) {
 				String day = s.getUpdatedate().substring(5, 7);
 				if(day.equals("01")) a[0]=s.getB_title();
@@ -104,6 +104,8 @@ public class AdminController {
 				if(day.equals("10")) a[9]=s.getB_title();
 				if(day.equals("11")) a[10]=s.getB_title();
 				if(day.equals("12")) a[11]=s.getB_title();
+				String year = s.getUpdatedate().substring(0,4);
+				a[12]= year+"년";
 			}
 			sublist.setMonth(a);
 		}

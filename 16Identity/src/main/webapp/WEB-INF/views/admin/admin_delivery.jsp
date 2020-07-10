@@ -57,7 +57,6 @@
 
 <script src="resources/js/jquery-3.5.0.js"></script>
 <script>
-var searchWord = "";
 	$(function() {
 		$("#success").click(function() {
 			$.ajax({
