@@ -19,5 +19,7 @@ public interface MemberService {
 	public int update(Member m);
 
 	public int delete(Member m);
+
+	String getMbti(String m_id);
 	
 }

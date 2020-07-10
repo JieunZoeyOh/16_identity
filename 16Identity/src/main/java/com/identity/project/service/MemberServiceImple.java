@@ -66,5 +66,10 @@ public class MemberServiceImple implements MemberService {
 	public int update(Member m) {
 		return dao.update(m);
 	}
+
+	@Override
+	public String getMbti(String m_id) {
+		return dao.getMbti(m_id);
+	}
 	
 }
