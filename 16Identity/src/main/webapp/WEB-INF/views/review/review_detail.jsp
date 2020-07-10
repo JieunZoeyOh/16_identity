@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,7 +159,7 @@ border-radius:8px
     box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.2) !important;
     height: 200px;
 }
-#card_header{
+.card_header{
 	font-size: 19px;
 }
 
@@ -168,6 +169,14 @@ border-radius:8px
 
 #review_modify{
 	width:20px; height:20px;
+}
+
+.cmt_content{
+	height:40px;
+}
+
+.none_cmtno{
+	display:none;
 }
 </style>
 <jsp:include page="../main/header.jsp"/> 
@@ -276,6 +285,15 @@ border-radius:8px
         this.children[0].style.visibility = "hidden";
     }
 
+    function modify(t){
+		console.log('수정합시다.');
+		before = $(t).parent().next().text();
+		cmt_no= $(t).parent().next().next().text();
+		console.log("댓글내용= "+before);
+		console.log("댓글번호= "+cmt_no);
+		$("#book_comment").focus().val(before);
+		$("#button_addcomment").text('수정');
+	}
     </script>
 
 </body>

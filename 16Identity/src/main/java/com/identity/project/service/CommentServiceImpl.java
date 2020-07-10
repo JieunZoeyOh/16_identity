@@ -45,4 +45,9 @@ public class CommentServiceImpl implements CommentService {
 		return dao.comment_delete(cmt_no);
 	}
 
+	@Override
+	public int commentsUpdate(Comments cmt) {
+		return dao.comment_update(cmt);
+	}
+
 }

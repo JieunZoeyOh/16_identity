@@ -15,6 +15,7 @@ $(function() {
 
 	})
 
+	
 	$("#comment table").hide(); // 1
 	var page = 1; // 더 보기에서 보여줄 페이지를 기억할 변수
 	var count = 0; // 전체 댓글 갯수
@@ -25,7 +26,7 @@ $(function() {
 			type : "post",
 			url : "CommentList.minji",
 			data : {
-				"isbn" : "8996991341 9788996991342",
+				"isbn" : $('#isbn_input').text(),
 				"page" : currentPage
 			},
 			dataType : "json",
@@ -38,22 +39,24 @@ $(function() {
 					output = '';
 					$(rdata).each(
 						function() {
+							var cmt_id= this.cmt_id;
+							console.log(this.cmt_id);
 							output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>  <div class='card'>";
 							output += "<div class='body bg-orange' id='each_comment'>";
-							output += "<p id='card_header' class='hangelfont'><a href='reviewpost.minji'>"
+							output += "<p class='card_header' class='hangelfont'><a href='reviewpost.minji'>"
 									+ this.cmt_nickname
 									+ "</a> - ";
-							output += this.cmt_mbti
-									+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
-									+ this.cmt_date;
-							output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href='comment_delete.minji?cmt_no="
-									+ this.cmt_no
-									+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
-									+ "<a id='review_modify2'><img src='resources/image/comment_modify.png' id='review_modify'/>" 
-									+"</a></p>";
-							output += this.cmt_content
+							output += this.cmt_mbti+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+							output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"; 
+							
+							//if($('#m_id').text()==this.cmt_id||$('#m_id').text()=='admin'){
+							output +="<a href='comment_delete.minji?cmt_no="+ this.cmt_no+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
+								   + "<img onclick='modify(this)' src='resources/image/comment_modify.png' id='review_modify'/>"; 
+							//}
+							output += "</p><p class='cmt_content'>"+this.cmt_content+"</p>" +
+									  "<p class='none_cmtno'>"+this.cmt_no+"</p>";
 									+ "<br>";
-							output += "<br></div></div></div>";
+							output += "<br>"+ this.cmt_date+"</div></div></div>";
 					});// each end
 					$("#comment tbody").append(output);
 
@@ -82,7 +85,9 @@ $(function() {
 		var id = $('#m_id').text();
 		var content = document.getElementById('book_comment').value;
 		var book_image = $("#book_image").attr("src");
-
+		var button_text= $("#button_addcomment").text();
+		
+		
 		console.log(title);
 		console.log(id);
 		console.log(content);
@@ -93,26 +98,37 @@ $(function() {
 		console.log(book_date);
 		console.log(book_contents);
 		console.log(book_image);
-
+		console.log("버튼 여부"+button_text);
+		//console.log("댓글 번호"+cmt_no);
+		
 		var authors_list = authors.join();
 
 		console.log(authors.join());
+		
+		//여기서 if 시작
+		if(button_text=='등록'){
+			url = "review_commentsadd.minji";
+			data = {
+					"title" : title,
+					"content" : content,
+					"id" : id,
+					"isbn" : isbn,
+					"authors" : authors_list,
+					"publisher" : publisher,
+					"book_price" : book_price,
+					"book_date" : book_date,
+					"book_contents" : book_contents,
+					"book_image" : book_image,
 
-		url = "review_commentsadd.minji";
-		data = {
-			"title" : title,
-			"content" : content,
-			"id" : id,
-			"isbn" : isbn,
-			"authors" : authors_list,
-			"publisher" : publisher,
-			"book_price" : book_price,
-			"book_date" : book_date,
-			"book_contents" : book_contents,
-			"book_image" : book_image,
-
-		};
-
+			};
+		}else{
+			url = "review_commentsupdate.minji";
+			data = {
+					"content" : content,
+					"cmt_no":cmt_no
+			};
+			$("#button_addcomment").text('등록');
+		}
 		$.ajax({
 			type : "post",
 			url : url,
@@ -205,7 +221,4 @@ $(function() {
 	
 				});
 	
-	$("#review_modify2").on('click',  function(){
-		console.log('수정합시다');
-	});
 });

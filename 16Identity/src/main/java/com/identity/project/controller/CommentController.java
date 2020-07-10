@@ -125,4 +125,24 @@ public class CommentController {
 		mv.setViewName("review/review_detail");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/review_commentsupdate.minji", method = RequestMethod.POST)
+	public String review_commentsupdate(HttpServletRequest request) throws Exception {
+		String content= request.getParameter("content");
+		int cmt_no= Integer.parseInt(request.getParameter("cmt_no")); 
+		System.out.println("댓글내용:"+content);
+		System.out.println("댓글번호:"+cmt_no);
+		
+		Comments cmt = new Comments();
+		
+		cmt.setCmt_content(content);
+		cmt.setCmt_no(cmt_no);
+		
+		int ok = commentService.commentsUpdate(cmt);
+		if(ok==1) {
+			System.out.println("댓글 데이터 수정 성공");
+		}
+		
+		return "redirect:reviewpost.minji";
+	}
 }
