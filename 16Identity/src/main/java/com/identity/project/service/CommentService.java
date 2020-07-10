@@ -17,4 +17,7 @@ public interface CommentService {
 
 	int comment_delete(String cmt_no);
 
+
+	int commentsUpdate(Comments cmt);
+
 }

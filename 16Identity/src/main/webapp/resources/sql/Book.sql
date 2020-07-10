@@ -25,3 +25,5 @@ SELECT * FROM book;
 
 ALTER TABLE book MODIFY(b_thumbnail VARCHAR(200));
 ALTER TABLE book MODIFY(b_authors VARCHAR(100));
+
+ALTER TABLE book MODIFY(b_publisher VARCHAR(40));
