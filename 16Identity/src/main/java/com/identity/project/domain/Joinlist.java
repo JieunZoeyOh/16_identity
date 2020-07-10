@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Joinlist {
 	private String m_id;
+	private String year;
 	private List<Subscribe> subscribe;
 	private String[] month;
 	
@@ -18,6 +19,12 @@ public class Joinlist {
 	}
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
+	}
+	public String getYear() {
+		return year.substring(0, 4);
+	}
+	public void setYear(String year) {
+		this.year = year;
 	}
 	public String[] getMonth() {
 		return month;

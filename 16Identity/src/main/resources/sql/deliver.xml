@@ -8,12 +8,12 @@
 	</insert>
 	
 	<update id="update">
-		update deliver set state='배송 완료', deliver_date=sysdate where substr(deliver_date,0,7)=substr(sysdate,0,7)
+		update deliver set state='배송 완료', deliver_date=sysdate where substr(deliver_date,0,5)=substr(sysdate,0,5)
 	</update>
 	
 	<select id="list" resultMap="deliverMap">
 		select * from deliver left join book on book.isbn=deliver.isbn 
-		left join member on member.m_id=deliver.m_id where substr(deliver_date,0,7)=substr(sysdate,0,7)
+		left join member on member.m_id=deliver.m_id where substr(deliver_date,0,5)=substr(sysdate,0,5)
 	</select>
 	
 	<resultMap type="com.identity.project.domain.Deliver" id="deliverMap">
