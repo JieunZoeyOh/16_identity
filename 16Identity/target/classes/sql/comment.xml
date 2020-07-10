@@ -18,9 +18,9 @@
 	
 	<select id="comments_list" parameterType="map" resultType="C">
 		select * 
-		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id
 			   from (
-					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti
+					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id
 					  from comments where isbn = #{isbn}			   
 			  		   order by cmt_date desc
 					 )		   
@@ -31,5 +31,9 @@
 	<delete id="comments_delete" parameterType="String">
 		delete from comments where cmt_no=#{cmt_no}
 	</delete>
+	
+	<update id="comments_update" parameterType="C"> 
+		update comments set CMT_CONTENT = #{cmt_content} where CMT_NO= #{cmt_no}
+	</update>
 	
 </mapper>

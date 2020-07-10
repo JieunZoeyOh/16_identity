@@ -24,13 +24,14 @@
 	</insert> 
 	
 	<select id="joinlist" resultMap="joinresultMap" >
-		select * from subscribe left join book on subscribe.isbn=book.isbn
+		select subscribe.*,book.*, substr(updatedate,0,2) as year from subscribe left join book on subscribe.isbn=book.isbn
 	</select>
 	<resultMap id="joinresultMap" type="com.identity.project.domain.Joinlist" >
 		<result property="m_id" column="m_id"/>
+		<result property="year" column="year"/>
 		<collection property="subscribe" ofType="com.identity.project.domain.Subscribe">
 			<result property="no" column="no"/>
-			<result property="m_id" column="m_id"/>
+			<result property="m_id" column="m_id"/> 
 			<result property="updatedate" column="updatedate"/>
 			<result property="isbn" column="isbn"/>
 			<result property="b_title" column="b_title"/>

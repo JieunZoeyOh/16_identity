@@ -41,4 +41,12 @@ public class CommentDAO {
 	public int comment_delete(String cmt_no) {
 		return sqlSession.delete("Comments.comments_delete", cmt_no);
 	}
+
+
+	public int comment_update(Comments cmt) {
+		System.out.println("DAO 내용 확인1 "+cmt.getCmt_content());
+		System.out.println("DAO 내용 확인2 "+cmt.getCmt_no());
+		System.out.println(sqlSession.update("Comments.comments_update", cmt));
+		return sqlSession.update("Comments.comments_update", cmt);
+	}
 }
