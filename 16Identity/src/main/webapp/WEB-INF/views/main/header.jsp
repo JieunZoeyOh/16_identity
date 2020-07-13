@@ -16,7 +16,7 @@ var popupX = (window.screen.width/2) - (popupWidth/2);
 var popupY= (window.screen.height/2) - (popupHeight/2);
 function openWin(){  
     window.open("subscribe_apply.com?m_id=${m_id }", "정기구독", 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-} 
+}
 </script>
 <style>
     .blind{display:none;}
@@ -43,7 +43,7 @@ function openWin(){
     <img src="resources/image/logo.png">
     <div id="user_info">
         <span>
-        <b>열정적인 중재자</b>, ${m_id }지은님 환영합니다. <!-- 닉네임 불러오기 -->
+        <b>${mbti_nickname}</b>, ${m_nickname}님 환영합니다.
         </span>
         <span>
         <a href="logout.net">LOGOUT</a>
@@ -55,8 +55,9 @@ function openWin(){
         <ul id="sidebar_list">
             
             <li id="mypage">
-                <a href="#">
+                <a class="img_tooltip">
                     <img src="resources/image/mypage.png" style="width:63px"/>
+                    <span class="tooltipcontent"><b>마이페이지</b></span>
                 </a>
                 <ul id="mypageMenu">
                     <li class = "info"><div class="square"></div>My Info</li>
@@ -74,10 +75,18 @@ function openWin(){
             </li>
             
             <li id="subscribe">
-                <a href="javascript:openWin();" class="img_tooltip">
+                <a class="img_tooltip">
                     <img src="resources/image/subscribe.png" style="width:63px" />
                     <span class="tooltipcontent"><b>정기 구독</b></span>
                 </a>
+                <ul id="subMenu">
+                <c:if test="${substate == 0}">
+                    <li><div class="square"></div><a href="javascript:openWin();" >구독 신청</a></li>
+                </c:if>
+                <c:if test="${substate == 1}">
+                    <li><div class="square"></div><a href="#">구독 해지</a></li>
+                </c:if>
+                </ul>
             </li>
             <li id="homepage">
                 <a href="main.com" class="img_tooltip">

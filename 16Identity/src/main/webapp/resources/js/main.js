@@ -28,6 +28,9 @@ window.onload = function(){
     const list = document.querySelector("#recommend_mbti_list");
     const mbtiList = list.children;
     for(var i=0; i<mbtiList.length; i++){
+    	if(i==0){
+    		mbtiList[i].classList.add("active");
+    	}
         mbtiList[i].classList.add(i);
         mbtiList[i].addEventListener("click", buttonMove);
     }
@@ -39,7 +42,11 @@ window.onload = function(){
         mypageMenuList[i].addEventListener("mouseover", menulist_over);
         mypageMenuList[i].addEventListener("mouseout", menulist_out);
     }
-    
+    const subMenu = document.querySelector("#subMenu");
+    const subMenuList = subMenu.children;
+	subMenuList[0].addEventListener("mouseover", menulist_over);
+	subMenuList[0].addEventListener("mouseout", menulist_out);
+
 }
 /*header js 부분*/
 function menulist_over(){

@@ -6,6 +6,10 @@ window.onload = function(){
         mypageMenuList[i].addEventListener("mouseover", menulist_over);
         mypageMenuList[i].addEventListener("mouseout", menulist_out);
     }
+    const subMenu = document.querySelector("#subMenu");
+    const subMenuList = subMenu.children;
+	subMenuList[0].addEventListener("mouseover", menulist_over);
+	subMenuList[0].addEventListener("mouseout", menulist_out);
     $(".info").on("click", function(){
         console.log("click")
         $(".overlay").addClass("on");

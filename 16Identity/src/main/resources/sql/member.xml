@@ -31,4 +31,14 @@
 	<select id="mbti" resultType="String">
 		select m_mbti from member where m_id = #{m_id}
 	</select>
+	
+	<select id="getNickname" resultType="String">
+		select m_nickname from member where m_id = #{m_id}
+	</select>
+	
+	<select id="getMbtiNickname" resultType="String">
+		select nickname from mbti_nickname where mbti = (select m_mbti 
+														from member
+														where m_id = #{m_id})
+	</select>
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -27,14 +28,9 @@
             <span id="nav_left_arrow"><i class="fa fa-chevron-left" aria-hidden="true"></i></span> 
             <div id="recommend_mbti_list_box">
                 <ul id="recommend_mbti_list" style="margin-left: 0px;">
-                    <li class="active">INFP</li><li>INFJ</li>
-                    <li>INTP</li><li>INTJ</li>
-                    <li>ISFP</li><li>ISFJ</li>
-                    <li>ISTP</li><li>ISTJ</li>
-                    <li>ENFP</li><li>ENFJ</li>
-                    <li>ENTP</li><li>ENTJ</li>
-                    <li>ESFP</li><li>ESFJ</li>
-                    <li>ESTP</li><li>ESTJ</li>
+                	<c:forEach var="mbti_list" items="${mbti_list}">
+                    	<li><c:out value="${fn:toUpperCase(mbti_list)}" /></li> <%-- 대문자로 변환 --%>
+                    </c:forEach>
                 </ul>
             </div>
             <span id="nav_right_arrow"><i class="fa fa-chevron-right" aria-hidden="true"></i></span> 
@@ -850,6 +846,17 @@
     <script>
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut(1000);
+			$('#mypage').on('click', function(){
+				$('#mypageMenu').toggle();
+			})
+			$('#subscribe').on('click', function(){
+				$('#subMenu').toggle();
+			})
+			/* $(document).mouseup(function(e){
+				if($('#mypageMenu').has(e.target).length==0){
+					$('#mypageMenu').hide();
+				}	
+			}) */
 		})
 	</script>
 </body>
