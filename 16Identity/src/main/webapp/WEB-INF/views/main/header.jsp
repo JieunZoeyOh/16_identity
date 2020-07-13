@@ -10,8 +10,8 @@
 <script>
 window.screen.width
 window.screen.height
-var popupWidth = 500;
-var popupHeight = 600;
+var popupWidth = 450;
+var popupHeight = 550;
 var popupX = (window.screen.width/2) - (popupWidth/2);
 var popupY= (window.screen.height/2) - (popupHeight/2);
 function openWin(){  
