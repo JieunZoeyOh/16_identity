@@ -105,7 +105,7 @@ public class AdminController {
 				if(day.equals("11")) a[10]=s.getB_title();
 				if(day.equals("12")) a[11]=s.getB_title();
 				String year = s.getUpdatedate().substring(0,4);
-				a[12]= year+"년";
+				a[12]= year+"Y";
 			}
 			sublist.setMonth(a);
 		}
