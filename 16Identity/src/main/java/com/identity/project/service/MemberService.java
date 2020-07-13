@@ -21,5 +21,9 @@ public interface MemberService {
 	public int delete(Member m);
 
 	String getMbti(String m_id);
+
+	String getNickname(String m_id);
+
+	String getMbtiNickname(String m_id);
 	
 }

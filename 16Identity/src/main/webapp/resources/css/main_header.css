@@ -137,6 +137,9 @@ header>img {
     padding: 11px 0px 5px 17px;
     margin: 0;
 }
+#sidebar_list>li>a{
+	width:75px;
+}
 #sidebar_list>li:nth-child(4) {
     padding: 6px 0px 0px 19px;
     margin: 0;
@@ -157,8 +160,19 @@ header>img {
     border-radius: 4px;
     display: none;
 }
-
-#mypageMenu::after {
+#subMenu{
+	width:87px;
+	position: absolute;
+    top: 193px;
+    left: -116px;
+    background-color: rgba(255, 255, 255, 0.522);
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    border-radius: 4px;
+    display: none;
+}
+#mypageMenu::after, #subMenu::after {
     content: "";
     position: absolute;
     top: 32%;
@@ -180,20 +194,21 @@ header>img {
     visibility: hidden;
 }
 
-#mypageMenu li:hover{
+#mypageMenu li:hover, #subMenu li:hover{
     cursor: pointer;
 }
 
-#mypageMenu li {
+#mypageMenu li, #subMenu li {
     color:#303960;
     padding: 5px; font-size: 14px; font-weight: 600;
 }
-#mypageMenu li a:link, #mypageMenu li a:visited{
+#mypageMenu li a:link, #mypageMenu li a:visited, #subMenu li a:link, #subMenu li a:visited{
     color:#303960; text-decoration: none;
 }
-#sidebar_list li#mypage:hover #mypageMenu{
+/*#sidebar_list li#mypage:hover #mypageMenu{
     display:block;
 }
+*/
 
 ul {
     list-style-type: none;
@@ -217,12 +232,12 @@ ul {
   }
   
   .img_tooltip .tooltipcontent {
-    font-size: 14px;
+    font-size: 11px;
     visibility: hidden;
-    width: 100px;
+    width: 85px;
     line-height: 25px;
-    background-color: rgba(255, 255, 255, 0.522);
-    color: #303960;
+    background-color: #000000cc;
+    color: #ffffff;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
@@ -231,23 +246,12 @@ ul {
     z-index: 1;
     top: 14px;
     bottom: auto;
-    right: 135%;
+    right: -120%;
     margin-left: -60px;
     font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
 
     opacity: 0;
     transition: opacity 0.3s;
-  }
-  
-  .img_tooltip .tooltipcontent::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    margin-top: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent transparent rgba(255, 255, 255, 0.522);
   }
   
   .img_tooltip:hover .tooltipcontent {

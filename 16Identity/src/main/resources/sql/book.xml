@@ -31,4 +31,9 @@
 	<select id="like_count" parameterType="String" resultType="book_like">
 		select * from book_like where isbn=#{isbn}
 	</select>
+	
+	<select id="mbtiList" resultType="String">
+		select mbti from mbti order by mbti desc
+	</select>
+	
 </mapper>

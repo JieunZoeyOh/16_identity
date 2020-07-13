@@ -2,7 +2,12 @@
 window.onload = function(){
 
 	$(".loader-wrapper").fadeOut(1000);
-
+	$('#mypage').on('click', function(){
+		$('#mypageMenu').toggle();
+	})
+	$('#subscribe').on('click', function(){
+		$('#subMenu').toggle();
+	})
 	$(".info").on("click", function(){
 	    console.log("click")
 	    $(".overlay").addClass("on");
@@ -24,6 +29,10 @@ window.onload = function(){
         mypageMenuList[i].addEventListener("mouseover", menulist_over);
         mypageMenuList[i].addEventListener("mouseout", menulist_out);
     }
+    const subMenu = document.querySelector("#subMenu");
+    const subMenuList = subMenu.children;
+	subMenuList[0].addEventListener("mouseover", menulist_over);
+	subMenuList[0].addEventListener("mouseout", menulist_out);
     
     /*search js 부분*/
     $(".dropdown").click(function(){

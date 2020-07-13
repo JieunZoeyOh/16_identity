@@ -20,14 +20,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
-import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.Random;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.identity.project.domain.Member;
 import com.identity.project.service.MemberService;
@@ -312,10 +309,17 @@ public class MemberController {
 
 		int result = memberSerivce.isId(m_id, m_password);
 		System.out.println("결과는 " + result);
+		String m_nickname = memberSerivce.getNickname(m_id);
+		String mbti_nickname = memberSerivce.getMbtiNickname(m_id);
 
 		if (result == 1) {
 			// 로그인 성공
 			session.setAttribute("m_id", m_id);
+			//header mbti별명, 닉네임 환영합니다.
+			session.setAttribute("m_nickname", m_nickname);
+			session.setAttribute("mbti_nickname", mbti_nickname);
+			//Subscribe //구독 신청 상태 값 넘기기
+			session.setAttribute("substate", 1);
 			Cookie savecookie = new Cookie("m_id", m_id);
 			if (!remember.equals("")) {
 				savecookie.setMaxAge(60 * 60);
