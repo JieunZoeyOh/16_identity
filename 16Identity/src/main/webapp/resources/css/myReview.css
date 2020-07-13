@@ -1,0 +1,126 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+@charset "UTF-8";
+
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+
+body {
+  padding: 0;
+  margin: 0 auto;
+}
+footer { 
+	height : 200px;
+	background-color : #f8b24f; }
+.uploadimg{
+	border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.imgcontainer {
+  bottom: 120;
+  width: 300px;
+  margin-left: 150px;
+}
+
+footer { 
+	height : 200px;
+	background-color : #f8b24f; 
+	}
+	
+img.avatar {
+width: 40%;
+border-radius: 50%;
+}
+
+.hero {
+  display: inline-block;
+  width: 100%;
+  height: 500px;
+  position: relative;
+
+}
+.diagonal-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 350px;
+  background: #2b5876; 
+  background: -webkit-linear-gradient(to right, #1f0d0d, #271404); 
+  background: linear-gradient(to right ,#1f0d0d, #1f0d0d); 
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+* {box-sizing: border-box}
+
+.menu {
+	display: inline-block;
+    padding: 40px;
+}
+
+.logoimg {
+	margin-top : 20px;
+	width : 300px;
+}
+.menu-control {
+    margin: 0 140;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 13px;
+    font-size: 18;
+}
+
+
+.menu-control>option{
+    text-align: center;
+    line-height: 5px;
+}
+
+
+
+.flip-card {
+  background-color: transparent;
+  margin-left: 500px;
+  width: 300px;
+  height: 350px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}

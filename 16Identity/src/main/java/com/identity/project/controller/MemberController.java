@@ -340,4 +340,13 @@ public class MemberController {
 			return null;
 		}
 	}
+	
+	//myReview.net
+	@RequestMapping(value = "/myReview.net")
+	public String myreview() {
+		return "mypage/myReview";
+	}
+	
+	
+	
 }
