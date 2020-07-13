@@ -51,6 +51,7 @@ public class CommentController {
 		String book_contents= request.getParameter("book_contents");
 		String book_image= request.getParameter("book_image");
 		String title = request.getParameter("title");
+		String translators= request.getParameter("translators");
 		
 		 Book book = new Book(); 
 		 book.setIsbn(isbn); 
@@ -61,7 +62,8 @@ public class CommentController {
 		 book.setB_publisher(publisher);
 		 book.setB_saleprice(book_price); 
 		 book.setB_datetime(book_date);
-		
+		 book.setB_translators(translators);
+		 
 		System.out.println(content);
 		System.out.println(id);
 		System.out.println(isbn);
@@ -70,6 +72,7 @@ public class CommentController {
 		System.out.println(publisher);
 		System.out.println(book_price);
 		System.out.println(book_date);
+		System.out.println(translators);
 		
 		int book_ok = boardService.bookInsert(book);
 		
@@ -145,4 +148,15 @@ public class CommentController {
 		
 		return "redirect:reviewpost.minji";
 	}
+	
+	@RequestMapping(value = "like_action.minji", method = RequestMethod.GET)
+	public int like_action(ModelAndView mv, HttpServletRequest request) throws Exception {
+		System.out.println("컨트롤러 도착");
+		System.out.println("isbn="+request.getParameter("isbn"));
+		System.out.println("id="+request.getParameter("id"));
+		
+		
+		return 1;
+	}
+	
 }

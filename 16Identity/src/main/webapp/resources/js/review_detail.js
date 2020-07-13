@@ -1,5 +1,4 @@
 $(function() {
-	console.log($('#m_id').text());
 	$(".info").on("click", function() {
 		console.log("click")
 		$(".overlay").addClass("on");
@@ -15,7 +14,6 @@ $(function() {
 
 	})
 
-	
 	$("#comment table").hide(); // 1
 	var page = 1; // 더 보기에서 보여줄 페이지를 기억할 변수
 	var count = 0; // 전체 댓글 갯수
@@ -49,10 +47,10 @@ $(function() {
 							output += this.cmt_mbti+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 							output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"; 
 							
-							//if($('#m_id').text()==this.cmt_id||$('#m_id').text()=='admin'){
+							if($('#m_id').text()==this.cmt_id||$('#m_id').text()=='admin'){
 							output +="<a href='comment_delete.minji?cmt_no="+ this.cmt_no+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
 								   + "<img onclick='modify(this)' src='resources/image/comment_modify.png' id='review_modify'/>"; 
-							//}
+							}
 							output += "</p><p class='cmt_content'>"+this.cmt_content+"</p>" +
 									  "<p class='none_cmtno'>"+this.cmt_no+"</p>";
 									+ "<br>";
@@ -98,11 +96,12 @@ $(function() {
 		console.log(book_date);
 		console.log(book_contents);
 		console.log(book_image);
+		console.log(translators)
 		console.log("버튼 여부"+button_text);
 		//console.log("댓글 번호"+cmt_no);
 		
 		var authors_list = authors.join();
-
+		var translators_list= translators.join();
 		console.log(authors.join());
 		
 		//여기서 if 시작
@@ -119,6 +118,7 @@ $(function() {
 					"book_date" : book_date,
 					"book_contents" : book_contents,
 					"book_image" : book_image,
+					"translators":translators_list,
 
 			};
 		}else{
@@ -189,7 +189,8 @@ $(function() {
 			book_date = msg.documents[0].datetime;
 			book_date = book_date.substring(0, 10);
 			book_contents = msg.documents[0].contents;
-
+			translators= msg.documents[0].translators;
+			
 			var isbn_original = msg.documents[0].isbn.slice(-13);
 			var isbn_short = isbn_original.slice(-3);
 			$("#title").append(
@@ -214,7 +215,12 @@ $(function() {
 									+ "</h3>");
 			$("#book_date").append(
 					"<h3> 출판날짜: " + book_date.substring(0, 10)
+							+ "</h3>");
+			
+			$("#translators").append(
+					"<h3> 번역가: " + msg.documents[0].translators
 							+ "</h3><br>");
+			
 			$("#book_contents").append(
 					"<h2> 책소개</h2><h4>" + msg.documents[0].contents
 							+ "</h4>");

@@ -13,7 +13,7 @@
 	</select>
 
 	<insert id="book_insert" parameterType="book">
-	INSERT INTO book(ISBN, B_TITLE, B_THUMBNAIL, B_CONTENT, B_AUTHORS, B_PUBLISHER, B_SALEPRICE, B_DATETIME) values (#{isbn},#{b_title},#{b_thumbnail},#{b_content},#{b_authors}, #{b_publisher},#{b_saleprice},#{b_datetime})
+	INSERT INTO book(ISBN, B_TITLE, B_THUMBNAIL, B_CONTENT, B_AUTHORS, B_PUBLISHER, B_SALEPRICE, B_DATETIME, B_TRANSLATOR) values (#{isbn},#{b_title},#{b_thumbnail},#{b_content},#{b_authors}, #{b_publisher},#{b_saleprice},#{b_datetime},#{b_translators})
 	</insert>
 	
 	<insert id="like_insert" parameterType="string">

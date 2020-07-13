@@ -205,18 +205,15 @@ height: 200px;
         </tr>
         <tr>
         	<td id="book_date"></td>
+        	<td id="translators"></td>
         </tr>
 	  </tbody>
 	</table>
 <span id="book_contents" class="hangelfont"></span><br> 	
 <div class="button_container">
-        <i id="btn" class="fa fa-heart-o">&nbsp${like_count}</i>
-    </div>
+        <i id="btn" class="fa fa-heart-o" onclick="likeaction()">&nbsp${like_count}</i>
+</div>
 <br><br><br><br><br><br><br>
-<!-- <button type="button" class="btn bg-red waves-effect">
-  <i class="material-icons">favorite</i>
-  <span>좋아요</span>
-</button> -->
 <h2 class="hangelfont">통계</h2><hr>
 <h2 class="hangelfont">리뷰 - 댓글</h2>
 <span style="display:none" id="isbn_input">${isbn}</span>
@@ -301,6 +298,24 @@ height: 200px;
 		console.log("댓글번호= "+cmt_no);
 		$("#book_comment").focus().val(before);
 		$("#button_addcomment").text('수정');
+	}
+    
+    function likeaction() {
+		console.log('좋아요 추가해봅시다.');
+		console.log(document.getElementById('m_id').innerText);
+		console.log(document.getElementById('isbn_input').innerText);
+		
+		 $.ajax({
+			type : "get",
+			url : "like_action.minji",
+			data : {
+				"id" : document.getElementById('m_id').innerText,
+			    "isbn" : document.getElementById('isbn_input').innerText
+			},
+			success : function() {
+				alert('좋아요 성공');
+			}
+		});// ajax end 
 	}
     </script>
 
