@@ -4,7 +4,7 @@
 
 <mapper namespace="Comments">
 	<insert id="insert" parameterType="C">
-		INSERT INTO comments (cmt_no, isbn, cmt_mbti, cmt_nickname, cmt_content,  cmt_date) values(cmt_no.nextval, #{isbn}, #{cmt_mbti}, #{cmt_nickname}, #{cmt_content},  sysdate)
+		INSERT INTO comments (cmt_no, isbn, cmt_mbti, cmt_nickname, cmt_content,  cmt_date, cmt_id) values(cmt_no.nextval, #{isbn}, #{cmt_mbti}, #{cmt_nickname}, #{cmt_content},  sysdate, #{cmt_id})
 	</insert>
 	
 	<select id="member_info" parameterType="String" resultType="member">

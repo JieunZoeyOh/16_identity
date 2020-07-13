@@ -10,6 +10,16 @@ public class Book {
 	private String b_publisher;
 	private int b_saleprice;
 	private String b_datetime;
+	private String b_translators;
+	
+	
+	
+	public String getB_translators() {
+		return b_translators;
+	}
+	public void setB_translators(String b_translators) {
+		this.b_translators = b_translators;
+	}
 	public String getIsbn() {
 		return isbn;
 	}
