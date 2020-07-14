@@ -36,4 +36,32 @@
 		select mbti from mbti order by mbti desc
 	</select>
 	
+	<select id="like_action" parameterType="book_like_date" resultType="book_like_date">
+		select * from book_like_date where m_id=#{m_id} and isbn=#{isbn}
+	</select>
+	
+	<select id="select_mbti" resultType="String" parameterType="String">
+		select m_mbti from member where m_id=#{m_id}
+	</select>
+	
+	<insert id="add_like_date" parameterType="book_like_date">
+		insert into book_like_date values (bld_no.nextval, #{isbn}, #{m_id}, #{m_mbti}, sysdate)
+	</insert>
+	
+	<select id="user_mbti_value" parameterType="String" resultType="mbti">
+		select * from mbti where mbti=#{m_mbti}
+	</select>
+	
+	<update id="update_like" parameterType="book_like">
+		update book_like set like_count=#{like_count}, i_count=#{i_count}, e_count=#{e_count}, s_count=#{s_count}, n_count=#{n_count}, t_count=#{t_count}, f_count=#{f_count}, j_count=#{j_count}, p_count=#{p_count} where isbn=#{isbn}
+	</update>
+	
+	<delete id="delete_book_like" parameterType="book_like_date">
+		delete from book_like_date where isbn=#{isbn} and m_id=#{m_id}
+	</delete>
+	
+	<update id="update_bookmbti" parameterType="book">
+		update book set mbti=#{mbti} where isbn=#{isbn}
+	</update>
+	
 </mapper>
