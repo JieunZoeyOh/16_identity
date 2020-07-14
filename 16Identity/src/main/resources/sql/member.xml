@@ -4,7 +4,7 @@
 
 <mapper namespace="Members">
 	<select id="statelist" resultType="member">
-		select m_id, substate,m_mbti from member
+		select m_id, substate, m_mbti from member
 	</select>
 	<select id="idcheck" parameterType="String" resultType="member">
 		select * from member where m_id = #{m_id}
@@ -54,4 +54,12 @@
 	<select id="getList" resultType="member">
 		select * from member
 	</select>
+	
+	<select id="getListOne" resultType="member">
+		select * from member where m_id = #{m_id}
+	</select>
+	
+	<update id="updateSub" parameterType="map">
+		update member set substate = #{substate}, subsdate=sysdate where m_id=#{m_id}
+	</update>
 </mapper>

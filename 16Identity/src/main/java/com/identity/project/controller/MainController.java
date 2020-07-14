@@ -2,12 +2,15 @@ package com.identity.project.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.identity.project.domain.Member;
 import com.identity.project.service.MainService;
 import com.identity.project.service.MemberService;
 
@@ -37,6 +40,35 @@ public class MainController {
 		mv.addObject("m_id", m_id);
 		mv.addObject("mbti", mbti);
 		return mv;
+	}
+	
+	@RequestMapping(value = "/kakaoPay.com")
+	public ModelAndView kakaopay(HttpServletRequest request, ModelAndView mv) {
+		String substate = request.getParameter("substate");
+		String m_id = request.getParameter("m_id");
+		
+		Member member = memberService.getList(m_id);
+		String mbti = member.getM_mbti();
+		String m_name = member.getM_name();
+		String m_tel = member.getM_phone();
+		String m_address = member.getM_address();
+		int m_address_no = member.getM_address_no();
+		
+		mv.setViewName("main/kakaopay");
+		mv.addObject("substate",substate);
+		mv.addObject("m_id",m_id);
+		mv.addObject("mbti",mbti);
+		mv.addObject("m_name",m_name);
+		mv.addObject("m_tel",m_tel);
+		mv.addObject("m_address",m_address);
+		mv.addObject("m_address_no",m_address_no);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/kakaopaySuccess.com", method = RequestMethod.GET)
+	public void kakaopaySuccess(String m_id, String substate) {
+		System.out.println(m_id+"님의 "+substate+"성공");
+		memberService.updateSub(m_id, substate);
 	}
 	
 	@RequestMapping(value = "/subscribe_drop.com", method = RequestMethod.GET)

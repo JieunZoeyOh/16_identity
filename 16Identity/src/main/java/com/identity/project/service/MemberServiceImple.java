@@ -1,6 +1,8 @@
 package com.identity.project.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -92,6 +94,19 @@ public class MemberServiceImple implements MemberService {
 	@Override
 	public String getState(String m_id) {
 		return dao.getState(m_id);
+	}
+
+	@Override
+	public Member getList(String m_id) {
+		return dao.getList(m_id);
+	}
+
+	@Override
+	public void updateSub(String m_id, String substate) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("m_id", m_id);
+		map.put("substate", substate);
+		dao.UpdateSub(map);
 	}
 	
 }

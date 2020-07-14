@@ -30,5 +30,9 @@ public interface MemberService {
 	public Member profile(String m_id);
 	
 	String getState(String m_id);
+
+	Member getList(String m_id);
+
+	void updateSub(String m_id, String substate);
 	
 }
