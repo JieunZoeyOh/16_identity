@@ -4,12 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.identity.project.service.MainService;
@@ -47,25 +43,4 @@ public class MainController {
 	public String subscribe_drop() {
 		return "main/subscribe_drop";
 	}
-	
-	@GetMapping("/kakaoPay")
-    public void kakaoPayGet() {
-        
-    }
-    
-    @PostMapping("/kakaoPay")
-    public String kakaoPay(String m_id, ModelAndView mv) {
-    	System.out.println("kakaoPay post............................................");
-        
-        return "redirect:" + mainService.kakaoPayReady(m_id, mv);
- 
-    }
-    
-    @GetMapping("/kakaoPaySuccess")
-    public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model, String m_id) {
-    	 System.out.println("kakaoPaySuccess get............................................");
-    	 System.out.println("kakaoPaySuccess pg_token : " + pg_token);
-         
-         model.addAttribute("info", mainService.kakaoPayInfo(pg_token, m_id));
-    }
 }
