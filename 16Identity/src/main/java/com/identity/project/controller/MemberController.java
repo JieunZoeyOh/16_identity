@@ -346,10 +346,18 @@ public class MemberController {
 	}
 	
 	//myReview.net
+	@ResponseBody 
 	@RequestMapping(value = "/myReview.net")
-	public String myreview() {
-		return "mypage/myReview";
+	public ModelAndView review(HttpSession session, ModelAndView mv,HttpServletRequest request) throws Exception {
+		String id = (String) session.getAttribute("m_id");
+		System.out.println("확인:" + id);
+		Member m = memberSerivce.profile(id);
+		mv.setViewName("mypage/myReview");
+		mv.addObject("profile", m);
+		return mv;
 	}
+	
+	
 	
 	
 	

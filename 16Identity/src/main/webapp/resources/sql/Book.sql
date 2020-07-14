@@ -29,3 +29,5 @@ ALTER TABLE book MODIFY(b_authors VARCHAR(100));
 ALTER TABLE book MODIFY(b_publisher VARCHAR(40));
 
 ALTER TABLE book ADD(b_translator VARCHAR(100));
+
+
