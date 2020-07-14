@@ -5,7 +5,6 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="resources/js/jquery-3.5.0.js"></script>
 <title>Insert title here</title>
 <style>
 	body{background-color:#1f0d0d; color:white;}
@@ -73,17 +72,16 @@
         border: 2px solid white;
     }
 </style>
-
 </head>
 <body>
 <div class="body">
 	<img src="resources/image/logo.png" style="width: 258px">
-	<form id="kakao_form" method="post" action="kakaoPay">
+	<form method="post" action="kakaoPay.com">
 		<fieldset>
 			<legend>정기구독 신청</legend>
 			<p>정기구독은 매월 10일에 출고합니다.</p>
-			<input id="m_id" type="hidden" value="${m_id }">
-			<input id="mbti" type="hidden" value="${mbti }">
+			<input name="m_id" type="hidden" value="${m_id }">
+			<input name="mbti" type="hidden" value="${mbti }">
 			
 			<div style="margin-top: 50px;">
 			<div class="tooltip">

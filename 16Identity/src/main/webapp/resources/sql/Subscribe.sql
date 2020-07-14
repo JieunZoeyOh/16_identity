@@ -5,6 +5,7 @@ create table subscribe(
    updateday date
 );
 
+alter table subscribe modify isbn varchar2(30);
 drop table subscribe;
 
 create sequence sub_seq;

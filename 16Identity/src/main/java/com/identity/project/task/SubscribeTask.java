@@ -1,6 +1,5 @@
 package com.identity.project.task;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +23,13 @@ public class SubscribeTask {
 	@Autowired
 	private MemberService memberService;
 	
-	@Scheduled(cron="0 0 0 10 * *")
+	@Scheduled(cron="0 * * * * *")
 	public void checkBook() throws Exception {
 		List<Member> memberList = memberService.getStateList();
 		String isbn = "";
 		for(int i=0; i<memberList.size();i++) {
 			if(memberList.get(i).getSubstate().equals("MBTI 구독중")) {
+				System.out.println("회원의 mbti: "+memberList.get(i).getM_mbti());
 				List<String> bookList = boardService.getBookISBN_mbti(memberList.get(i).getM_mbti());
 				List<String> adminList = adminService.getBookISBN(memberList.get(i).getM_id());
 				bookList.removeAll(adminList);

@@ -81,7 +81,7 @@ function openWin(){
                     <span class="tooltipcontent"><b>정기 구독</b></span>
                 </a>
                 <ul id="subMenu">
-                <c:if test="${substate==null}">
+                <c:if test="${substate=='구독안함'}">
                     <li><div class="square"></div><a href="javascript:openWin();" >구독 신청</a></li>
                 </c:if>
                 <c:if test="${fn:contains(substate, '구독중')}">

@@ -1,6 +1,7 @@
 package com.identity.project.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,14 @@ public class MemberDAO {
 		
 	public String getState(String m_id) {
 		return sqlSession.selectOne("Members.getState",m_id);
+	}
+
+	public Member getList(String m_id) {
+		return sqlSession.selectOne("Members.getListOne",m_id);
+	}
+
+	public void UpdateSub(Map<String, String> map) {
+		sqlSession.update("Members.updateSub",map);
 	}
 	
 }
