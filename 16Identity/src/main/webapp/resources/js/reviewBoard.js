@@ -60,22 +60,67 @@ window.onload = function(){
     var page=1;
     var count = 0;
     var category;
+    $('#autoComplete_box').hide();
     /*input 검색했을 때*/
     /*Enter 칠 경우*/
+   
+    var text;
+    var focus = -1;
     $('#searchBook').keyup(function(e){
-    	if(e.keyCode == 13) {
-    		if($('#searchBook').val() != ''){
-    			page=1;
-    			$('.board_wrap').empty();
-    			category = categoryFunc($(".default_option").text());
-    			searchWord = $('#searchBook').val();
-    			searchBookFunc(searchWord, page, category);
-    		} 
-    	}	
+    	
+    	if(e.keyCode == 8) focus=-1;	//backSpace 누를 경우 
+    	if($('#searchBook').val().length>=2){//2글자 이상 입력했을 경우
+    		if(e.keyCode == 13) {//엔터 입력
+        		if($('#searchBook').val() != ''){
+        			$('#autoComplete_box').hide();
+            		$('#autoComplete_box').empty();
+        			page=1;
+        			$('.board_wrap').empty();
+        			category = categoryFunc($(".default_option").text());
+        			searchWord = $('#searchBook').val();
+        			searchBookFunc(searchWord, page, category);
+        		} 
+    		}else if(e.keyCode != 40 && e.keyCode != 38){
+    			searchAuto($('#searchBook').val());//searchAuto 함수 호출
+        		$('#autoComplete_box').show();//자동완성창 켜짐
+    		} else {
+    			if(focus == -1 && e.keyCode == 40){
+	    			text = $('#autoComplete_box').children().eq(0).text();
+	    			$('#searchBook').val(text);
+	    			focus = 0;
+	    		}else if(focus >= 0 && focus <= 3){
+	    			if(e.keyCode == 40) 
+	    				++focus;//키보드 아래 방향 키 눌렀을 경우
+	    			if(e.keyCode == 38) 
+	    				--focus;//키보드 윗 방향 키 눌렀을 경우
+	    		} else if(focus == -1){
+	    			if(e.keyCode == 40) 
+	    				focus = 0;
+	    			if(e.keyCode == 38) 
+	    				focus = -1;
+	    		} else if(focus == 4){
+	    			if(e.keyCode == 40) 
+	    				focus = 4;
+	    			if(e.keyCode == 38) 
+	    				focus = 3;
+	    		}
+	    		console.log('focus:'+focus);
+	    		text = $('#autoComplete_box').children().eq(focus).text();
+    			$('#searchBook').val(text);
+    		}
+    	}else{
+    		$('#autoComplete_box').hide();
+    		$('#autoComplete_box').empty();
+    	}
+    	
+    	
     });
+    //$('.auto_result').eq(1).addClass('auto_result_focus');
 		/*click 할 경우*/    
     $('.fa-search').on('click',function(){
     	if($('#searchBook').val() != ''){
+    		$('#autoComplete_box').hide();
+    		$('#autoComplete_box').empty();
     		page=1;
     		$('.board_wrap').empty();
     		category = categoryFunc($(".default_option").text());
@@ -142,13 +187,13 @@ window.onload = function(){
 		        		for(var i=0; i<result.documents.length; i++){
 		        			var isbn_original = result.documents[i].isbn.slice(-13);
 		        			var isbn_short= isbn_original.slice(-3);
-		        			imgerror = 'resources/image/bookerror.PNG'
+		        			//imgerror = 'resources/image/bookerror.PNG';
 		        			img = "http://image.kyobobook.co.kr/images/book/xlarge/"+isbn_short+"/x"+isbn_original+".jpg";
+		        			img2 = "http://image.kyobobook.co.kr/images/book/large/"+isbn_short+"/l"+isbn_original+".jpg";
 		        			output += '<article class="book_article">'
 		        					+ '<div class="book_img_box">'
 		        					+ '<a href="reviewpost.minji?isbn='+result.documents[i].isbn +'">'
-		        					+ `<img class="bookImgSrc" src="${img}" alt="`+result.documents[i].title+`"/></a>`
-		        					//+ `<img class="bookImgSrc" src="${img}" alt="`+result.documents[i].title+`" onError="this.src='${imgerror}'"/></a>`
+		        					+ `<img class="bookImgSrc" src="${img}" alt="`+result.documents[i].title+`"/><input type="hidden" value="${img2}"></a>`
 		        					+ '</div><dl>'
 		        					+ '<dt>'+ result.documents[i].title +'</dt>'
 		        					+ '<dd>'+ result.documents[i].authors +'</dd>';
@@ -160,8 +205,8 @@ window.onload = function(){
 		        			output += '</article>';		
 		        		}
 		        		$('section.board_wrap').append(output);
-		        	    $('.bookImgSrc').on('error', function(){
-		        	        $(this).prop('src', imgerror);
+		        	    $('.bookImgSrc').on('error', function(){//img src 없는 경우 xlarge->lagre로 대체
+		        	        $(this).prop('src', $(this).next().val());//input type=hidden의 value => img2
 		        	    })
 		        		page += 1;
 		        	})
@@ -176,8 +221,52 @@ window.onload = function(){
 		    }
     	})
     }//
-    
 
+    /*자동 완성 검색창 부분*/
+    function searchAuto(autoQuery){
+    	$.ajax({
+    		method: "GET",
+    		url : "https://dapi.kakao.com/v3/search/book",
+    		data : {
+    			query : autoQuery,
+    			size : 5,
+    			page : 1
+    		},
+    		headers: {Authorization: "KakaoAK 49748a98d393f2ca2642a0b78bc9b99f"},
+    		success : function(result){ 
+    			autoOutput = '';
+    			if(result.meta.total_count>0){
+    				$('#autoComplete_box').empty();
+    				$(result).each(function(){
+    					for(var i=0; i<result.documents.length; i++){
+    						var original_title = result.documents[i].title;
+    						var shortTitle = result.documents[i].title.slice(0,30)+'...';
+    						var isbn = result.documents[i].isbn.slice(-13);
+    						if(original_title.length<30){ //글자수 제한
+    							autoOutput += `<div class="auto_result"><a href="reviewpost.minji?isbn='${isbn}'">${original_title}</a>`;
+    						}else{
+    							autoOutput += `<div class="auto_result"><a href="reviewpost.minji?isbn='${isbn}'">${shortTitle}</a>`;
+    						}
+    						autoOutput += `<input type="hidden" class="thumImg" value='${result.documents[i].thumbnail}'>`;
+    						autoOutput += `<input type="hidden" class="isbnNo" value='${isbn}'>`;
+    						autoOutput += `</div>`;
+    					}
+    					autoOutput += `<a href="reviewpost.minji?isbn='${result.documents[0].isbn.slice(-13)}'"><img src="${result.documents[0].thumbnail}"></a>`;
+    					$('#autoComplete_box').append(autoOutput);
+    					
+    				})
+    			} else {
+    				$('#autoComplete_box').empty();
+    				
+    			}
+		    }
+    	})
+    }
+    $(document).on('mouseover','.auto_result',function(){	//마우스 오버할 때 이벤트
+    	$('#autoComplete_box').find('img').prop("src", $(this).find('.thumImg').val());
+    	var address_isbn = 'reviewpost.minji?isbn='+$(this).find('.isbnNo').val();	//디테일 페이지 링크
+    	$('#autoComplete_box').find('a').prop("href", address_isbn);
+    });
 }
 /*header js 부분*/
 function menulist_over(){

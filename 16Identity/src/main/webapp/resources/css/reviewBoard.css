@@ -106,6 +106,53 @@
   color: #9fa3b1;
 }
 
+#autoComplete_box {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 526px;
+    height: 182px;
+    box-sizing: border-box;
+    position: relative;
+    bottom: -14px;
+    left: 160px;
+    box-shadow: 10px 8px 6px -11px #b3c6ff;
+}
+
+.auto_result{
+	margin:0px;
+	display: inline-block;
+	width:400px;
+	height: 34.5px;
+	float:left;
+	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
+	box-sizing: border-box;
+    padding: 4px 8px;
+    font-weight: 100;
+}
+.auto_result:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+.auto_result a{
+	text-decoration:none;
+	color:black;
+}
+.auto_result a:active, .auto_result a:visited, .auto_result a:focus{
+	color:black;
+}
+.auto_result_focus {
+    background-color: whitesmoke;
+    outline: none;
+}
+#autoComplete_box img{
+	margin:0;
+	padding:0;
+	width:120px;
+	height:174px;
+	background-color:white;
+}
+
 .board_container{
 	width:100%;
 	height:auto;
