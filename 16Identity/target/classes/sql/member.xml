@@ -45,7 +45,7 @@
 	<select id="profile" parameterType = "String" resultType = "member">
 		select * from member where m_id = #{m_id}
 	</select>
-
+	
 	<select id="getState" resultType="String">
 		select substate from member where m_id = #{m_id}
 	</select>
