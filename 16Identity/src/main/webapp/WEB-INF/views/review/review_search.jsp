@@ -26,6 +26,8 @@
 	          <i class="fa fa-search"></i>
 	      </div>
 	    </div>
+	    <div id="autoComplete_box">
+    	</div>
 	</div>
 	<div id="image_part">
 		<div id="review_main_image" >

@@ -25,3 +25,5 @@ ALTER TABLE member MODIFY(m_name VARCHAR2(50));
 ALTER TABLE member MODIFY(m_password VARCHAR2(100));
 
 select * from member;
+
+ALTER TABLE member MODIFY(m_address_no varchar2(10));

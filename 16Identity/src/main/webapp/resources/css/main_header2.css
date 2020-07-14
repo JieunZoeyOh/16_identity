@@ -13,13 +13,13 @@
 	justify-content:center;
 	align-items:center;
 }
-.loader {
+.header_loader {
   display: inline-block;
   width: 30px;
   height: 30px;
   position: relative;
   border: 4px solid #f8b24f;
-  animation: loader 2s infinite ease;
+  animation: header_loader 2s infinite ease;
 }
 
 .loader-inner {
@@ -30,7 +30,7 @@
   animation: loader-inner 2s infinite ease-in;
 }
 
-@keyframes loader {
+@keyframes header_loader {
   0% {
     transform: rotate(0deg);
   }
@@ -75,15 +75,9 @@
 }
 header{
 	width:100%;
-    height:290px;
-    background-color: #1f0d0d;
-}
-
-header>img {
-    width: 258px;
+    height:102px;
     position: absolute;
-    top: 61px;
-    left: 43%;
+    top: 0;
 }
 
 .m_p_zero{
@@ -96,14 +90,18 @@ header>img {
     padding-top: 20px;
     padding-right: 20px;
 }
-#user_info span {
-    padding:20px;
+#user_info div {
+	display: inline-block;
+    width: auto;
+    padding: 0 20px;
     font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
 }
-#user_info span a{
+
+#user_info div b {display: contents;}
+#user_info div a{
     cursor: pointer;
 }
-#user_info span a:link, #user_info span a:visited{
+#user_info div a:link, #user_info div a:visited{
     color:#d5d0de; text-decoration: none;
 }
 #main_sidebar {
@@ -171,6 +169,7 @@ header>img {
     font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
     border-radius: 4px;
     display: none;
+    box-sizing: initial;
 }
 #mypageMenu::after, #subMenu::after {
     content: "";
@@ -241,7 +240,6 @@ ul {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-  
     position: absolute;
     z-index: 1;
     top: 14px;
@@ -252,6 +250,9 @@ ul {
 
     opacity: 0;
     transition: opacity 0.3s;
+  }
+  .img_tooltip .tooltipcontent b{
+    	margin-top: 0px;
   }
   
   .img_tooltip:hover .tooltipcontent {
