@@ -11,3 +11,9 @@ references member(m_id) on delete cascade
 );
 
 --완료
+
+--sequence 추가
+create sequence bld_no increment by 1 start with 1;
+
+--alter isbn 크기 늘림
+ALTER TABLE book_like_date MODIFY(isbn VARCHAR(30));

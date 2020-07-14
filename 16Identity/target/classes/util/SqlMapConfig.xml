@@ -12,6 +12,8 @@
       <typeAlias alias="order" type="com.identity.project.domain.Suborder"/>
       <typeAlias alias="book_like" type="com.identity.project.domain.Book_Like"/>
       <typeAlias alias="deliver" type="com.identity.project.domain.Deliver"/>
+      <typeAlias alias="book_like_date" type="com.identity.project.domain.Book_Like_Date"/>
+      <typeAlias alias="mbti" type="com.identity.project.domain.MBTI"/>
    </typeAliases>
    
    <mappers>

@@ -22,12 +22,8 @@ footer {
 	border-radius: 50%;
     width: 200px;
     height: 200px;
-
 }
 
-.logoimg{
-	
-}
 .hero {
     display: inline-block;
     width: 100%;
@@ -67,23 +63,10 @@ input[type=text], input[type=password] {
     display: inline-block;
 }
  
-.menu {
-	display: inline-block;
-    padding: 40px;
+.menu {display: inline-block; padding: 40px;}
 
-
-}
-
-.logoimg {
-	margin-top : 20px;
-	width : 300px;
-}
-.menu-control {
-    margin: 0 140;
-    border: none;
-    border-bottom: 1px solid black;
-    padding: 13px;
-    font-size: 18;
+.logoimg {margin-top : 20px; width : 300px; }
+.menu-control {margin: 0 140; border: none; border-bottom: 1px solid black; padding: 13px; font-size: 18;
 }
 
 

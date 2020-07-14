@@ -49,5 +49,9 @@ public class MemberDAO {
 	public String getMbtiNickname(String m_id) {
 		return sqlSession.selectOne("Members.getMbtiNickname",m_id);
 	}
+
+	public Member profile(String m_id) {
+		return sqlSession.selectOne("Members.profile",m_id);
+	}
 	
 }

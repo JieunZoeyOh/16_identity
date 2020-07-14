@@ -45,7 +45,7 @@
 <script src="resources/js/jquery-3.5.0.js"></script>
 <script>
 	$(function() {
-		$("#DataTables_Table_0_filter > label > input").val("2020년").trigger(
+		$("#DataTables_Table_0_filter > label > input").val("2020Y").trigger(
 				'keyup');
 	})
 </script>

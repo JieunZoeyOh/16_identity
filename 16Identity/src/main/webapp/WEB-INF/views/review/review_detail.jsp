@@ -215,10 +215,11 @@ ul#subMenu {
 	</table>
 <span id="book_contents" class="hangelfont"></span><br> 	
 <div class="button_container">
-        <i id="btn" class="fa fa-heart-o" onclick="likeaction()">&nbsp${like_count}</i>
+        <i id="btn" class="fa fa-heart-o" onclick="likeaction()">&nbsp${bookvalue.like_count}</i>
 </div>
 <br><br><br><br><br><br><br>
 <h2 class="hangelfont">통계</h2><hr>
+ <div id="chart"></div>
 <h2 class="hangelfont">리뷰 - 댓글</h2>
 <span style="display:none" id="isbn_input">${isbn}</span>
 <span style="display:none" id="m_id">${m_id}</span>
@@ -260,6 +261,7 @@ ul#subMenu {
 
     <!-- Demo Js -->
     <script src="resources/js/demo.js"></script>
+    <script src="resources/js/jui-chart.js"></script>
     <script>
 
 	$(window).on("load",function(){
@@ -293,6 +295,41 @@ ul#subMenu {
                 btn.classList.remove('fa-heart');
             }
         }
+        
+        graph.ready([ "chart.builder" ], function(builder) {
+            builder("#chart", {
+                width: 800,
+                height : 400,
+                theme : "classic",
+                axis : {
+                    data : [
+                    	    { quarter : "E/I", samsung : ${bookvalue.e_count}, lg : ${bookvalue.i_count}},
+                    	    { quarter : "S/N", samsung : 20, lg : 20},
+                    	    { quarter : "T/F", samsung : 20, lg : 5},
+                    	    { quarter : "P/J", samsung : 30, lg : 25}
+                    ],
+                    y : {
+                        type : "block",
+                        domain : "quarter",
+                        line : true,
+                        orient : "right"
+                    },
+                    x : {
+                        type : 'range',
+                        domain : [0, 100],
+                        format : function(value) { return value + "%" ;},
+                        line : true
+                    }
+                    
+                },
+                brush : {
+                    type : 'fullstackbar',
+                    target : [ "samsung", "lg" ],
+                    showText: true,
+                  
+                },
+            });
+        });
 	})
 
     function menulist_over(){
@@ -319,14 +356,22 @@ ul#subMenu {
 		console.log(document.getElementById('isbn_input').innerText);
 		
 		 $.ajax({
-			type : "get",
+			type : "post",
 			url : "like_action.minji",
 			data : {
 				"id" : document.getElementById('m_id').innerText,
-			    "isbn" : document.getElementById('isbn_input').innerText
+			    "isbn" : document.getElementById('isbn_input').innerText,
+			    "title" : title,
+			    "authors" : authors_list,
+			    "publisher" : publisher,
+				"book_price" : book_price,
+				"book_date" : book_date,
+				"book_contents" : book_contents,
+				"book_image" : $("#book_image").attr("src"),
+				"translators":translators_list,
 			},
-			success : function() {
-				alert('좋아요 성공');
+			success : function(data) {
+				document.getElementById('btn').innerText=data;
 			}
 		});// ajax end 
 	}

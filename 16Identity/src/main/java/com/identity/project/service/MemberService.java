@@ -25,5 +25,7 @@ public interface MemberService {
 	String getNickname(String m_id);
 
 	String getMbtiNickname(String m_id);
+
+	public Member profile(String m_id);
 	
 }
