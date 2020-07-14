@@ -3,6 +3,7 @@ package com.identity.project.service;
 import java.util.List;
 
 import com.identity.project.domain.Member;
+import com.identity.project.domain.Suborder;
 
 public interface MemberService {
 
@@ -25,5 +26,7 @@ public interface MemberService {
 	String getNickname(String m_id);
 
 	String getMbtiNickname(String m_id);
+
+	String getState(String m_id);
 	
 }

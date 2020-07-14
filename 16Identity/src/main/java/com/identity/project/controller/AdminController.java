@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
+import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
 import com.identity.project.service.AdminService;
@@ -30,8 +31,17 @@ public class AdminController {
 		return "admin/main";
 	}
 	
+	@RequestMapping(value = "/member.net", method = RequestMethod.GET)
+	public ModelAndView member(ModelAndView mv) {
+		List<Member> list = adminService.getMemberList();
+		mv.setViewName("admin/admin_member");
+		mv.addObject("list", list);
+		return mv;
+		
+	}
+	
 	@RequestMapping(value = "/order.net", method = RequestMethod.GET)
-	public ModelAndView order(ModelAndView mv, HttpSession session) {
+	public ModelAndView order(ModelAndView mv) {
 		List<Suborder> list = adminService.getOrderList();
 		mv.setViewName("admin/admin_order");
 		mv.addObject("list", list);
@@ -66,11 +76,6 @@ public class AdminController {
 	public void deliverSucess(HttpServletResponse response) throws Exception {
 		int result = adminService.deliveryUpdate();
 		response.getWriter().print(result);
-	}
-	
-	@RequestMapping(value = "/member.net", method = RequestMethod.GET)
-	public String member() {
-		return "admin/admin_member";
 	}
 	
 	@RequestMapping(value = "/report.net", method = RequestMethod.GET)

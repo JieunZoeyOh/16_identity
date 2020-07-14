@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.identity.project.dao.MemberDAO;
 import com.identity.project.domain.Member;
+import com.identity.project.domain.Suborder;
 
 @Service
 public class MemberServiceImple implements MemberService {
@@ -80,6 +81,11 @@ public class MemberServiceImple implements MemberService {
 	@Override
 	public String getMbtiNickname(String m_id) {
 		return dao.getMbtiNickname(m_id);
+	}
+
+	@Override
+	public String getState(String m_id) {
+		return dao.getState(m_id);
 	}
 	
 }

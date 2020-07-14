@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -80,10 +81,10 @@ function openWin(){
                     <span class="tooltipcontent"><b>정기 구독</b></span>
                 </a>
                 <ul id="subMenu">
-                <c:if test="${substate == 0}">
+                <c:if test="${substate==null}">
                     <li><div class="square"></div><a href="javascript:openWin();" >구독 신청</a></li>
                 </c:if>
-                <c:if test="${substate == 1}">
+                <c:if test="${fn:contains(substate, '구독중')}">
                     <li><div class="square"></div><a href="#">구독 해지</a></li>
                 </c:if>
                 </ul>

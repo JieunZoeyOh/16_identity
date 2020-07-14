@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
+import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
 
@@ -67,6 +68,10 @@ public class AdminDAO {
 
 	public List<Deliver> getDList() {
 		return sqlSession.selectList("Deliver.list");
+	}
+
+	public List<Member> getMemberList() {
+		return sqlSession.selectList("Members.getList");
 	}
 	
 }

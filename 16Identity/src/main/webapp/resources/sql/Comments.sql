@@ -20,3 +20,5 @@ ALTER TABLE COMMENTS MODIFY(isbn VARCHAR(30));
 
 --sequence 추가
 create sequence cmt_no increment by 1 start with 1;
+
+insert into comments values (cmt_no.nextval, istp, )

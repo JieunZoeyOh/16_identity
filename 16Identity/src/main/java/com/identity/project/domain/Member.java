@@ -15,6 +15,7 @@ public class Member {
 	private String m_address;
 	private String substate;
 	private String subsdate;
+	private int warn_count;
 	private MultipartFile uploadfile;
 	
 	public MultipartFile getUploadfile() {
@@ -94,6 +95,12 @@ public class Member {
 	}
 	public String getSubsdate() {
 		return subsdate;
+	}
+	public int getWarn_count() {
+		return warn_count;
+	}
+	public void setWarn_count(int warn_count) {
+		this.warn_count = warn_count;
 	}
 	
 }

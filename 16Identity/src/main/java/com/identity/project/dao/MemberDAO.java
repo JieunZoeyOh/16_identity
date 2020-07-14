@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.identity.project.domain.Member;
+import com.identity.project.domain.Suborder;
 
 @Repository
 public class MemberDAO {
@@ -48,6 +49,10 @@ public class MemberDAO {
 
 	public String getMbtiNickname(String m_id) {
 		return sqlSession.selectOne("Members.getMbtiNickname",m_id);
+	}
+
+	public String getState(String m_id) {
+		return sqlSession.selectOne("Members.getState",m_id);
 	}
 	
 }

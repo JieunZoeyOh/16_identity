@@ -78,12 +78,12 @@
 <body>
 <div class="body">
 	<img src="resources/image/logo.png" style="width: 258px">
-	<form method="post" action="/kakaoPay">
+	<form id="kakao_form" method="post" action="kakaoPay">
 		<fieldset>
 			<legend>정기구독 신청</legend>
 			<p>정기구독은 매월 10일에 출고합니다.</p>
-			<input type="hidden" value="${m_id }">
-			<input type="hidden" value="${mbti }">
+			<input id="m_id" type="hidden" value="${m_id }">
+			<input id="mbti" type="hidden" value="${mbti }">
 			
 			<div style="margin-top: 50px;">
 			<div class="tooltip">
@@ -100,7 +100,7 @@
 			</div>
 			</div>
 			<br>
-			<button class="btn_pay btn_pay_hover" type="button" onclick="" style="color:#1f0d0d">
+			<button class="btn_pay btn_pay_hover" type="submit" style="color:#1f0d0d">
 			<i class="fa fa-comment"></i>&nbsp;Pay</button>
 		</fieldset>
 	</form>
