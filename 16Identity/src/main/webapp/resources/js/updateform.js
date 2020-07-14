@@ -1,4 +1,19 @@
 $(document).ready(function() {
+	$(".info1").on("click", function(){
+	    console.log("click")
+	    $(".overlay").addClass("on");
+	    $(".modal").addClass("on");
+	})
+	$(".btn_submit").on("click", function(){
+		$('#passchk').submit();
+	    
+	})
+	$(".btn_cancel").on("click", function(){
+		$(".overlay").removeClass("on");
+	    $(".modal").removeClass("on");
+	    
+	})
+	
 	var check = 0;
 	$("#updateform").submit(function() {
 
