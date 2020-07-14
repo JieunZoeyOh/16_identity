@@ -311,7 +311,7 @@ public class MemberController {
 		System.out.println("결과는 " + result);
 		String m_nickname = memberSerivce.getNickname(m_id);
 		String mbti_nickname = memberSerivce.getMbtiNickname(m_id);
-
+		String state = memberSerivce.getState(m_id);
 		if (result == 1) {
 			// 로그인 성공
 			session.setAttribute("m_id", m_id);
@@ -319,7 +319,7 @@ public class MemberController {
 			session.setAttribute("m_nickname", m_nickname);
 			session.setAttribute("mbti_nickname", mbti_nickname);
 			//Subscribe //구독 신청 상태 값 넘기기
-			session.setAttribute("substate", 1);
+			session.setAttribute("substate", state);
 			Cookie savecookie = new Cookie("m_id", m_id);
 			if (!remember.equals("")) {
 				savecookie.setMaxAge(60 * 60);

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.identity.project.dao.AdminDAO;
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
+import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
 
@@ -80,6 +81,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<Deliver> getDList() {
 		return dao.getDList();
+	}
+
+	@Override
+	public List<Member> getMemberList() {
+		return dao.getMemberList();
 	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.identity.project.dao.MemberDAO;
 import com.identity.project.domain.Member;
+import com.identity.project.domain.Suborder;
 
 @Service
 public class MemberServiceImple implements MemberService {
@@ -51,7 +52,8 @@ public class MemberServiceImple implements MemberService {
 	public int insert(Member member) {
 		return dao.insert(member);
 	}
-	
+
+	@Override
 	public Member member_info(String id) {
 		return dao.member_info(id);
 	}
@@ -85,6 +87,11 @@ public class MemberServiceImple implements MemberService {
 	@Override
 	public Member profile(String m_id) {
 		return dao.profile(m_id);
+	}
+	
+	@Override
+	public String getState(String m_id) {
+		return dao.getState(m_id);
 	}
 	
 }

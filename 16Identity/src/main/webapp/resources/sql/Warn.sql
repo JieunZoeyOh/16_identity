@@ -7,4 +7,8 @@ create table warn(
    w_count number not null
 );
 
+create sequence warn_seq;
+insert into warn values (warn_seq.nextval,'user1@naver.com', 21, '그냥', sysdate, 1);
+insert into warn values (warn_seq.nextval,'admin@naver.com', 21, '풉', sysdate, 2);
+
 --완료

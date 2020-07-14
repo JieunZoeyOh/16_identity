@@ -13,6 +13,7 @@ create table member(
      m_address varchar2(100) not null, 
      substate varchar2(20),
      subsdate date,
+     warn_count number(5) DEFAULT 0,
      foreign key (m_mbti) references mbti(mbti) on delete cascade
 )
 
@@ -27,3 +28,8 @@ ALTER TABLE member MODIFY(m_password VARCHAR2(100));
 select * from member;
 
 ALTER TABLE member MODIFY(m_address_no varchar2(10));
+
+ALTER TABLE member ADD (warn_count number(5) DEFAULT 0);
+ 
+select * from member;
+
