@@ -37,9 +37,29 @@ public class CommentController {
 		Book_Like bookvalue= new Book_Like();
 		
 		bookvalue = boardService.getLikeCount(isbn);
+		System.out.println("book_value 오류1");
 		
-		System.out.println("likecount값:"+bookvalue.getLike_count());
+		if(bookvalue==null) {
+			System.out.println("book_value 오류2");
+			Book_Like bookvalue2= new Book_Like();
+			bookvalue2.setLike_count(0);
+			bookvalue2.setE_count(0);
+			bookvalue2.setI_count(0);
+			bookvalue2.setS_count(0);
+			bookvalue2.setN_count(0);
+			bookvalue2.setT_count(0);
+			bookvalue2.setF_count(0);
+			bookvalue2.setP_count(0);
+			bookvalue2.setJ_count(0);
+			
+			mv.setViewName("review/review_detail");
+			mv.addObject("isbn", isbn);
+			mv.addObject("count", count);
+			mv.addObject("bookvalue", bookvalue2);
+		}
 		
+		else {
+			System.out.println("likecount값:"+bookvalue.getLike_count());
 		if(bookvalue.getE_count()==0 &&bookvalue.getI_count()==0) {
 			bookvalue.setE_count(0);
 			bookvalue.setI_count(0);
@@ -101,7 +121,7 @@ public class CommentController {
 		mv.addObject("isbn", isbn);
 		mv.addObject("count", count);
 		mv.addObject("bookvalue", bookvalue);
-		
+		}
 		return mv;
 	}
 	@RequestMapping(value = "/review_commentsadd.minji", method = RequestMethod.POST)

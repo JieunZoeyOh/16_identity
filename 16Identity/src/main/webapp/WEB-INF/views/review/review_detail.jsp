@@ -295,7 +295,8 @@ ul#subMenu {
                 btn.classList.remove('fa-heart');
             }
         }
-        
+        var ecount = ${bookvalue.e_count};
+        var icount=${bookvalue.i_count};
         graph.ready([ "chart.builder" ], function(builder) {
             builder("#chart", {
                 width: 800,
@@ -303,10 +304,10 @@ ul#subMenu {
                 theme : "classic",
                 axis : {
                     data : [
-                    	    { quarter : "E/I", samsung : ${bookvalue.e_count}, lg : ${bookvalue.i_count}},
-                    	    { quarter : "S/N", samsung : 20, lg : 20},
-                    	    { quarter : "T/F", samsung : 20, lg : 5},
-                    	    { quarter : "P/J", samsung : 30, lg : 25}
+                    	    { quarter : "E/I", samsung : ecount, lg : icount},
+                    	    { quarter : "S/N", samsung : ${bookvalue.s_count}, lg : ${bookvalue.n_count}},
+                    	    { quarter : "T/F", samsung : ${bookvalue.t_count}, lg : ${bookvalue.f_count}},
+                    	    { quarter : "P/J", samsung : ${bookvalue.p_count}, lg : ${bookvalue.j_count}}
                     ],
                     y : {
                         type : "block",
