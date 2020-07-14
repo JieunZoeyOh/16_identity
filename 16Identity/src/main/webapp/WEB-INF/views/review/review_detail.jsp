@@ -189,6 +189,10 @@ height: 200px;
 
 ul#subMenu {
     width:107px;
+}
+
+#chart{
+	padding-left:140px;
 }    
 </style>
 <jsp:include page="../main/header.jsp"/> 
@@ -294,7 +298,7 @@ ul#subMenu {
                 btn.classList.add('fa-heart-o');
                 btn.classList.remove('fa-heart');
             }
-        }
+        };
         var ecount = ${bookvalue.e_count};
         var icount=${bookvalue.i_count};
         graph.ready([ "chart.builder" ], function(builder) {
