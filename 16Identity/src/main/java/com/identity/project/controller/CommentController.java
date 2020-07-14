@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.identity.project.domain.Book;
+import com.identity.project.domain.Book_Like;
+import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Comments;
 import com.identity.project.service.BoardService;
 import com.identity.project.service.CommentService;
@@ -31,11 +33,74 @@ public class CommentController {
 	@RequestMapping(value = "/reviewpost.minji", method = RequestMethod.GET)
 	public ModelAndView  review_detail(ModelAndView mv, String isbn) {
 		int count = commentService.getListCount(isbn);
-		int like_count = boardService.getLikeCount(isbn);
+		
+		Book_Like bookvalue= new Book_Like();
+		
+		bookvalue = boardService.getLikeCount(isbn);
+		
+		System.out.println("likecount값:"+bookvalue.getLike_count());
+		
+		if(bookvalue.getE_count()==0 &&bookvalue.getI_count()==0) {
+			bookvalue.setE_count(0);
+			bookvalue.setI_count(0);
+		}
+		else {
+			int e_percent= bookvalue.getE_count()/(bookvalue.getE_count()+bookvalue.getI_count())*100;
+			bookvalue.setE_count(e_percent);
+			System.out.println("E 퍼센트 값="+e_percent);
+		
+			int i_percent= bookvalue.getI_count()/(bookvalue.getE_count()+bookvalue.getI_count())*100;
+			bookvalue.setI_count(i_percent);
+			System.out.println("I 퍼센트 값="+i_percent);
+		}
+		
+		if(bookvalue.getS_count()==0 &&bookvalue.getN_count()==0) {
+			bookvalue.setS_count(0);
+			bookvalue.setN_count(0);
+		}
+		else {
+			int s_percent= bookvalue.getS_count()/(bookvalue.getS_count()+bookvalue.getN_count())*100;
+			bookvalue.setS_count(s_percent);
+			System.out.println("S 퍼센트 값="+s_percent);
+			
+			int n_percent= bookvalue.getN_count()/(bookvalue.getS_count()+bookvalue.getN_count())*100;
+			bookvalue.setN_count(n_percent);
+			System.out.println("N 퍼센트 값="+n_percent);
+		}
+		
+		if(bookvalue.getT_count()==0 &&bookvalue.getF_count()==0) {
+			bookvalue.setT_count(0);
+			bookvalue.setF_count(0);
+		}
+		else {
+			int t_percent= bookvalue.getT_count()/(bookvalue.getT_count()+bookvalue.getF_count())*100;
+			bookvalue.setT_count(t_percent);
+			System.out.println("T 퍼센트 값="+t_percent);
+			
+			int f_percent= bookvalue.getF_count()/(bookvalue.getT_count()+bookvalue.getF_count())*100;
+			bookvalue.setF_count(f_percent);
+			System.out.println("F 퍼센트 값="+f_percent);
+		}
+		
+		if(bookvalue.getP_count()==0 &&bookvalue.getJ_count()==0) {
+			bookvalue.setP_count(0);
+			bookvalue.setJ_count(0);
+		}
+		
+		else {
+			int p_percent= bookvalue.getP_count()/(bookvalue.getP_count()+bookvalue.getJ_count())*100;
+			bookvalue.setP_count(p_percent);
+			System.out.println("P 퍼센트 값="+p_percent);
+			
+			int j_percent= bookvalue.getJ_count()/(bookvalue.getP_count()+bookvalue.getJ_count())*100;
+			bookvalue.setJ_count(j_percent);
+			System.out.println("J 퍼센트 값="+j_percent);
+		}
+		
 		mv.setViewName("review/review_detail");
 		mv.addObject("isbn", isbn);
 		mv.addObject("count", count);
-		mv.addObject("like_count", like_count);
+		mv.addObject("bookvalue", bookvalue);
 		
 		return mv;
 	}
@@ -64,16 +129,6 @@ public class CommentController {
 		 book.setB_datetime(book_date);
 		 book.setB_translators(translators);
 		 
-		System.out.println(content);
-		System.out.println(id);
-		System.out.println(isbn);
-		System.out.println(authors);
-		System.out.println(book_contents);
-		System.out.println(publisher);
-		System.out.println(book_price);
-		System.out.println(book_date);
-		System.out.println(translators);
-		
 		int book_ok = boardService.bookInsert(book);
 		
 		if(book_ok==1) {
@@ -149,14 +204,71 @@ public class CommentController {
 		return "redirect:reviewpost.minji";
 	}
 	
-	@RequestMapping(value = "like_action.minji", method = RequestMethod.GET)
+	@ResponseBody
+	@RequestMapping(value = "like_action.minji", method = RequestMethod.POST)
 	public int like_action(ModelAndView mv, HttpServletRequest request) throws Exception {
 		System.out.println("컨트롤러 도착");
-		System.out.println("isbn="+request.getParameter("isbn"));
-		System.out.println("id="+request.getParameter("id"));
+		
+		String authors= request.getParameter("authors");
+		String publisher= request.getParameter("publisher");
+		int book_price= Integer.parseInt(request.getParameter("book_price"));
+		String book_date= request.getParameter("book_date");
+		String book_contents= request.getParameter("book_contents");
+		String book_image= request.getParameter("book_image");
+		String title = request.getParameter("title");
+		String translators= request.getParameter("translators");
+		String isbn =request.getParameter("isbn");
+		String id= request.getParameter("id");
 		
 		
-		return 1;
+		Book book = new Book(); 
+		 book.setIsbn(isbn); 
+		 book.setB_title(title);
+		 book.setB_thumbnail(book_image);
+		 book.setB_authors(authors);
+		 book.setB_content(book_contents); 
+		 book.setB_publisher(publisher);
+		 book.setB_saleprice(book_price); 
+		 book.setB_datetime(book_date);
+		 book.setB_translators(translators);
+		
+		 int book_ok = boardService.bookInsert(book);
+			
+		if(book_ok==1) {
+			System.out.println("책 데이터 삽입 성공");
+		}
+		else {
+			System.out.println("책 데이터 이미 존재");
+		}
+		 
+		
+		int like_ok = boardService.likeInsert(isbn);
+		
+		if(like_ok==1) {
+			System.out.println("좋아요 테이블 삽입 성공");
+		}
+		
+		Book_Like_Date bld = new Book_Like_Date();
+		bld.setM_id(id);
+		bld.setIsbn(isbn);
+		int like_possible= boardService.like_action(bld); //좋아요 중복 방지
+		
+		if(like_possible==1) {
+			System.out.println("이미 좋아요한 사람입니다.");
+			int cancel_ok = boardService.cancel_like(bld);
+			System.out.println("좋아요 취소 결과:"+cancel_ok);
+			Book_Like bookvalue2= new Book_Like();
+			bookvalue2 = boardService.getLikeCount(isbn);
+			return bookvalue2.getLike_count();
+		}
+		
+		System.out.println("좋아요 안한 사람입니다.");
+		int add_like = boardService.add_like(bld);
+		int update_like= boardService.update_like(bld);
+		System.out.println("좋아요 결과:"+update_like);
+		Book_Like bookvalue3= new Book_Like();
+		bookvalue3 = boardService.getLikeCount(isbn);
+		return bookvalue3.getLike_count();
 	}
 	
 }

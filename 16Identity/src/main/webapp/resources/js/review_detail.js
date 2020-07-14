@@ -100,8 +100,7 @@ $(function() {
 		console.log("버튼 여부"+button_text);
 		//console.log("댓글 번호"+cmt_no);
 		
-		var authors_list = authors.join();
-		var translators_list= translators.join();
+		
 		console.log(authors.join());
 		
 		//여기서 if 시작
@@ -190,9 +189,16 @@ $(function() {
 			book_date = book_date.substring(0, 10);
 			book_contents = msg.documents[0].contents;
 			translators= msg.documents[0].translators;
+			authors_list = authors.join();
+			translators_list= translators.join();
 			
 			var isbn_original = msg.documents[0].isbn.slice(-13);
 			var isbn_short = isbn_original.slice(-3);
+			
+			if(msg.documents[0].contents==""){
+				book_contents = "책 소개가 없습니다.";
+			}
+			
 			$("#title").append(
 					"<h1>" + msg.documents[0].title
 							+ "</h1><hr><br>");
@@ -200,6 +206,11 @@ $(function() {
 					"<img id='book_image' src='http://image.kyobobook.co.kr/images/book/xlarge/"
 							+ isbn_short + "/x" + isbn_original
 							+ ".jpg'>");
+			$("#book_img").append(
+					"<input type='hidden' value='http://image.kyobobook.co.kr/images/book/large/"
+							+ isbn_short + "/l" + isbn_original
+							+ ".jpg'>");
+			
 			$("#authors").append(
 					"<h3> 저자 : " + msg.documents[0].authors
 							+ "</h3>");
@@ -222,9 +233,12 @@ $(function() {
 							+ "</h3><br>");
 			
 			$("#book_contents").append(
-					"<h2> 책소개</h2><h4>" + msg.documents[0].contents
+					"<h2> 책소개</h2><h4>" + book_contents
 							+ "</h4>");
 	
+			$("#book_image").on('error', function(){
+				$(this).prop('src', $(this).next().val());
+			})
 				});
 	
 });

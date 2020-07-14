@@ -3,6 +3,8 @@ package com.identity.project.service;
 import java.util.List;
 
 import com.identity.project.domain.Book;
+import com.identity.project.domain.Book_Like;
+import com.identity.project.domain.Book_Like_Date;
 
 public interface BoardService {
 
@@ -14,6 +16,14 @@ public interface BoardService {
 
 	int likeInsert(String isbn);
 
-	int getLikeCount(String isbn);
+	Book_Like getLikeCount(String isbn);
+
+	int like_action(Book_Like_Date bld);
+
+	int add_like(Book_Like_Date bld);
+
+	int update_like(Book_Like_Date bld);
+
+	int cancel_like(Book_Like_Date bld);
 
 }
