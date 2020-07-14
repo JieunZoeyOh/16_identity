@@ -4,8 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>16 identity MY_INFO PAGE</title>
-<link href="resources/css/updateform.css" type="text/css"
-	rel="stylesheet">
+<link href="resources/css/updateform.css" type="text/css" rel="stylesheet">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="resources/js/jquery-3.5.0.js"></script>
 <script src ="resources/js/updateform.js"></script>

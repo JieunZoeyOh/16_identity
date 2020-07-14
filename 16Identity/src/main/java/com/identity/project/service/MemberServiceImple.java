@@ -81,5 +81,10 @@ public class MemberServiceImple implements MemberService {
 	public String getMbtiNickname(String m_id) {
 		return dao.getMbtiNickname(m_id);
 	}
+
+	@Override
+	public Member profile(String m_id) {
+		return dao.profile(m_id);
+	}
 	
 }
