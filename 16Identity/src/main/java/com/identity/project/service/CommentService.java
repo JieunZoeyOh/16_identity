@@ -20,4 +20,10 @@ public interface CommentService {
 
 	int commentsUpdate(Comments cmt);
 
+
+	int listcount(String id);
+
+
+	List<Comments> getmyCommentList(String id);
+
 }

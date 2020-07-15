@@ -49,4 +49,14 @@ public class CommentDAO {
 		System.out.println(sqlSession.update("Comments.comments_update", cmt));
 		return sqlSession.update("Comments.comments_update", cmt);
 	}
+
+
+	public int listcount(String id) {
+		return sqlSession.selectOne("Comments.listcount", id);
+	}
+
+
+	public List<Comments> getmyCommentlist(Map<String, Object> map) {
+		return sqlSession.selectList("Comments.mycomment_list",map);
+	}
 }

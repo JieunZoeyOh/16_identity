@@ -21,12 +21,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import com.identity.project.domain.Comments;
 import com.identity.project.domain.Member;
+import com.identity.project.service.CommentService;
 import com.identity.project.service.MemberService;
 
 @Controller
@@ -35,6 +40,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberSerivce;
 
+	@Autowired
+	private CommentService commentService;
+	
 	@Value("${savefoldername}")
 	private String saveFolder;
 
@@ -345,20 +353,32 @@ public class MemberController {
 		}
 	}
 	
-	//myReview.net
-	@ResponseBody 
+	//myReview.net 
 	@RequestMapping(value = "/myReview.net")
 	public ModelAndView review(HttpSession session, ModelAndView mv,HttpServletRequest request) throws Exception {
 		String id = (String) session.getAttribute("m_id");
 		System.out.println("확인:" + id);
 		Member m = memberSerivce.profile(id);
+		List<Comments> commentlist = commentService.getmyCommentList(id);
+		int listcount = commentService.listcount(id); //내 리뷰 댓글 count
+		
 		mv.setViewName("mypage/myReview");
 		mv.addObject("profile", m);
+		mv.addObject("listcount",listcount);
+		mv.addObject("commentlist",commentlist);
 		return mv;
 	}
 	
-	
-	
-	
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping(value= "/myReviewAjax.net", method=RequestMethod.POST) public
+	 * Map<String, Object> myReviewAjax(HttpSession session){ String id = (String)
+	 * session.getAttribute("m_id"); int listcount = commentService.listcount(id);
+	 * System.out.println("확인 : " + listcount); List<Comments> commentlist =
+	 * commentService.getmyCommentList(id); Map<String, Object> map = new
+	 * HashMap<String, Object>(); map.put("listcount", listcount);
+	 * map.put("commentlist", commentlist); return map; }
+	 */
 	
 }

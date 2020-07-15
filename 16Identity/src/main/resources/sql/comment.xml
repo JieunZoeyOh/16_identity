@@ -36,4 +36,34 @@
 		update comments set CMT_CONTENT = #{cmt_content} where CMT_NO= #{cmt_no}
 	</update>
 	
+	<select id="listcount" resultType="int" parameterType="String">
+	select count(*) from comments where cmt_id = #{id}
+	</select>
+	
+	<select id="mycomment_list" parameterType="map" resultMap="commentMap">
+		select * from comments left join book on book.isbn=comments.isbn where cmt_id=#{id}
+	</select>
+	
+	<resultMap type="com.identity.project.domain.Comments" id="commentMap">
+		<id column="cmt_no"  property="cmt_no"/>
+		<result property="isbn" column="isbn" />
+		<result property="cmt_id" column="cmt_id" />
+		<result property="cmt_mbti" column="cmt_mbti"  />
+		<result property="cmt_content" column="cmt_content" />
+		<result property="cmt_date" column="cmt_date"  />
+		<result property="cmt_like" column="cmt_like"  />
+		
+		<association javaType="com.identity.project.domain.Book" property="book">
+         <id property="isbn" column="isbn"/>
+         <result property="b_title" column="b_title"/>
+         <result property="b_thumbnail" column="b_thumbnail"/>
+         <result property="b_content" column="b_content"/>
+         <result property="b_authors" column="b_authors"/>
+         <result property="mbti" column="mbti"/>
+         <result property="b_publisher" column="b_publisher"/>
+         <result property="b_saleprice" column="b_saleprice"/>
+         <result property="b_datetime" column="b_datetime"/>
+      </association>
+      
+	</resultMap>
 </mapper>

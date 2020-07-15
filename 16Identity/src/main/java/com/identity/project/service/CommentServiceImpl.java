@@ -50,4 +50,17 @@ public class CommentServiceImpl implements CommentService {
 		return dao.comment_update(cmt);
 	}
 
+	@Override
+	public int listcount(String id) {
+		return dao.listcount(id);
+	}
+
+	@Override
+	public List<Comments> getmyCommentList(String id) {
+
+		Map<String, Object> map= new HashMap<String, Object>();
+		map.put("id", id);
+		return dao.getmyCommentlist(map);
+	}
+
 }

@@ -9,7 +9,7 @@ public class Comments {
 	private String cmt_date;
 	private int cmt_like;
 	private String cmt_nickname;
-	
+	private Book book;
 	
 	public String getCmt_nickname() {
 		return cmt_nickname;
@@ -58,6 +58,12 @@ public class Comments {
 	}
 	public void setCmt_like(int cmt_like) {
 		this.cmt_like = cmt_like;
+	}
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	
 	
