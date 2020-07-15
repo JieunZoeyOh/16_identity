@@ -15,6 +15,7 @@ $(function(){
 	    pg : 'inicis', // version 1.1.0부터 지원.
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    customer_uid: "${m_id}",
 	    name : '주문명:${substate}',
 	    amount : 16900,
 	    buyer_email : '${m_id}',
