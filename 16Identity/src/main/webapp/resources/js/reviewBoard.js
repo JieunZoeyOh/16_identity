@@ -241,7 +241,8 @@ window.onload = function(){
     					for(var i=0; i<result.documents.length; i++){
     						var original_title = result.documents[i].title;
     						var shortTitle = result.documents[i].title.slice(0,30)+'...';
-    						var isbn = result.documents[i].isbn.slice(-13);
+    						var isbn = result.documents[i].isbn;
+    						var isbn0 = result.documents[0].isbn;
     						if(original_title.length<30){ //글자수 제한
     							autoOutput += `<div class="auto_result"><a href="reviewpost.minji?isbn='${isbn}'">${original_title}</a>`;
     						}else{
@@ -251,7 +252,7 @@ window.onload = function(){
     						autoOutput += `<input type="hidden" class="isbnNo" value='${isbn}'>`;
     						autoOutput += `</div>`;
     					}
-    					autoOutput += `<a href="reviewpost.minji?isbn='${result.documents[0].isbn.slice(-13)}'"><img src="${result.documents[0].thumbnail}"></a>`;
+    					autoOutput += `<a href="reviewpost.minji?isbn='${isbn0}'"><img src="${result.documents[0].thumbnail}"></a>`;
     					$('#autoComplete_box').append(autoOutput);
     					
     				})
