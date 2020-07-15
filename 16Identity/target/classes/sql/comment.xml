@@ -36,4 +36,7 @@
 		update comments set CMT_CONTENT = #{cmt_content} where CMT_NO= #{cmt_no}
 	</update>
 	
+	<select id="getCommentCount" resultType="int">
+		select count(*) from comments
+	</select>
 </mapper>

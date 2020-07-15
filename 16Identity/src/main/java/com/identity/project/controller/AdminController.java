@@ -27,8 +27,17 @@ public class AdminController {
 	private AdminService adminService;
 	
 	@RequestMapping(value = "/main.net", method = RequestMethod.GET)
-	public String main() {
-		return "admin/main";
+	public ModelAndView main(ModelAndView mv) {
+		int membercount = adminService.memberCount();
+		int warncount = adminService.warnCount();
+		int commentcount = adminService.commentCount();
+		int subcount = adminService.subCount();
+		mv.setViewName("admin/main");
+		mv.addObject("membercount",membercount);
+		mv.addObject("warncount",warncount);
+		mv.addObject("commentcount",commentcount);
+		mv.addObject("subcount",subcount);
+		return mv;
 	}
 	
 	@RequestMapping(value = "/member.net", method = RequestMethod.GET)

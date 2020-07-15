@@ -73,5 +73,21 @@ public class AdminDAO {
 	public List<Member> getMemberList() {
 		return sqlSession.selectList("Members.getList");
 	}
+
+	public int getMemberCount() {
+		return sqlSession.selectOne("Members.getMemberCount");
+	}
+
+	public int getWarnCount() {
+		return sqlSession.selectOne("Warns.getWarnCount");
+	}
+
+	public int getCommentCount() {
+		return sqlSession.selectOne("Comments.getCommentCount");
+	}
+
+	public int getSubCount() {
+		return sqlSession.selectOne("Subscribe.getSubCount");
+	}
 	
 }
