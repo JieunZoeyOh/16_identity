@@ -62,4 +62,12 @@
 	<update id="updateSub" parameterType="map">
 		update member set substate = #{substate}, subsdate=sysdate where m_id=#{m_id}
 	</update>
+	
+	<update id="dropSub" parameterType="String">
+		update member set substate = '구독안함' where m_id=#{m_id}
+	</update>
+	
+	<select id="getMemberCount" resultType="int">
+		select count(*) from member
+	</select>
 </mapper>

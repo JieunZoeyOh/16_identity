@@ -24,4 +24,8 @@ public interface AdminService {
 	void deliveryInsert(String m_id);
 	List<Deliver> getDList();
 	List<Member> getMemberList();
+	int memberCount();
+	int warnCount();
+	int commentCount();
+	int subCount();
 }

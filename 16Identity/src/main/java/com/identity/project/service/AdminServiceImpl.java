@@ -88,4 +88,24 @@ public class AdminServiceImpl implements AdminService {
 		return dao.getMemberList();
 	}
 
+	@Override
+	public int memberCount() {
+		return dao.getMemberCount();
+	}
+
+	@Override
+	public int warnCount() {
+		return dao.getWarnCount();
+	}
+
+	@Override
+	public int commentCount() {
+		return dao.getCommentCount();
+	}
+
+	@Override
+	public int subCount() {
+		return dao.getSubCount();
+	}
+
 }

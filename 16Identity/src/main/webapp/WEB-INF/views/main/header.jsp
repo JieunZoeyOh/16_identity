@@ -55,7 +55,6 @@ function openDrop(){
         </span>
     </div>
     
-    
     <nav id="main_sidebar">
         <ul id="sidebar_list">
             

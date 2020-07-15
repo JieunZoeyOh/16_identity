@@ -70,4 +70,7 @@
 		</association>
 	</resultMap>
 	
+	<select id="getSubCount" resultType="int">
+		select count(*) from member where substate like '%구독중%'
+	</select>
 </mapper>

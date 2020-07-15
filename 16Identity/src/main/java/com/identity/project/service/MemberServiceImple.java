@@ -108,5 +108,10 @@ public class MemberServiceImple implements MemberService {
 		map.put("substate", substate);
 		dao.UpdateSub(map);
 	}
+
+	@Override
+	public void dropSub(String m_id) {
+		dao.dropSub(m_id);
+	}
 	
 }

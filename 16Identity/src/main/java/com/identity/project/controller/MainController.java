@@ -1,8 +1,11 @@
 package com.identity.project.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,9 +69,29 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/kakaopaySuccess.com", method = RequestMethod.GET)
-	public void kakaopaySuccess(String m_id, String substate) {
-		System.out.println(m_id+"님의 "+substate+"성공");
+	public void kakaopaySuccess(String m_id, String substate,HttpSession session) {
 		memberService.updateSub(m_id, substate);
+		String state = memberService.getState(m_id);
+		session.setAttribute("substate", state);
+	}
+	
+	@RequestMapping(value = "/drop.com", method = RequestMethod.POST)
+	public void drop(String m_id, String m_password,HttpServletResponse response,HttpSession session) throws Exception {
+		int result = memberService.isId(m_id, m_password);
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		if(result==1) {
+			memberService.dropSub(m_id);
+			String state = memberService.getState(m_id);
+			session.setAttribute("substate", state);
+			out.println("alert('정기구독 해지 완료');");
+			out.println("self.close();");
+		} else {
+			out.println("alert('비밀번호가 틀렸습니다.');");
+			out.println("location.href='/16Identity/subscribe_drop.com';");
+		}
+		out.println("</script>");
 	}
 	
 	@RequestMapping(value = "/subscribe_drop.com", method = RequestMethod.GET)
