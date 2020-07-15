@@ -190,10 +190,15 @@ height: 200px;
 ul#subMenu {
     width:107px;
 }
-
 #chart{
 	padding-left:140px;
 }    
+#chart > svg > g:nth-child(1) > g.brush-fullstackbar > g:nth-child(1) > text:nth-child(4){
+	font-size:30px;	
+}
+#review_warn{
+	width:20px; height:20px;
+}
 </style>
 <jsp:include page="../main/header.jsp"/> 
 </head>
@@ -267,7 +272,6 @@ ul#subMenu {
     <script src="resources/js/demo.js"></script>
     <script src="resources/js/jui-chart.js"></script>
     <script>
-
 	$(window).on("load",function(){
 		$(".loader-wrapper").fadeOut(1000);
 		$('#mypage').on('click', function(){
@@ -298,9 +302,8 @@ ul#subMenu {
                 btn.classList.add('fa-heart-o');
                 btn.classList.remove('fa-heart');
             }
-        };
-        var ecount = ${bookvalue.e_count};
-        var icount=${bookvalue.i_count};
+        }
+        
         graph.ready([ "chart.builder" ], function(builder) {
             builder("#chart", {
                 width: 800,
@@ -308,7 +311,7 @@ ul#subMenu {
                 theme : "classic",
                 axis : {
                     data : [
-                    	    { quarter : "E/I", samsung : ecount, lg : icount},
+                    	    { quarter : "E/I", samsung : ${bookvalue.e_count}, lg : ${bookvalue.i_count}},
                     	    { quarter : "S/N", samsung : ${bookvalue.s_count}, lg : ${bookvalue.n_count}},
                     	    { quarter : "T/F", samsung : ${bookvalue.t_count}, lg : ${bookvalue.f_count}},
                     	    { quarter : "P/J", samsung : ${bookvalue.p_count}, lg : ${bookvalue.j_count}}
@@ -335,6 +338,8 @@ ul#subMenu {
                 },
             });
         });
+        
+       
 	})
 
     function menulist_over(){
@@ -379,7 +384,36 @@ ul#subMenu {
 				document.getElementById('btn').innerText=data;
 			}
 		});// ajax end 
+		
 	}
+    
+    function review_warn(t){
+    	console.log('신고합시다.');
+    	warn_cmt_no=  $(t).parent().next().next().text();
+    	console.log("댓글번호= "+warn_cmt_no);
+    	
+    	var input = prompt('신고사유를 작성해주세요');
+    	
+    	if(input !=null){
+    	$.ajax({
+ 			type : "post",
+ 			url : "comment_warn.minji",
+ 			data : {
+ 				"cmt_no":warn_cmt_no,
+ 				"warn_reason":input
+ 			},
+ 			success : function(data) {
+ 				if(data==1){
+					alert('신고 접수되었습니다.');
+ 				}
+ 				else{
+ 					alert('이미 신고하신 댓글입니다.')
+ 				}
+			}
+ 			
+    	 });// ajax end 
+    	}
+    }
     </script>
 
 </body>

@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
+import com.identity.project.domain.Warn;
+import com.identity.project.domain.Warn_Check;
 
 public interface CommentService {
 
@@ -19,5 +21,11 @@ public interface CommentService {
 
 
 	int commentsUpdate(Comments cmt);
+
+
+	int add_warn(Warn warn);
+
+
+	int warn_check(Warn_Check warn_check);
 
 }

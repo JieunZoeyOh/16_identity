@@ -49,12 +49,16 @@ $(function() {
 							
 							if($('#m_id').text()==this.cmt_id||$('#m_id').text()=='admin'){
 							output +="<a href='comment_delete.minji?cmt_no="+ this.cmt_no+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
-								   + "<img onclick='modify(this)' src='resources/image/comment_modify.png' id='review_modify'/>"; 
+								   + "&nbsp<img onclick='modify(this)' src='resources/image/comment_modify.png' id='review_modify'/>"; 
+							}
+							else{
+							output +="&nbsp&nbsp<img onclick='review_warn(this)' src='resources/image/review_warn.png' id='review_warn'/>";
 							}
 							output += "</p><p class='cmt_content'>"+this.cmt_content+"</p>" +
 									  "<p class='none_cmtno'>"+this.cmt_no+"</p>";
 									+ "<br>";
-							output += "<br>"+ this.cmt_date+"</div></div></div>";
+							output += "<br>"+ this.cmt_date;
+							output +="</div></div></div>";
 					});// each end
 					$("#comment tbody").append(output);
 

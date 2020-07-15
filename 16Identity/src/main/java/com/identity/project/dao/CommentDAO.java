@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Member;
+import com.identity.project.domain.Warn;
+import com.identity.project.domain.Warn_Check;
 
 @Repository
 public class CommentDAO {
@@ -48,5 +50,46 @@ public class CommentDAO {
 		System.out.println("DAO 내용 확인2 "+cmt.getCmt_no());
 		System.out.println(sqlSession.update("Comments.comments_update", cmt));
 		return sqlSession.update("Comments.comments_update", cmt);
+	}
+
+
+	public int add_warn(Warn warn) {
+		String m_id= sqlSession.selectOne("Comments.comments_info_id", warn.getCmt_no());
+		System.out.println("댓글 작성자 "+m_id);
+		warn.setM_id(m_id);
+		
+		Warn warn_check= new Warn();
+		warn_check = sqlSession.selectOne("Comments.warn_check", warn);
+		
+		if(warn_check==null) {
+			System.out.println("신고되지 않은 게시물 -insert 진행");
+			int result = sqlSession.insert("Comments.insert_warn", warn);
+			System.out.println("결과"+result);
+		}
+		else {
+			System.out.println("신고된 게시물 -update 진행");
+			warn_check.setW_count(warn_check.getW_count()+1);
+			warn_check.setW_reason(warn_check.getW_reason()+"/"+warn.getW_reason());
+			int result2= sqlSession.update("Comments.update_warn", warn_check);
+			System.out.println("결과"+result2);
+		}
+		return 0;
+	}
+
+
+	public int warn_check(Warn_Check warn_check) {
+		Warn_Check warn_check2= new Warn_Check();
+		warn_check2= sqlSession.selectOne("Comments.wc_check", warn_check);
+		
+		if(warn_check2==null) {
+			System.out.println("warn_check 테이블에 없음- 신고가능 ");
+			int result = sqlSession.insert("Comments.wc_insert", warn_check);
+			System.out.println("결과"+result);
+			return result;
+		}
+		else {
+			System.out.println("warn_check 테이블에 있음- 신고불가 ");
+			return 0;
+		}
 	}
 }

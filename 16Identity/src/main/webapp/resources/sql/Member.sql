@@ -32,4 +32,4 @@ ALTER TABLE member MODIFY(m_address_no varchar2(10));
 ALTER TABLE member ADD (warn_count number(5) DEFAULT 0);
  
 select * from member;
-
+ALTER TABLE member ADD(substate varchar2(20));
