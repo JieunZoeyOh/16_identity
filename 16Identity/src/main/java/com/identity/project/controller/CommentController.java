@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,8 @@ import com.identity.project.domain.Book;
 import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Comments;
+import com.identity.project.domain.Warn;
+import com.identity.project.domain.Warn_Check;
 import com.identity.project.service.BoardService;
 import com.identity.project.service.CommentService;
 
@@ -37,10 +40,9 @@ public class CommentController {
 		Book_Like bookvalue= new Book_Like();
 		
 		bookvalue = boardService.getLikeCount(isbn);
-		System.out.println("book_value 오류1");
 		
 		if(bookvalue==null) {
-			System.out.println("book_value 오류2");
+			System.out.println("책 좋아요 데이터 없음");
 			Book_Like bookvalue2= new Book_Like();
 			bookvalue2.setLike_count(0);
 			bookvalue2.setE_count(0);
@@ -74,13 +76,14 @@ public class CommentController {
 			bookvalue.setI_count(0);
 		}
 		else {
-			int e_percent= (bookvalue.getE_count()/(bookvalue.getE_count()+bookvalue.getI_count()))*100;
-			bookvalue.setE_count(e_percent);
-			System.out.println("E 퍼센트 값="+e_percent);
+			double e_percent= ((double)bookvalue.getE_count()/((double)(bookvalue.getE_count()+(double)bookvalue.getI_count())))*100;
 		
-			int i_percent= (bookvalue.getI_count()/(bookvalue.getE_count()+bookvalue.getI_count()))*100;
-			bookvalue.setI_count(i_percent);
-			System.out.println("I 퍼센트 값="+i_percent);
+			double i_percent= ((double)bookvalue.getI_count()/((double)(bookvalue.getI_count()+bookvalue.getE_count())))*100;
+			
+			bookvalue.setE_count(Integer.parseInt(String.valueOf(Math.round(e_percent))));
+			System.out.println("E 퍼센트 값="+bookvalue.getE_count());
+			bookvalue.setI_count(Integer.parseInt(String.valueOf(Math.round(i_percent))));
+			System.out.println("I 퍼센트 값="+bookvalue.getI_count());
 		}
 		
 		if(bookvalue.getS_count()==0 &&bookvalue.getN_count()==0) {
@@ -88,12 +91,12 @@ public class CommentController {
 			bookvalue.setN_count(0);
 		}
 		else {
-			int s_percent= (bookvalue.getS_count()/(bookvalue.getS_count()+bookvalue.getN_count()))*100;
-			bookvalue.setS_count(s_percent);
-			System.out.println("S 퍼센트 값="+s_percent);
+			double s_percent= ((double)bookvalue.getS_count()/(double)(bookvalue.getS_count()+bookvalue.getN_count()))*100;
+			double n_percent= ((double)bookvalue.getN_count()/(double)(bookvalue.getS_count()+bookvalue.getN_count()))*100;
 			
-			int n_percent= (bookvalue.getN_count()/(bookvalue.getS_count()+bookvalue.getN_count()))*100;
-			bookvalue.setN_count(n_percent);
+			bookvalue.setS_count(Integer.parseInt(String.valueOf(Math.round(s_percent))));
+			System.out.println("S 퍼센트 값="+s_percent);
+			bookvalue.setN_count(Integer.parseInt(String.valueOf(Math.round(n_percent))));
 			System.out.println("N 퍼센트 값="+n_percent);
 		}
 		
@@ -102,12 +105,12 @@ public class CommentController {
 			bookvalue.setF_count(0);
 		}
 		else {
-			int t_percent= (bookvalue.getT_count()/(bookvalue.getT_count()+bookvalue.getF_count()))*100;
-			bookvalue.setT_count(t_percent);
+			double t_percent= ((double)bookvalue.getT_count()/(double)(bookvalue.getT_count()+bookvalue.getF_count()))*100;
+			double f_percent= ((double)bookvalue.getF_count()/(double)(bookvalue.getT_count()+bookvalue.getF_count()))*100;
+		
+			bookvalue.setT_count(Integer.parseInt(String.valueOf(Math.round(t_percent))));
 			System.out.println("T 퍼센트 값="+t_percent);
-			
-			int f_percent= (bookvalue.getF_count()/(bookvalue.getT_count()+bookvalue.getF_count()))*100;
-			bookvalue.setF_count(f_percent);
+			bookvalue.setF_count(Integer.parseInt(String.valueOf(Math.round(f_percent))));
 			System.out.println("F 퍼센트 값="+f_percent);
 		}
 		
@@ -117,12 +120,12 @@ public class CommentController {
 		}
 		
 		else {
-			int p_percent= (bookvalue.getP_count()/(bookvalue.getP_count()+bookvalue.getJ_count()))*100;
-			bookvalue.setP_count(p_percent);
-			System.out.println("P 퍼센트 값="+p_percent);
+			double p_percent= ((double)bookvalue.getP_count()/(double)(bookvalue.getP_count()+bookvalue.getJ_count()))*100;
+			double j_percent= ((double)bookvalue.getJ_count()/(double)(bookvalue.getP_count()+bookvalue.getJ_count()))*100;
 			
-			int j_percent= (bookvalue.getJ_count()/(bookvalue.getP_count()+bookvalue.getJ_count()))*100;
-			bookvalue.setJ_count(j_percent);
+			bookvalue.setP_count(Integer.parseInt(String.valueOf(Math.round(p_percent))));
+			System.out.println("P 퍼센트 값="+p_percent);
+			bookvalue.setJ_count(Integer.parseInt(String.valueOf(Math.round(j_percent))));
 			System.out.println("J 퍼센트 값="+j_percent);
 		}
 		
@@ -298,6 +301,40 @@ public class CommentController {
 		Book_Like bookvalue3= new Book_Like();
 		bookvalue3 = boardService.getLikeCount(isbn);
 		return bookvalue3.getLike_count();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "comment_warn.minji", method = RequestMethod.POST)
+	public int CommentWarn(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		System.out.println(request.getParameter("cmt_no"));
+		int cmt_no =Integer.parseInt(request.getParameter("cmt_no"));
+		String warn_reason=request.getParameter("warn_reason");
+		System.out.println("댓글번호: "+cmt_no);
+		System.out.println("신고사유: "+warn_reason);
+		
+		String m_id = (String) session.getAttribute("m_id");
+		System.out.println("신고자 아이디: "+m_id);
+		
+		Warn_Check warn_check= new Warn_Check();
+		warn_check.setM_id(m_id);
+		warn_check.setCmt_no(cmt_no);
+		
+		int warn_check_ok = commentService.warn_check(warn_check);
+		
+		if(warn_check_ok==1) {
+			Warn warn = new Warn();
+			warn.setCmt_no(cmt_no);
+			warn.setW_reason(warn_reason);
+			int warn_ok = commentService.add_warn(warn);
+			System.out.println("신고 최종 완료");
+			return 1;
+		}
+		
+		else {
+			System.out.println("신고 중복");
+			return 0;
+		}
+		
 	}
 	
 }

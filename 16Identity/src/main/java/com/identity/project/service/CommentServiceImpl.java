@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.identity.project.dao.CommentDAO;
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
+import com.identity.project.domain.Warn;
+import com.identity.project.domain.Warn_Check;
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -48,6 +50,16 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public int commentsUpdate(Comments cmt) {
 		return dao.comment_update(cmt);
+	}
+
+	@Override
+	public int add_warn(Warn warn) {
+		return dao.add_warn(warn);
+	}
+
+	@Override
+	public int warn_check(Warn_Check warn_check) {
+		return dao.warn_check(warn_check);
 	}
 
 }

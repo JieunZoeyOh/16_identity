@@ -14,6 +14,8 @@
       <typeAlias alias="deliver" type="com.identity.project.domain.Deliver"/>
       <typeAlias alias="book_like_date" type="com.identity.project.domain.Book_Like_Date"/>
       <typeAlias alias="mbti" type="com.identity.project.domain.MBTI"/>
+      <typeAlias alias="warn" type="com.identity.project.domain.Warn"/>
+      <typeAlias alias="warn_check" type="com.identity.project.domain.Warn_Check"/>
    </typeAliases>
    
    <mappers>
