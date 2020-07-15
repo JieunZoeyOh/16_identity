@@ -25,5 +25,6 @@
       <mapper resource="sql/member.xml"/>
       <mapper resource="sql/book.xml"/>
       <mapper resource="sql/comment.xml"/>
+      <mapper resource="sql/warn.xml"/>
    </mappers>
 </configuration>

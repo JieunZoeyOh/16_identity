@@ -67,5 +67,9 @@ public class MemberDAO {
 	public void UpdateSub(Map<String, String> map) {
 		sqlSession.update("Members.updateSub",map);
 	}
+
+	public void dropSub(String m_id) {
+		sqlSession.update("Members.dropSub",m_id);
+	}
 	
 }
