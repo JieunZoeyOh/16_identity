@@ -19,7 +19,7 @@
             </li>
             <li id="main_mbti_best_review" class="m_p_zero"></li>
             <li id="main_mbti_best_recommend" class="m_p_zero"></li>
-        </ul>
+        </ul> 
     </div>
     <div id="main_mbti_recommend_section" class="m_p_zero">
          <nav class="main_mbti_recommend_nav" class="m_p_zero">
