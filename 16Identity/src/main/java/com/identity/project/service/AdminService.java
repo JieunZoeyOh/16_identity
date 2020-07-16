@@ -7,6 +7,7 @@ import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
+import com.identity.project.domain.Warn;
 
 public interface AdminService {
 
@@ -28,4 +29,5 @@ public interface AdminService {
 	int warnCount();
 	int commentCount();
 	int subCount();
+	List<Warn> warnList();
 }

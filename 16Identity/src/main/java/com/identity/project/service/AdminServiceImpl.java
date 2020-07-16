@@ -11,6 +11,7 @@ import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
+import com.identity.project.domain.Warn;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -106,6 +107,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int subCount() {
 		return dao.getSubCount();
+	}
+
+	@Override
+	public List<Warn> warnList() {
+		return dao.getWarnList();
 	}
 
 }

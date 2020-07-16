@@ -6,4 +6,8 @@
 	<select id="getWarnCount" resultType="int">
 		select count(*) from warn
 	</select>
+	
+	<select id="getWarnList" resultType="warn">
+		select * from warn
+	</select>
 </mapper>
