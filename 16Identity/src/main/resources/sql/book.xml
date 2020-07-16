@@ -73,15 +73,29 @@
 				  		where m_mbti = #{mbti}
 				  		and like_date between to_char(sysdate-7) and sysdate
 				  		group by isbn
-				  		order by cnt desc) x
+				  		order by cnt desc) x	
 				  )
 			where rnum >=1 and rnum <=4
 		]]>
 	</select>
 
 	<select id="getbookInfoFromisbn" parameterType="String" resultType="book">
-		select b_title, b_authors, isbn
+		select b_title, b_authors, isbn, b_translator
 		from book
 		where isbn = #{isbn}
+	</select>
+	
+	<select id="best_recommend_isbn_list" resultType="String">
+		<![CDATA[
+			select isbn
+			from (select ROWNUM rnum, x.*
+				  from (select isbn, count(*) cnt
+				  		from book_like_date
+				  		where like_date between to_char(sysdate-7) and sysdate
+				  		group by isbn
+				  		order by cnt desc) x
+				  )
+			where rnum >=1 and rnum <=4
+		]]>
 	</select>
 </mapper>

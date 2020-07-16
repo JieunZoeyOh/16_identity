@@ -39,8 +39,7 @@
                 <div id="mbti_recommend_list" class="m_p_zero">
                 <c:forEach var="mbtiname" items="${mbti_list}">
                 	<div id="mbti_recommend_section" class="m_p_zero">
-                    <c:forEach var="map" items="${mbtiRecommendList[mbtiname]}">
-                    	<c:forEach var="list" items="${map }">
+                    <c:forEach var="list" items="${mbtiRecommendList[mbtiname]}">
                     	<c:set var="full_isbn" value="${list.isbn}" />
                     	<c:set var="length" value="${fn:length(full_isbn)}"/>
                     	<c:set var="isbn_original" value="${fn:substring(full_isbn, length -13, length)}" />
@@ -50,15 +49,17 @@
                    			<img class="recom_img_src" src="http://image.kyobobook.co.kr/images/book/xlarge/${isbn_short}/x${isbn_original}.jpg" alt="${list.b_title}">
 							<input type="hidden" value="http://image.kyobobook.co.kr/images/book/large/${isbn_short}/l${isbn_original}.jpg">
 							<div class="mbti_recommend_book_description">
-							<dl>
-								<dt>${mbtiname}</dt>
-                         		<dd>${list.b_title }</dd>
-                          		<dd>${list.b_authors } 저</dd>
-                   			</dl>
+								<dl>
+									<dt>${mbtiname}</dt>
+	                         		<dd>${list.b_title }</dd>
+	                          		<dd>${list.b_authors } 저</dd>
+	                          		<c:if test="${!empty list.b_translator }">
+	                          			<dd>${list.b_translator } 역</dd>
+	                          		</c:if>
+	                   			</dl>
              				</div>
              				</a>
                    		</article>
-                   		</c:forEach>
                    	</c:forEach>
                    	</div>
                 </c:forEach>
@@ -72,80 +73,82 @@
                 <p style="background-color:#f8b24f">Best Review</p>
             </div>
             <div id="best_review_wrap">
+            	<div class="best_review_card">
                 <article class="best_review_book">
                     <div class="best_review_book_box"><!-- card front/thecard -->
                         <img src="resources/image/book/book5.jpg" alt="직장 갑질에서 살아남기">
                     </div>
                     <div class="best_review_book_box_back">
-                    	<img src="resources/image/note.png">
+                    	<!-- <img src="resources/image/note.png"> -->
                     	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	<div class="review_content">
+                    	
 한국에서 살고 있는가?
 당신 명의로 된 건물이 없는가?
 직업이 있는가?
 직업이 없다면 향후 구직 의사가 있는가?
 2인 이상의 사업체를 운영 중인가?
 그렇다면 꼭 읽어야 하는 책
-                    	</div>
+                    	
                     </div>
                 </article>
-               
+               </div>
+               <div class="best_review_card">
                 <article class="best_review_book">
                     <div class="best_review_book_box">
                         <img src="resources/image/book/book11.jpg" alt="시선으로 부터">
                     </div>
                     <div class="best_review_book_box_back">
-                    	<img src="resources/image/note.png">
+                    	<!-- <img src="resources/image/note.png"> -->
                     	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	<div class="review_content">
+                    	
 한국에서 살고 있는가?
 당신 명의로 된 건물이 없는가?
 직업이 있는가?
 직업이 없다면 향후 구직 의사가 있는가?
 2인 이상의 사업체를 운영 중인가?
 그렇다면 꼭 읽어야 하는 책
-                    	</div>
+                    	
                     </div>
                 </article>
-              
-               
+              </div>
+               <div class="best_review_card">
                 <article class="best_review_book">
                     <div class="best_review_book_box">
                         <img src="resources/image/book/book9.jpg" alt="귤의 맛">
                     </div>
                     <div class="best_review_book_box_back">
-                    	<img src="resources/image/note.png">
+                    	<!-- <img src="resources/image/note.png"> -->
                     	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	<div class="review_content">
+                    	
 한국에서 살고 있는가?
 당신 명의로 된 건물이 없는가?
 직업이 있는가?
 직업이 없다면 향후 구직 의사가 있는가?
 2인 이상의 사업체를 운영 중인가?
 그렇다면 꼭 읽어야 하는 책
-                    	</div>
+                    	
                     </div>
                 </article>
-               
-               
+               </div>
+               <div class="best_review_card">
                 <article class="best_review_book">
                     <div class="best_review_book_box">
                         <img src="resources/image/book/book10.jpg" alt="그릿">
                     </div>
                     <div class="best_review_book_box_back">
-                    	<img src="resources/image/note.png">
+                    	<!-- <img src="resources/image/note.png"> -->
                     	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	<div class="review_content">
+                    	
 한국에서 살고 있는가?
 당신 명의로 된 건물이 없는가?
 직업이 있는가?
 직업이 없다면 향후 구직 의사가 있는가?
 2인 이상의 사업체를 운영 중인가?
 그렇다면 꼭 읽어야 하는 책
-                    	</div>
+                    	
                     </div>
                 </article>
-                
+               </div> 
             </div>
         </section>
         <section id="main_best_recommend_part" class="m_p_zero">
@@ -154,47 +157,26 @@
                 <p style="background-color:#ea9a96">Best Recommend</p>
              </div>
             <div id="best_recommend_wrap">
+            <c:forEach var="list" items="${bestRecommendList}" varStatus="status">
                 <article class="best_recommend_book">
-                    <img src="resources/image/book/book8.jpg" alt="통찰과 역설" class="hvr-grow">
+                	<c:set var="full_isbn" value="${list.isbn}" />
+                    <c:set var="length" value="${fn:length(full_isbn)}"/>
+                    <c:set var="isbn_original" value="${fn:substring(full_isbn, length -13, length)}" />
+                    <c:set var="isbn_short" value="${fn:substring(full_isbn, length -3, length)}" />
+                    <img class="recom_img_src hvr-grow" src="http://image.kyobobook.co.kr/images/book/xlarge/${isbn_short}/x${isbn_original}.jpg" alt="${list.b_title}">
+					<input type="hidden" value="http://image.kyobobook.co.kr/images/book/large/${isbn_short}/l${isbn_original}.jpg">
                     <div class="best_recommend_book_description">
                         <dl>
-                            <dt>best1</dt>
-                            <dd>통찰과 역설</dd>
-                            <dd>천공</dd>
+                            <dt>best${status.count}</dt>
+                            <dd>${list.b_title}</dd>
+                            <dd>${list.b_authors } 저</dd>
+                       		<c:if test="${!empty list.b_translator }">
+                       			<dd>${list.b_translator } 역</dd>
+                       		</c:if>
                         </dl>
                     </div> 
                 </article>
-                <article class="best_recommend_book">
-                    <img src="resources/image/book/book12.jpg" alt="사랑의 역사" class="hvr-grow">
-                    <div class="best_recommend_book_description">
-                        <dl>
-                            <dt>best2</dt>
-                            <dd>사랑의 역사</dd>
-                            <dd>니콜 크라우스 저</dd>
-                            <dd>민은영 역</dd>
-                        </dl>
-                    </div> 
-                </article>
-                <article class="best_recommend_book">
-                    <img src="resources/image/book/book10.jpg" alt="귤의 맛" class="hvr-grow">
-                    <div class="best_recommend_book_description">
-                        <dl>
-                            <dt>best3</dt>
-                            <dd>귤의 맛</dd>
-                            <dd>조남주</dd>
-                        </dl>
-                    </div> 
-                </article>
-                <article class="best_recommend_book">
-                    <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때" class="hvr-grow">
-                    <div class="best_recommend_book_description">
-                        <dl>
-                            <dt>best4</dt>
-                            <dd>내가 원하는 것을 나도 모를 때</dd>
-                            <dd>전승환</dd>
-                        </dl>
-                    </div> 
-                </article>
+            </c:forEach>    
             </div>
         </section>  
     </div>
@@ -217,6 +199,8 @@
 				$(this).prop('src', $(this).next().val());
 			})
 			$('.best_review_wrap').find('article').hover();
+			
+			$('')
 		})
 	</script>
 </body>

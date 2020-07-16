@@ -11,9 +11,15 @@ public class Book {
 	private int b_saleprice;
 	private String b_datetime;
 	private String b_translators;
+	private String b_translator;
 	
 	
-	
+	public String getB_translator() {
+		return b_translator;
+	}
+	public void setB_translator(String b_translator) {
+		this.b_translator = b_translator;
+	}
 	public String getB_translators() {
 		return b_translators;
 	}

@@ -9,5 +9,7 @@ public interface MainService {
 
 	List<String> getMbtiList();
 
-	Map<String, List<List<Book>>> getMbtiRecommendList(List<String> mbti_list);
+	Map<String, List<Book>> getMbtiRecommendList(List<String> mbti_list);
+
+	List<Book> getBestRecommendList();
 }
