@@ -21,16 +21,25 @@ public class MainDAO {
 		return sqlSession.selectList("Books.mbtiList");
 	}
 
-	public Map<String, List<List<Book>>> mbtiRecommendList(List<String> mbti_list) {
-		Map<String, List<List<Book>>> mbtiRecommendList = new HashMap<String, List<List<Book>>>();
+	public Map<String, List<Book>> mbtiRecommendList(List<String> mbti_list) {
+		Map<String, List<Book>> mbtiRecommendList = new HashMap<String, List<Book>>();
 		for(String mbti : mbti_list) {
 			List<String> book_isbn = sqlSession.selectList("Books.recommend_book_isbn_list", mbti);
-			List<List<Book>> list = new ArrayList<List<Book>>();
+			List<Book> list = new ArrayList<Book>();
 			for(int i=0; i<book_isbn.size(); i++) {
-				list.add(sqlSession.selectList("Books.getbookInfoFromisbn", book_isbn.get(i)));
+				list.add(sqlSession.selectOne("Books.getbookInfoFromisbn", book_isbn.get(i)));
 			}
 			mbtiRecommendList.put(mbti, list);
 		}
 		return mbtiRecommendList;
+	}
+	
+	public List<Book> bestRecommendList() {
+		List<String> book_isbn = sqlSession.selectList("Books.best_recommend_isbn_list");
+		List<Book> list = new ArrayList<Book>();
+		for(int i=0; i<book_isbn.size(); i++) {
+			list.add(sqlSession.selectOne("Books.getbookInfoFromisbn", book_isbn.get(i)));
+		}
+		return list;
 	}
 }

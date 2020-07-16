@@ -32,10 +32,13 @@ public class MainController {
 		//1. mbti 목록 불러오기
 		List<String> mbti_list = mainService.getMbtiList();
 		//2. mbti recommend 불러오기 (각 mbti별 4권)
-		Map<String, List<List<Book>>> mbtiRecommendList = mainService.getMbtiRecommendList(mbti_list); 
+		Map<String, List<Book>> mbtiRecommendList = mainService.getMbtiRecommendList(mbti_list); 
 		//3. best review 불러오기(총 4권 - isbn,content)
+		//4. best recommend 불러오기 (총4권 - isbn, title, authors)
+		List<Book> bestRecommendList = mainService.getBestRecommendList();
 		mv.addObject("mbti_list", mbti_list);
 		mv.addObject("mbtiRecommendList", mbtiRecommendList);
+		mv.addObject("bestRecommendList", bestRecommendList);
 		mv.setViewName("main/main");
 		
 		return mv;

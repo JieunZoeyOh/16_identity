@@ -21,8 +21,13 @@ public class MainServiceImpl implements MainService{
 	}
 
 	@Override
-	public Map<String, List<List<Book>>> getMbtiRecommendList(List<String> mbti_list) {
+	public Map<String, List<Book>> getMbtiRecommendList(List<String> mbti_list) {
 		return dao.mbtiRecommendList(mbti_list);
+	}
+
+	@Override
+	public List<Book> getBestRecommendList() {
+		return dao.bestRecommendList();
 	}
 
 }
