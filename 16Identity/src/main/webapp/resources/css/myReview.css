@@ -2,7 +2,7 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
 @charset "UTF-8";
 
-* { box-sizing: border-box;padding:0;margin:0;text-align: left; font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+* { box-sizing: border-box;padding:0;margin:0;font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
 .clearfix:after {content:""; display:block; clear:both; visibility:hidden; line-height:0; height:0;}
 .clearfix {display:block;}
 .uploadimg{border-radius: 50%; width: 200px; height: 200px;}
@@ -12,47 +12,32 @@
 body{width:100%;max-width: 1920px;margin:0 auto;font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';}
 footer {height : 200px; background-color : #f8b24f; }
 
-.hero {
-    display: inline-block;
-    width: 100%;
-    height: 500px;
-    position: relative;
-  
-  }
-  .diagonal-hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 350px;
-    background: #2b5876; 
-    background: -webkit-linear-gradient(to right, #1f0d0d, #271404); 
-    background: linear-gradient(to right ,#1f0d0d, #1f0d0d); 
-    z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-  }
-  
+.hero {display: inline-block; width: 100%; height: 500px; position: relative;}
+.diagonal-hero-bg {position: absolute;top: 0;left: 0;width: 100%; height: 350px; background: #2b5876; background: -webkit-linear-gradient(to right, #1f0d0d, #271404); 
+    			   background: linear-gradient(to right ,#1f0d0d, #1f0d0d); z-index: -1; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%); }
   
 #container{width:100%;position: relative;overflow-x: hidden;}
 
 .menu {display: inline-block; padding: 40px;}
 
-.logoimg {margin-top : 20px; width : 300px; }
+.logoimg {margin-top: 37px; width: 300px; margin-left: 59px;}
 .menu-control {margin: 0 140; border: none; border-bottom: 1px solid black; padding: 13px; font-size: 18;}
 .menu-control>option{ text-align: center; line-height: 5px; }
 
+.flip-card-wrap clearfix{ background-color : #303960}
 .info{float:left;width:25%;}
 .card_wrap{float:left;width:80%;}
 .card_wrap .flip-card{float:left;width:32.5%;height:360px;background-color: transparent;margin-right: 10px;margin-top:10px;}
 .card_wrap .flip-card:nth-child(3n){margin-right:0;}
 .card_wrap .flip-card .flip-card-inner{display:block;height:100%;transition: transform 0.8s;transform-style: preserve-3d;text-align: center;position: relative;}
 .card_wrap .flip-card:hover .flip-card-inner{transform:rotateY(180deg)}
-.card_wrap .flip-card .flip-card-inner > div{position: absolute;width:100%;height:100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;border: 1px solid #f1f1f1;}
-.card_wrap .flip-card-front {background-color: white;color: black; text-align : center;}
+.card_wrap .flip-card .flip-card-inner > div{position: absolute;width:100%;height:100%;-webkit-backface-visibility: hidden;backface-visibility: hidden; border: 2px solid #050921;}
+.card_wrap .flip-card-front {background-color: white;color: black; text-align : center; border-radius:15px; }
 .card_wrap .flip-card-front img {height : 100%; width: auto; margin: 0 auto;}
-.card_wrap .flip-card-back {background-color: dodgerblue;color: white;transform: rotateY(180deg);}
+.card_wrap .flip-card-back {background-color: white;color: black;transform: rotateY(180deg); text-align :center; background-image: url(../image/post.jpg); background-size : 100%; 
+							border-radius:15px; background-repeat: no-repeat;background-position-x: center;background-position-y: center;}
 
-.slider{padding:30px 60px; width: 80%; margin-left: 450px; bottom: 350px;}
+.slider{padding:30px 60px; width: 80%; margin-left: 450px; bottom: 322px;; background-color:#cbccd1; border-radius : 15px;}
 .slider .slick-slide{height:auto;}
 .slider .slick-slide > div{margin:0;}
 .slider .slick-arrow{position: absolute;top:50%;width:19px;height:31px;font-size:0;background-repeat: no-repeat;background-position: center;background: transparent;border:none;}

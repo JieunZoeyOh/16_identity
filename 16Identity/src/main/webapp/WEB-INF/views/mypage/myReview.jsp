@@ -15,6 +15,9 @@
 #sidebar_list {
 	margin-top: 16px !important;
 }
+
+.modal > p {margin:16px 0px !important;}
+.form_wrap > form { margin-bottom : 16px !important;} 
 </style>
 </head>
 <body>
@@ -69,8 +72,11 @@
 										<img src="${m.book.b_thumbnail }">
 									</div>
 									<div class='flip-card-back'>
-										<p>${m.cmt_content }</p>
+									<br><br><br><br>
 										<p>${m.cmt_date}</p>
+										<p>${m.cmt_mbti}</p><br>
+										
+										<p>${m.cmt_content }</p>
 									</div>
 								</a>
 							</div>
