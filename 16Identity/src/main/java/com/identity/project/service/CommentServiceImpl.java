@@ -61,5 +61,18 @@ public class CommentServiceImpl implements CommentService {
 	public int warn_check(Warn_Check warn_check) {
 		return dao.warn_check(warn_check);
 	}
+	
+	@Override
+	public int listcount(String id) {
+		return dao.listcount(id);
+	}
+
+	@Override
+	public List<Comments> getmyCommentList(String id) {
+
+		Map<String, Object> map= new HashMap<String, Object>();
+		map.put("id", id);
+		return dao.getmyCommentlist(map);
+	}
 
 }

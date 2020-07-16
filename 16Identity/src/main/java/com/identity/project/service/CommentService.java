@@ -28,4 +28,10 @@ public interface CommentService {
 
 	int warn_check(Warn_Check warn_check);
 
+	
+	int listcount(String id);
+
+
+	List<Comments> getmyCommentList(String id);
+
 }

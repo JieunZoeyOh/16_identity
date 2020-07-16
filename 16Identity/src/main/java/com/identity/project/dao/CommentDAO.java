@@ -92,4 +92,13 @@ public class CommentDAO {
 			return 0;
 		}
 	}
+
+	public int listcount(String id) {
+		return sqlSession.selectOne("Comments.listcount", id);
+	}
+
+
+	public List<Comments> getmyCommentlist(Map<String, Object> map) {
+		return sqlSession.selectList("Comments.mycomment_list",map);
+	}
 }
