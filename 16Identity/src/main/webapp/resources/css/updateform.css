@@ -65,7 +65,7 @@ input[type=text], input[type=password] {
  
 .menu {display: inline-block; padding: 40px;}
 
-.logoimg {margin-top : 20px; width : 300px; }
+.logoimg {margin-top: 37px; width: 300px; margin-left: 59px;}
 .menu-control {margin: 0 140; border: none; border-bottom: 1px solid black; padding: 13px; font-size: 18;
 }
 
@@ -97,7 +97,7 @@ input[type=text]:focus, input[type=password]:focus {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    cursor: pointer; /* �հ��� Ŀ�� ��� */
+    cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占� */
     width: 50%;
     opacity: 0.9;
     border-radius: 30em;
@@ -110,7 +110,7 @@ input[type=text]:focus, input[type=password]:focus {
     font-weight: bold;
     margin: 8px 0;
     border: none;
-    cursor: pointer; /* �հ��� Ŀ�� ��� */
+    cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占� */
     width: 50%;
     opacity: 0.9;
     border-radius: 30em;

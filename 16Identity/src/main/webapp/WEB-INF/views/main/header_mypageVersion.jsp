@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,6 +18,9 @@ var popupY= (window.screen.height/2) - (popupHeight/2);
 function openWin(){  
     window.open("subscribe_apply.com?m_id=${m_id }", "정기구독", 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 }
+function openDrop(){  
+    window.open("subscribe_drop.com?m_id=${m_id }", "구독해지", 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+}
 </script>
 <style>
     .blind{display:none;}
@@ -27,7 +31,7 @@ function openWin(){
     .modal{display: none;position:fixed;top:50%;left:50%;z-index: 3;width: 500px;transform: translate(-50%, -50%);background-color: #fff;border-radius: 10px;}
     .modal.on{display: block;}
 
-    .modal p{padding-left: 30px;;}
+    .modal p{padding-left: 30px;}
     .modal .form_wrap{padding: 10px 30px 70px;height:100%;}
     .modal .form_wrap form label{display: block;}
     .modal .form_wrap form input[type=password]{width: 100%;border-radius: 10px;border:1px solid gray;padding:10px 10px;}
@@ -79,11 +83,11 @@ function openWin(){
                     <span class="tooltipcontent"><b>정기 구독</b></span>
                 </a>
                 <ul id="subMenu">
-                <c:if test="${substate == 0}">
+                <c:if test="${substate=='구독안함'}">
                     <li><div class="square"></div><a href="javascript:openWin();" >구독 신청</a></li>
                 </c:if>
-                <c:if test="${substate == 1}">
-                    <li><div class="square"></div><a href="#">구독 해지</a></li>
+                <c:if test="${fn:contains(substate, '구독중')}">
+                    <li><div class="square"></div><a href="javascript:openDrop();">구독 해지</a></li>
                 </c:if>
                 </ul>
             </li>
