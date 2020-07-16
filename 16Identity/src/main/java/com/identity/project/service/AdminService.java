@@ -30,4 +30,6 @@ public interface AdminService {
 	int commentCount();
 	int subCount();
 	List<Warn> warnList();
+	int warnDelete(int cmt_no);
+	int commentDelete(int cmt_no);
 }

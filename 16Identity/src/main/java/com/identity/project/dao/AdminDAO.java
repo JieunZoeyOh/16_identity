@@ -94,5 +94,13 @@ public class AdminDAO {
 	public List<Warn> getWarnList() {
 		return sqlSession.selectList("Warns.getWarnList");
 	}
+
+	public int warnDelete(int cmt_no) {
+		return sqlSession.delete("Warns.warnDel",cmt_no);
+	}
+
+	public int commentDelete(int cmt_no) {
+		return sqlSession.delete("Comments.getCommentDel");
+	}
 	
 }

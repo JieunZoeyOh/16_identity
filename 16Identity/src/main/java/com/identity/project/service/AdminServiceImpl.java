@@ -114,4 +114,14 @@ public class AdminServiceImpl implements AdminService {
 		return dao.getWarnList();
 	}
 
+	@Override
+	public int warnDelete(int cmt_no) {
+		return dao.warnDelete(cmt_no);
+	}
+
+	@Override
+	public int commentDelete(int cmt_no) {
+		return dao.commentDelete(cmt_no);
+	}
+
 }

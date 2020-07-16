@@ -1,5 +1,7 @@
 package com.identity.project.domain;
 
+import java.util.List;
+
 public class Warn {
 	private int w_no;
 	private String m_id;
@@ -7,6 +9,9 @@ public class Warn {
 	private String w_reason;
 	private String w_date;
 	private int w_count;
+	private List<Warn_Check> warn_check;
+	private Comments comments;
+	
 	public int getW_no() {
 		return w_no;
 	}
@@ -43,6 +48,16 @@ public class Warn {
 	public void setW_count(int w_count) {
 		this.w_count = w_count;
 	}
-	
-	
+	public List<Warn_Check> getWarn_check() {
+		return warn_check;
+	}
+	public void setWarn_check(List<Warn_Check> warn_check) {
+		this.warn_check = warn_check;
+	}
+	public Comments getComments() {
+		return comments;
+	}
+	public void setComments(Comments comments) {
+		this.comments = comments;
+	}
 }
