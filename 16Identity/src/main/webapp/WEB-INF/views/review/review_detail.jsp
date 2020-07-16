@@ -157,7 +157,7 @@ border-radius:8px
 
 .card {
     box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.2) !important;
-    height: 200px;
+    height: 210px;
 }
 .card_header{
 	font-size: 19px;
@@ -430,6 +430,28 @@ ul#subMenu {
     	console.log('댓글 좋아요 합시당');
     	like_cmt_no= $(t).parent().prev().prev().prev().text();
     	console.log('댓글번호 '+like_cmt_no);
+    	console.log('이전 좋아요 수 '+$(t).next().text());
+    	prior_likecount= $(t).next().text();
+    	
+    	$.ajax({
+    		type : "post",
+ 			url : "comment_like.minji",
+ 			data : {
+ 				"cmt_no":like_cmt_no,
+ 			},
+ 			dataType : "json",
+ 			success : function(data){
+ 				if (prior_likecount>data){
+ 					alert('좋아요 취소되었습니다.');
+ 					$(t).next().text(data);
+ 				}
+ 				else if(prior_likecount<data){
+ 					alert('좋아요 되었습니다.');
+ 					$(t).next().text(data);
+ 				}
+			}
+    	});// ajax end 
+    	
     }
     </script>
 

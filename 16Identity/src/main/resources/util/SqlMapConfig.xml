@@ -15,6 +15,7 @@
       <typeAlias alias="mbti" type="com.identity.project.domain.MBTI"/>
       <typeAlias alias="warn" type="com.identity.project.domain.Warn"/>
       <typeAlias alias="warn_check" type="com.identity.project.domain.Warn_Check"/>
+      <typeAlias alias="c_like" type="com.identity.project.domain.Comments_Like"/>
    </typeAliases>
    
    <mappers>

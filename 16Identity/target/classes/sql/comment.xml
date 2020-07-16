@@ -93,4 +93,28 @@
       </association>
       
 	</resultMap>
+	
+	<select id="cm_check" parameterType="c_like" resultType="c_like" >
+		select * from comments_like where cmt_no=#{cmt_no} and cmt_like_id=#{cmt_like_id}
+	</select>
+	
+	<insert id="cl_insert" parameterType="c_like">
+		insert into comments_like values (cl_seq.nextval, #{cmt_no}, #{cmt_like_id}, sysdate)
+	</insert>
+	
+	<update id="cm_update" parameterType="int">
+		UPDATE COMMENTS SET CMT_LIKE = CMT_LIKE +1 WHERE CMT_NO=#{cmt_no}
+	</update>
+	
+	<select id="comment_info" resultType="C" parameterType="int">
+		select * from comments where cmt_no=#{cmt_no}
+	</select>
+	
+	<delete id="cl_delete" parameterType="c_like">
+		delete from comments_like where cmt_no=#{cmt_no} and cmt_like_id=#{cmt_like_id}
+	</delete>
+	
+	<update id="cm_update_minus" parameterType="int">
+		UPDATE COMMENTS SET CMT_LIKE = CMT_LIKE -1 WHERE CMT_NO=#{cmt_no}
+	</update>
 </mapper>

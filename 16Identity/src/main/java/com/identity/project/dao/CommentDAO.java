@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
+import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Warn;
 import com.identity.project.domain.Warn_Check;
@@ -100,5 +101,52 @@ public class CommentDAO {
 
 	public List<Comments> getmyCommentlist(Map<String, Object> map) {
 		return sqlSession.selectList("Comments.mycomment_list",map);
+	}
+
+
+	public int cmt_like(Comments_Like cmt_like) {
+		Comments_Like cm_check = new Comments_Like();
+		System.out.println("확인하려는 댓글번호:"+ cmt_like.getCmt_no());
+		System.out.println("확인하려는 아이디:"+ cmt_like.getCmt_like_id());
+		
+		cm_check = sqlSession.selectOne("Comments.cm_check", cmt_like);
+		if(cm_check ==null) {
+			System.out.println("좋아요 가능- insert, update 실행");
+			//comments_like - insert
+			int result1= sqlSession.insert("Comments.cl_insert", cmt_like);
+			
+			int result2= sqlSession.update("Comments.cm_update", cmt_like.getCmt_no());
+				
+			if(result1 == 1 && result2==1) {
+				System.out.println("댓글 좋아요 성공");
+			}
+			
+			Comments cm = new Comments();
+			cm.setCmt_no(cmt_like.getCmt_no());
+			int cmt_no= cm.getCmt_no();
+			cm = sqlSession.selectOne("Comments.comment_info", cmt_no);
+			System.out.println("좋아요 눌린 댓글의 현재 좋아요 수"+cm.getCmt_like());
+			return cm.getCmt_like();
+		}
+		else {
+			System.out.println("좋아요 취소- delete, update 실행");
+			//comments_like - delete
+			int result1= sqlSession.delete("Comments.cl_delete", cmt_like);
+			
+			int result2= sqlSession.update("Comments.cm_update_minus", cmt_like.getCmt_no());
+				
+			if(result1 == 1 && result2==1) {
+				System.out.println("댓글 좋아요 취소 성공");
+			}
+			
+			Comments cm = new Comments();
+			cm.setCmt_no(cmt_like.getCmt_no());
+			int cmt_no= cm.getCmt_no();
+			cm = sqlSession.selectOne("Comments.comment_info", cmt_no);
+			System.out.println("좋아요 눌린 댓글의 현재 좋아요 수"+cm.getCmt_like());
+			return cm.getCmt_like();
+			
+		}
+	
 	}
 }
