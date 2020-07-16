@@ -2,6 +2,7 @@ package com.identity.project.controller;
 
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.identity.project.domain.Book;
 import com.identity.project.domain.Member;
 import com.identity.project.service.MainService;
 import com.identity.project.service.MemberService;
@@ -29,8 +31,11 @@ public class MainController {
 	public ModelAndView main(ModelAndView mv) {
 		//1. mbti 목록 불러오기
 		List<String> mbti_list = mainService.getMbtiList();
-		
+		//2. mbti recommend 불러오기 (각 mbti별 4권)
+		Map<String, List<List<Book>>> mbtiRecommendList = mainService.getMbtiRecommendList(mbti_list); 
+		//3. best review 불러오기(총 4권 - isbn,content)
 		mv.addObject("mbti_list", mbti_list);
+		mv.addObject("mbtiRecommendList", mbtiRecommendList);
 		mv.setViewName("main/main");
 		
 		return mv;
