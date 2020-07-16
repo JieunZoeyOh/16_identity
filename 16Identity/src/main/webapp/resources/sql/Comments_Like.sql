@@ -9,3 +9,5 @@ foreign key (cmt_like_id)
 references member(m_id) on delete cascade
 );
 --완료
+
+create sequence cl_seq increment by 1 start with 1;

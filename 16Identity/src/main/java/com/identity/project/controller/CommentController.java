@@ -20,6 +20,7 @@ import com.identity.project.domain.Book;
 import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Comments;
+import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Warn;
 import com.identity.project.domain.Warn_Check;
 import com.identity.project.service.BoardService;
@@ -338,4 +339,19 @@ public class CommentController {
 		
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "comment_like.minji", method = RequestMethod.POST)
+	public int CommentLike(HttpSession session, HttpServletRequest request) throws Exception{
+		System.out.println("댓글 번호"+request.getParameter("cmt_no"));
+		int cmt_no =Integer.parseInt(request.getParameter("cmt_no"));
+		String m_id = (String) session.getAttribute("m_id");
+		
+		Comments_Like cmt_like = new Comments_Like();
+		cmt_like.setCmt_no(cmt_no);
+		cmt_like.setCmt_like_id(m_id);
+		
+		int cmt_like_ok= commentService.cmt_like(cmt_like);
+		System.out.println("컨트롤러에서 좋아요 수:"+cmt_like_ok);
+		return cmt_like_ok;
+	}
 }

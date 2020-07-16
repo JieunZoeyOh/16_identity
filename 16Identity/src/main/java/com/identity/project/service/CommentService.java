@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
+import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Warn;
 import com.identity.project.domain.Warn_Check;
 
@@ -33,5 +34,8 @@ public interface CommentService {
 
 
 	List<Comments> getmyCommentList(String id);
+
+
+	int cmt_like(Comments_Like cmt_like);
 
 }
