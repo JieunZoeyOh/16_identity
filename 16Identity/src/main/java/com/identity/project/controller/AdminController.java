@@ -19,6 +19,7 @@ import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
+import com.identity.project.domain.Warn;
 import com.identity.project.service.AdminService;
 
 @Controller
@@ -125,6 +126,14 @@ public class AdminController {
 		}
 
 		mv.setViewName("admin/admin_subscribe");
+		mv.addObject("list", list);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/report.net")
+	public ModelAndView subscribe(ModelAndView mv) {
+		List<Warn> list = adminService.warnList();
+		mv.setViewName("admin/admin_report");
 		mv.addObject("list", list);
 		return mv;
 	}

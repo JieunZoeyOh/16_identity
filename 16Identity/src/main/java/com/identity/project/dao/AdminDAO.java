@@ -11,6 +11,7 @@ import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
+import com.identity.project.domain.Warn;
 
 @Repository
 public class AdminDAO {
@@ -88,6 +89,10 @@ public class AdminDAO {
 
 	public int getSubCount() {
 		return sqlSession.selectOne("Subscribe.getSubCount");
+	}
+
+	public List<Warn> getWarnList() {
+		return sqlSession.selectList("Warns.getWarnList");
 	}
 	
 }
