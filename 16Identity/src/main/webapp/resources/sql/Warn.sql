@@ -21,3 +21,5 @@ create table warn_check(
 );
 
 create sequence wc_seq;
+
+ALTER TABLE WARN_CHECK ADD(W_REASON VARCHAR2(50));

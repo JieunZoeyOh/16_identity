@@ -6,6 +6,15 @@ private int wc_no;
 private String m_id;
 private int cmt_no;
 private String wc_date;
+private String w_reason;
+
+
+public String getW_reason() {
+	return w_reason;
+}
+public void setW_reason(String w_reason) {
+	this.w_reason = w_reason;
+}
 public int getWc_no() {
 	return wc_no;
 }
