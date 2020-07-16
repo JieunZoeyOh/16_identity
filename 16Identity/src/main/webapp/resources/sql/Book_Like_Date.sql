@@ -17,3 +17,11 @@ create sequence bld_no increment by 1 start with 1;
 
 --alter isbn 크기 늘림
 ALTER TABLE book_like_date MODIFY(isbn VARCHAR(30));
+
+select ROWNUM rnum, x.*
+from (select isbn, count(*) total
+	  from book_like_date
+	  where m_mbti = 'enfj'
+	  and like_date between to_char(sysdate-7) and sysdate
+	  group by isbn
+	  order by total desc) x;

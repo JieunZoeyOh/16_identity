@@ -39,726 +39,31 @@
             <span class="mbti_recommend_arrow m_p_zero" id="mbti_left"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> 
             <div id="mbti_recommend_box" class="m_p_zero">
                 <div id="mbti_recommend_list" class="m_p_zero">
-                    <!-- INFP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFP1</dt>
-                                    <dd>오래 준비해온 대답</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFP2</dt>
-                                    <dd>나이듦에 관하여</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFP3</dt>
-                                    <dd>기억 1</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFP4</dt>
-                                    <dd>내가 원하는 것을 나도 모를 때</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- INFJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFJ1</dt>
-                                    <dd>infj</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFJ2</dt>
-                                    <dd>infj</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFJ3</dt>
-                                    <dd>infj</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INFJ4</dt>
-                                    <dd>infj</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- INTP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTP1</dt>
-                                    <dd>INTP</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTP2</dt>
-                                    <dd>INTP</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTP3</dt>
-                                    <dd>INTP</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTP4</dt>
-                                    <dd>INTP</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- INTJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTJ1</dt>
-                                    <dd>INTJ</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTJ2</dt>
-                                    <dd>INTJ</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTJ3</dt>
-                                    <dd>INTJ</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>INTJ4</dt>
-                                    <dd>INTJ</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ISFP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFP1</dt>
-                                    <dd>ISFP</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFP2</dt>
-                                    <dd>ISFP</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFP3</dt>
-                                    <dd>ISFP</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFP4</dt>
-                                    <dd>ISFP</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ISFJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFJ1</dt>
-                                    <dd>ISFJ</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFJ2</dt>
-                                    <dd>ISFJ</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFJ3</dt>
-                                    <dd>ISFJ</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISFJ4</dt>
-                                    <dd>ISFJ</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ISTP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTP1</dt>
-                                    <dd>ISTP</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTP2</dt>
-                                    <dd>ISTP</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTP3</dt>
-                                    <dd>ISTP</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTP4</dt>
-                                    <dd>ISTP</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ISTJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTJ1</dt>
-                                    <dd>ISTJ</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTJ2</dt>
-                                    <dd>ISTJ</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTJ3</dt>
-                                    <dd>ISTJ</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ISTJ4</dt>
-                                    <dd>ISTJ</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ENFP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFP1</dt>
-                                    <dd>ENFP</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFP2</dt>
-                                    <dd>ENFP</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFP3</dt>
-                                    <dd>ENFP</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFP4</dt>
-                                    <dd>ENFP</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ENFJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFJ1</dt>
-                                    <dd>ENFJ</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFJ2</dt>
-                                    <dd>ENFJ</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFJ3</dt>
-                                    <dd>ENFJ</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENFJ4</dt>
-                                    <dd>ENFJ</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ENTP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTP1</dt>
-                                    <dd>ENTP</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTP2</dt>
-                                    <dd>ENTP</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTP3</dt>
-                                    <dd>ENTP</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTP4</dt>
-                                    <dd>ENTP</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ENTJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTJ1</dt>
-                                    <dd>ENTJ</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTJ2</dt>
-                                    <dd>ENTJ</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTJ3</dt>
-                                    <dd>ENTJ</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ENTJ4</dt>
-                                    <dd>ENTJ</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ESFP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFP1</dt>
-                                    <dd>ESFP</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFP2</dt>
-                                    <dd>ESFP</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFP3</dt>
-                                    <dd>ESFP</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFP4</dt>
-                                    <dd>ESFP</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ESFJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFJ1</dt>
-                                    <dd>ESFJ</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFJ2</dt>
-                                    <dd>ESFJ</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFJ3</dt>
-                                    <dd>ESFJ</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESFJ4</dt>
-                                    <dd>ESFJ</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ESTP -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTP1</dt>
-                                    <dd>ESTP</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTP2</dt>
-                                    <dd>ESTP</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTP3</dt>
-                                    <dd>ESTP</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTP4</dt>
-                                    <dd>ESTP</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
-                    <!-- ESTJ -->
-                    <div id="mbti_recommend_section" class="m_p_zero">
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book1.jpg" alt="오래 준비해온 대답">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTJ1</dt>
-                                    <dd>ESTJ</dd>
-                                    <dd>김영하</dd>
-                                </dl>
-                            </div>
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book2.jpg" alt="나이듦에 관하여">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTJ2</dt>
-                                    <dd>ESTJ</dd>
-                                    <dd>루이즈 애런슨 저</dd>
-                                    <dd>최가영 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book3.jpg" alt="기억 1">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTJ3</dt>
-                                    <dd>ESTJ</dd>
-                                    <dd>베르나르 베르베르 저</dd>
-                                    <dd>전미연 역</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                        <article class="mbti_recommend_book">
-                            <img src="resources/image/book/book4.jpg" alt="내가 원하는 것을 나도 모를 때">
-                            <div class="mbti_recommend_book_description">
-                                <dl>
-                                    <dt>ESTJ4</dt>
-                                    <dd>ESTJ</dd>
-                                    <dd>전승환</dd>
-                                </dl>
-                            </div>    
-                        </article>
-                    </div>
+                <c:forEach var="mbtiname" items="${mbti_list}">
+                	<div id="mbti_recommend_section" class="m_p_zero">
+                    <c:forEach var="map" items="${mbtiRecommendList[mbtiname]}">
+                    	<c:forEach var="list" items="${map }">
+                    	<c:set var="full_isbn" value="${list.isbn}" />
+                    	<c:set var="length" value="${fn:length(full_isbn)}"/>
+                    	<c:set var="isbn_original" value="${fn:substring(full_isbn, length -13, length)}" />
+                    	<c:set var="isbn_short" value="${fn:substring(full_isbn, length -3, length)}" />
+                   		<article class="mbti_recommend_book">
+                   			<a href="reviewpost.minji?isbn=${full_isbn}">
+                   			<img class="recom_img_src" src="http://image.kyobobook.co.kr/images/book/xlarge/${isbn_short}/x${isbn_original}.jpg" alt="${list.b_title}">
+							<input type="hidden" value="http://image.kyobobook.co.kr/images/book/large/${isbn_short}/l${isbn_original}.jpg">
+							<div class="mbti_recommend_book_description">
+							<dl>
+								<dt>${mbtiname}</dt>
+                         		<dd>${list.b_title }</dd>
+                          		<dd>${list.b_authors } 저</dd>
+                   			</dl>
+             				</div>
+             				</a>
+                   		</article>
+                   		</c:forEach>
+                   	</c:forEach>
+                   	</div>
+                </c:forEach>
                 </div>
             </div>
             <span class="mbti_recommend_arrow m_p_zero" id="mbti_right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span> 
@@ -767,29 +72,82 @@
             <div id="title_box">
                 <div class="line"></div>    
                 <p style="background-color:#f8b24f">Best Review</p>
-                
             </div>
             <div id="best_review_wrap">
-                <article class="best_review_book" style="background-color:#303960; border-radius: 50px 0 0 0;">
-                    <div class="best_review_book_box">
+                <article class="best_review_book">
+                    <div class="best_review_book_box"><!-- card front/thecard -->
                         <img src="resources/image/book/book5.jpg" alt="직장 갑질에서 살아남기">
                     </div>
+                    <div class="best_review_book_box_back">
+                    	<img src="resources/image/note.png">
+                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
+                    	<div class="review_content">
+한국에서 살고 있는가?
+당신 명의로 된 건물이 없는가?
+직업이 있는가?
+직업이 없다면 향후 구직 의사가 있는가?
+2인 이상의 사업체를 운영 중인가?
+그렇다면 꼭 읽어야 하는 책
+                    	</div>
+                    </div>
                 </article>
-                <article class="best_review_book" style="background-color: rgba(192, 121, 22, 0.31); border-radius: 0 50px 0 0;">
+               
+                <article class="best_review_book">
                     <div class="best_review_book_box">
                         <img src="resources/image/book/book11.jpg" alt="시선으로 부터">
                     </div>
+                    <div class="best_review_book_box_back">
+                    	<img src="resources/image/note.png">
+                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
+                    	<div class="review_content">
+한국에서 살고 있는가?
+당신 명의로 된 건물이 없는가?
+직업이 있는가?
+직업이 없다면 향후 구직 의사가 있는가?
+2인 이상의 사업체를 운영 중인가?
+그렇다면 꼭 읽어야 하는 책
+                    	</div>
+                    </div>
                 </article>
-                <article class="best_review_book" style="background-color: rgba(192, 121, 22, 0.31); border-radius: 0 0 0 50px;">
+              
+               
+                <article class="best_review_book">
                     <div class="best_review_book_box">
                         <img src="resources/image/book/book9.jpg" alt="귤의 맛">
                     </div>
+                    <div class="best_review_book_box_back">
+                    	<img src="resources/image/note.png">
+                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
+                    	<div class="review_content">
+한국에서 살고 있는가?
+당신 명의로 된 건물이 없는가?
+직업이 있는가?
+직업이 없다면 향후 구직 의사가 있는가?
+2인 이상의 사업체를 운영 중인가?
+그렇다면 꼭 읽어야 하는 책
+                    	</div>
+                    </div>
                 </article>
-                <article class="best_review_book" style="background-color:#303960; border-radius: 0 0 50px 0;">
+               
+               
+                <article class="best_review_book">
                     <div class="best_review_book_box">
                         <img src="resources/image/book/book10.jpg" alt="그릿">
                     </div>
+                    <div class="best_review_book_box_back">
+                    	<img src="resources/image/note.png">
+                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
+                    	<div class="review_content">
+한국에서 살고 있는가?
+당신 명의로 된 건물이 없는가?
+직업이 있는가?
+직업이 없다면 향후 구직 의사가 있는가?
+2인 이상의 사업체를 운영 중인가?
+그렇다면 꼭 읽어야 하는 책
+                    	</div>
+                    </div>
                 </article>
+                
             </div>
         </section>
         <section id="main_best_recommend_part" class="m_p_zero">
@@ -857,6 +215,10 @@
 					$('#mypageMenu').hide();
 				}	
 			}) */
+			$('.recom_img_src').on('error', function(){
+				$(this).prop('src', $(this).next().val());
+			})
+			$('.best_review_wrap').find('article').hover();
 		})
 	</script>
 </body>

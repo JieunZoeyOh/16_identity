@@ -64,4 +64,24 @@
 		update book set mbti=#{mbti} where isbn=#{isbn}
 	</update>
 	
+	<select id="recommend_book_isbn_list" parameterType="String" resultType="String">
+		<![CDATA[
+			select isbn
+			from (select ROWNUM rnum, x.*
+				  from (select isbn, count(*) cnt
+				  		from book_like_date
+				  		where m_mbti = #{mbti}
+				  		and like_date between to_char(sysdate-7) and sysdate
+				  		group by isbn
+				  		order by cnt desc) x
+				  )
+			where rnum >=1 and rnum <=4
+		]]>
+	</select>
+
+	<select id="getbookInfoFromisbn" parameterType="String" resultType="book">
+		select b_title, b_authors, isbn
+		from book
+		where isbn = #{isbn}
+	</select>
 </mapper>

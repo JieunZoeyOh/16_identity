@@ -1,11 +1,13 @@
 package com.identity.project.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.identity.project.dao.MainDAO;
+import com.identity.project.domain.Book;
 
 @Service
 public class MainServiceImpl implements MainService{
@@ -16,6 +18,11 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public List<String> getMbtiList() {
 		return dao.mbtiList();
+	}
+
+	@Override
+	public Map<String, List<List<Book>>> getMbtiRecommendList(List<String> mbti_list) {
+		return dao.mbtiRecommendList(mbti_list);
 	}
 
 }
