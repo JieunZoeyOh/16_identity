@@ -57,7 +57,7 @@
 	</select>
 	
 	<insert id="wc_insert" parameterType="warn_check">
-		insert into warn_check values(wc_seq.nextval, #{m_id}, #{cmt_no}, sysdate, #{w_reason})
+		insert into warn_check values(wc_seq.nextval, #{m_id}, #{cmt_no}, sysdate, #{wc_reason})
 	</insert>
 	<select id="getCommentCount" resultType="int">
 		select count(*) from comments
@@ -117,4 +117,8 @@
 	<update id="cm_update_minus" parameterType="int">
 		UPDATE COMMENTS SET CMT_LIKE = CMT_LIKE -1 WHERE CMT_NO=#{cmt_no}
 	</update>
+	
+	<delete id="getCommentDel" parameterType="int">
+		delete from comments where cmt_no = #{cmt_no} 
+	</delete>
 </mapper>
