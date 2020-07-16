@@ -44,20 +44,20 @@ $(function() {
 							output += "<p class='card_header' class='hangelfont'><a href='reviewpost.minji'>"
 									+ this.cmt_nickname
 									+ "</a> - ";
-							output += this.cmt_mbti+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-							output += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"; 
+							output += this.cmt_mbti;
 							
 							if($('#m_id').text()==this.cmt_id||$('#m_id').text()=='admin'){
-							output +="<a href='comment_delete.minji?cmt_no="+ this.cmt_no+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
-								   + "&nbsp<img onclick='modify(this)' src='resources/image/comment_modify.png' id='review_modify'/>"; 
+							output +="<span id='cmt_dm'><a href='comment_delete.minji?cmt_no="+ this.cmt_no+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
+								   + "&nbsp<img onclick='modify(this)' src='resources/image/comment_modify.png' id='review_modify'/></span>";
 							}
 							else{
-							output +="&nbsp&nbsp<img onclick='review_warn(this)' src='resources/image/review_warn.png' id='review_warn'/>";
+							output +="<img onclick='review_warn(this)' src='resources/image/review_warn.png' id='review_warn'/>";
 							}
 							output += "</p><p class='cmt_content'>"+this.cmt_content+"</p>" +
 									  "<p class='none_cmtno'>"+this.cmt_no+"</p>";
 									+ "<br>";
 							output += "<br>"+ this.cmt_date;
+							output +="<br><div id='cmt_like'><img onclick='comment_like(this)' src='resources/image/comment_like.png' id='comment_like'/>&nbsp<span id='comment_like2'>"+this.cmt_like+"</span></div>";
 							output +="</div></div></div>";
 					});// each end
 					$("#comment tbody").append(output);

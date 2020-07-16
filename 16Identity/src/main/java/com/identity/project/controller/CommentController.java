@@ -318,6 +318,7 @@ public class CommentController {
 		Warn_Check warn_check= new Warn_Check();
 		warn_check.setM_id(m_id);
 		warn_check.setCmt_no(cmt_no);
+		warn_check.setW_reason(warn_reason);
 		
 		int warn_check_ok = commentService.warn_check(warn_check);
 		

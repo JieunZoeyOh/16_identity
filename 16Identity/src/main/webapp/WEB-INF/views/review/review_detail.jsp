@@ -180,7 +180,7 @@ height: 200px;
 }
 
 .cmt_content{
-	height:40px;
+	height:70px;
 }
 
 .none_cmtno{
@@ -197,8 +197,18 @@ ul#subMenu {
 	font-size:30px;	
 }
 #review_warn{
+	width:20px; height:20px; float:right;
+}
+#comment_like{
 	width:20px; height:20px;
 }
+#cmt_like{
+	float:right;
+}
+#cmt_dm{
+	float:right;
+}
+
 </style>
 <jsp:include page="../main/header.jsp"/> 
 </head>
@@ -246,7 +256,7 @@ ul#subMenu {
           <hr><h2 style="padding-left: 90px">리뷰 남기기</h2>
           <div class="form-group">
               <div class="form-line" style="width: 900px;">
-                   <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글을 남겨보세요.." style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
+                   <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글 남겨보세요 - 100자 제한" style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
               </div>
 		  </div>
             <button type="button"  id="button_addcomment" class="btn bg-cyan btn-block btn-lg waves-effect">등록</button><br><br><br>
@@ -413,6 +423,13 @@ ul#subMenu {
  			
     	 });// ajax end 
     	}
+    }
+    
+    function comment_like(t){
+    	
+    	console.log('댓글 좋아요 합시당');
+    	like_cmt_no= $(t).parent().prev().prev().prev().text();
+    	console.log('댓글번호 '+like_cmt_no);
     }
     </script>
 
