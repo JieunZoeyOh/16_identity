@@ -134,5 +134,29 @@
 			 )
 		where rnum >=1 and rnum <=4
 		]]>
+  </select>
+  
+	<select id="comments_list_popular" parameterType="map" resultType="C">
+		select * 
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+			   from (
+					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+					  from comments where isbn = #{isbn}			   
+			  		   order by cmt_like desc
+					 )		   
+		   )
+		   where rnum &gt;=#{start} and rnum &lt;= #{end}
+	</select>
+	
+	<select id="comments_list_mine" parameterType="map" resultType="C">
+		select * 
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+			   from (
+					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+					  from comments where isbn = #{isbn} and cmt_id = #{id}		   
+			  		   order by cmt_like desc
+					 )		   
+		   )
+		   where rnum &gt;=#{start} and rnum &lt;= #{end}
 	</select>
 </mapper>

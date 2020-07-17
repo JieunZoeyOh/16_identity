@@ -149,4 +149,14 @@ public class CommentDAO {
 		}
 	
 	}
+
+
+	public List<Comments> getCommentList_popular(Map<String, Object> map) {
+		return sqlSession.selectList("Comments.comments_list_popular",map);
+	}
+
+
+	public List<Comments> getCommentList_mine(Map<String, Object> map) {
+		return sqlSession.selectList("Comments.comments_list_mine",map);
+	}
 }

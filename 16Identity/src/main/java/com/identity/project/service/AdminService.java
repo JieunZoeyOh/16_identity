@@ -32,4 +32,5 @@ public interface AdminService {
 	List<Warn> warnList();
 	int warnDelete(int cmt_no);
 	int commentDelete(int cmt_no);
+	void memberWarn(String m_id);
 }

@@ -68,7 +68,7 @@
 <div class="title hangelfont">
 	<span style="line-height: 145px;">리뷰 댓글</span>
 </div><hr>
-<div id="comment_align"><select onchange="javascript:comment_align(this);">
+<div id="comment_align"><select id="comment_align2">
     <option value="1" selected>최신순</option>
     <option value="2">인기순</option>
     <option value="3">내 댓글 보기</option>
@@ -290,9 +290,6 @@
     	
     }
     
-    function comment_align(obj){
-        console.log('어디보자...'+obj.value);
-    }
 
     </script>
 

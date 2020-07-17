@@ -19,13 +19,14 @@ $(function() {
 	var count = 0; // 전체 댓글 갯수
 	var maxPage = getMaxPage(); // 댓글의 총 페이지 수를 구합니다.
 
-	function getList(currentPage) {
+	function getList(currentPage, cm_align) {
 		$.ajax({
 			type : "post",
 			url : "CommentList.minji",
 			data : {
 				"isbn" : $('#isbn_input').text(),
-				"page" : currentPage
+				"page" : currentPage,
+				"cm_align": cm_align
 			},
 			dataType : "json",
 			success : function(rdata) {

@@ -38,4 +38,10 @@ public interface CommentService {
 
 	int cmt_like(Comments_Like cmt_like);
 
+
+	List<Comments> getCommentList_popular(String isbn, int page);
+
+
+	List<Comments> getCommentList_mine(String isbn, int page, String m_id);
+
 }

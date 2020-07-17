@@ -142,10 +142,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/report.net")
 	public ModelAndView subscribe(ModelAndView mv) {
-		System.out.println("report.net");
-
 		List<Warn> list = adminService.warnList();
-		System.out.println("list:" + list);
 		for (Warn w : list) {
 			System.out.println(w.getCmt_no() + ", " + w.getM_id() + ", " + w.getW_count());
 			for (Warn_Check wc : w.getWarn_check()) {
@@ -176,12 +173,14 @@ public class AdminController {
 	}
 	
 	@GetMapping(value="/reportAccept.net")
-	public String reportAccept(int cmt_no,HttpServletResponse response) throws Exception {
+	public String reportAccept(int cmt_no,HttpServletResponse response, String m_id) throws Exception {
+		System.out.println("댓글 번호:"+cmt_no);
 		int result = adminService.commentDelete(cmt_no);
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		if(result != 0) {
+			adminService.memberWarn(m_id);
 			out.println("alert('접수 성공');");
 			out.println("history.back();");
 		} else {

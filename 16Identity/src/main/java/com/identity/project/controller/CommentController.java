@@ -191,10 +191,27 @@ public class CommentController {
 	@ResponseBody
 	@PostMapping(value="CommentList.minji")
 	public List<Comments> CommentList(@RequestParam("isbn") String isbn,
-			@RequestParam(value="page", defaultValue="1", required=false) int page){
-		List<Comments> list
-			= commentService.getCommentList(isbn, page);
-		return list;
+			@RequestParam(value="page", defaultValue="1", required=false) int page,
+			@RequestParam(value="cm_align", defaultValue="1", required=false) int cm_align,
+			HttpSession session){
+		System.out.println("컨트롤러에서 cm_align값"+cm_align);
+		if(cm_align==1) {
+			List<Comments> list
+				= commentService.getCommentList(isbn, page);
+			return list;
+		}
+		else if(cm_align==2) {
+			List<Comments> list2
+				= commentService.getCommentList_popular(isbn, page);
+			return list2;
+		}
+		else {
+			String m_id = (String) session.getAttribute("m_id");
+			List<Comments> list3
+				= commentService.getCommentList_mine(isbn, page, m_id);
+			return list3;
+		}
+		
 	}
 	
 	@RequestMapping(value = "comment_delete.minji", method = RequestMethod.GET)

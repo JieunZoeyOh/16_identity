@@ -19,13 +19,14 @@ $(function() {
 	var count = 0; // 전체 댓글 갯수
 	var maxPage = getMaxPage(); // 댓글의 총 페이지 수를 구합니다.
 
-	function getList(currentPage) {
+	function getList(currentPage, cm_align) {
 		$.ajax({
 			type : "post",
 			url : "CommentList.minji",
 			data : {
 				"isbn" : $('#isbn_input').text(),
-				"page" : currentPage
+				"page" : currentPage,
+				"cm_align": cm_align
 			},
 			dataType : "json",
 			success : function(rdata) {
@@ -35,6 +36,12 @@ $(function() {
 					$("#comment thead").show(); // 글이 없을 때 hide() 부분을
 					// 보이게 합니다. (2)
 					output = '';
+					if(cm_align==3){
+						maxPage=Math.floor(((rdata.length + 3 - 1) / 3));
+					}
+					else{
+						maxPage=getMaxPage(); 
+					}
 					$(rdata).each(
 						function() {
 							var cmt_id= this.cmt_id;
@@ -223,7 +230,16 @@ $(function() {
 	
 			$("#book_image").on('error', function(){
 				$(this).prop('src', $(this).next().val());
+				$('#book_image').on('error', function(){
+                $(this).prop('src', 'resources/image/bookerror.PNG');
+                })
 			})
 				});
+	
+	$("#comment_align2").change(function(){
+		$("#comment tbody").empty();
+		getList(1,this.value);
+	})
+	
 	
 });
