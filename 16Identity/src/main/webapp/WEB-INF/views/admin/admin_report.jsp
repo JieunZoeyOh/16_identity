@@ -100,7 +100,7 @@
 											</td>
 											<td>
 												<button class="btn bg-brown waves-effect" onClick="javascript:location.href='reportDelete.net?cmt_no=${warn.cmt_no}';">반려</button>
-												<button class="btn bg-red waves-effect" onClick="javascript:location.href='reportAccept.net?cmt_no=${warn.cmt_no}';">접수</button>
+												<button class="btn bg-red waves-effect" onClick="javascript:location.href='reportAccept.net?cmt_no=${warn.cmt_no}&m_id=${warn.m_id }';">접수</button>
 											</td>
 										</tr>
 										</c:forEach>

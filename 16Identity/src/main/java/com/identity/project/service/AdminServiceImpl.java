@@ -124,4 +124,9 @@ public class AdminServiceImpl implements AdminService {
 		return dao.commentDelete(cmt_no);
 	}
 
+	@Override
+	public void memberWarn(String m_id) {
+		dao.memberWarn(m_id);
+	}
+
 }
