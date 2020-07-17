@@ -60,7 +60,7 @@
 	</select>
 	
 	<update id="updateSub" parameterType="map">
-		update member set substate = #{substate}, subsdate=sysdate where m_id=#{m_id}
+		update member set substate = #{substate}, subsdate=sysdate, subend=ADD_MONTHS(SYSDATE,#{season}), season=#{season} where m_id=#{m_id}
 	</update>
 	
 	<update id="dropSub" parameterType="String">
@@ -73,5 +73,10 @@
 	
 	<update id="warnAccept" parameterType="String">
 		update member set warn_count = warn_count+1 where m_id=#{m_id}
+	</update>
+	
+	<update id="subDrop" parameterType="String">
+		update member set substate = '구독안함' where m_id=#{m_id} and 
+		substr((select subend from member where m_id=#{m_id}),0,6)=substr(sysdate,0,6)
 	</update>
 </mapper>

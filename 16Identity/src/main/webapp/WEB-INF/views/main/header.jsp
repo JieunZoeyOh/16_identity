@@ -18,10 +18,6 @@ var popupY= (window.screen.height/2) - (popupHeight/2);
 function openWin(){  
     window.open("subscribe_apply.com?m_id=${m_id }", "정기구독", 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 }
-
-function openDrop(){  
-    window.open("subscribe_drop.com?m_id=${m_id }", "구독해지", 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-}
 </script>
 <style>
     .blind{display:none;}
@@ -93,7 +89,7 @@ function openDrop(){
                     <li><div class="square"></div><a href="javascript:openWin();" >구독 신청</a></li>
                 </c:if>
                 <c:if test="${fn:contains(substate, '구독중')}">
-                    <li><div class="square"></div><a href="javascript:openDrop();">구독 해지</a></li>
+                    <li><div class="square"></div><a href="#">구독중</a></li>
                 </c:if>
                 </ul>
             </li>

@@ -69,7 +69,6 @@ public class AdminController {
 		if (Dlist.size() == 0) {
 			List<Subscribe> list = adminService.getM_id();
 			for (int i = 0; i < list.size(); i++) {
-				System.out.println("m_id:" + list.get(i).getM_id());
 				adminService.deliveryInsert(list.get(i).getM_id());
 			}
 		}
@@ -88,6 +87,13 @@ public class AdminController {
 	@RequestMapping(value = "/deliverSucess.net", method = RequestMethod.POST)
 	public void deliverSucess(HttpServletResponse response) throws Exception {
 		int result = adminService.deliveryUpdate();
+		List<Deliver> list = adminService.getDList();
+		for(Deliver d:list) {
+			System.out.println("m_id:"+d.getM_id());
+			int res = adminService.subDrop(d.getM_id());
+			if(res != 0) System.out.println("해지");
+			else System.out.println("구독중");
+		}
 		response.getWriter().print(result);
 	}
 

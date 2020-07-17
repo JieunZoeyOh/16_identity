@@ -102,16 +102,17 @@ public class MemberServiceImple implements MemberService {
 	}
 
 	@Override
-	public void updateSub(String m_id, String substate) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("m_id", m_id);
-		map.put("substate", substate);
-		dao.UpdateSub(map);
+	public void dropSub(String m_id) {
+		dao.dropSub(m_id);
 	}
 
 	@Override
-	public void dropSub(String m_id) {
-		dao.dropSub(m_id);
+	public void updateSub(String m_id, String substate, int season) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("m_id", m_id);
+		map.put("substate", substate);
+		map.put("season", season);
+		dao.UpdateSub(map);
 	}
 	
 }

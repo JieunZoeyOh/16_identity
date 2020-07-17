@@ -129,4 +129,9 @@ public class AdminServiceImpl implements AdminService {
 		dao.memberWarn(m_id);
 	}
 
+	@Override
+	public int subDrop(String m_id) {
+		return dao.subDrop(m_id);
+	}
+
 }

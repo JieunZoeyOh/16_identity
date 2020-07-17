@@ -12,6 +12,8 @@ create table member(
      m_address_no number(5) not null, 
      m_address varchar2(100) not null, 
      substate varchar2(20),
+     season number(3),
+     subend date,
      subsdate date,
      warn_count number(5) DEFAULT 0,
      foreign key (m_mbti) references mbti(mbti) on delete cascade
@@ -33,3 +35,6 @@ ALTER TABLE member ADD (warn_count number(5) DEFAULT 0);
  
 select * from member;
 ALTER TABLE member ADD(substate varchar2(20));
+
+alter table member add season number(3);
+alter table member add subend date;

@@ -63,13 +63,12 @@ public class MemberDAO {
 	public Member getList(String m_id) {
 		return sqlSession.selectOne("Members.getListOne",m_id);
 	}
-
-	public void UpdateSub(Map<String, String> map) {
-		sqlSession.update("Members.updateSub",map);
-	}
-
 	public void dropSub(String m_id) {
 		sqlSession.update("Members.dropSub",m_id);
+	}
+
+	public void UpdateSub(Map<String, Object> map) {
+		sqlSession.update("Members.updateSub",map);
 	}
 	
 }

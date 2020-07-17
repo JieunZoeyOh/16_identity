@@ -106,5 +106,9 @@ public class AdminDAO {
 	public void memberWarn(String m_id) {
 		sqlSession.update("Members.warnAccept",m_id);
 	}
+
+	public int subDrop(String m_id) {
+		return sqlSession.update("Members.subDrop",m_id);
+	}
 	
 }
