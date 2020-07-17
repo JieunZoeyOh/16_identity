@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.identity.project.domain.Book;
+import com.identity.project.domain.Comments;
 
 @Repository
 public class MainDAO {
@@ -39,6 +40,15 @@ public class MainDAO {
 		List<Book> list = new ArrayList<Book>();
 		for(int i=0; i<book_isbn.size(); i++) {
 			list.add(sqlSession.selectOne("Books.getbookInfoFromisbn", book_isbn.get(i)));
+		}
+		return list;
+	}
+
+	public List<Comments> bestReviewList() {
+		List<Integer> cmt_no_list = sqlSession.selectList("Comments.best_review_cmt_no_list");
+		List<Comments> list = new ArrayList<Comments>();
+		for(int i : cmt_no_list) {
+			list.add(sqlSession.selectOne("Comments.comment_info", i));
 		}
 		return list;
 	}

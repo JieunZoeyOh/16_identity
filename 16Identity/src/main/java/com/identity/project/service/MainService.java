@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.identity.project.domain.Book;
+import com.identity.project.domain.Comments;
 
 public interface MainService {
 
@@ -12,4 +13,6 @@ public interface MainService {
 	Map<String, List<Book>> getMbtiRecommendList(List<String> mbti_list);
 
 	List<Book> getBestRecommendList();
+
+	List<Comments> getBestReviewList();
 }

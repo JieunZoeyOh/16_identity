@@ -67,23 +67,23 @@ window.onload = function(){
     var text;
     var focus = -1;
     $('#searchBook').keyup(function(e){
-       
+       $('.auto_result').removeClass('auto_result_focus'); 
        if(e.keyCode == 8) focus=-1;   //backSpace 누를 경우 
        if($('#searchBook').val().length>=2){//2글자 이상 입력했을 경우
           if(e.keyCode == 13) {//엔터 입력
-              if($('#searchBook').val() != ''){
-                 $('#autoComplete_box').hide();
-                  $('#autoComplete_box').empty();
-                 page=1;
-                 $('.board_wrap').empty();
-                 category = categoryFunc($(".default_option").text());
+              if($('#searchBook').val() != ''){	//입력창에 입력 된 값이 있을 경우
+                 $('#autoComplete_box').hide();	//자동완성 창 숨기기
+                  $('#autoComplete_box').empty();	//자동완성 창의 내용 비우기
+                 page=1;	//page1로 초기화
+                 $('.board_wrap').empty();	//검색 결과 창 비우기
+                 category = categoryFunc($(".default_option").text());	//검색 카테고리 가져오기
                  searchWord = $('#searchBook').val();
                  searchBookFunc(searchWord, page, category);
               } 
-          }else if(e.keyCode != 40 && e.keyCode != 38){
+          }else if(e.keyCode != 40 && e.keyCode != 38){ //엔터, 위, 아래 제외 다른 키 누른 경우
              searchAuto($('#searchBook').val());//searchAuto 함수 호출
               $('#autoComplete_box').show();//자동완성창 켜짐
-          } else {
+          } else {	//위(40), 아래(38) 키 누른 경우
              if(focus == -1 && e.keyCode == 40){
                 text = $('#autoComplete_box').children().eq(0).text();
                 $('#searchBook').val(text);
@@ -104,9 +104,19 @@ window.onload = function(){
                 if(e.keyCode == 38) 
                    focus = 3;
              }
+             $('.auto_result').eq(focus).addClass('auto_result_focus');	//포커스 된 부분 회색 바탕 css
              console.log('focus:'+focus);
-             text = $('#autoComplete_box').children().eq(focus).text();
-             $('#searchBook').val(text);
+             text = $('#autoComplete_box').children().eq(focus).text();	//자동완성창에서 포커스 된 값 가져오기
+             $('#searchBook').val(text);	//검색창에 위의 값 삽입
+             var addr_isbn
+             if(focus>-1){
+            	 $('#autoComplete_box').find('img').prop("src", $('.auto_result_focus').find('.thumImg').val());
+            	 addr_isbn= 'reviewpost.minji?isbn='+$('.auto_result_focus').find('.isbnNo').val();   //디테일 페이지 링크
+             }else {
+            	 $('#autoComplete_box').find('img').prop("src", $('.auto_result').eq(0).find('.thumImg').val());
+            	 addr_isbn = 'reviewpost.minji?isbn='+$('.auto_result').eq(0).find('.isbnNo').val();   //디테일 페이지 링크
+             }
+             $('#autoComplete_box').find('a').prop("href", addr_isbn);
           }
        }else{
           $('#autoComplete_box').hide();
@@ -115,7 +125,6 @@ window.onload = function(){
        
        
     });
-    //$('.auto_result').eq(1).addClass('auto_result_focus');
       /*click 할 경우*/    
     $('.fa-search').on('click',function(){
        if($('#searchBook').val() != ''){
@@ -207,6 +216,9 @@ window.onload = function(){
                     $('section.board_wrap').append(output);
                      $('.bookImgSrc').on('error', function(){//img src 없는 경우 xlarge->lagre로 대체
                          $(this).prop('src', $(this).next().val());//input type=hidden의 value => img2
+                         $('.bookImgSrc').on('error', function(){
+                        	 $(this).prop('src', 'resources/image/bookerror.PNG');
+                         })
                      })
                     page += 1;
                  })
@@ -243,8 +255,6 @@ window.onload = function(){
                       var shortTitle = result.documents[i].title.slice(0,30)+'...';
                       var isbn13 = result.documents[i].isbn;
                       var isbn0 = result.documents[0].isbn;
-                      console.log(isbn0);
-                      console.log(result.documents[0].thumbnail);
                       if(original_title.length<30){ //글자수 제한
                          autoOutput += `<div class="auto_result"><a href="reviewpost.minji?isbn=${isbn13}">${original_title}</a>`;
                       }else{
@@ -266,6 +276,7 @@ window.onload = function(){
        })
     }
     $(document).on('mouseover','.auto_result',function(){   //마우스 오버할 때 이벤트
+       $('.auto_result').removeClass('auto_result_focus'); //포커스 클래스 없애기
        $('#autoComplete_box').find('img').prop("src", $(this).find('.thumImg').val());
        var address_isbn = 'reviewpost.minji?isbn='+$(this).find('.isbnNo').val();   //디테일 페이지 링크
        $('#autoComplete_box').find('a').prop("href", address_isbn);
