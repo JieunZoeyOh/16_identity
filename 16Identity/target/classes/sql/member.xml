@@ -70,4 +70,8 @@
 	<select id="getMemberCount" resultType="int">
 		select count(*) from member
 	</select>
+	
+	<update id="warnAccept" parameterType="String">
+		update member set warn_count = warn_count+1 where m_id=#{m_id}
+	</update>
 </mapper>

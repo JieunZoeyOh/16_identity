@@ -100,7 +100,11 @@ public class AdminDAO {
 	}
 
 	public int commentDelete(int cmt_no) {
-		return sqlSession.delete("Comments.getCommentDel");
+		return sqlSession.delete("Comments.getCommentDel",cmt_no);
+	}
+
+	public void memberWarn(String m_id) {
+		sqlSession.update("Members.warnAccept",m_id);
 	}
 	
 }
