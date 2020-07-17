@@ -16,6 +16,8 @@ public class Member {
 	private String substate;
 	private String subsdate;
 	private int warn_count;
+	private String subend;
+	private int season;
 	private MultipartFile uploadfile;
 	
 	public MultipartFile getUploadfile() {
@@ -101,6 +103,18 @@ public class Member {
 	}
 	public void setWarn_count(int warn_count) {
 		this.warn_count = warn_count;
+	}
+	public String getSubend() {
+		return subend;
+	}
+	public void setSubend(String subend) {
+		this.subend = subend;
+	}
+	public int getSeason() {
+		return season;
+	}
+	public void setSeason(int season) {
+		this.season = season;
 	}
 	
 }

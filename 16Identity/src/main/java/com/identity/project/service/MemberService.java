@@ -33,7 +33,7 @@ public interface MemberService {
 
 	Member getList(String m_id);
 
-	void updateSub(String m_id, String substate);
+	void updateSub(String m_id, String substate, int season);
 
 	void dropSub(String m_id);
 	

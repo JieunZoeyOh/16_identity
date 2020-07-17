@@ -60,6 +60,7 @@ public class MainController {
 	public ModelAndView kakaopay(HttpServletRequest request, ModelAndView mv) {
 		String substate = request.getParameter("substate");
 		String m_id = request.getParameter("m_id");
+		int price = Integer.parseInt(request.getParameter("price"));
 		
 		Member member = memberService.getList(m_id);
 		String mbti = member.getM_mbti();
@@ -76,12 +77,22 @@ public class MainController {
 		mv.addObject("m_tel",m_tel);
 		mv.addObject("m_address",m_address);
 		mv.addObject("m_address_no",m_address_no);
+		mv.addObject("price",price);
 		return mv;
 	}
 	
 	@RequestMapping(value = "/kakaopaySuccess.com", method = RequestMethod.GET)
-	public void kakaopaySuccess(String m_id, String substate,HttpSession session) {
-		memberService.updateSub(m_id, substate);
+	public void kakaopaySuccess(String m_id,int price, String substate,HttpSession session) {
+		System.out.println("kakaopaySuccess.com");
+		int season=0;
+		if(price==9900) season=1;
+		else if(price==29000) season=3;
+		else if(price==55000) season=6;
+		else if(price==100000) season=12;
+		else ;
+		System.out.println("1");
+		memberService.updateSub(m_id, substate, season);
+		System.out.println("2");
 		String state = memberService.getState(m_id);
 		session.setAttribute("substate", state);
 	}
