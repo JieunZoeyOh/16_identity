@@ -68,6 +68,11 @@
 <div class="title hangelfont">
 	<span style="line-height: 145px;">리뷰 댓글</span>
 </div><hr>
+<div id="comment_align"><select onchange="javascript:comment_align(this);">
+    <option value="1" selected>최신순</option>
+    <option value="2">인기순</option>
+    <option value="3">내 댓글 보기</option>
+</select></div>
 <span style="display:none" id="isbn_input">${isbn}</span>
 <span style="display:none" id="m_id">${m_id}</span>
 <span id="count" style="display:none" class="hangelfont">${count}</span>
@@ -193,8 +198,8 @@
 
     function modify(t){
 		console.log('수정합시다.');
-		before = $(t).parent().next().text();
-		cmt_no= $(t).parent().next().next().text();
+		before = $(t).parent().parent().next().text();
+		cmt_no= $(t).parent().parent().next().next().text();
 		console.log("댓글내용= "+before);
 		console.log("댓글번호= "+cmt_no);
 		$("#book_comment").focus().val(before);
@@ -259,7 +264,7 @@
     function comment_like(t){
     	
     	console.log('댓글 좋아요 합시당');
-    	like_cmt_no= $(t).parent().prev().prev().prev().text();
+    	like_cmt_no= $(t).parent().prev().prev().text();
     	console.log('댓글번호 '+like_cmt_no);
     	console.log('이전 좋아요 수 '+$(t).next().text());
     	prior_likecount= $(t).next().text();
@@ -284,6 +289,11 @@
     	});// ajax end 
     	
     }
+    
+    function comment_align(obj){
+        console.log('어디보자...'+obj.value);
+    }
+
     </script>
 
 </body>

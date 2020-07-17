@@ -39,12 +39,13 @@ $(function() {
 						function() {
 							var cmt_id= this.cmt_id;
 							console.log(this.cmt_id);
-							output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>  <div class='card'>";
+							output += "<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>  <div class='card'>";
 							output += "<div class='body bg-orange' id='each_comment'>";
+							output += "<div id='#comment_avatar' style='display:inline-block;'><img src='resources/image/avatar1.png' style='width: 90px;border-radius: 50%;'/></div>"
 							output += "<p class='card_header' class='hangelfont'><a href='reviewpost.minji'>"
 									+ this.cmt_nickname
 									+ "</a> - ";
-							output += this.cmt_mbti;
+							output += this.cmt_mbti.toUpperCase();
 							
 							if($('#m_id').text()==this.cmt_id||$('#m_id').text()=='admin'){
 							output +="<span id='cmt_dm'><a href='comment_delete.minji?cmt_no="+ this.cmt_no+ "'><img src='resources/image/remove.png' id='review_remove'/></a>"
@@ -57,7 +58,7 @@ $(function() {
 									  "<p class='none_cmtno'>"+this.cmt_no+"</p>";
 									+ "<br>";
 							output += "<br>"+ this.cmt_date;
-							output +="<br><div id='cmt_like'><img onclick='comment_like(this)' src='resources/image/comment_like.png' id='comment_like'/>&nbsp<span id='comment_like2'>"+this.cmt_like+"</span></div>";
+							output +="<div id='cmt_like'><img onclick='comment_like(this)' src='resources/image/comment_like.png' id='comment_like'/>&nbsp<span id='comment_like2'>"+this.cmt_like+"</span></div>";
 							output +="</div></div></div>";
 					});// each end
 					$("#comment tbody").append(output);
@@ -203,42 +204,22 @@ $(function() {
 				book_contents = "책 소개가 없습니다.";
 			}
 			
-			$("#title").append(
-					"<h1>" + msg.documents[0].title
-							+ "</h1><hr><br>");
-			$("#book_img").append(
-					"<img id='book_image' src='http://image.kyobobook.co.kr/images/book/xlarge/"
-							+ isbn_short + "/x" + isbn_original
-							+ ".jpg'>");
-			$("#book_img").append(
-					"<input type='hidden' value='http://image.kyobobook.co.kr/images/book/large/"
-							+ isbn_short + "/l" + isbn_original
-							+ ".jpg'>");
+			$("#book_img").append("<img id='book_image' src='http://image.kyobobook.co.kr/images/book/xlarge/"
+							+ isbn_short + "/x" + isbn_original+ ".jpg'>");
+			$("#book_img").append("<input type='hidden' value='http://image.kyobobook.co.kr/images/book/large/"
+							+ isbn_short + "/l" + isbn_original+ ".jpg'>");
+			$('#title').append('<img src="resources/image/quote.png" /><span>'+msg.documents[0].title+'</span><img src="resources/image/quote1.png" />');
+			$("#authors").append("저자 : " + msg.documents[0].authors);
+			$("#publisher").append("출판사: " + msg.documents[0].publisher);
+			$("#book_price").append("정가: " + msg.documents[0].sale_price);
+			$("#book_isbn").append("ISBN: " + msg.documents[0].isbn);
+			$("#book_date").append("출판날짜: " + book_date.substring(0, 10));
+			if(msg.documents[0].translators != ''){
+				$("#translators").append("번역가: " + msg.documents[0].translators+"<br>");
+			}
 			
-			$("#authors").append(
-					"<h3> 저자 : " + msg.documents[0].authors
-							+ "</h3>");
-			$("#publisher").append(
-					"<h3> 출판사: " + msg.documents[0].publisher
-							+ "</h3>");
-			$("#book_price").append(
-					"<h3> 정가: " + msg.documents[0].sale_price
-							+ "</h3>");
-			$("#book_isbn")
-					.append(
-							"<h3> ISBN: " + msg.documents[0].isbn
-									+ "</h3>");
-			$("#book_date").append(
-					"<h3> 출판날짜: " + book_date.substring(0, 10)
-							+ "</h3>");
-			
-			$("#translators").append(
-					"<h3> 번역가: " + msg.documents[0].translators
-							+ "</h3><br>");
-			
-			$("#book_contents").append(
-					"<h2> 책소개</h2><h4>" + book_contents
-							+ "</h4>");
+			$("#book_contents").append('<div class="title hangelfont"><span>책소개</span></div>');
+			$("#book_contents").append("<div id='bookContents'>" + book_contents+ "</div>");
 	
 			$("#book_image").on('error', function(){
 				$(this).prop('src', $(this).next().val());

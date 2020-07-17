@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 
 <script src="resources/js/jquery-3.5.0.js"></script>
-<script src="resources/js/review_detail.js"></script>
+<script src="resources/js/review_detail2.js"></script>
 <title>메인페이지</title>
 <link rel="icon" href="resources/favicon.ico" type="image/x-icon">  
 <!-- Waves Effect Plugin Js -->
@@ -30,192 +30,17 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="resources/css/themes/all-themes.css" rel="stylesheet" />
+    <style>
     
-    
-<style>
-.hangelfont { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important; }
-body {
-	margin:0;
-	padding:0;
-	width:100%;
-	height:auto;
-	background-color:white;
-	background-size:100% auto;
-	overflow: auto;
-	
-}
-
-#wrap{
-	width: 80%;
-    height: auto;
-    margin: 0 auto;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-#book_img{
-	width:30%;
-	height: 390px;
-	display:inline-block;
-	float: left;
-}
-#book_img img{
-	width:300px;
-	height:auto;
-}
-#book_info{
-	display:inline-block;
-	width:70%;
-	float:right;
-}
-#book_info td {
-	width: 380px;
-}
-h3, h2 {
-	font-weight: 500;
-	font-size: 18px;
-	font-family: 'Roboto', Arial, Tahoma, sans-serif;
-}
-
-#each_comment{
-font-size: 16px;
-border-radius:8px
-}
-
-.m_p_o_zero {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-}
-
-.button_container {
-   	float:left;
-    border-radius: 20px;
-}
-
-.button_container i{
-    font-size: 5rem;
-    transition: .4s;
-}
-
-.button_container:hover i {
-    color: #f50057;
-}
-
-.fa-heart {
-    color: #f50057;
-    transition: .4s;
-}
-
-#button_addcomment{
-	width: 100px;
-    height: 50px;
-    border: 3px solid #303960;
-    background-color: white !important;
-    color: black;
-    border-radius: 20px;
-    font-size: 14px;
-    position: relative;
-   	left: 125px;
-    top: -55px;
-	margin:20;
-	transition: .3s;
-	box-shadow: none !important;
-}
-#button_addcomment:hover {
-	background-color: #303960 !important;
-	color:white;
-}
-
-.form-line{
-	display:inline-block;
-}
-
-.form-group{
-	width: 900px;
-	display:inline-block;
-	padding-left: 90px;
-}
-
-#main_sidebar #sidebar_list>li:nth-child(1) {
-    padding: 20px 0px 5px 23px;
-}
-
-#main_sidebar #sidebar_list>li:nth-child(3) {
-    padding: 18px 0px 5px 17px;
-}
-#main_sidebar #sidebar_list>li:nth-child(4) {
-    padding: 10px 0px 0px 19px;
-}
-.form-group .form-line:after{
-	border-bottom: 2px solid #303960 !important;
-}
-#each_comment {
-    background-color: #fff !important;
-    color: black !important;
-}
-
-.card {
-    box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.2) !important;
-    height: 210px;
-}
-.card_header{
-	font-size: 19px;
-}
-
-#review_remove{
-	width:20px; height:20px;
-}
-
-.modal.on{
-height: 200px;
-}
-
-.modal p {
-    padding-top: 10px;
-  }
-
-#review_modify{
-	width:20px; height:20px;
-}
-
-.cmt_content{
-	height:70px;
-}
-
-.none_cmtno{
-	display:none;
-}
-
-ul#subMenu {
-    width:107px;
-}
-#chart{
-	padding-left:140px;
-}    
-#chart > svg > g:nth-child(1) > g.brush-fullstackbar > g:nth-child(1) > text:nth-child(4){
-	font-size:30px;	
-}
-#review_warn{
-	width:20px; height:20px; float:right;
-}
-#comment_like{
-	width:20px; height:20px;
-}
-#cmt_like{
-	float:right;
-}
-#cmt_dm{
-	float:right;
-}
-
-</style>
+    </style>
+	<link href="resources/css/test.css" rel="stylesheet">
 <jsp:include page="../main/header.jsp"/> 
 </head>
 <body>
 <div id="wrap">
-<p id=title class="hangelfont"></p>
+<hr>
 <div id="book_img"></div>
+<div id="title" class="hangelfont title"></div>
  <table id="book_info" class="hangelfont">
       <tbody>
         <tr>
@@ -232,14 +57,22 @@ ul#subMenu {
         </tr>
 	  </tbody>
 	</table>
-<span id="book_contents" class="hangelfont"></span><br> 	
+<div id="book_contents" class="hangelfont"></div>	
 <div class="button_container">
         <i id="btn" class="fa fa-heart-o" onclick="likeaction()">&nbsp${bookvalue.like_count}</i>
 </div>
-<br><br><br><br><br><br><br>
-<h2 class="hangelfont">통계</h2><hr>
+<div class="title hangelfont">
+	<span style="line-height: 145px;">통계</span>
+</div><hr>
  <div id="chart"></div>
-<h2 class="hangelfont">리뷰 - 댓글</h2>
+<div class="title hangelfont">
+	<span style="line-height: 145px;">리뷰 댓글</span>
+</div><hr>
+<div id="comment_align"><select onchange="javascript:comment_align(this);">
+    <option value="1" selected>최신순</option>
+    <option value="2">인기순</option>
+    <option value="3">내 댓글 보기</option>
+</select></div>
 <span style="display:none" id="isbn_input">${isbn}</span>
 <span style="display:none" id="m_id">${m_id}</span>
 <span id="count" style="display:none" class="hangelfont">${count}</span>
@@ -253,7 +86,10 @@ ul#subMenu {
             </table>
             
            <div id="message" style="text-align: center;font-weight: bold;text-decoration: underline;"></div>
-          <hr><h2 style="padding-left: 90px">리뷰 남기기</h2>
+          <hr>
+		  <div class="title hangelfont" style="padding-left: 79px;">
+		  	<span style="line-height: 145px;">리뷰 남기기</span>
+		  </div>
           <div class="form-group">
               <div class="form-line" style="width: 900px;">
                    <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글 남겨보세요 - 100자 제한" style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
@@ -362,8 +198,8 @@ ul#subMenu {
 
     function modify(t){
 		console.log('수정합시다.');
-		before = $(t).parent().next().text();
-		cmt_no= $(t).parent().next().next().text();
+		before = $(t).parent().parent().next().text();
+		cmt_no= $(t).parent().parent().next().next().text();
 		console.log("댓글내용= "+before);
 		console.log("댓글번호= "+cmt_no);
 		$("#book_comment").focus().val(before);
@@ -428,7 +264,7 @@ ul#subMenu {
     function comment_like(t){
     	
     	console.log('댓글 좋아요 합시당');
-    	like_cmt_no= $(t).parent().prev().prev().prev().text();
+    	like_cmt_no= $(t).parent().prev().prev().text();
     	console.log('댓글번호 '+like_cmt_no);
     	console.log('이전 좋아요 수 '+$(t).next().text());
     	prior_likecount= $(t).next().text();
@@ -453,6 +289,11 @@ ul#subMenu {
     	});// ajax end 
     	
     }
+    
+    function comment_align(obj){
+        console.log('어디보자...'+obj.value);
+    }
+
     </script>
 
 </body>

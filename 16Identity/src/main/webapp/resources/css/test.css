@@ -210,3 +210,7 @@ ul#subMenu {
 #cmt_dm{
 	float:right;
 }
+
+#comment_align{
+	float:right; height:40px;
+}
