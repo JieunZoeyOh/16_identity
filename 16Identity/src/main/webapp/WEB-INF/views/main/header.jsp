@@ -53,6 +53,11 @@ function openDrop(){
         <span>
         <a href="logout.net">LOGOUT</a>
         </span>
+        <c:if test="${m_id == 'admin@identity.com' }">
+	        <span>
+	        <a href="main.net">ADMIN</a>
+	        </span>
+        </c:if>
     </div>
     
     <nav id="main_sidebar">

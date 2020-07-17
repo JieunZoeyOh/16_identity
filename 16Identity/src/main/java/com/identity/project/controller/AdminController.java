@@ -150,30 +150,29 @@ public class AdminController {
 			}
 		}
 		mv.setViewName("admin/admin_report");
-		mv.addObject("list", list);
+		mv.addObject("data", list);
 		return mv;
 	}
 	
 	@GetMapping(value="/reportDelete.net")
-	public String reportDelete(int cmt_no,HttpServletResponse response) throws Exception {
+	public void reportDelete(int cmt_no,HttpServletResponse response) throws Exception {
 		int result = adminService.warnDelete(cmt_no);
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		if(result != 0) {
 			out.println("alert('반려 성공');");
-			out.println("history.back();");
+			out.println("location.href='report.net'");
 		} else {
 			out.println("alert('반려 실패');");
-			out.println("history.back();");
+			out.println("location.href='report.net'");
 		}
 		out.println("</script>");
 		out.close();
-		return "admin/admin_report";
 	}
 	
 	@GetMapping(value="/reportAccept.net")
-	public String reportAccept(int cmt_no,HttpServletResponse response, String m_id) throws Exception {
+	public void reportAccept(int cmt_no,HttpServletResponse response, String m_id) throws Exception {
 		System.out.println("댓글 번호:"+cmt_no);
 		int result = adminService.commentDelete(cmt_no);
 		response.setContentType("text/html;charset=utf-8");
@@ -182,13 +181,12 @@ public class AdminController {
 		if(result != 0) {
 			adminService.memberWarn(m_id);
 			out.println("alert('접수 성공');");
-			out.println("history.back();");
+			out.println("location.href='report.net'");
 		} else {
 			out.println("alert('접수 실패');");
-			out.println("history.back();");
+			out.println("location.href='report.net'");
 		}
 		out.println("</script>");
 		out.close();
-		return "admin/admin_report";
 	}
 }

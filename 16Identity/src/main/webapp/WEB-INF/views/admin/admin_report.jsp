@@ -84,7 +84,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="warn" items="${list}">
+										<c:forEach var="warn" items="${data}">
 										<tr>
 											<td><a href="reviewpost.minji?isbn=${warn.comments.isbn }">${warn.comments.cmt_content }</a></td>
 											<td>${warn.m_id }</td>
