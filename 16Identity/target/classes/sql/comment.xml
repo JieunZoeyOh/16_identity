@@ -134,7 +134,7 @@
 			 )
 		where rnum >=1 and rnum <=4
 		]]>
-	</select>
+  </select>
   
 	<select id="comments_list_popular" parameterType="map" resultType="C">
 		select * 
