@@ -89,11 +89,11 @@
 		<![CDATA[
 			select isbn
 			from (select ROWNUM rnum, x.*
-				  from (select isbn, count(*) cnt
+				  from (select isbn, count(*) cnt, max(like_date) mx
 				  		from book_like_date
 				  		where like_date between to_char(sysdate-7) and sysdate
 				  		group by isbn
-				  		order by cnt desc) x
+				  		order by cnt desc, mx desc) x
 				  )
 			where rnum >=1 and rnum <=4
 		]]>

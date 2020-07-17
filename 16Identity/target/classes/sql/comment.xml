@@ -105,7 +105,7 @@
 	<update id="cm_update" parameterType="int">
 		UPDATE COMMENTS SET CMT_LIKE = CMT_LIKE +1 WHERE CMT_NO=#{cmt_no}
 	</update>
-	
+	<!-- 수정하지 마세요. MainDAO에서도 사용 중 -->
 	<select id="comment_info" resultType="C" parameterType="int">
 		select * from comments where cmt_no=#{cmt_no}
 	</select>
@@ -121,4 +121,18 @@
 	<delete id="getCommentDel" parameterType="int">
 		delete from comments where cmt_no = #{cmt_no} 
 	</delete>
+	
+	<select id="best_review_cmt_no_list" resultType="int">
+		<![CDATA[
+		select cmt_no
+		from (select ROWNUM rnum, x.*
+			  from (select cmt_no, count(*) cnt, max(cmt_like_date)
+			  		from comments_like
+			  		where cmt_like_date between to_char(sysdate-7) and sysdate
+ 			  		group by cmt_no
+			  		order by cnt desc, max(cmt_like_date) desc) x
+			 )
+		where rnum >=1 and rnum <=4
+		]]>
+	</select>
 </mapper>

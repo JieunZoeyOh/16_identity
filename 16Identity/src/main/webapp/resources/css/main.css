@@ -321,9 +321,11 @@ body{
     background-position-x: center;
     background-position-y: center;
     font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 300;
     font-style: italic;
+    white-space: pre-wrap;
+    color: #000000d9;
 }
 
 .best_review_card:nth-child(1) .best_review_book_box_back {
@@ -352,8 +354,8 @@ body{
 	position:absolute;
 	width: 20px;
     height: 18px;
-    left: 70px;
-    top: 70px;
+    left: 50px;
+    top: 76px;
 }
 .best_review_book_box_back img:nth-child(2) {
 	position:absolute;
@@ -373,6 +375,26 @@ body{
     font-style: italic;
     font-size: 19px;
     font-weight: 300;
+}
+
+#cmt_nickname {
+	display: inline-block;
+    position: absolute;
+    top: 71px;
+    left: 82px;
+    font-style: normal;
+    font-size: 19px;
+    font-weight: 800;
+    color: #e8a160ad;
+}
+.best_review_card:nth-child(2) #cmt_nickname, .best_review_card:nth-child(3) #cmt_nickname{
+	color: #2d415fad;
+}
+#cmt_mbti {
+	font-weight: 400;
+    font-size: 15px;
+    margin-left: 10px;
+    letter-spacing: -1px;
 }
 
 #main_best_recommend_part {
@@ -401,9 +423,9 @@ body{
 
 .best_recommend_book_description{
     position: relative;
-    right: 11px;
+    right: 11.5px;
     bottom: 169px;
-    width: 243px;
+    width: 243.5px;
     height: 170px;
     background-color: #f4f4f4;
     opacity: 0.9;

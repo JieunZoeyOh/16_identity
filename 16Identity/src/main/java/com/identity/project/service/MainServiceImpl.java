@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.identity.project.dao.MainDAO;
 import com.identity.project.domain.Book;
+import com.identity.project.domain.Comments;
 
 @Service
 public class MainServiceImpl implements MainService{
@@ -28,6 +29,11 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public List<Book> getBestRecommendList() {
 		return dao.bestRecommendList();
+	}
+
+	@Override
+	public List<Comments> getBestReviewList() {
+		return dao.bestReviewList();
 	}
 
 }

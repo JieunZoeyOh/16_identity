@@ -73,82 +73,24 @@
                 <p style="background-color:#f8b24f">Best Review</p>
             </div>
             <div id="best_review_wrap">
-            	<div class="best_review_card">
-                <article class="best_review_book">
-                    <div class="best_review_book_box"><!-- card front/thecard -->
-                        <img src="resources/image/book/book5.jpg" alt="직장 갑질에서 살아남기">
-                    </div>
-                    <div class="best_review_book_box_back">
-                    	<!-- <img src="resources/image/note.png"> -->
-                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	
-한국에서 살고 있는가?
-당신 명의로 된 건물이 없는가?
-직업이 있는가?
-직업이 없다면 향후 구직 의사가 있는가?
-2인 이상의 사업체를 운영 중인가?
-그렇다면 꼭 읽어야 하는 책
-                    	
-                    </div>
-                </article>
-               </div>
-               <div class="best_review_card">
-                <article class="best_review_book">
-                    <div class="best_review_book_box">
-                        <img src="resources/image/book/book11.jpg" alt="시선으로 부터">
-                    </div>
-                    <div class="best_review_book_box_back">
-                    	<!-- <img src="resources/image/note.png"> -->
-                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	
-한국에서 살고 있는가?
-당신 명의로 된 건물이 없는가?
-직업이 있는가?
-직업이 없다면 향후 구직 의사가 있는가?
-2인 이상의 사업체를 운영 중인가?
-그렇다면 꼭 읽어야 하는 책
-                    	
-                    </div>
-                </article>
-              </div>
-               <div class="best_review_card">
-                <article class="best_review_book">
-                    <div class="best_review_book_box">
-                        <img src="resources/image/book/book9.jpg" alt="귤의 맛">
-                    </div>
-                    <div class="best_review_book_box_back">
-                    	<!-- <img src="resources/image/note.png"> -->
-                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	
-한국에서 살고 있는가?
-당신 명의로 된 건물이 없는가?
-직업이 있는가?
-직업이 없다면 향후 구직 의사가 있는가?
-2인 이상의 사업체를 운영 중인가?
-그렇다면 꼭 읽어야 하는 책
-                    	
-                    </div>
-                </article>
-               </div>
-               <div class="best_review_card">
-                <article class="best_review_book">
-                    <div class="best_review_book_box">
-                        <img src="resources/image/book/book10.jpg" alt="그릿">
-                    </div>
-                    <div class="best_review_book_box_back">
-                    	<!-- <img src="resources/image/note.png"> -->
-                    	<img src="resources/image/quote.png"><img src="resources/image/quote1.png">
-                    	
-한국에서 살고 있는가?
-당신 명의로 된 건물이 없는가?
-직업이 있는가?
-직업이 없다면 향후 구직 의사가 있는가?
-2인 이상의 사업체를 운영 중인가?
-그렇다면 꼭 읽어야 하는 책
-                    	
-                    </div>
-                </article>
-               </div> 
+            	<c:forEach var="list" items="${bestReviewList}">
+            		<c:set var="full_isbn" value="${list.isbn}" />
+                    <c:set var="length" value="${fn:length(full_isbn)}"/>
+                    <c:set var="isbn_original" value="${fn:substring(full_isbn, length -13, length)}" />
+                    <c:set var="isbn_short" value="${fn:substring(full_isbn, length -3, length)}" />
+	            	<div class="best_review_card">
+	            	<a href="reviewpost.minji?isbn=${full_isbn}">
+	                <article class="best_review_book">
+	                    <div class="best_review_book_box"><%-- card front/thecard --%>
+	                        <img class="recom_img_src" src="http://image.kyobobook.co.kr/images/book/xlarge/${isbn_short}/x${isbn_original}.jpg" alt="cmt_no:${list.cmt_no}">
+	                    	<input type="hidden" value="http://image.kyobobook.co.kr/images/book/large/${isbn_short}/l${isbn_original}.jpg">
+	                    </div>
+	                    <%-- <div class="best_review_book_box_back"><img src="resources/image/quote.png"><img src="resources/image/quote1.png">${list.cmt_content }<div id="cmt_nickname">${list.cmt_nickname}<span id="cmt_mbti">${fn:toUpperCase(list.cmt_mbti)}</span></div></div> --%>
+	                	<div class="best_review_book_box_back"><img src="resources/image/quote.png"><img src="resources/image/quote1.png">${list.cmt_content }<div id="cmt_nickname">${fn:toUpperCase(list.cmt_mbti)}, <span id="cmt_mbti">${list.cmt_nickname}</span></div></div>
+	                </article>
+	                </a>
+	               </div>
+               </c:forEach>
             </div>
         </section>
         <section id="main_best_recommend_part" class="m_p_zero">
@@ -199,6 +141,9 @@
 			}) */
 			$('.recom_img_src').on('error', function(){
 				$(this).prop('src', $(this).next().val());
+				$('.recom_img_src').on('error', function(){
+               		$(this).prop('src', 'resources/image/bookerror.PNG');
+                })
 			})
 			$('.best_review_wrap').find('article').hover();
 			
