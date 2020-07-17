@@ -1,0 +1,212 @@
+@charset "UTF-8";
+.hangelfont { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important; }
+body {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:auto;
+	background-color:white;
+	background-size:100% auto;
+	overflow: auto;
+}
+#wrap {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 60px 50px 0 50px;
+}
+#book_img {
+    width: 30%;
+    height: auto;
+    display: inline-block;
+    float: left;
+}
+
+#book_img img{
+	width:260px;
+	height:auto;
+}
+
+.title {
+	width: 70%;
+    display: inline-block;
+    height: 100px;
+}
+.title > img {
+	width: 18px;
+    position: relative;
+    top: -20px;
+}
+.title > span {
+	font-size: 33px;
+    font-weight: 500;
+	line-height: 100px;
+    margin: 0 10px;
+}
+
+#book_info{
+	display:inline-block;
+	width:70%;
+	margin-bottom: 30px;
+}
+
+#book_info td{
+    width: 400px;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: 200;
+}
+
+#book_contents {
+	border-top: 1px solid #d3d3d354;
+	width: 70%;
+    float: right;
+}
+#bookContents {
+	font-size: 17px;
+    font-weight: 200;
+    line-height: 29px;
+}
+
+.m_p_o_zero {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.button_container {
+	display:inline-block;
+   	clear:both;
+	position: relative;
+    left: 100px;
+    top: 22px;
+}
+
+.button_container i{
+    font-size: 2.5rem;
+    transition: .4s;
+}
+
+.button_container:hover i {
+    color: #f50057;
+}
+
+.fa-heart {
+    color: #f50057;
+    transition: .4s;
+}
+
+#button_addcomment{
+	width: 100px;
+    height: 50px;
+    border: 3px solid #303960;
+    background-color: white !important;
+    color: black;
+    border-radius: 20px;
+    font-size: 14px;
+    position: relative;
+   	left: 125px;
+    top: -55px;
+	margin:20;
+	transition: .3s;
+	box-shadow: none !important;
+}
+#button_addcomment:hover {
+	background-color: #303960 !important;
+	color:white;
+}
+
+#each_comment{
+    background-color: #fff !important;
+    color: black !important;
+}
+#comment_avatar {
+	display:inline-block;
+	width:90px;
+}
+#comment_avatar>img {
+	width:90px !important;
+	border-radius: 50%;
+}
+
+.form-line{
+	display:inline-block;
+}
+
+.form-group{
+	width: 900px;
+	display:inline-block;
+	padding-left: 90px;
+}
+
+#main_sidebar #sidebar_list>li:nth-child(1) {
+    padding: 20px 0px 5px 23px;
+}
+
+#main_sidebar #sidebar_list>li:nth-child(3) {
+    padding: 18px 0px 5px 17px;
+}
+#main_sidebar #sidebar_list>li:nth-child(4) {
+    padding: 10px 0px 0px 19px;
+}
+.form-group .form-line:after{
+	border-bottom: 2px solid #303960 !important;
+}
+
+.card {
+    box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.2) !important;
+    height: auto;
+}
+.card_header{
+	width: 80%;
+	display: inline-block;
+	font-size: 19px;
+	padding-left: 20px;
+}
+
+#review_remove{
+	width:20px; height:20px;
+}
+
+.modal.on{
+height: 200px;
+}
+
+.modal p {
+    padding-top: 10px;
+  }
+
+#review_modify{
+	width:20px; height:20px;
+}
+
+.cmt_content{
+	height: 80px;
+    padding: 10px 20px 0 20px;
+}
+
+.none_cmtno{
+	display:none;
+}
+
+ul#subMenu {
+    width:107px;
+}
+#chart{
+	padding-left:140px;
+}    
+#chart > svg > g:nth-child(1) > g.brush-fullstackbar > g:nth-child(1) > text:nth-child(4){
+	font-size:30px;	
+}
+#review_warn{
+	width:20px; height:20px; float:right;
+}
+#comment_like{
+	width:20px; height:20px;
+}
+#cmt_like{
+	float:right;
+}
+#cmt_dm{
+	float:right;
+}
