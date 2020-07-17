@@ -163,18 +163,20 @@
                     <c:set var="length" value="${fn:length(full_isbn)}"/>
                     <c:set var="isbn_original" value="${fn:substring(full_isbn, length -13, length)}" />
                     <c:set var="isbn_short" value="${fn:substring(full_isbn, length -3, length)}" />
-                    <img class="recom_img_src hvr-grow" src="http://image.kyobobook.co.kr/images/book/xlarge/${isbn_short}/x${isbn_original}.jpg" alt="${list.b_title}">
-					<input type="hidden" value="http://image.kyobobook.co.kr/images/book/large/${isbn_short}/l${isbn_original}.jpg">
-                    <div class="best_recommend_book_description">
-                        <dl>
-                            <dt>best${status.count}</dt>
-                            <dd>${list.b_title}</dd>
-                            <dd>${list.b_authors } 저</dd>
-                       		<c:if test="${!empty list.b_translator }">
-                       			<dd>${list.b_translator } 역</dd>
-                       		</c:if>
-                        </dl>
-                    </div> 
+                    <a href="reviewpost.minji?isbn=${full_isbn}">
+	                    <img class="recom_img_src hvr-grow" src="http://image.kyobobook.co.kr/images/book/xlarge/${isbn_short}/x${isbn_original}.jpg" alt="${list.b_title}">
+						<input type="hidden" value="http://image.kyobobook.co.kr/images/book/large/${isbn_short}/l${isbn_original}.jpg">
+	                    <div class="best_recommend_book_description">
+	                        <dl>
+	                            <dt>best${status.count}</dt>
+	                            <dd>${list.b_title}</dd>
+	                            <dd>${list.b_authors } 저</dd>
+	                       		<c:if test="${!empty list.b_translator }">
+	                       			<dd>${list.b_translator } 역</dd>
+	                       		</c:if>
+	                        </dl>
+	                    </div>
+                    </a> 
                 </article>
             </c:forEach>    
             </div>

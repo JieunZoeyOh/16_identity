@@ -387,16 +387,16 @@ body{
 }
 
 .best_recommend_book {
-    
     width: 220px;
     height: 330px;
     margin: 18px 10px 0 10px;
     float: left;
 }
 
-.best_recommend_book>img{
+.best_recommend_book>a, .best_recommend_book img{
     width: 220px;
     height: 330px;
+    text-decoration: none;
 }
 
 .best_recommend_book_description{

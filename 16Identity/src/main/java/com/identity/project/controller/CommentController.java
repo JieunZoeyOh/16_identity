@@ -354,4 +354,109 @@ public class CommentController {
 		System.out.println("컨트롤러에서 좋아요 수:"+cmt_like_ok);
 		return cmt_like_ok;
 	}
+	
+	//test 부분
+	@RequestMapping(value = "/reviewpost2.minji", method = RequestMethod.GET)
+	public ModelAndView  review_detail2(ModelAndView mv, String isbn) {
+		int count = commentService.getListCount(isbn);
+		
+		Book_Like bookvalue= new Book_Like();
+		
+		bookvalue = boardService.getLikeCount(isbn);
+		
+		if(bookvalue==null) {
+			System.out.println("책 좋아요 데이터 없음");
+			Book_Like bookvalue2= new Book_Like();
+			bookvalue2.setLike_count(0);
+			bookvalue2.setE_count(0);
+			bookvalue2.setI_count(0);
+			bookvalue2.setS_count(0);
+			bookvalue2.setN_count(0);
+			bookvalue2.setT_count(0);
+			bookvalue2.setF_count(0);
+			bookvalue2.setP_count(0);
+			bookvalue2.setJ_count(0);
+			
+			mv.setViewName("review/review_detail");
+			mv.addObject("isbn", isbn);
+			mv.addObject("count", count);
+			mv.addObject("bookvalue", bookvalue2);
+		}
+		
+		else {
+			System.out.println("likecount값:"+bookvalue.getLike_count());
+			System.out.println("e값 "+bookvalue.getE_count());
+			System.out.println("i값 "+bookvalue.getI_count());
+			System.out.println("S값 "+bookvalue.getS_count());
+			System.out.println("N값 "+bookvalue.getN_count());
+			System.out.println("T값 "+bookvalue.getT_count());
+			System.out.println("F값 "+bookvalue.getF_count());
+			System.out.println("P값 "+bookvalue.getP_count());
+			System.out.println("J값 "+bookvalue.getJ_count());
+			
+		if(bookvalue.getE_count()==0 &&bookvalue.getI_count()==0) {
+			bookvalue.setE_count(0);
+			bookvalue.setI_count(0);
+		}
+		else {
+			double e_percent= ((double)bookvalue.getE_count()/((double)(bookvalue.getE_count()+(double)bookvalue.getI_count())))*100;
+		
+			double i_percent= ((double)bookvalue.getI_count()/((double)(bookvalue.getI_count()+bookvalue.getE_count())))*100;
+			
+			bookvalue.setE_count(Integer.parseInt(String.valueOf(Math.round(e_percent))));
+			System.out.println("E 퍼센트 값="+bookvalue.getE_count());
+			bookvalue.setI_count(Integer.parseInt(String.valueOf(Math.round(i_percent))));
+			System.out.println("I 퍼센트 값="+bookvalue.getI_count());
+		}
+		
+		if(bookvalue.getS_count()==0 &&bookvalue.getN_count()==0) {
+			bookvalue.setS_count(0);
+			bookvalue.setN_count(0);
+		}
+		else {
+			double s_percent= ((double)bookvalue.getS_count()/(double)(bookvalue.getS_count()+bookvalue.getN_count()))*100;
+			double n_percent= ((double)bookvalue.getN_count()/(double)(bookvalue.getS_count()+bookvalue.getN_count()))*100;
+			
+			bookvalue.setS_count(Integer.parseInt(String.valueOf(Math.round(s_percent))));
+			System.out.println("S 퍼센트 값="+s_percent);
+			bookvalue.setN_count(Integer.parseInt(String.valueOf(Math.round(n_percent))));
+			System.out.println("N 퍼센트 값="+n_percent);
+		}
+		
+		if(bookvalue.getT_count()==0 &&bookvalue.getF_count()==0) {
+			bookvalue.setT_count(0);
+			bookvalue.setF_count(0);
+		}
+		else {
+			double t_percent= ((double)bookvalue.getT_count()/(double)(bookvalue.getT_count()+bookvalue.getF_count()))*100;
+			double f_percent= ((double)bookvalue.getF_count()/(double)(bookvalue.getT_count()+bookvalue.getF_count()))*100;
+		
+			bookvalue.setT_count(Integer.parseInt(String.valueOf(Math.round(t_percent))));
+			System.out.println("T 퍼센트 값="+t_percent);
+			bookvalue.setF_count(Integer.parseInt(String.valueOf(Math.round(f_percent))));
+			System.out.println("F 퍼센트 값="+f_percent);
+		}
+		
+		if(bookvalue.getP_count()==0 &&bookvalue.getJ_count()==0) {
+			bookvalue.setP_count(0);
+			bookvalue.setJ_count(0);
+		}
+		
+		else {
+			double p_percent= ((double)bookvalue.getP_count()/(double)(bookvalue.getP_count()+bookvalue.getJ_count()))*100;
+			double j_percent= ((double)bookvalue.getJ_count()/(double)(bookvalue.getP_count()+bookvalue.getJ_count()))*100;
+			
+			bookvalue.setP_count(Integer.parseInt(String.valueOf(Math.round(p_percent))));
+			System.out.println("P 퍼센트 값="+p_percent);
+			bookvalue.setJ_count(Integer.parseInt(String.valueOf(Math.round(j_percent))));
+			System.out.println("J 퍼센트 값="+j_percent);
+		}
+		
+		mv.setViewName("review/review_detail2");
+		mv.addObject("isbn", isbn);
+		mv.addObject("count", count);
+		mv.addObject("bookvalue", bookvalue);
+		}
+		return mv;
+	}
 }
