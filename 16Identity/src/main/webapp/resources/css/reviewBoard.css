@@ -154,6 +154,7 @@
 }
 
 .board_container{
+	clear:both;
 	width:100%;
 	height:auto;
 	text-align:center;
@@ -205,6 +206,22 @@
     font-weight: 300;
 }
 
+.likeCmnt {
+	text-align:left;
+}
+
+.like_section, .comment_section {
+	display: inline-block;
+    width: 30px;
+    position: relative;
+    top: -4px;
+    padding-left: 4px;
+}
+
+.likeCmnt>img {
+	width: 20px; height:20px
+}
+
 #board_more_action{
 	height:150px;
 	width:1000px;
@@ -244,6 +261,27 @@ button.more_button:focus {
 	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 	color : #747474;
 	font-weight: 300;
+	float:left;
+}
+
+#book_search_category {
+	display:inline-block;
+	float:right;
+}
+
+#category_option {
+	width: 94px;
+    height: 28px;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid #0000000d;
+}
+
+select#category_option:active, select#category_option:focus {
+    outline: none;
 }
 
 span#message {

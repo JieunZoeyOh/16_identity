@@ -56,14 +56,13 @@ window.onload = function(){
     
     let searchWord;
 
-    
-    var page=1;
+    let sort = 'accuracy';
+    let page=1;
     var count = 0;
     var category;
     $('#autoComplete_box').hide();
     /*input 검색했을 때*/
     /*Enter 칠 경우*/
-   
     var text;
     var focus = -1;
     $('#searchBook').keyup(function(e){
@@ -78,7 +77,7 @@ window.onload = function(){
                  $('.board_wrap').empty();	//검색 결과 창 비우기
                  category = categoryFunc($(".default_option").text());	//검색 카테고리 가져오기
                  searchWord = $('#searchBook').val();
-                 searchBookFunc(searchWord, page, category);
+                 searchBookFunc(searchWord, page, category, sort);
               } 
           }else if(e.keyCode != 40 && e.keyCode != 38){ //엔터, 위, 아래 제외 다른 키 누른 경우
              searchAuto($('#searchBook').val());//searchAuto 함수 호출
@@ -134,7 +133,7 @@ window.onload = function(){
           $('.board_wrap').empty();
           category = categoryFunc($(".default_option").text());
           searchWord = $('#searchBook').val();
-         searchBookFunc(searchWord, page, category);
+         searchBookFunc(searchWord, page, category, sort);
       } 
     });  
 
@@ -152,17 +151,17 @@ window.onload = function(){
        
     }
     
-    function searchBookFunc(searchWord, page, cate){
-       getPageList(searchWord, page, cate);
+    function searchBookFunc(searchWord, page, cate, sort_word){
+       getPageList(searchWord, page, cate, sort_word);
        console.log("여기는 searchbook" + searchWord);
     }
     
     $('.more_button').on('click', function(){
-       getPageList(searchWord, page, category);
+       getPageList(searchWord, page, category, sort);
     });
 
     
-    function getPageList(searchWord, input_page, input_cate){
+    function getPageList(searchWord, input_page, input_cate, sort_word){
        var urlAddress ="https://dapi.kakao.com/v3/search/book"+input_cate;
        console.log("주소:"+urlAddress);
        $.ajax({
@@ -171,7 +170,8 @@ window.onload = function(){
           data : {
              query : searchWord,
              size : 6,
-             page : input_page
+             page : input_page,
+             sort : sort_word
           },
           headers: {Authorization: "KakaoAK 49748a98d393f2ca2642a0b78bc9b99f"},
           success : function(result){ 
@@ -196,7 +196,6 @@ window.onload = function(){
                     for(var i=0; i<result.documents.length; i++){
                        var isbn_original = result.documents[i].isbn.slice(-13);
                        var isbn_short= isbn_original.slice(-3);
-                       //imgerror = 'resources/image/bookerror.PNG';
                        img = "http://image.kyobobook.co.kr/images/book/xlarge/"+isbn_short+"/x"+isbn_original+".jpg";
                        img2 = "http://image.kyobobook.co.kr/images/book/large/"+isbn_short+"/l"+isbn_original+".jpg";
                        output += '<article class="book_article">'
@@ -210,8 +209,8 @@ window.onload = function(){
                           output += '<dd>'+ result.documents[i].translators +'</dd>';
                        }
                        output += '</dl>';
-                       
-                       output += '</article>';      
+                       output += '<div class="'+isbn_original+' likeCmnt"><img src="resources/image/hearticons.png"><div class="like_section"></div><img src="resources/image/comments2.png"><div class="comment_section"></div</div>';
+                       output += '</article>';
                     }
                     $('section.board_wrap').append(output);
                      $('.bookImgSrc').on('error', function(){//img src 없는 경우 xlarge->lagre로 대체
@@ -222,14 +221,32 @@ window.onload = function(){
                      })
                     page += 1;
                  })
-
               } else {
                  $('#book_total_count_part').hide();   
                  $('.board_container').show();
                  $(".board_wrap").hide();
                  $(".more_button").hide();
                  $("#message").text("검색 결과가 존재하지 않습니다.");
-              }      
+              }  
+               console.log('success 완료');
+          },
+          complete : function(result){	//좋아요, 댓글 수 불러오기
+        	  $(result).each(function(){
+        		  for(var i=0; i<result.responseJSON.documents.length; i++){
+        			  $.ajax({
+        				  method: "POST",
+        		          url : "reviewLikeCmt.net",
+        		          data : {
+        		             isbn : result.responseJSON.documents[i].isbn
+        		          },
+        		          success : function(result){
+        		        	  var isbn = result.isbn;
+        		        	  $('.'+result.isbn.slice(-13)).children().find('.like_section').prevObject[1].append(result.like);
+        		        	  $('.'+result.isbn.slice(-13)).children().find('.like_section').prevObject[3].append(result.comment);
+        		          }
+        			  })
+        		  }
+        	  })
           }
        })
     }//
@@ -275,6 +292,15 @@ window.onload = function(){
           }
        })
     }
+    
+    /*sort 바꾼 경우 정확도순, 최신순*/
+    $('#category_option').on('change', function(){
+    	sort = $(this).val();
+    	$('.board_wrap').empty(); //화면 비우기
+    	getPageList($('#searchBook').val(), 1, categoryFunc($(".default_option").text()), sort);
+    });
+    
+    
     $(document).on('mouseover','.auto_result',function(){   //마우스 오버할 때 이벤트
        $('.auto_result').removeClass('auto_result_focus'); //포커스 클래스 없애기
        $('#autoComplete_box').find('img').prop("src", $(this).find('.thumImg').val());
