@@ -37,6 +37,12 @@
 	<div id="book_total_count_part">
 		<div id="book_total_count">
 			<span>검색 결과 : 총  <span id="book_count"></span>권</span>			
+			<div id="book_search_category">
+			<select id="category_option">
+				<option value="accuracy" selected>정확도순</option>
+				<option value="recency">최신순</option>
+			</select>
+		</div>
 		</div>
 	</div>
 	<div class="board_container">
