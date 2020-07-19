@@ -72,10 +72,11 @@
 										<img src="${m.book.b_thumbnail }">
 									</div>
 									<div class='flip-card-back'>
-									<br><br><br><br>
-										<p>${m.cmt_date}</p>
-										<p>${m.cmt_mbti}</p><br>
-										
+									<br><br><br>
+										<img src = "resources/image/cal.png" style="width:30px; z-index:1; display:inline-block" ><span>${m.cmt_date}</span>&nbsp;  
+										<img src = "resources/image/user.png" style="width:30px; z-index:1; display:inline-block" ><span> ${m.cmt_mbti}</span>&nbsp; 
+										<img src = "resources/image/like.png" style="width:30px; z-index:1; display:inline-block" ><span>${m.cmt_like}</span>  
+					<br>
 										<p>${m.cmt_content }</p>
 									</div>
 								</a>
@@ -88,7 +89,7 @@
 
 			<c:if test="${listcount == 0}">
 				<div class="empty">
-					<p>등록된 글이 없습니다.</p>
+					<p> "${m.m_nickname}" 님의 리뷰를 들려주세요. 지금 !</p>
 				</div>
 			</c:if>
 		</div>

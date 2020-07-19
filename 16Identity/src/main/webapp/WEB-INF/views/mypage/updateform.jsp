@@ -49,7 +49,10 @@
 		<input type="password" placeholder="change your password" name="m_password" id="m_password"  maxLength="13" required> 
 		
 		<b>CHECK</b> 
-		<input type="password" placeholder="check your password" name="m_passwordcheck" value="${m_password}" maxLength="13" required>
+		<span id="success" style="display: none; font-size:12px; color : green; margin-top: -17px; margin-left: 60px;">비밀번호가 일치합니다.</span>
+		<span id="fail" style="display: none;font-size:12px; color : red;  margin-top: -17px; margin-left: 60px;">비밀번호를 다시 확인해주세요.</span>
+		<input type="password" placeholder="check your password" name="m_passwordcheck" id="m_passwordchk" value="${m_password}" maxLength="13" required>
+		
 		
 		<b>NICK NAME</b> 
 		<input type="text" placeholder="change your nick name" name="m_nickname" id="m_nickname" value="${m.m_nickname}" required> 
@@ -67,5 +70,24 @@
 	</form>
 	
  <footer><h3>footer</h3></footer>
+ 
+ <script>
+ $('#m_passwordchk').keyup(function () {
+     var pwd1 = $("#m_password").val();
+     var pwd2 = $("#m_passwordchk").val();
+
+     if ( pwd1 != '' && pwd2 == '' ) {
+         null;
+     } else if (pwd1 != "" || pwd2 != "") {
+         if (pwd1 == pwd2) {
+             $("#success").css('display', 'block');
+             $("#fail").css('display', 'none');
+         } else {
+        	 $("#fail").css('display', 'block');
+             $("#success").css('display', 'none');
+         }
+     }
+ });
+ </script>
 </body>
 </html>
