@@ -1,0 +1,144 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@charset "UTF-8";
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family :'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important; 
+}
+
+footer { 
+	clear: both;
+	height : 200px;
+	background-color : #f8b24f; 
+}
+	
+.uploadimg{
+	border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.hero {
+    display: inline-block;
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+  .diagonal-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    background: #2b5876; 
+    background: -webkit-linear-gradient(to right, #1f0d0d, #271404); 
+    background: linear-gradient(to right ,#1f0d0d, #1f0d0d); 
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+* {box-sizing: border-box; font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' }
+
+#bContainer{
+	width:100%;
+	height:auto;
+}
+
+#left_Container {
+	display:inline-block;
+	width:30%;
+	float:left;
+}
+
+#right_Container{
+	display:inline-block;
+	width:70%;
+	float:right;
+}
+
+.menu {
+	display: inline-block;
+    position: relative;
+    right: -51px;
+    top: 80px;
+}
+
+.logoimg {margin-top: 37px; width: 300px; margin-left: 59px;}
+
+.menu-control {margin: 0 140; border: none; border-bottom: 1px solid black; padding: 13px; font-size: 18;
+}
+
+.menu-control>option{
+    text-align: center;
+    line-height: 5px;
+}
+
+.imgcontainer {
+    bottom: 120;
+    width: 300px;
+    display: inline-block;
+    margin-left: 166px;
+}
+
+.like{
+	width: 103px;
+    height: 40px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background: white;
+    color: #303960;
+    border: none;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.like:hover, .like:active{
+	width: 103px;
+    height: 40px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background: #303960;
+    color: white;
+    border: none;
+    font-weight: 100;
+    outline: none;
+}
+
+#content{
+	width: 980px;
+    height: auto;
+    border:none;
+    border-top: 1.5px solid #303960;
+    border-bottom: 1.5px solid #303960;
+    margin-bottom: 130px;
+}
+
+.content_table {
+	width: 100%;
+}
+
+.content_table td{
+	text-align:center;
+    font-size: 16px;
+    padding: 9px 0;
+} 
+
+.content_table>thead td{
+	font-weight: 500;
+} 
+
+.content_table>tbody td{
+	font-weight: 200;
+} 
+.content_table>thead td:nth-child(1){width:10%} 
+.content_table>thead td:nth-child(2){width:10%} 
+.content_table>thead td:nth-child(4){width:15%} 
+.content_table>thead td:nth-child(5){width:15%} 
+.content_table>thead td:nth-child(6){width:10%} 
+
+.content_table>tbody td>img {
+	width: 120px;
+	height: 174px;
+}

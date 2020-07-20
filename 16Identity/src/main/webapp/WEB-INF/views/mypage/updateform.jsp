@@ -36,7 +36,7 @@
 		<select class="menu-control" onchange="location = this.value;">
 			<option value="updateForm.net">My Info</option>
 			<option value="myReview.net">My Review</option>
-			<option value="myBooks.net">My Books</option>
+			<option value="myBook.net">My Books</option>
 			<option value="notice.net">Notice</option>
 		</select>
 	</div>
