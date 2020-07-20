@@ -369,16 +369,13 @@ public class MemberController {
 		return mv;
 	}
 	
-	/*
-	 * @ResponseBody
-	 * 
-	 * @RequestMapping(value= "/myReviewAjax.net", method=RequestMethod.POST) public
-	 * Map<String, Object> myReviewAjax(HttpSession session){ String id = (String)
-	 * session.getAttribute("m_id"); int listcount = commentService.listcount(id);
-	 * System.out.println("확인 : " + listcount); List<Comments> commentlist =
-	 * commentService.getmyCommentList(id); Map<String, Object> map = new
-	 * HashMap<String, Object>(); map.put("listcount", listcount);
-	 * map.put("commentlist", commentlist); return map; }
-	 */
-	
+	@RequestMapping(value="/myBook.net")
+	public ModelAndView myBook(HttpSession session, ModelAndView mv) {
+		String id = (String) session.getAttribute("m_id");
+		Member m = memberSerivce.profile(id);
+		
+		mv.setViewName("mypage/myBook");
+		mv.addObject("profile", m);
+		return mv;
+	}
 }

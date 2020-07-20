@@ -76,6 +76,7 @@
 <span style="display:none" id="isbn_input">${isbn}</span>
 <span style="display:none" id="m_id">${m_id}</span>
 <span id="count" style="display:none" class="hangelfont">${count}</span>
+<span id="my_review_count" style="display:none" class="hangelfont">${my_review_count}</span>
 	<div id="comment" class="hangelfont">
             <table class="table table_striped">
                <thead>
@@ -150,7 +151,10 @@
             }
         }
         
-        graph.ready([ "chart.builder" ], function(builder) {
+        
+
+        
+         graph.ready([ "chart.builder" ], function(builder) {
             builder("#chart", {
                 width: 800,
                 height : 400,
@@ -183,7 +187,7 @@
                   
                 },
             });
-        });
+        }); 
         
        
 	})
@@ -289,6 +293,17 @@
     	});// ajax end 
     	
     }
+    
+    function see_view2(t){
+    	var see_nickname=$(t).text();
+    	window.screen.width
+    	window.screen.height
+    	var popupWidth = 750;
+    	var popupHeight = 750;
+    	var popupX = (window.screen.width/2) - (popupWidth/2);
+    	var popupY= (window.screen.height/2) - (popupHeight/2);
+    	window.open("see_view.minji?nickname="+see_nickname, see_nickname, 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+	}
     
 
     </script>

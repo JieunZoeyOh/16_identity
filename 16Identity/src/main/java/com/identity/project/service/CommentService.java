@@ -44,4 +44,13 @@ public interface CommentService {
 
 	List<Comments> getCommentList_mine(String isbn, int page, String m_id);
 
+
+	int getMyreviewCount(String isbn, String m_id);
+
+
+	List<Comments> getSomeoneCommentList(String nickname, int limit, int page);
+
+
+	int getSomeoneListCount(String nickname);
+
 }

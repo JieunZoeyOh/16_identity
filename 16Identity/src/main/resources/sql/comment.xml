@@ -159,4 +159,23 @@
 		   )
 		   where rnum &gt;=#{start} and rnum &lt;= #{end}
 	</select>
+	
+	<select id="myreviewcount" parameterType="C" resultType="int">
+		select count(*) from comments where cmt_id =#{cmt_id} and isbn=#{isbn}
+	</select>
+	
+	<select id="someoneCommentList" parameterType="map" resultType="C">
+		select * 
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+			   from (
+					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+					  from comments where cmt_id=(select m_id from member where m_nickname=#{nickname})
+					 )		   
+		   )
+		   where rnum &gt;=#{start} and rnum &lt;= #{end}
+	</select>
+	
+	<select id="someoneListCount" parameterType="String" resultType="int">
+		select count(*) from comments where cmt_id =(select m_id from member where m_nickname=#{nickname})
+	</select>
 </mapper>

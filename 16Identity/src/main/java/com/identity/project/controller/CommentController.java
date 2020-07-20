@@ -35,11 +35,12 @@ public class CommentController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/reviewpost.minji", method = RequestMethod.GET)
-	public ModelAndView  review_detail(ModelAndView mv, String isbn) {
+	public ModelAndView  review_detail(HttpSession session, ModelAndView mv, String isbn) {
 		int count = commentService.getListCount(isbn);
-		
+		String m_id = (String) session.getAttribute("m_id");
+		int my_review_count= commentService.getMyreviewCount(isbn,m_id);
 		Book_Like bookvalue= new Book_Like();
-		
+		System.out.println("이 책에서 내 댓글 수:"+my_review_count);
 		bookvalue = boardService.getLikeCount(isbn);
 		
 		if(bookvalue==null) {
@@ -134,6 +135,7 @@ public class CommentController {
 		mv.addObject("isbn", isbn);
 		mv.addObject("count", count);
 		mv.addObject("bookvalue", bookvalue);
+		mv.addObject("my_review_count", my_review_count);
 		}
 		return mv;
 	}
@@ -476,4 +478,37 @@ public class CommentController {
 		}
 		return mv;
 	}
+	
+	@RequestMapping(value = "/see_view.minji", method = RequestMethod.GET)
+	public ModelAndView  see_view(ModelAndView mv, HttpServletRequest request, @RequestParam(value="page", defaultValue="1", required=false) int page) {
+		String nickname= request.getParameter("nickname");
+		
+		int limit =4; 
+		
+		int listcount = commentService.getSomeoneListCount(nickname);
+		int maxpage= (listcount+limit -1)/limit;
+		
+		List<Comments> commentlist = commentService.getSomeoneCommentList(nickname, limit, page);
+		
+		//현재 페이지에 보여줄 시작페이지 수(1, 11, 21등...)
+		int startpage = ((page-1)/10)*10+1;
+		
+		//현재 페이지에 보여줄 마지막 페이지 수(10,20, 30등...)
+		int endpage= startpage+10-1;
+		
+		if(endpage>maxpage)
+			endpage=maxpage;
+		
+		
+		mv.setViewName("review/someone_review");
+		mv.addObject("nickname",nickname);
+		mv.addObject("page", page);
+		mv.addObject("maxpage", maxpage);
+		mv.addObject("startpage", startpage);
+		mv.addObject("endpage", endpage);
+		mv.addObject("listcount", listcount);
+		mv.addObject("commentlist", commentlist);
+		return mv;
+	}
+	
 }

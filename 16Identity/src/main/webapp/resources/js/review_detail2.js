@@ -37,7 +37,8 @@ $(function() {
 					// 보이게 합니다. (2)
 					output = '';
 					if(cm_align==3){
-						maxPage=Math.floor(((rdata.length + 3 - 1) / 3));
+						console.log('js에서 내 댓글 갯수'+$("#my_review_count").text());
+						maxPage=Math.floor((parseInt($("#my_review_count").text()) + 3 - 1) / 3);
 					}
 					else{
 						maxPage=getMaxPage(); 
@@ -46,10 +47,11 @@ $(function() {
 						function() {
 							var cmt_id= this.cmt_id;
 							console.log(this.cmt_id);
+							
 							output += "<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>  <div class='card'>";
 							output += "<div class='body bg-orange' id='each_comment'>";
 							output += "<div id='#comment_avatar' style='display:inline-block;'><img src='resources/image/avatar1.png' style='width: 90px;border-radius: 50%;'/></div>"
-							output += "<p class='card_header' class='hangelfont'><a href='reviewpost.minji'>"
+							output += "<p class='card_header' class='hangelfont'><a href='#' onclick='see_view2(this)'>"
 									+ this.cmt_nickname
 									+ "</a> - ";
 							output += this.cmt_mbti.toUpperCase();
@@ -147,6 +149,7 @@ $(function() {
 			success : function() {
 				$("#book_comment").val('');
 				$("#comment tbody").empty();
+				document.getElementById("comment_align2").options[0].selected = "selected";
 				getList(1);
 			}
 		});// ajax end
@@ -171,9 +174,9 @@ $(function() {
 		// int maxpage = (listcount + limit - 1) / limit;
 		return parseInt((count + 3 - 1) / 3);
 	}
-
+	cm_align_real=1;
 	$("#message").click(function() {
-		getList(page);
+		getList(page,cm_align_real);
 	});
 
 	isbn_input = $('#isbn_input').text().slice(-13);
@@ -238,6 +241,7 @@ $(function() {
 	
 	$("#comment_align2").change(function(){
 		$("#comment tbody").empty();
+		cm_align_real=this.value;
 		getList(1,this.value);
 	})
 	
