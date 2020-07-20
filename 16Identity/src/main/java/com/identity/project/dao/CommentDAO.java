@@ -159,4 +159,24 @@ public class CommentDAO {
 	public List<Comments> getCommentList_mine(Map<String, Object> map) {
 		return sqlSession.selectList("Comments.comments_list_mine",map);
 	}
+
+
+	public int getMyreviewCount(String isbn, String m_id) {
+		Comments cm_mine= new Comments();
+		cm_mine.setIsbn(isbn);
+		cm_mine.setCmt_id(m_id);
+		
+		return sqlSession.selectOne("Comments.myreviewcount",cm_mine);
+	}
+
+
+	public List<Comments> getSomeoneCommentList(Map<String, Object> map) {
+		
+		return sqlSession.selectList("Comments.someoneCommentList",map);
+	}
+
+
+	public int getSomeoneListCount(String nickname) {
+		return sqlSession.selectOne("Comments.someoneListCount",nickname);
+	}
 }
