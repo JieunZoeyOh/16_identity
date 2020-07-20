@@ -67,7 +67,7 @@ function openWin(){
                 <ul id="mypageMenu">
                     <li class = "info"><div class="square"></div>My Info</li>
                     <li><div class="square"></div><a href="myReview.net">My Review</a></li>
-                    <li><div class="square"></div><a href="#">My Books</a></li>
+                    <li><div class="square"></div><a href="myBook.net">My Books</a></li>
                     <li><div class="square"></div><a href="#">Notice</a></li>
                 </ul>
             </li>
