@@ -18,6 +18,8 @@
 
 .modal > p {margin:16px 0px !important;}
 .form_wrap > form { margin-bottom : 16px !important;} 
+.flip-card-back > span {position: relative;
+    bottom: 8px;}
 </style>
 </head>
 <body>
@@ -33,9 +35,8 @@
 	<div id="container" class="clearfix">
 		<div class="info">
 			<div class="imgcontainer">
-				<label for="image"> <!-- 이미지 파일 불러오는 경로 다시 확인 
-                        (현재 테스트이미지 profile.jpg 임의 지정)--> <img
-					src='resources/upload/${m.m_file}' class="uploadimg">
+				<label for="image"> <!-- 이미지 파일 불러오는 경로 다시 확인  (현재 테스트이미지 profile.jpg 임의 지정)--> 
+                        <img src='resources/upload/${m.m_file}' class="uploadimg">
 				</label>
 			</div>
 			<div class="menu">
@@ -72,12 +73,12 @@
 										<img src="${m.book.b_thumbnail }">
 									</div>
 									<div class='flip-card-back'>
-									<br><br><br>
-										<img src = "resources/image/cal.png" style="width:30px; z-index:1; display:inline-block" ><span>${m.cmt_date}</span>&nbsp;  
-										<img src = "resources/image/user.png" style="width:30px; z-index:1; display:inline-block" ><span> ${m.cmt_mbti}</span>&nbsp; 
-										<img src = "resources/image/like.png" style="width:30px; z-index:1; display:inline-block" ><span>${m.cmt_like}</span>  
-					<br>
-										<p>${m.cmt_content }</p>
+									<br><br>
+										<img src = "resources/image/cal.png" style="width:32px; z-index:1; display:inline-block" ><span>${m.cmt_date}</span>&nbsp;  
+										<img src = "resources/image/user.png" style="width:26px; z-index:1; display:inline-block" ><span> ${m.cmt_mbti}</span>&nbsp; 
+										<img src = "resources/image/like.png" style="width:27px; z-index:1; display:inline-block;" ><span>${m.cmt_like}</span>  
+									<br><br>
+										<p style = "width: 93%; padding: 0 20px;">${m.cmt_content }</p>
 									</div>
 								</a>
 							</div>
