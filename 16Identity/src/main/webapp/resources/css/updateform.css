@@ -16,10 +16,10 @@ body {
 }
 
 footer { 
-	height : 200px;
-	background-color : #f8b24f; }
+   height : 200px;
+   background-color : #f8b24f; }
 .uploadimg{
-	border-radius: 50%;
+   border-radius: 50%;
     width: 200px;
     height: 200px;
 }
@@ -49,8 +49,8 @@ footer {
 form#updateform {
     border-radius: 2em;
     position:relative;
-	top: -385px;
-	
+   top: -385px;
+   
 }
 //background-image:url("../image/bookstore2.jpg");
 
@@ -97,7 +97,7 @@ input[type=text]:focus, input[type=password]:focus {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占� */
+    cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占  */
     width: 50%;
     opacity: 0.9;
     border-radius: 30em;
@@ -110,7 +110,7 @@ input[type=text]:focus, input[type=password]:focus {
     font-weight: bold;
     margin: 8px 0;
     border: none;
-    cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占� */
+    cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占  */
     width: 50%;
     opacity: 0.9;
     border-radius: 30em;
@@ -173,8 +173,8 @@ b {
 }
 
 img.avatar {
-	width: 40%;
-	border-radius: 50%;
+   width: 40%;
+   border-radius: 50%;
 }
 
 

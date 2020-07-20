@@ -33,13 +33,14 @@ footer {height : 200px; background-color : #f8b24f; }
 .card_wrap .flip-card:nth-child(3n){margin-right:0;}
 .card_wrap .flip-card .flip-card-inner{display:block;height:100%;transition: transform 0.8s;transform-style: preserve-3d;text-align: center;position: relative;}
 .card_wrap .flip-card:hover .flip-card-inner{transform:rotateY(180deg)}
-.card_wrap .flip-card .flip-card-inner > div{position: absolute;width:100%;height:100%;-webkit-backface-visibility: hidden;backface-visibility: hidden; border: 2px solid #050921;}
-.card_wrap .flip-card-front {background-color: white;color: black; text-align : center; border-radius:15px; }
-.card_wrap .flip-card-front img {height : 100%; width: auto; margin: 0 auto;}
-.card_wrap .flip-card-back {background-color: white;color: black;transform: rotateY(180deg); text-align :center; background-image: url(../image/post.jpg); background-size : 100%; 
-							border-radius:15px; background-repeat: no-repeat;background-position-x: center;background-position-y: center;}
+.card_wrap .flip-card .flip-card-inner > div{position: absolute;width:100%;height:100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;}
+.card_wrap .flip-card-front {background-color: #00ff0000 ;color: black; text-align : center; border-radius:15px; }
+.card_wrap .flip-card-front img {height: 100%; width: 80%; margin: 0 auto;}
+.card_wrap .flip-card-back {background-color: #00ff0000;color: black;transform: rotateY(180deg); text-align :center; background-size : 110%; 
+							border-radius:15px; background-image: url(../image/note.png); background-repeat: no-repeat;background-position-x: center; background-position-y: center;}
+.flip-card-back>span {margin: 8px;}
 
-.slider{padding:30px 60px; width: 80%; margin-left: 450px; bottom: 322px;; background-color:#cbccd1; border-radius : 15px;}
+.slider{padding:30px 60px; width: 80%; margin-left: 450px; bottom: 322px;; background-color:#e5e5e5; border-radius : 15px;}
 .slider .slick-slide{height:auto;}
 .slider .slick-slide > div{margin:0;}
 .slider .slick-arrow{position: absolute;top:50%;width:19px;height:31px;font-size:0;background-repeat: no-repeat;background-position: center;background: transparent;border:none;}

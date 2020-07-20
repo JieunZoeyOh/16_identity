@@ -51,7 +51,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                회원 목록
+                                	회원 목록
                             </h2>
                         </div>
                         <div class="body">
@@ -70,7 +70,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    	<c:forEach var="m" items="${ list}">
+                                    	<c:forEach var="m" items="${list}">
 	                                        <tr>
 	                                            <td>${m.m_id }</td>
 	                                            <td>${m.m_name }</td>
@@ -79,7 +79,11 @@
 	                                            <td>${m.m_phone }</td>
 	                                            <td>${m.m_address }</td>
 	                                            <td>${m.warn_count }</td>
-	                                            <td style="text-align: center"><button type="button" class="btn bg-red waves-effect"><i class="material-icons">content_cut</i><span>탈퇴</span></button></td>
+	                                            <td style="text-align: center">
+	                                            <button type="button" class="btn bg-red waves-effect" style='display:none;'>
+	                                            <i class="material-icons">content_cut</i><span>탈퇴</span>
+	                                            </button>
+	                                            </td>
 	                                        </tr>
                                         </c:forEach>
                                     </tbody>
