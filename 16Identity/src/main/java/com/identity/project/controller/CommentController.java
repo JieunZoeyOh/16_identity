@@ -131,11 +131,15 @@ public class CommentController {
 			System.out.println("J 퍼센트 값="+j_percent);
 		}
 		
+		//좋아요 체크
+		int like_check = boardService.like_check(m_id, isbn);
+		
 		mv.setViewName("review/review_detail");
 		mv.addObject("isbn", isbn);
 		mv.addObject("count", count);
 		mv.addObject("bookvalue", bookvalue);
 		mv.addObject("my_review_count", my_review_count);
+		mv.addObject("like_check", like_check);
 		}
 		return mv;
 	}

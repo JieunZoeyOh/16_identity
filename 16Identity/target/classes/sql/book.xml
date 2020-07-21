@@ -98,4 +98,5 @@
 			where rnum >=1 and rnum <=4
 		]]>
 	</select>
+	
 </mapper>

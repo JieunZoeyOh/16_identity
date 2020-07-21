@@ -61,5 +61,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.cancel_like(bld);
 	}
 
+	@Override
+	public int like_check(String m_id, String isbn) {
+		return dao.like_check(m_id, isbn);
+	}
+
 
 }

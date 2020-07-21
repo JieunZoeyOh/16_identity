@@ -59,7 +59,12 @@
 	</table>
 <div id="book_contents" class="hangelfont"></div>	
 <div class="button_container">
+	<c:if test="${like_check==0}">
         <i id="btn" class="fa fa-heart-o" onclick="likeaction()">&nbsp${bookvalue.like_count}</i>
+	</c:if>
+	<c:if test="${like_check==1}">
+        <i id="btn" class="fa fa-heart" onclick="likeaction()">&nbsp${bookvalue.like_count}</i>
+	</c:if>
 </div>
 <div class="title hangelfont">
 	<span style="line-height: 145px;">통계</span>
@@ -305,7 +310,14 @@
     	window.open("see_view.minji?nickname="+see_nickname, see_nickname, 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 	}
     
-
+ 	$('#book_comment').keyup(function(e){
+ 		var content = $(this).val();
+ 		
+ 		if(content.length>100){
+ 			alert('최대 100자까지 입력 가능합니다.');
+ 			$(this).val(content.substring(0,100));
+ 		}
+ 	})
     </script>
 
 </body>
