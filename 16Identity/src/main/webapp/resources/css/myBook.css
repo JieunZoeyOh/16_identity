@@ -26,7 +26,7 @@ footer {
     position: relative;
 }
 
-  .diagonal-hero-bg {
+.diagonal-hero-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -94,7 +94,7 @@ footer {
     font-size: 15px;
 }
 
-.like:hover, .like:active{
+.like:hover, .like:active, .like_focus{
 	width: 103px;
     height: 40px;
     border-top-right-radius: 20px;
@@ -111,7 +111,6 @@ footer {
     height: auto;
     border:none;
     border-top: 1.5px solid #303960;
-    border-bottom: 1.5px solid #303960;
     margin-bottom: 130px;
 }
 
@@ -132,13 +131,188 @@ footer {
 .content_table>tbody td{
 	font-weight: 200;
 } 
-.content_table>thead td:nth-child(1){width:10%} 
-.content_table>thead td:nth-child(2){width:10%} 
+.content_table>thead td:nth-child(1){width:20%} 
+.content_table>thead td:nth-child(3){width:15%} 
 .content_table>thead td:nth-child(4){width:15%} 
-.content_table>thead td:nth-child(5){width:15%} 
-.content_table>thead td:nth-child(6){width:10%} 
+.content_table>thead td:nth-child(5){width:10%} 
 
+.content_table>tbody td:nth-child(1){width:10%} 
+.content_table>tbody td:nth-child(2){width:10%} 
 .content_table>tbody td>img {
 	width: 120px;
 	height: 174px;
 }
+
+td>a {
+	text-decoration: none;
+	color: black;
+}
+
+td>a:hover{
+	text-decoration: underline;
+}
+
+td>a:active, td>a:visited{
+	text-decoration: none;
+	color: black;
+}
+
+.review_list>thead td:nth-child(1){width:10%} 
+.review_list>thead td:nth-child(6){width:10%} 
+.review_list>tbody tr td:nth-child(3){
+	padding: 10px;
+}
+.review_list>tbody tr:nth-child(even) > td{
+	padding: 10px 17px;
+	text-align:left;
+}
+
+.r-list{
+    --uirListPaddingLeft: var(--rListPaddingLeft, 0);
+    --uirListMarginTop: var(--rListMarginTop, 0);
+    --uirListMarginBottom: var(--rListMarginBottom, 0);
+    --uirListListStyle: var(--rListListStyle, none);
+  
+    padding-left: var(--uirListPaddingLeft) !important;
+    margin-top: var(--uirListMarginTop) !important;
+    margin-bottom: var(--uirListMarginBottom) !important;
+    list-style: var(--uirListListStyle) !important;
+  }
+  
+  .r-link{
+    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+    --uirLinkTextColor: var(--rLinkTextColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkTextColor) !important;
+    text-decoration: var(--uirLinkTextDecoration) !important;
+  }
+  
+  .pagination{
+    --uiPaginationDisplay: var(--paginationDisplay, flex);
+    --uiPaginationAlignmentX: var(--paginationAlignmentX, flex-start);
+    --uiPaginationAlignmentY: var(--paginationAlignmentY, center);
+  
+    --uiPaginationGroupMargin: var(--paginationGroupMargin, .25em);
+    --uiPaginationPointPadding: var(--paginationPointPadding, .5875em .8em);  
+    
+    display: var(--uiPaginationDisplay);
+    flex-wrap: wrap;
+    align-items: var(--uiPaginationAlignmentY);
+    justify-content: var(--uiPaginationAlignmentX);  
+  }
+  
+  .pagination__list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: var(--uiPaginationAlignmentY);
+    justify-content: var(--uiPaginationAlignmentX);  
+  }
+  
+  .pagination__group:nth-child(n+2){
+    margin-left: var(--uiPaginationGroupMargin);
+  }
+  
+  .pagination__point{
+    padding: var(--uiPaginationPointPadding);
+    line-height: 1;  
+  }
+  
+  .pagination{
+    --uiPaginationPointBorderRadius: var(--paginationPointBorderRadius);
+    --uiPaginationPointBgColor: var(--paginationPointBgColor);
+    --uiPaginationPointBorderWidth: var(--paginationPointBorderWidth);
+    --uiPaginationPointBorderColor: var(--paginationPointBorderColor);
+    --uiPaginationPointFontWeight: var(--paginationPointFontWeight);
+    --uiPaginationPointTextColor: var(--paginationPointTextColor);  
+    
+    --rLinkTextColor: var(--paginationPointTextColor);
+    
+    --uiPaginationActivePointTextColor: var(--paginationActivePointTextColor);  
+    --uiPaginationActivePointFontWeight: var(--paginationActivePointFontWeight, 700);
+    --uiPaginationActivePointBgColor: var(--paginationActivePointBgColor);
+    --uiPaginationActivePointBorderWidth: var(--paginationActivePointBorderWidth, 0);
+    --uiPaginationActivePointBorderColor: var(--paginationActivePointBorderColor, transparent);  
+  
+    --uiPaginationArrowSize: var(--paginationArrowSize, 22px);
+    --uiPaginationArrowMargin: var(--paginationArrowMargin, .25em);
+    --uiPaginationArrowDisplay: var(--paginationArrowDisplay, inline-flex);  
+  }
+  
+  .pagination__point{
+    background-color: var(--uiPaginationPointBgColor);
+    border: var(--uiPaginationPointBorderWidth) solid var(--uiPaginationPointBorderColor);
+    border-radius: var(--uiPaginationPointBorderRadius);  
+  
+    font-weight: var(--uiPaginationPointFontWeight);
+    color: var(--uiPaginationPointTextColor);    
+  }
+  
+  span.pagination__point{
+    --uiPaginationPointBgColor: var(--uiPaginationActivePointBgColor);
+    --uiPaginationPointBorderWidth: var(--uiPaginationActivePointBorderWidth);
+    --uiPaginationPointBorderColor: var(--uiPaginationActivePointBorderColor);
+    --uiPaginationPointFontWeight: var(--uiPaginationActivePointFontWeight);
+    --uiPaginationPointTextColor: var(--uiPaginationActivePointTextColor);
+    
+    display: inline-flex;  
+  }
+  
+  .pagination__control{
+    position: relative;
+    align-items: center;
+  }
+  
+  .pagination__control::before, 
+  .pagination__control::after{
+    display: var(--uiPaginationArrowDisplay);
+    height: 1em;
+    font-size: var(--uiPaginationArrowSize);
+    line-height: 1;
+  }
+  
+  .pagination__control_prev{
+    margin-right: 10px;
+  }
+  
+  .pagination__control_prev::before{
+    content: "←";
+    margin-right: var(--uiPaginationArrowMargin);
+  }
+  
+  .pagination__control_next{
+    margin-left: 10px;
+  }
+  
+  .pagination__control_next::after{
+    content: "→";
+    margin-left: var(--uiPaginationArrowMargin);
+  }
+  
+  :root{
+    --paginationFontSize: 1.6rem;
+    --paginationActivePointBgColor: rgba(0, 0, 0, .3);
+    --paginationPointTextColor: #fff;
+    --paginationActivePointTextColor: #fff;
+  }
+  
+.demo{
+    --paginationPointTextColor: #303960;
+    --paginationActivePointBgColor: #303960;
+    --paginationAlignmentX: center;  
+}
+
+
+.section{
+    
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    font-size: 1rem;
+}
+  
+.demo{
+    box-sizing: border-box;
+    position: relative;
+    padding: 5rem 3rem;
+    background-color: #fefefe;
+}
+

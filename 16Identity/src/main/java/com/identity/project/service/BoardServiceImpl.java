@@ -1,5 +1,6 @@
 package com.identity.project.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import com.identity.project.dao.BoardDAO;
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
+import com.identity.project.domain.Book_Like_List;
+import com.identity.project.domain.Review_Like_List;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -64,6 +67,38 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int like_check(String m_id, String isbn) {
 		return dao.like_check(m_id, isbn);
+	}
+
+	@Override
+	public int getLikeListCount(String m_id) {
+		return dao.getLikeListCount(m_id);
+	}
+
+	@Override
+	public List<Book_Like_List> getLikeList(int page, int limit, String m_id) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		int startrow = (page-1)*limit+1;
+		int endrow = startrow+limit-1;
+		map.put("m_id", m_id);
+		map.put("start", startrow);
+		map.put("end", endrow);
+		return dao.getLikeList(map);
+	}
+
+	@Override
+	public int getReviewLikeCount(String m_id) {
+		return dao.getReviewLikeCount(m_id);
+	}
+
+	@Override
+	public List<Review_Like_List> getReviewLikeList(int page, int limit, String m_id) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		int startrow = (page-1)*limit+1;
+		int endrow = startrow+limit-1;
+		map.put("m_id", m_id);
+		map.put("start", startrow);
+		map.put("end", endrow);
+		return dao.getReviewLikeList(map);
 	}
 
 

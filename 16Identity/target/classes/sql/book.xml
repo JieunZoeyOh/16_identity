@@ -99,4 +99,46 @@
 		]]>
 	</select>
 	
+	<select id="getLikeListCount" resultType="int" parameterType="String">
+		select count(*) 
+		from book_like_date 
+		where m_id = #{m_id}
+	</select>
+	
+	<select id="getLikeList" resultType="com.identity.project.domain.Book_Like_List" parameterType="map">
+	<![CDATA[
+		select no, like_date, isbn, b_title, b_thumbnail, b_authors, like_count
+		from (select ROWNUM rnum, x.*
+	          from (select no, like_date, book_like.isbn, b_title, b_thumbnail, b_authors, like_count
+	               from book_like_date, book, book_like
+	               where book_like_date.isbn=book.isbn
+	               and book_like_date.isbn = book_like.isbn
+	               and book_like_date.m_id = #{m_id}
+	               order by book_like_date.like_date desc) x
+	          )
+		where rnum >=#{start} and rnum <=#{end}
+	]]>	
+	</select>
+	
+	<select id="getReviewLikeCount" resultType="int" parameterType="String">
+		select count(*) 
+		from comments_like
+		where cmt_like_id = #{m_id}
+	</select>
+	
+	<select id="getReviewLikeList" resultType="com.identity.project.domain.Review_Like_List" parameterType="map">
+	<![CDATA[
+		select b_thumbnail, b_title, b_authors, cmt_like_date, cmt_like, cmt_content, m_nickname, cmt_id, isbn
+		from (select ROWNUM rnum, x.*
+	          from (select b_thumbnail, b_title, b_authors, cmt_like_date, cmt_like, cmt_content, m_nickname, cmt_id, comments.isbn
+	                from comments_like, book, comments, member
+					where cmt_id=member.m_id
+					and comments_like.cmt_no = comments.cmt_no
+					and comments.isbn = book.isbn
+					and cmt_like_id = #{m_id}
+					order by cmt_like_date desc) x
+	          )
+		where rnum >=#{start} and rnum <=#{end}
+	]]>	
+	</select>
 </mapper>

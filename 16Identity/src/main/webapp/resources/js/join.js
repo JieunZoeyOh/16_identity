@@ -198,7 +198,7 @@ $(function() {
 
 	$("#filevalue").hide();
 
-	$('#mbti_check').on('click',function(){
+	$('#mbti_check').one('click',function(){
 		document.querySelector('.container').style.width = "1400px";
 		document.querySelector('.signup-form').style.width = "50%";
 		input= `<iframe name="mbti" id="mbti" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation allow-pointer-lock allow-modals"

@@ -443,14 +443,4 @@ public class MemberController {
 		mv.addObject("commentlist",commentlist);
 		return mv;
 	}
-	
-	@RequestMapping(value="/myBook.net")
-	public ModelAndView myBook(HttpSession session, ModelAndView mv) {
-		String id = (String) session.getAttribute("m_id");
-		Member m = memberSerivce.profile(id);
-		
-		mv.setViewName("mypage/myBook");
-		mv.addObject("profile", m);
-		return mv;
-	}
 }
