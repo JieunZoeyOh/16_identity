@@ -34,4 +34,7 @@ public interface AdminService {
 	int commentDelete(int cmt_no);
 	void memberWarn(String m_id);
 	int subDrop(String m_id);
+	int delete(String id);
+
+	
 }

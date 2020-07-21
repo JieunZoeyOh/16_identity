@@ -383,7 +383,6 @@ public class MemberController {
 		}
 		out.println("</script>");
 		out.close();
-
 	}
 
 	@RequestMapping(value = "/loginProcess.net", method = RequestMethod.POST)

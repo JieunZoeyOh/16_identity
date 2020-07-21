@@ -55,11 +55,14 @@
       
       
       <b>NICK NAME</b> 
-      <input type="text" placeholder="change your nick name" name="m_nickname" id="m_nickname" value="${m.m_nickname}" required> 
+      <input type="text" placeholder="change your nick name" name="m_nickname" id="m_nickname" value="${m.m_nickname}" required>
+       
       <b style="display: inline-block; width: auto">MBTI</b>
       <button type="button" class="changembti" onclick="location.href='https://www.16personalities.com/ko'">변경</button>
       <input type="text" placeholder="change your MBTI" name="m_mbti" id="m_mbti" value="${m.m_mbti}" required>
 
+	  <b>주소</b>
+	  <input type = "text" placeholder = "change your address" name = "m_address" id = "m_address" value = "${m.m_address}">
       <hr>
       <div class="clearfix">
          <button type="button" class="dropbtn" onclick="location.href='delete.net?id=${m.m_id}'">탈퇴하기</button>

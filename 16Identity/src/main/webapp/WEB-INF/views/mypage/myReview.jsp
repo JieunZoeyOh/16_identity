@@ -60,10 +60,8 @@
 					<div class="flip-card-wrap clearfix">
 						<c:forEach var="m" items="${commentlist}" begin ="${v}" end="${v+5}">
 							<c:set var="length" value="${fn:length(m.isbn)}" />
-							<c:set var="isbn_original"
-								value="${fn:substring(m.isbn, length -13, length)}" />
-							<c:set var="isbn_short"
-								value="${fn:substring(isbn_original, length -3, length)}" />
+							<c:set var="isbn_original" value="${fn:substring(m.isbn, length -13, length)}" />
+							<c:set var="isbn_short" value="${fn:substring(isbn_original, length -3, length)}" />
 								
 							<div class='flip-card'>
 								<a href='reviewpost.minji?isbn=${m.isbn}'
