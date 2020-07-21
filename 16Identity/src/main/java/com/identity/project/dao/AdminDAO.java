@@ -110,5 +110,25 @@ public class AdminDAO {
 	public int subDrop(String m_id) {
 		return sqlSession.update("Members.subDrop",m_id);
 	}
+
+	public int TodaySub() {
+		return sqlSession.selectOne("Subscribe.todaySub");
+	}
+	
+	public int YesterSub() {
+		return sqlSession.selectOne("Subscribe.yesterSub");
+	}
+	
+	public int WeekSub() {
+		return sqlSession.selectOne("Subscribe.weekSub");
+	}
+	
+	public int MonthSub() {
+		return sqlSession.selectOne("Subscribe.monthSub");
+	}
+	
+	public int YearSub() {
+		return sqlSession.selectOne("Subscribe.yearSub");
+	}
 	
 }

@@ -34,4 +34,9 @@ public interface AdminService {
 	int commentDelete(int cmt_no);
 	void memberWarn(String m_id);
 	int subDrop(String m_id);
+	int getTodaySub();
+	int getYesterSub();
+	int getWeekSub();
+	int getMonthSub();
+	int getYearSub();
 }

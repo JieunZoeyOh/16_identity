@@ -134,4 +134,29 @@ public class AdminServiceImpl implements AdminService {
 		return dao.subDrop(m_id);
 	}
 
+	@Override
+	public int getTodaySub() {
+		return dao.TodaySub();
+	}
+	
+	@Override
+	public int getYesterSub() {
+		return dao.YesterSub();
+	}
+	
+	@Override
+	public int getMonthSub() {
+		return dao.MonthSub();
+	}
+	
+	@Override
+	public int getWeekSub() {
+		return dao.WeekSub();
+	}
+	
+	@Override
+	public int getYearSub() {
+		return dao.YearSub();
+	}
+
 }
