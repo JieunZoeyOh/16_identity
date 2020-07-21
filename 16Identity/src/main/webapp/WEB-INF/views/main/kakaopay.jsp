@@ -28,8 +28,8 @@ $(function(){
 	}, function(rsp) {
 	    if ( rsp.success ) {
 	        msg = '${substate} 결제가 완료되었습니다.';
-	        location.href="/16Identity/kakaopaySuccess.com?m_id=${m_id}&substate=${substate}&price=${price}"; 
-	        self.close();
+	        location.href="/16Identity/kakaopaySuccess .com?m_id=${m_id}&substate=${substate}&price=${price}"; 
+	        setTimeout(self.close(),1000);
 	   
 	    } else {
 	    	msg = '${substate} 결제에 실패하였습니다.';

@@ -37,7 +37,11 @@
 
 <body class="theme-brown">
 	<jsp:include page="top.jsp"></jsp:include>
-
+	<c:set var="today" value="${today}"/>
+	<c:set var="yester" value="${yester}"/>
+	<c:set var="week" value="${week}"/>
+	<c:set var="month" value="${month}"/>
+	<c:set var="year" value="${year}"/>
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -134,15 +138,15 @@
                             <ul class="dashboard-stat-list">
                                 <li>
                                     TODAY
-                                    <span class="pull-right"><b>1 200</b> <small>USERS</small></span>
+                                    <span class="pull-right"><b>${today }</b> <small>USERS</small></span>
                                 </li>
                                 <li>
                                     YESTERDAY
-                                    <span class="pull-right"><b>3 872</b> <small>USERS</small></span>
+                                    <span class="pull-right"><b>${yester }</b> <small>USERS</small></span>
                                 </li>
                                 <li>
                                     LAST WEEK
-                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
+                                    <span class="pull-right"><b>${week }</b> <small>USERS</small></span>
                                 </li>
                             </ul>
                         </div>
@@ -157,23 +161,23 @@
                             <ul class="dashboard-stat-list">
                                 <li>
                                     TODAY
-                                    <span class="pull-right"><b>12</b> <small>TICKETS</small></span>
+                                    <span class="pull-right"><b>${today }</b> <small>TICKETS</small></span>
                                 </li>
                                 <li>
                                     YESTERDAY
-                                    <span class="pull-right"><b>15</b> <small>TICKETS</small></span>
+                                    <span class="pull-right"><b>${yester }</b> <small>TICKETS</small></span>
                                 </li>
                                 <li>
                                     LAST WEEK
-                                    <span class="pull-right"><b>90</b> <small>TICKETS</small></span>
+                                    <span class="pull-right"><b>${week }</b> <small>TICKETS</small></span>
                                 </li>
                                 <li>
                                     LAST MONTH
-                                    <span class="pull-right"><b>342</b> <small>TICKETS</small></span>
+                                    <span class="pull-right"><b>${month }</b> <small>TICKETS</small></span>
                                 </li>
                                 <li>
                                     LAST YEAR
-                                    <span class="pull-right"><b>4 225</b> <small>TICKETS</small></span>
+                                    <span class="pull-right"><b>${year }</b> <small>TICKETS</small></span>
                                 </li>
                                 <li>
                                     ALL

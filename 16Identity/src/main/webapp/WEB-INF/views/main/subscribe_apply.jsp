@@ -5,7 +5,20 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="resources/js/jquery-3.5.0.js"></script>
 <title>Insert title here</title>
+<script>
+	$(function(){
+		$("#kakaofrom").submit(function(){
+			if(($('input[name=price]:checked').val()==null || $('input[name=substate]:checked').val()==null)){
+				alert("정기구독 개월과 타입을 선택하세요");
+				return false;
+			} else
+				
+				return true;
+		})
+	})
+</script>
 <style>
 	body{background-color:#1f0d0d; color:white;}
 	form{margin: 50px;}
@@ -76,7 +89,7 @@
 <body>
 <div class="body">
 	<img src="resources/image/logo.png" style="width: 258px">
-	<form method="post" action="kakaoPay.com">
+	<form method="post" action="kakaoPay.com" id="kakaofrom">
 		<fieldset>
 			<legend>정기구독 신청</legend>
 			<p>정기구독은 매월 1일에 출고합니다.</p>
