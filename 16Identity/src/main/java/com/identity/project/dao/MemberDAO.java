@@ -1,5 +1,6 @@
 package com.identity.project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -70,5 +71,18 @@ public class MemberDAO {
 	public void UpdateSub(Map<String, Object> map) {
 		sqlSession.update("Members.updateSub",map);
 	}
+
+	public Member isNick(String m_nickname) {
+		return sqlSession.selectOne("Members.checknick", m_nickname);
+	}
+
+	public String find_id_phone(Map<String, String> map) {
+		return sqlSession.selectOne("Members.check_name_phone", map);
+	}
+
+	public int newPassword(Member member) {
+		return sqlSession.update("Members.new_pass", member);
+	}
+
 	
 }
