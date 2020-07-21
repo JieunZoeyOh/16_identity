@@ -236,4 +236,22 @@ public class BoardDAO {
 			
 	}
 
+	public int like_check(String m_id, String isbn) {
+		Book_Like_Date bld= new Book_Like_Date();
+		bld.setM_id(m_id);
+		bld.setIsbn(isbn);
+		
+		Book_Like_Date bld_result = new Book_Like_Date();
+		bld_result = sqlSession.selectOne("Books.like_action", bld);
+		
+		if(bld_result != null) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+		
+		
+	}
+
 }

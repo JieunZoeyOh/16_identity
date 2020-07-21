@@ -26,4 +26,6 @@ public interface BoardService {
 
 	int cancel_like(Book_Like_Date bld);
 
+	int like_check(String m_id, String isbn);
+
 }
