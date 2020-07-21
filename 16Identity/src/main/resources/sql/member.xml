@@ -20,12 +20,17 @@
 						  m_nickname = #{m_nickname} ,
 					      m_mbti = #{m_mbti},
 					      m_file = #{m_file, jdbcType=VARCHAR},
+					      m_address = #{m_address},
 					      m_original = #{m_original, jdbcType=VARCHAR}
 		where m_id = #{m_id}
 	</update>
 	
 	<delete id = "delete" parameterType = "member">
 	delete from member where m_id = #{m_id}
+	</delete>
+	
+	<delete id = "delete_admin" parameterType = "String">
+	delete from member where m_id = #{id}
 	</delete>
 	
 	<select id="mbti" resultType="String">

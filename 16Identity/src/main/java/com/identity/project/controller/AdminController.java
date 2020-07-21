@@ -195,4 +195,22 @@ public class AdminController {
 		out.println("</script>");
 		out.close();
 	}
+	
+	@RequestMapping(value = "/member_delete.net")
+	public void deleteProcess(String id, HttpServletResponse response, HttpServletRequest request)
+			throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		int result = adminService.delete(id);
+		out.println("<script>");
+		// 탈퇴된 경우
+		if (result == 1) {
+			out.println("alert('탈퇴가 완료 되었습니다.');");
+			out.println("location.href='member.net';");
+		} else {
+			out.println("history.back()");
+		}
+		out.println("</script>");
+		out.close();
+	}
 }

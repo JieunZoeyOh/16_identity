@@ -110,5 +110,10 @@ public class AdminDAO {
 	public int subDrop(String m_id) {
 		return sqlSession.update("Members.subDrop",m_id);
 	}
+
+	public int delete(String id) {
+		return sqlSession.delete("Members.delete_admin", id);
+	}
+
 	
 }

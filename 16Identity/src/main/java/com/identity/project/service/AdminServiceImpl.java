@@ -134,4 +134,10 @@ public class AdminServiceImpl implements AdminService {
 		return dao.subDrop(m_id);
 	}
 
+	@Override
+	public int delete(String id) {
+		return dao.delete(id);
+	}
+
+
 }
