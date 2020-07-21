@@ -44,4 +44,20 @@
 	<!-- maxUploadSize : 한 번의 Request로 전달될 수 있는 최대의 크기를 의미합니다. name="maxUploadSize"를 
 		지정하지 않으면 기본으로 "-1"이 설정되는데 파일 크기가 무제한이라는 의미입니다. 최대 업로드 가능한 바이트 크기, -1은 제한이 
 		없음을 의미, 기본값은 -1 -->
+		
+	<util:properties id="mailinfo" location="classpath:pro/mail.properties"/>
+	
+	<!-- ${mailinfo['id']} mailinfo 빈에서 키(id)의 값을 가져옵니다. -->
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.naver.com" />
+		<property name="port" value="587" />
+		<property name="username" value="#{mailinfo['id']}" />
+		<property name="password" value="#{mailinfo['password']}" />
+		<property name="javaMailProperties">
+			<props>
+			<prop key="mail.smtp.auth">true</prop>
+			</props>
+		</property>
+	</bean>	
 </beans>

@@ -13,6 +13,7 @@ public class Member {
 	private String m_phone;
 	private int m_address_no;
 	private String m_address;
+	private String m_address_about;
 	private String substate;
 	private String subsdate;
 	private int warn_count;
@@ -20,6 +21,13 @@ public class Member {
 	private int season;
 	private MultipartFile uploadfile;
 	
+	
+	public String getM_address_about() {
+		return m_address_about;
+	}
+	public void setM_address_about(String m_address_about) {
+		this.m_address_about = m_address_about;
+	}
 	public MultipartFile getUploadfile() {
 		return uploadfile;
 	}

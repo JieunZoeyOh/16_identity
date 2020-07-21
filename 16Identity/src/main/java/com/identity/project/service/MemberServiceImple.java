@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -114,5 +115,29 @@ public class MemberServiceImple implements MemberService {
 		map.put("season", season);
 		dao.UpdateSub(map);
 	}
-	
+
+	@Override
+	public int isNick(String m_nickname) {
+		Member rmember = dao.isNick(m_nickname);
+		return (rmember == null) ? -1 : 1;
+	}
+
+	@Override
+	public String find_id(String m_name, String m_phone){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("m_name", m_name);
+		map.put("m_phone", m_phone);
+		String result = dao.find_id_phone(map);
+		return result;
+	}
+
+	@Override
+	public Member check(String m_id) {
+		return dao.isId(m_id);
+	}
+
+	@Override
+	public int newPassword(Member member) {
+		return dao.newPassword(member);
+	}
 }

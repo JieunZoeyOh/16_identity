@@ -2,6 +2,8 @@ package com.identity.project.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 
@@ -36,5 +38,13 @@ public interface MemberService {
 	void updateSub(String m_id, String substate, int season);
 
 	void dropSub(String m_id);
+
+	int isNick(String m_nickname);
+
+	String find_id(String m_name, String m_phone);
+
+	Member check(String m_id);
+
+	int newPassword(Member member);
 	
 }

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.Cookie;
@@ -33,6 +31,8 @@ import com.identity.project.domain.Comments;
 import com.identity.project.domain.Member;
 import com.identity.project.service.CommentService;
 import com.identity.project.service.MemberService;
+import com.identity.project.task.SendMail;
+import com.identity.project.domain.MailVO;
 
 @Controller
 public class MemberController {
@@ -48,6 +48,10 @@ public class MemberController {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private SendMail sendMail;
+	
 
 	@RequestMapping(value = "/join.net", method = RequestMethod.GET)
 	public String join() {
@@ -56,7 +60,7 @@ public class MemberController {
 
 	// 회원가입처리
 	@RequestMapping(value = "/joinProcess.net", method = RequestMethod.POST)
-	public void joinProcess(Member member, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void joinProcess(Member member, HttpServletResponse response) throws Exception {
 		MultipartFile uploadfile = member.getUploadfile();
 		if (!uploadfile.isEmpty()) {
 			String fileName = uploadfile.getOriginalFilename(); // 원래 파일명
@@ -80,10 +84,6 @@ public class MemberController {
 
 			/**** 확장자 구하기 시작 ****/
 			int index = fileName.lastIndexOf(".");
-			// 문자열에서 특정 문자열의 위치 값(idnex)를 반환한다.
-			// indexOf가 처음 발견되는 문자열에 대한 index를 반환하는 반면,
-			// lastIndexOf는 마지막으로 발견되는 문자열의 index를 반환합니다.
-			// (파일명에 점이 여러개 있을 경우 맨 마지막에 발견되는 문자열의 위치를 리턴합니다.)
 			System.out.println("index = " + index);
 
 			String fileExtension = fileName.substring(index + 1);
@@ -112,7 +112,9 @@ public class MemberController {
 		String encPassword = passwordEncoder.encode(member.getM_password());
 		System.out.println(encPassword);
 		member.setM_password(encPassword);
-
+		String about = member.getM_address_about();
+		String address = member.getM_address();
+		member.setM_address(address+" "+about);//주소와 상세 주소 합치기
 		int result = memberSerivce.insert(member);
 
 		out.println("<script>");
@@ -125,9 +127,8 @@ public class MemberController {
 		}
 		out.println("</script>");
 		out.close();
-
 	}
-
+	
 	@RequestMapping(value = "/idcheck.net", method = RequestMethod.GET)
 	public void idcheck(@RequestParam("m_id") String m_id, HttpServletResponse response) throws Exception {
 		int result = memberSerivce.isId(m_id);
@@ -135,9 +136,84 @@ public class MemberController {
 		PrintWriter out = response.getWriter();
 		out.print(result);
 	}
+	
+	//닉네임체크
+	@RequestMapping(value = "/nickcheck.net", method = RequestMethod.GET)
+	public void nickcheck(@RequestParam("m_nickname") String m_nickname, HttpServletResponse response) throws Exception {
+		int result = memberSerivce.isNick(m_nickname);
+		//부터 시작
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(result);
+	}
+	
+	// 아이디 찾기 폼
+	@RequestMapping(value = "/find_id.net")
+	public String find_id_form() throws Exception{
+		return "member/find_id";
+	}
+	
+	// 아이디 찾았을때
+	@RequestMapping(value = "/find_id2.net", method = RequestMethod.GET)
+	public ModelAndView find_id(HttpServletResponse response, String m_name, String m_phone, ModelAndView mv) throws Exception{
+		String result = memberSerivce.find_id(m_name, m_phone);
+		if(result != null && result != "") {
+			mv.addObject("id",result);
+			mv.setViewName("member/find_id_ok");
+			return mv;
+		}else {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('회원정보가 없습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return null;
+		}
+	}
+	
+	@RequestMapping(value = "/find_pass.net")
+	public String find_pass_form() throws Exception{
+		return "member/find_pass";
+	}
+	
 
-	@RequestMapping(value = "/login.net", method = RequestMethod.GET)
-	public ModelAndView login(ModelAndView mv, @CookieValue(value = "saveid", required = false) Cookie readCookie)
+	@RequestMapping(value = "/newPass.net", method = RequestMethod.POST)
+	public void find_pass(@RequestParam("m_id")String m_id, HttpServletResponse response) throws IOException {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		Member member = memberSerivce.check(m_id);
+		if(member == null) { 
+		out.println("<script>");
+		out.println("alert('저장된 ID가 없습니다.');");
+		out.println("history.back()");
+		out.println("</script>");
+		}else {
+			Random r = new Random();
+			int num = r.nextInt(89999) + 10000;
+			String newpass = "mbti"+Integer.toString(num); // 비밀번호 저장
+			String encPassword = passwordEncoder.encode(newpass);
+			member.setM_password(encPassword);
+			int result = memberSerivce.newPassword(member);
+			//여기부터 메일 보내기
+			if(result == 1) {
+				MailVO vo = new MailVO();
+				vo.setFrom("dntrlsl02@naver.com");
+				vo.setTo(member.getM_id());
+				vo.setSubject(member.getM_name() + "님 ! 비밀번호를 알려드려요");
+				vo.setContent(member.getM_name() + "님의 새로운 비밀번호는 " + newpass + " 입니다.");
+				sendMail.sendMail(vo);
+				out.println("<script>");
+				out.println("alert('비밀번호 변경에 성공했습니다. 이메일을 확인해주세요');");
+				out.println("location.href='login2.net'");
+				out.println("</script>");
+			}
+		}
+	}
+
+	@RequestMapping(value = "/login.net", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView login2(ModelAndView mv, @CookieValue(value = "saveid", required = false) Cookie readCookie)
 			throws Exception {
 		if (readCookie != null) {
 			mv.addObject("saveid", readCookie.getValue());
@@ -315,8 +391,7 @@ public class MemberController {
 			@RequestParam(value = "remember", defaultValue = "") String remember, HttpServletResponse response,
 			HttpSession session) throws Exception {
 
-		int result = memberSerivce.isId(m_id, m_password);
-		System.out.println("결과는 " + result);
+		int result = memberSerivce.isId(m_id, m_password); //부터 시작
 		String m_nickname = memberSerivce.getNickname(m_id);
 		String mbti_nickname = memberSerivce.getMbtiNickname(m_id);
 		String state = memberSerivce.getState(m_id);
@@ -328,7 +403,7 @@ public class MemberController {
 			session.setAttribute("mbti_nickname", mbti_nickname);
 			//Subscribe //구독 신청 상태 값 넘기기
 			session.setAttribute("substate", state);
-			Cookie savecookie = new Cookie("m_id", m_id);
+			Cookie savecookie = new Cookie("saveid", m_id);
 			if (!remember.equals("")) {
 				savecookie.setMaxAge(60 * 60);
 				System.out.println("쿠키 저장 : 60*60");

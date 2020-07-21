@@ -6,8 +6,13 @@
 	<select id="statelist" resultType="member">
 		select m_id, substate, m_mbti from member
 	</select>
+	
 	<select id="idcheck" parameterType="String" resultType="member">
 		select * from member where m_id = #{m_id}
+	</select>
+	
+	<select id="checknick" resultType="member" parameterType="String">
+		select * from member where m_nickname = #{m_nickname}
 	</select>
 	
 	<insert id="insert" parameterType="member">
@@ -78,5 +83,15 @@
 	<update id="subDrop" parameterType="String">
 		update member set substate = '구독안함' where m_id=#{m_id} and 
 		substr((select subend from member where m_id=#{m_id}),0,6)=substr(sysdate,0,6)
+	</update>
+	
+	<select id="check_name_phone" resultType="String" parameterType="map">
+		select m_id from member where m_name=#{m_name} and m_phone=#{m_phone}
+	</select>
+	
+	<update id="new_pass" parameterType="member">
+		update member
+		set m_password = #{m_password}
+		where m_id=#{m_id}
 	</update>
 </mapper>

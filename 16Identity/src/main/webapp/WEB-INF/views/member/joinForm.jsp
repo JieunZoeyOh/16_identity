@@ -1,128 +1,98 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>회원관리 시스템 회원가입 페이지</title>
-    <link href="resources/css/join.css" type="text/css" rel="stylesheet">
-	<script src="resources/js/jquery-3.5.0.js"></script>
-	<script>
-		$(function(){
-			var checkid=false;
-			var checkemail=false;
-			$('form').submit(function(){
-				
-				if(!checkid){
-					alert("사용 가능한 id로 입력하세요.");
-					$("input:eq(1)").val('').focus();
-					return false;
-				}
-				
-				if(!checkemail){
-					alert("id 형식을 확인하세요");
-					$("input:eq(1)").focus();
-					return false;
-				}
-			}); //submit
-			
-			$('input[type=file]').on('change', preview);
-			
-			function preview(e) {
-				//선택한 그림의 File 객체를 취득
-				//File객체 리스트에서 첫번째 File객체를 가져옵니다.
-				var file = e.target.files[0];
-				
-				//file.type : 파일의 형식(MIME타입 - 예) text/html
-				if(!file.type.match("image.*")){ //파일 타입이 image인지 확인합니다.
-					alert('확장자는 이미지만 가능합니다.');
-					return;
-				}
-				
-				//파일을 읽기 위한 객체 생성
-				var reader = new FileReader();
-				
-				//DataURL 형식으로 파일을 읽어옵니다.
-				//읽어온 결과는 reader객체의 result 속성에 저장됩니다.
-				reader.readAsDataURL(file);
-				
-				//읽기에 성공했을 때 실행되는 이벤트 핸들러
-				reader.onload = function(e){
-					//result:읽기 결과가 저장됩니다.
-					//reader.result 또는 e.target.result
-					$('img').attr("src", e.target.result);
-				}
-					
-			}
-			
-			$("input:eq(1)").on('keyup',
-					function(){
-					  $("#e-check_result").empty(); //처음에 pattern에 적합하지 않은 경우 메시지 출력 후 적합한
-					  $("#check_result").empty();
-					  //[A-Za-z0-9_]의 의미가 \w
-					  var pattern=/\w+@\w+[.]\w{3}/;
-					  var m_id = $("input:eq(1)").val();
-					  if(!pattern.test(m_id)){
-						  $("#e-check_result").css('color','red').text("이메일 형식이 맞지 않습니다.");
-						  checkemail=false;
-					  } else {
-						  $("#e-check_result").css('color','green').text("이메일 형식에 맞습니다.");
-						  checkemail=true;
-					  }
-					  
-					  $.ajax({
-						url : "idcheck.net",
-						data : {"m_id" : m_id},
-						success : function(resp){
-							if(resp == -1){
-								$('#check_result').css('color', 'green').text("사용 가능한 아이디 입니다.");
-								checkid=true;
-							} else{
-								$('#check_result').css('color', 'blue').text("사용 중인 아이디 입니다.");
-								checkid=false;
-							}
-						}
-					  });//ajax end
-			});//id keyup end
-		})
-	</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>16Identity 회원가입</title>
+<!-- Main css -->
+<link rel="stylesheet" href="resources/css/join2.css">
+<link rel="stylesheet" href="resources/css/button.css">
+<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<style>
+* {font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;}
+#m_address_about{width:50%;}
+</style>
 </head>
 <body>
-  <form class="modal-content animate" action="joinProcess.net" method="post" enctype="multipart/form-data">
-    <div class="imgcontainer">
-	    <label>
-	    	<input type="file" name="uploadfile" accept="image/gif, image/jpeg, image/png" style="display:none"/>
-	    	<img src="resources/image/img_avatar2.png" alt="Avatar" class="avatar">
-	    </label>
-    </div>
+<div id="opacityBox">
+</div>
+	<div class="main">
+		<div class="container" style="border-radius: 5px;">
+			<div class="signup-content">
+				<div class="signup-form">
+					<form method="post" action="joinProcess.net" class="register-form"
+						id="register-form" enctype="multipart/form-data">
+						<div class="imgcontainer">
+							<label for="upfile"> 
+								<img src="resources/images/profile2.png" alt="Avatar" class="avatar" id="img">
+							</label> 
+							<input type="file" id="upfile" name="uploadfile"> <span id="filevalue"></span> <span style="font-size:12px">프로필 사진을 저장해 보세요</span>
+						</div>
+						<br> <span>아이디</span> 
+						<input type="text" name="m_id" placeholder="이메일을 입력해주세요" required maxLength="50"> 
+						<span id="email_message"></span> <br> 
+						<span>비밀번호</span> 
+						<input type="password" name="m_password" id="password" placeholder="비밀번호를 입력해주세요" required> <br> 
+						<span>비밀번호 확인</span> 
+						<input type="password" name="passcheck" id="passcheck" placeholder="사용하실 비밀번호를 똑같이 입력해주세요" id="passcheck" required>
+						<span id="passmessage"></span> <br> 
+						<span>이름</span> 
+						<input type="text" name="m_name" id="m_name" placeholder="이름을 입력해주세요" maxlength=15 required> <br> 
+						<span>닉네임</span> <input type="button" value="중복검사" id="nickcheck"> 
+						<input type="text" name="m_nickname" id="m_nickname" placeholder="닉네임을 입력해주세요" maxlength=15 required> <br>
+						<span>휴대폰</span> <br> 
+						<input type="text" name="m_phone" id="m_phone" placeholder="'-'를 제외한 휴대폰 번호를 입력해주세요" required><br> 
+						<span>우편번호</span> 
+						<input type="button" value="우편검색" id="postcode"> 
+						<input type="text" size="5" maxLength="5" name="m_address_no" id="post1" style="width: 20%"> <br>
+						<span>주소</span> 
+						<input type="text" size="50" name="m_address" id="address" placeholder="주소를 입력해주세요" required> <br>
+						<input type="text" size="50" name="m_address_about" id="m_address_abuot" placeholder="상세주소를 입력해주세요" required> <br>
+						<span>성별</span>
+						<div style="margin-bottom:25px">
+							<input type="radio" name="m_gender" value="남" checked><span>남자</span>
+							<input type="radio" name="m_gender" value="여"><span>여자</span>
+						</div>
+						<span>MBTI</span> <input type="button" value="MBTI 검사하기" id="mbti_check">
+						<select class="form-control" id="m_mbti" name="m_mbti" style="width: 34%" onload="mbtiurl();">
+							<option value="기본" selected>MBTI를 선택해주세요</option>
+							<option value="enfj">ENFJ</option>
+							<option value="enfp">ENFP</option>
+							<option value="entj">ENTJ</option>
+							<option value="entp">ENTP</option>
+							<option value="esfj">ESFJ</option>
+							<option value="esfp">ESFP</option>
+							<option value="estj">ESTJ</option>
+							<option value="estp">ESTP</option>
+							<option value="infj">INFJ</option>
+							<option value="infp">INFP</option>
+							<option value="intj">INTJ</option>
+							<option value="intp">INTP</option>
+							<option value="isfj">ISFJ</option>
+							<option value="isfp">ISFP</option>
+							<option value="istj">ISTJ</option>
+							<option value="istp">ISTP</option>
+						</select> <br>
+						<div class="clearfix">
+							<button type="submit" class="submitbtn">회원가입</button>
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 
-    <div class="container">
-      <label for="id"><b>UserID</b></label><span id="e-check_result" style="margin-left:30px; font-size:11px"></span><span id="check_result" style="margin-left:30px; font-size:11px"></span>
-        <input type="text" placeholder="Enter Email" id="id" name="m_id" required>
-
-      <label for="m_password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="m_password" required>
-      <label for="m_name"><b>Name</b></label>
-	    <input type="text" name="m_name" placeholder="Enter name" maxlength=15 required>
-	  <label for="m_nickname"><b>Nickname</b></label>
-		<input type="text" name="m_nickname" placeholder="Enter nickname" maxlength=15 required>	
-		
-	  <label for="m_phone"><b>Phone</b></label>
-		<input type="number" name="m_phone" placeholder="010-1234-5678" maxlength=13 required>	
-		
-	  <label for="m_mbti"><b>MBTI</b></label>
-		<input type="text" name="m_mbti" placeholder="INFP" maxlength=4 required>
-	  
-	  <label for="m_address_no"><b>Address_no</b></label>
-		<input type="number" name="m_address_no" placeholder="12345" maxlength=5 required>
-	  
-	  <label for="m_address"><b>Address</b></label>
-		<input type="text" name="m_address" placeholder="Enter address" required>
-	  
-	  
-	  
-	  
-      <button type="submit">회원가입</button>
-    </div>
-
-  </form>
+	<!-- JS -->
+	<script src="resources/js/jquery-3.5.0.js"></script>
+	<script src="resources/js/join.js"></script>
+	<script>
+		document.querySelector('#opacityBox').style.height = document.body.scrollHeight+"px";
+	</script>
 </body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
