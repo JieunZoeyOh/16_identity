@@ -140,4 +140,10 @@ public class MemberServiceImple implements MemberService {
 	public int newPassword(Member member) {
 		return dao.newPassword(member);
 	}
+
+	@Override
+	public int isPhone(String m_phone) {
+		Member rmember = dao.isPhone(m_phone);
+		return (rmember==null)? -1 : 1;
+	}
 }

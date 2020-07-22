@@ -20,16 +20,11 @@
 <style>
 * {font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;}
 
-.p-b-55{
-	padding-bottom:0px;
-	text-align:left;
-}
-
 #tip{margin-bottom: 15px; font-size: 14px;}
 
 #test{
 	font-weight: bold;
-    font-size: 32px;
+    font-size: 19px;
 }
 
 a { text-decoration:none } 
@@ -82,13 +77,11 @@ a:hover{color:#fff}
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 				<form class="login100-form validate-form">
-					 <span class="login100-form-title p-b-55" id="logo"> 아이디 찾기 검색결과 </span>
-					<br>
-					<div>
-					<br>
-					<input id="test" type="text" class="inputbox" size="100" />
+				<img alt="16 Identity" src="resources/image/smallLogo1.PNG" id="smallLogo">
+					<span class="login100-form-title" id="logo"> 아이디 찾기 검색결과 </span>
+					<div style="margin-left: 13px;">
+					<input id="test" type="text" class="inputbox" size="20" />
 					</div>
-					
 					<div class="container-login100-form-btn p-t-25">
 						<a href="login.net" class="login100-form-btn login" style="text-decoration: none;">로그인 이동</a>
 					</div>

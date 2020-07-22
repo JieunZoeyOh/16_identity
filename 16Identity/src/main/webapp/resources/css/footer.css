@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+footer{
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'
+    font-weight: 300;
+    line-height: 1.5;
+    background:white;
+}
+
+.container {
+    width: 100%;
+}
+
+.sns_box{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    margin-bottom: .5rem;
+    line-height: 1.2;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.menu_h6{
+	text-transform: uppercase !important;
+	font-weight: 700 !important;
+}
+
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.rgba-white-light, .rgba-white-light:after {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.footer_box{
+	margin-bottom: 1rem !important;
+	text-align: center !important;
+	padding-top: 3rem !important;
+	justify-content: center !important;
+	display: flex !important;
+	flex-wrap: wrap;
+}
+
+.footermenu{
+	margin: 0 40px;
+	margin-bottom: 1rem !important;
+}
+
+.footermenu a {
+	text-decoration:none;
+	color: black;
+}
+
+.menu_content_box{
+	text-align: center !important;
+	justify-content: center !important;
+	display: flex !important;
+	flex-wrap: wrap;
+}
+
+#menu_content{
+	position: relative;
+	margin-top: 3rem !important;
+	padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+.fa{
+    font-size: 25px;
+    padding: 0 15px;
+}
+
+.footer-copyright{
+	background: #1f0d0d26;
+	padding: 1rem !important;
+	text-align: center !important;
+	color: white;
+}
+
+.footer-copyright>a{
+	text-decoration:none;
+	color: white;
+}
+
+.sns_container{
+	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-bottom: 1rem !important;
+}
+
+.sns_section{
+	margin-bottom: 3rem !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;	
+}

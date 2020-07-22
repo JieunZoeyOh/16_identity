@@ -17,10 +17,7 @@
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 * {font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;}
-.p-b-55 {
-	padding-bottom: 0px;
-	text-align: left;
-}
+
 #tip {
 	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;
 	margin-bottom: 15px;
@@ -37,7 +34,8 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-50 p-b-65">
 				<form action="find_id2.net" class="login100-form validate-form" method="get">
-					<span class="login100-form-title p-b-55" id="logo"> 아이디 찾기 </span> 
+					<img alt="16 Identity" src="resources/image/smallLogo1.PNG" id="smallLogo">
+					<span class="login100-form-title" id="logo"> 아이디 찾기 </span> 
 					<br>
 					<div class="wrap-input100 validate-input m-b-16" data-validate="이름을 입력해주세요">
 						<input class="input100" type="text" name="m_name" id="m_name" placeholder="이름을 입력해주세요">

@@ -1,5 +1,5 @@
 
-go(1, 'review');
+go(1, 'book');
 $(document).on('click','.likeReview',function(){
 	go(1, 'review');
 })

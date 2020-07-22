@@ -14,7 +14,7 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style>
 * {font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;}
-#m_address_about{width:50%;}
+#m_address_about{width:40%;}
 </style>
 </head>
 <body>
@@ -33,10 +33,11 @@
 							<input type="file" id="upfile" name="uploadfile"> <span id="filevalue"></span> <span style="font-size:12px">프로필 사진을 저장해 보세요</span>
 						</div>
 						<br> <span>아이디</span> 
-						<input type="text" name="m_id" placeholder="이메일을 입력해주세요" required maxLength="50"> 
+						<input type="text" name="m_id" placeholder="이메일형식으로 입력해주세요" required maxLength="50"> 
 						<span id="email_message"></span> <br> 
 						<span>비밀번호</span> 
-						<input type="password" name="m_password" id="password" placeholder="비밀번호를 입력해주세요" required> <br> 
+						<input type="password" name="m_password" id="password" placeholder="숫자,특문,영문 각 1회 이상 사용하여 8자리 이상을 사용해서 입력해주세요" required>
+						<span id="pass_message"></span> <br> 
 						<span>비밀번호 확인</span> 
 						<input type="password" name="passcheck" id="passcheck" placeholder="사용하실 비밀번호를 똑같이 입력해주세요" id="passcheck" required>
 						<span id="passmessage"></span> <br> 
@@ -44,14 +45,15 @@
 						<input type="text" name="m_name" id="m_name" placeholder="이름을 입력해주세요" maxlength=15 required> <br> 
 						<span>닉네임</span> <input type="button" value="중복검사" id="nickcheck"> 
 						<input type="text" name="m_nickname" id="m_nickname" placeholder="닉네임을 입력해주세요" maxlength=15 required> <br>
-						<span>휴대폰</span> <br> 
+						<span>휴대폰</span>  <input type="button" value="중복검사" id="phonecheck"> 
 						<input type="text" name="m_phone" id="m_phone" placeholder="'-'를 제외한 휴대폰 번호를 입력해주세요" required><br> 
 						<span>우편번호</span> 
 						<input type="button" value="우편검색" id="postcode"> 
 						<input type="text" size="5" maxLength="5" name="m_address_no" id="post1" style="width: 20%"> <br>
 						<span>주소</span> 
 						<input type="text" size="50" name="m_address" id="address" placeholder="주소를 입력해주세요" required> <br>
-						<input type="text" size="50" name="m_address_about" id="m_address_abuot" placeholder="상세주소를 입력해주세요" required> <br>
+						<input type="text" size="50" name="m_address_about" id="m_address_abuot" placeholder="상세주소를 입력해주세요""
+						 required> <br>
 						<span>성별</span>
 						<div style="margin-bottom:25px">
 							<input type="radio" name="m_gender" value="남" checked><span>남자</span>
@@ -94,5 +96,4 @@
 		document.querySelector('#opacityBox').style.height = document.body.scrollHeight+"px";
 	</script>
 </body>
-<!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

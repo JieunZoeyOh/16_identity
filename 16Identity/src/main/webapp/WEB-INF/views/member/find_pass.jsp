@@ -34,7 +34,8 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 				<form action="newPass.net" class="login100-form validate-form" method="post">
-					<span class="login100-form-title p-b-55 p-l-15" id="logo"> 비밀번호 찾기 </span>
+				<img alt="16 Identity" src="resources/image/smallLogo1.PNG" id="smallLogo">
+					<span class="login100-form-title p-b-55" id="logo"> 비밀번호 찾기 </span>
 					<a id="tip" class="p-l-15">입력하신 아이디의 비밀번호를 이메일로 전송 해드립니다.</a>
 					<br>
 					<div class="wrap-input100 validate-input m-b-16" data-validate="이메일을 적어주세요: ex@abc.xyz">

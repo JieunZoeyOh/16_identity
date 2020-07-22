@@ -71,8 +71,7 @@
       <input type="file" name="uploadfile" accept="image/gif, img/jpeg, image/png" style="display: none" id="image">
       <span id="filevalue" style="display:none;" >${m.m_original}</span>
    </form>
-   
- <footer><h3>footer</h3></footer>
+   <jsp:include page="../main/footer.jsp" />
  
  <script>
  $('#m_passwordchk').keyup(function () {

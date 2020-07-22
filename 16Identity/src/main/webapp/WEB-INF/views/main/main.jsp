@@ -124,7 +124,7 @@
             </div>
         </section>  
     </div>
-    <footer></footer>
+	<jsp:include page="footer.jsp" />
     <script>
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut(1000);

@@ -46,5 +46,7 @@ public interface MemberService {
 	Member check(String m_id);
 
 	int newPassword(Member member);
+
+	int isPhone(String m_phone);
 	
 }

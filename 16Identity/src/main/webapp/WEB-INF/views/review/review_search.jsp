@@ -54,6 +54,6 @@
 			<button class="more_button">더 보 기</button>
 		</section>
 	</div>
-    <footer></footer>
+   <jsp:include page="../main/footer.jsp" />
 </body>
 </html>

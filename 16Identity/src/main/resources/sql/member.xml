@@ -99,4 +99,8 @@
 		set m_password = #{m_password}
 		where m_id=#{m_id}
 	</update>
+	
+	<select id="phonecheck" resultType="member" parameterType="String">
+		select * from member where m_phone = #{m_phone}
+	</select>
 </mapper>
