@@ -9,6 +9,15 @@ public class Notice {
 	private String subject;
 	private String content;
 	private String n_date;
+	private int viewcount;
+	
+	
+	public int getViewcount() {
+		return viewcount;
+	}
+	public void setViewcount(int viewcount) {
+		this.viewcount = viewcount;
+	}
 	public int getNo() {
 		return no;
 	}

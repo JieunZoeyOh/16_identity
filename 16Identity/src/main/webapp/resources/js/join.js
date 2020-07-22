@@ -114,12 +114,12 @@ $(function() {
          if (!pattern.test(pass)) {
             $("#pass_message").css('color', 'red').html(
                   "비밀번호 형식이 맞지 않습니다.");
-            checkemail = false;
+            checkpass = false;
             return;
          }else{
             $("#pass_message").css('color', 'blue').html(
             "올바르게 입력하셨습니다.");
-            checkemail = ture;
+            checkpass = true;
       return;
          }
       }); // pass keyup 이벤트 처리 끝
@@ -139,6 +139,13 @@ $(function() {
    
    $("#nickcheck").click(function() {
       var nick = $("#m_nickname").val();
+      
+      if($("#m_nickname").val() == ""){
+         alert("닉네임 입력해주세요")
+         $("input:eq(6)").focus();
+            
+            return false;
+      }
       
             $.ajax({
                url : "nickcheck.net",
