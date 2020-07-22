@@ -411,12 +411,7 @@ public class MemberController {
 		if (result == 1) {
 			// 로그인 성공
 			session.setAttribute("m_id", m_id);
-			//header mbti별명, 닉네임 환영합니다.
 			session.setAttribute("m_nickname", m_nickname);
-			session.setAttribute("mbti_nickname", mbti_nickname);
-			//Subscribe //구독 신청 상태 값 넘기기
-			session.setAttribute("substate", state);
-			session.setAttribute("warnCount", count);
 			Cookie savecookie = new Cookie("saveid", m_id);
 			if (!remember.equals("")) {
 				savecookie.setMaxAge(60 * 60);
@@ -426,7 +421,16 @@ public class MemberController {
 				savecookie.setMaxAge(0);
 			}
 			response.addCookie(savecookie);
-			return "redirect:main.com";
+			if(m_id.equals("admin@naver.com")) {
+				session.setAttribute("warnCount", count);
+				return "redirect:main.net";
+			} else {
+				//header mbti별명, 닉네임 환영합니다.
+				session.setAttribute("mbti_nickname", mbti_nickname);
+				//Subscribe //구독 신청 상태 값 넘기기
+				session.setAttribute("substate", state);
+				return "redirect:main.com";
+			}
 		} else {
 			String message = "비밀번호가 일치하지 않습니다.";
 			if (result == -1)
