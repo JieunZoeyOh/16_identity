@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -45,7 +46,7 @@
 <style>
 	td{text-align: center;}
 	td>ul{list-style-type: none; width: 100%; height: 43px;}
-	td>ul>li{float:left;}
+	td>ul>li{float:left; margin-right: 5%;}
 	li>span{float: left;}
 </style>
 </head>
@@ -78,9 +79,7 @@
 											<th>총 신고수</th>
 											<th style="text-align: center;"><span>신고일시</span>
 												<span>신고자</span>
-												<span>신고사유</span>
-												<span>처리상태</span></th>
-											<th>처리상태</th>
+												<span>신고사유</span></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -92,15 +91,20 @@
 											<td>
 												<c:forEach var="wc" items="${warn.warn_check}">
 												<ul>
-												<li style="width: 30%"><p>${wc.wc_date }</p></li>
-												<li style="width: 30%"><p>${wc.m_id }</p></li>
-												<li style="width: 40%"><p>${wc.wc_reason }</p></li>
+												<li style="width: 106px;">
+													<c:if test="${wc.wc_state=='접수대기'}">
+													<button class="btn bg-brown waves-effect" onClick="javascript:location.href='reportDelete.net?wc_no=${wc.wc_no}';">반려</button>
+													<button class="btn bg-red waves-effect" onClick="javascript:location.href='reportAccept.net?cmt_no=${warn.cmt_no}&m_id=${warn.m_id }&wc_no=${wc.wc_no }';">접수</button>
+													</c:if>
+													<c:if test="${fn:contains(wc.wc_state,'완료')}">
+														${wc.wc_state}
+													</c:if>
+												</li>
+												<li><p>${wc.wc_date }</p></li>
+												<li><p>${wc.m_id }</p></li>
+												<li><p>${wc.wc_reason }</p></li>
 												</ul>
 												</c:forEach>
-											</td>
-											<td>
-												<button class="btn bg-brown waves-effect" onClick="javascript:location.href='reportDelete.net?cmt_no=${warn.cmt_no}';">반려</button>
-												<button class="btn bg-red waves-effect" onClick="javascript:location.href='reportAccept.net?cmt_no=${warn.cmt_no}&m_id=${warn.m_id }';">접수</button>
 											</td>
 										</tr>
 										</c:forEach>

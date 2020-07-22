@@ -23,6 +23,7 @@ import com.identity.project.domain.Comments;
 import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Warn;
 import com.identity.project.domain.Warn_Check;
+import com.identity.project.service.AdminService;
 import com.identity.project.service.BoardService;
 import com.identity.project.service.CommentService;
 
@@ -33,6 +34,9 @@ public class CommentController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private AdminService adminService;
 	
 	@RequestMapping(value = "/reviewpost.minji", method = RequestMethod.GET)
 	public ModelAndView  review_detail(HttpSession session, ModelAndView mv, String isbn) {
@@ -351,6 +355,8 @@ public class CommentController {
 			warn.setCmt_no(cmt_no);
 			warn.setW_reason(warn_reason);
 			int warn_ok = commentService.add_warn(warn);
+			int count = adminService.newWarnCount();
+			session.setAttribute("warnCount", count);
 			System.out.println("신고 최종 완료");
 			return 1;
 		}

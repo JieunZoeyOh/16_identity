@@ -31,7 +31,7 @@ public interface AdminService {
 	int commentCount();
 	int subCount();
 	List<Warn> warnList();
-	int warnDelete(int cmt_no);
+	int warnDelete(int wc_no);
 	int commentDelete(int cmt_no);
 	void memberWarn(String m_id);
 	int subDrop(String m_id);
@@ -45,4 +45,5 @@ public interface AdminService {
 	int getAllSub();
 	int[] getchartValues();
 	int ad_com_delete(String cmt_no);
+	int newWarnCount();
 }

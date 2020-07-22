@@ -29,6 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Member;
+import com.identity.project.service.AdminService;
 import com.identity.project.service.CommentService;
 import com.identity.project.service.MemberService;
 import com.identity.project.task.SendMail;
@@ -40,6 +41,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberSerivce;
 
+	@Autowired
+	private AdminService adminService;
+	
 	@Autowired
 	private CommentService commentService;
 	
@@ -400,6 +404,7 @@ public class MemberController {
 			HttpSession session) throws Exception {
 
 		int result = memberSerivce.isId(m_id, m_password); //부터 시작
+		int count = adminService.newWarnCount();
 		String m_nickname = memberSerivce.getNickname(m_id);
 		String mbti_nickname = memberSerivce.getMbtiNickname(m_id);
 		String state = memberSerivce.getState(m_id);
@@ -411,6 +416,7 @@ public class MemberController {
 			session.setAttribute("mbti_nickname", mbti_nickname);
 			//Subscribe //구독 신청 상태 값 넘기기
 			session.setAttribute("substate", state);
+			session.setAttribute("warnCount", count);
 			Cookie savecookie = new Cookie("saveid", m_id);
 			if (!remember.equals("")) {
 				savecookie.setMaxAge(60 * 60);
