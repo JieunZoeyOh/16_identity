@@ -164,6 +164,7 @@ public class AdminServiceImpl implements AdminService {
 		return dao.YearSub();
 	}
 		
+	@Override
 	public List<Comments> getCList() {
 		return dao.getCList();
 	}
@@ -176,6 +177,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int[] getchartValues() {
 		return dao.ChartValues();
+	}
+	
+	@Override
+	public int ad_com_delete(String cmt_no) {
+		return dao.ad_com_delete(cmt_no);
 	}
 
 }

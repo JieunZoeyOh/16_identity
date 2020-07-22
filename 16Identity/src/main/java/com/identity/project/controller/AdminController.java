@@ -231,4 +231,26 @@ public class AdminController {
 		out.println("</script>");
 		out.close();
 	}
+	
+	@RequestMapping(value = "/ad_com_delete.net")
+	public void ad_com_delete(HttpServletResponse response, HttpServletRequest request) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		System.out.println("댓글 번호"+request.getParameter("cmt_no"));
+		String cmt_no =request.getParameter("cmt_no");
+		
+		int delete_result = adminService.ad_com_delete(cmt_no);
+		
+		out.println("<script>");
+		if (delete_result == 1) {
+			out.println("alert('삭제가 완료 되었습니다.');");
+			out.println("location.href='comment.net';");
+		} else {
+			out.println("history.back()");
+		}
+		out.println("</script>");
+		out.close();
+		
+	}
 }

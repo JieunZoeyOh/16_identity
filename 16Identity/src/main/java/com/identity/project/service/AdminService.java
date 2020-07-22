@@ -44,4 +44,5 @@ public interface AdminService {
 	List<Comments> getCList();
 	int getAllSub();
 	int[] getchartValues();
+	int ad_com_delete(String cmt_no);
 }

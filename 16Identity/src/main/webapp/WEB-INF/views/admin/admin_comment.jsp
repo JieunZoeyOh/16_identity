@@ -78,7 +78,7 @@
 	                                            <td style="width:50px;">${m.cmt_date}</td>
 	                                            <td style="width:20px;">${m.cmt_like}</td>
 	                                            <td style="text-align: center; width:150px;">
-	                                            <button type="button" class="btn bg-red waves-effect" >
+	                                            <button type="button" class="btn bg-red waves-effect"  onclick="location.href='ad_com_delete.net?cmt_no=${m.cmt_no}'">
 	                                            <i class="material-icons">content_cut</i><span>삭제</span>
 	                                            </button>
 	                                            </td>
