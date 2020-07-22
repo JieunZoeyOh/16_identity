@@ -60,7 +60,7 @@
                             <i class="material-icons">person</i>
                         </div>
                         <div class="content">
-                            <div class="text">Member</div>
+                            <div class="text">MEMBER</div>
                             <div class="number count-to" data-from="0" data-to="${member }" data-speed="15" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                             <i class="material-icons">subscriptions</i>
                         </div>
                         <div class="content">
-                            <div class="text">Subscribe</div>
+                            <div class="text">SUBSCRIBE</div>
                             <div class="number count-to" data-from="0" data-to="${subscribe }" data-speed="1000" data-fresh-interval="20"></div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card">
                         <div class="body bg-teal">
-                            <div class="font-bold m-b--35">ANSWERED TICKETS</div>
+                            <div class="font-bold m-b--35">누적 구독자 현황</div>
                             <ul class="dashboard-stat-list">
                                 <li>
                                     TODAY
