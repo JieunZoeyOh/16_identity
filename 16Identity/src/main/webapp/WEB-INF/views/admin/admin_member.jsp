@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,7 @@ tbody > tr > td {text-align : center;}
 												<td>${m.m_phone }</td>
 												<td>${m.m_address }</td>
 												<td>${m.substate }</td>
-												<td>${m.subsdate} - ${m.subend}</td>
+												<td>${fn:substring(m.subsdate, 0 , 10)} - ${fn:substring(m.subend, 0 , 10)}</td>
 												<td id="cnt">${m.warn_count}</td>
 												<td style="text-align: center">
 												

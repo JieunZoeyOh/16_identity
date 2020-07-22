@@ -9,6 +9,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="resources/js/jquery-3.5.0.js"></script>
 <script src ="resources/js/updateform.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
    <c:set var="m" value ="${memberinfo}"/>
@@ -61,7 +62,8 @@
       <button type="button" class="changembti" onclick="location.href='https://www.16personalities.com/ko'">변경</button>
       <input type="text" placeholder="change your MBTI" name="m_mbti" id="m_mbti" value="${m.m_mbti}" required>
 
-	  <b>주소</b>
+	  <b style="display: inline-block; width: auto">Address</b>
+	  <button type="button" class="postcode">우편검색</button>
 	  <input type = "text" placeholder = "change your address" name = "m_address" id = "m_address" value = "${m.m_address}">
       <hr>
       <div class="clearfix">
