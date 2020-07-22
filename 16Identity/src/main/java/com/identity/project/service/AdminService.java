@@ -42,4 +42,6 @@ public interface AdminService {
 	int getMonthSub();
 	int getYearSub();
 	List<Comments> getCList();
+	int getAllSub();
+	int[] getchartValues();
 }

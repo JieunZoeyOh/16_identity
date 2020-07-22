@@ -168,4 +168,14 @@ public class AdminServiceImpl implements AdminService {
 		return dao.getCList();
 	}
 
+	@Override
+	public int getAllSub() {
+		return dao.AllSub();
+	}
+
+	@Override
+	public int[] getchartValues() {
+		return dao.ChartValues();
+	}
+
 }

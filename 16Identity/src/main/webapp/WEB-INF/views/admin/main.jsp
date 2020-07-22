@@ -42,6 +42,7 @@
 	<c:set var="week" value="${week}"/>
 	<c:set var="month" value="${month}"/>
 	<c:set var="year" value="${year}"/>
+	<c:set var="all" value="${all}"/>
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -99,31 +100,7 @@
                 </div>
             </div>
             <!-- #END# Widgets -->
-            <!-- CPU Usage -->
-            <div class="row clearfix">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="card">
-                        <div class="header">
-                            <div class="row clearfix">
-                                <div class="col-xs-12 col-sm-6">
-                                    <h2>CPU USAGE (%)</h2>
-                                </div>
-                                
-                                <div class="col-xs-12 col-sm-12 align-right">
-                                    <div class="switch panel-switch-btn">
-                                        <span class="m-r-10 font-12">REAL TIME</span>
-                                        <label>OFF<input type="checkbox" id="realtime" checked><span class="lever switch-col-cyan"></span>ON</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div id="real_time_chart" class="dashboard-flot-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# CPU Usage -->
+            
             <div class="row clearfix">
                 <!-- Visitors -->
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -133,7 +110,9 @@
                                  data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
                                  data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
                                  data-fill-Color="rgba(0, 188, 212, 0)">
-                                12,10,9,6,5,6,10,5,7,5,12,13,7,12,11
+                                <c:forEach var="i" items="${chart }">
+                                	${i }<c:if test="${i < 14 }">,</c:if>
+                                </c:forEach>
                             </div>
                             <ul class="dashboard-stat-list">
                                 <li>
@@ -181,13 +160,39 @@
                                 </li>
                                 <li>
                                     ALL
-                                    <span class="pull-right"><b>8 752</b> <small>TICKETS</small></span>
+                                    <span class="pull-right"><b>${all }</b> <small>TICKETS</small></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!-- #END# Answered Tickets -->
+                
+                <!-- CPU Usage -->
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <div class="row clearfix">
+                                <div class="col-xs-12 col-sm-6">
+                                    <h2>CPU USAGE (%)</h2>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-12 align-right">
+                                    <div class="switch panel-switch-btn">
+                                        <span class="m-r-10 font-12">REAL TIME</span>
+                                        <label>OFF<input type="checkbox" id="realtime" checked><span class="lever switch-col-cyan"></span>ON</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div id="real_time_chart" class="dashboard-flot-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# CPU Usage -->
             </div>
 
             <div id="donut_chart" class="dashboard-donut-chart" style="display: none"></div>

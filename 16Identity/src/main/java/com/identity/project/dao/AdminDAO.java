@@ -138,6 +138,19 @@ public class AdminDAO {
 		
 	public List<Comments> getCList() {
 		return sqlSession.selectList("Comments.getAllComments");
+	}	
+
+	public int AllSub() {
+		return sqlSession.selectOne("Subscribe.allSub");
+	}
+
+	public int[] ChartValues() {
+		int[] chart = new int[14];
+		for(int i=chart.length-1; i>=0; i--) {
+			chart[i] = sqlSession.selectOne("Subscribe.ChartValues",i);
+			System.out.println(i+","+chart[i]);
+		}
+		return chart;
 	}
 	
 }

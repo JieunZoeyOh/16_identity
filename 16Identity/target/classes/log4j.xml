@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="Deliver">
+	<logger name="Subscribe">
 		<level value="info" />
 	</logger>
 	
