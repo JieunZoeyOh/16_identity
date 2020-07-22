@@ -41,6 +41,8 @@ public class AdminController {
 		int week = adminService.getWeekSub();
 		int month = adminService.getMonthSub();
 		int year = adminService.getYearSub();
+		int all = adminService.getAllSub();
+		int[] chart = adminService.getchartValues();
 		mv.setViewName("admin/main");
 		mv.addObject("membercount", membercount);
 		mv.addObject("warncount", warncount);
@@ -50,7 +52,9 @@ public class AdminController {
 		mv.addObject("week", week);
 		mv.addObject("month", month);
 		mv.addObject("year", year);
+		mv.addObject("all", all);
 		mv.addObject("subcount", subcount);
+		mv.addObject("chart", chart);
 		return mv;
 	}
 

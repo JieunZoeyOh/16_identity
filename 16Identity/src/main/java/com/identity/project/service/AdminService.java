@@ -39,4 +39,6 @@ public interface AdminService {
 	int getWeekSub();
 	int getMonthSub();
 	int getYearSub();
+	int getAllSub();
+	int[] getchartValues();
 }
