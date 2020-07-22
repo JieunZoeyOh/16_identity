@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>16 identity MY_INFO PAGE</title>
+<title>16 Identity</title>
 <jsp:include page="../main/header_mypageVersion.jsp" />
 <link href="resources/css/myBook.css" type="text/css" rel="stylesheet">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -40,19 +40,7 @@
 		<button class="likeBook like">좋아요 한 책</button>
 		<button class="likeReview like">좋아요 한 리뷰</button>
 		<div id="content">
-			<table class="content_table">
-				<thead>
-					<tr>
-						<td> </td><td>NO.</td><td>책 제목</td><td>저자</td><td>날짜</td><td>좋아요 수</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><img src="resources/image/book/book1.jpg" /></td>
-						<td>1</td><td>아몬드</td><td>아몬드</td><td>2020-09-08</td><td>3</td>
-					</tr>
-				</tbody>
-			</table>
+
 		</div>
 	</div>
 	</div>

@@ -36,10 +36,20 @@ public class AdminController {
 		int warncount = adminService.warnCount();
 		int commentcount = adminService.commentCount();
 		int subcount = adminService.subCount();
+		int today = adminService.getTodaySub();
+		int yester = adminService.getYesterSub();
+		int week = adminService.getWeekSub();
+		int month = adminService.getMonthSub();
+		int year = adminService.getYearSub();
 		mv.setViewName("admin/main");
 		mv.addObject("membercount", membercount);
 		mv.addObject("warncount", warncount);
 		mv.addObject("commentcount", commentcount);
+		mv.addObject("today", today);
+		mv.addObject("yester", yester);
+		mv.addObject("week", week);
+		mv.addObject("month", month);
+		mv.addObject("year", year);
 		mv.addObject("subcount", subcount);
 		return mv;
 	}

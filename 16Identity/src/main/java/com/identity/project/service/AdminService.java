@@ -35,6 +35,9 @@ public interface AdminService {
 	void memberWarn(String m_id);
 	int subDrop(String m_id);
 	int delete(String id);
-
-	
+	int getTodaySub();
+	int getYesterSub();
+	int getWeekSub();
+	int getMonthSub();
+	int getYearSub();
 }

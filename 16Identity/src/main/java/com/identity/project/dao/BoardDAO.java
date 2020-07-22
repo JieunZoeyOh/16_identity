@@ -1,5 +1,6 @@
 package com.identity.project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.identity.project.domain.Book;
 import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
+import com.identity.project.domain.Book_Like_List;
 import com.identity.project.domain.MBTI;
+import com.identity.project.domain.Review_Like_List;
 
 @Repository
 public class BoardDAO {
@@ -224,7 +227,6 @@ public class BoardDAO {
 		else
 			result=0;
 		
-		
 		int result2= insert_bookmbti(bld.getIsbn(),m_mbti);
 		
 		if(result2==1)
@@ -233,7 +235,6 @@ public class BoardDAO {
 			result=0;
 		
 		return result;
-			
 	}
 
 	public int like_check(String m_id, String isbn) {
@@ -250,8 +251,21 @@ public class BoardDAO {
 		else {
 			return 0;
 		}
-		
-		
 	}
 
+	public int getLikeListCount(String m_id) {
+		return sqlSession.selectOne("Books.getLikeListCount", m_id);
+	}
+
+	public List<Book_Like_List> getLikeList(HashMap<String, Object> map) {
+		return sqlSession.selectList("Books.getLikeList", map);
+	}
+
+	public int getReviewLikeCount(String m_id) {
+		return sqlSession.selectOne("Books.getReviewLikeCount", m_id);
+	}
+
+	public List<Review_Like_List> getReviewLikeList(HashMap<String, Object> map) {
+		return sqlSession.selectList("Books.getReviewLikeList", map);
+	}
 }
