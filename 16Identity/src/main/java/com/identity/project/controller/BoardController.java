@@ -126,4 +126,15 @@ public class BoardController {
 		map.put("limit", limit);
 		return map;
 	}
+	
+	@RequestMapping(value="/notice.net")
+	public ModelAndView notice(HttpSession session, ModelAndView mv){
+		String m_id = (String) session.getAttribute("m_id");//프로필 사진 부분
+		Member m = memberSerivce.profile(m_id);//프로필 사진 부분
+		mv.addObject("profile", m);	//프로필 사진 부분
+		
+		
+		mv.setViewName("mypage/notice");
+		return mv;
+	}
 }

@@ -168,15 +168,16 @@ insert into mbti_nickname values ('esfj','사교적인 외교관');
 select * from mbti_nickname;
 
 create table notice(
-	no number not null primary key,
-	m_id varchar2(50) not null,
-	passowrd varchar2(15) not null,
-	n_original varchar2(50) not null,
-	n_file varchar2(50) not null,
-	subject varchar2(50) not null,
-	content varchar2(2000) not null,
-	n_date date not null,
-	foreign key (m_id) references member(m_id) on delete cascade
+   no number not null primary key,
+   m_id varchar2(50) not null,
+   passowrd varchar2(15) not null,
+   n_original varchar2(50) not null,
+   n_file varchar2(50) not null,
+   subject varchar2(50) not null,
+   content varchar2(2000) not null,
+   viewcount number,
+   n_date date not null,
+   foreign key (m_id) references member(m_id) on delete cascade
 );
 
 create table suborder(
