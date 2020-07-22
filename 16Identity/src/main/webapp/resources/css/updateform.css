@@ -49,7 +49,6 @@ form#updateform {
    	top: -385px;
    
 }
-//background-image:url("../image/bookstore2.jpg");
 
 input{border-radius:3px; border:1px solid lightgray}
 input[type=text], input[type=password] {
