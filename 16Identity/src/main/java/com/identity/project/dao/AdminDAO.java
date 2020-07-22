@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.identity.project.domain.Comments;
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
@@ -133,6 +134,10 @@ public class AdminDAO {
 	
 	public int YearSub() {
 		return sqlSession.selectOne("Subscribe.yearSub");
+	}
+		
+	public List<Comments> getCList() {
+		return sqlSession.selectList("Comments.getAllComments");
 	}
 	
 }

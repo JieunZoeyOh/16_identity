@@ -2,6 +2,7 @@ package com.identity.project.service;
 
 import java.util.List;
 
+import com.identity.project.domain.Comments;
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
@@ -40,4 +41,5 @@ public interface AdminService {
 	int getWeekSub();
 	int getMonthSub();
 	int getYearSub();
+	List<Comments> getCList();
 }

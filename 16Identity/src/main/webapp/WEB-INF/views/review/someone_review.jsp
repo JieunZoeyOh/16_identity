@@ -55,7 +55,7 @@ position: absolute;
 	      		</c:if>
 	      		<c:if test="${a!=page}">
 	      			<li class="page-item">
-	      			  <a href="./see_view.minji?page=${a}&nickname=${nickname}"
+	      			  <a href="./see_view.minji?page=${a}&id=${id}&nickname=${nickname}"
 	      			  	class="page-link">${a}</a>
 	      			</li>
 	      		</c:if>

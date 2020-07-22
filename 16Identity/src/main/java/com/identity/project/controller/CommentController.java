@@ -485,14 +485,14 @@ public class CommentController {
 	
 	@RequestMapping(value = "/see_view.minji", method = RequestMethod.GET)
 	public ModelAndView  see_view(ModelAndView mv, HttpServletRequest request, @RequestParam(value="page", defaultValue="1", required=false) int page) {
-		String nickname= request.getParameter("nickname");
-		
+		String id= request.getParameter("id");
+		String nickname = request.getParameter("nickname");
 		int limit =4; 
 		
-		int listcount = commentService.getSomeoneListCount(nickname);
+		int listcount = commentService.getSomeoneListCount(id);
 		int maxpage= (listcount+limit -1)/limit;
 		
-		List<Comments> commentlist = commentService.getSomeoneCommentList(nickname, limit, page);
+		List<Comments> commentlist = commentService.getSomeoneCommentList(id, limit, page);
 		
 		//현재 페이지에 보여줄 시작페이지 수(1, 11, 21등...)
 		int startpage = ((page-1)/10)*10+1;
@@ -506,6 +506,7 @@ public class CommentController {
 		
 		mv.setViewName("review/someone_review");
 		mv.addObject("nickname",nickname);
+		mv.addObject("id", id);
 		mv.addObject("page", page);
 		mv.addObject("maxpage", maxpage);
 		mv.addObject("startpage", startpage);

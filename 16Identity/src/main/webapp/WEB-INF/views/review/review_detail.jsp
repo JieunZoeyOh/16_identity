@@ -300,14 +300,15 @@
     }
     
     function see_view2(t){
-    	var see_nickname=$(t).text();
+    	var see_id=$(t).parent().prev().text();
+    	var nickname = $(t).text();
     	window.screen.width
     	window.screen.height
     	var popupWidth = 750;
     	var popupHeight = 750;
     	var popupX = (window.screen.width/2) - (popupWidth/2);
     	var popupY= (window.screen.height/2) - (popupHeight/2);
-    	window.open("see_view.minji?nickname="+see_nickname, see_nickname, 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+    	window.open("see_view.minji?id="+see_id+"&nickname="+nickname, see_id, 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 	}
     
  	$('#book_comment').keyup(function(e){

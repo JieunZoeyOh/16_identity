@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.identity.project.dao.AdminDAO;
+import com.identity.project.domain.Comments;
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
@@ -161,6 +162,10 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int getYearSub() {
 		return dao.YearSub();
+	}
+		
+	public List<Comments> getCList() {
+		return dao.getCList();
 	}
 
 }

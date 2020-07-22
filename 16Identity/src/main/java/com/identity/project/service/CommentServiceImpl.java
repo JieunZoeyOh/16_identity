@@ -114,20 +114,20 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public List<Comments> getSomeoneCommentList(String nickname, int limit, int page) {
+	public List<Comments> getSomeoneCommentList(String id, int limit, int page) {
 		Map<String, Object> map= new HashMap<String, Object>();
 		int startrow = (page-1)*limit+1;
 		int endrow = startrow+limit-1;
 		
 		map.put("start", startrow);
 		map.put("end", endrow);
-		map.put("nickname", nickname);
+		map.put("id", id);
 		return dao.getSomeoneCommentList(map);
 	}
 
 	@Override
-	public int getSomeoneListCount(String nickname) {
-		return dao.getSomeoneListCount(nickname);
+	public int getSomeoneListCount(String id) {
+		return dao.getSomeoneListCount(id);
 	}
 
 }
