@@ -137,4 +137,24 @@ public class BoardController {
 		mv.setViewName("mypage/notice");
 		return mv;
 	}
+	
+	@RequestMapping(value="/contact.net")
+	public String contact() {
+		return "info/contact";
+	}
+	
+	@RequestMapping(value="/aboutUS.net")
+	public String aboutUS() {
+		return "info/aboutUS";
+	}
+	
+	@RequestMapping(value="/developers.net")
+	public String developers() {
+		return "info/developers";
+	}
+	
+	@RequestMapping(value="/termsOfService.net")
+	public String termsOfService() {
+		return "info/TOS";
+	}
 }
