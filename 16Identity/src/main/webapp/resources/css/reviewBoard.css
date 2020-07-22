@@ -292,6 +292,7 @@ span#message {
 
 #review_main_image {
 	text-align: center;
+	margin-bottom: 200px;
 }
 #review_main_image>img {
 	width: 500px;

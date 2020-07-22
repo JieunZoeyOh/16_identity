@@ -27,13 +27,13 @@ a:hover {color: #f8b24f;}
 </head>
 <body>
 <div id="opacityBox">
-	<img src="resources/image/logo.png" id="logo2">
 </div>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-45 p-b-30">
 				<form class="login100-form validate-form" action="loginProcess.net" method="post">
 					
+					<img alt="16 Identity" src="resources/image/smallLogo1.PNG" id="smallLogo">
 					<div class="wrap-input100 validate-input m-b-16" data-validate="이메일을 적어주세요: ex@abc.xyz">
 						<input class="input100" type="text" name="m_id" id="id" placeholder="Email"> <span class="focus-input100"></span>
 						<span class="symbol-input100">

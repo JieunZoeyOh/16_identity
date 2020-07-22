@@ -39,11 +39,11 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
-#logo2 {
-	width: 215px;
+
+#smallLogo{
+	width: 191px;
     margin: 0 auto;
-    cursor: pointer;
-    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 * {
@@ -275,6 +275,7 @@ iframe {
 	display: block;
 	margin-bottom: 21px;
 	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;
+	margin-left: 13px;
 }
 
 /*---------------------------------------------*/
@@ -293,7 +294,7 @@ iframe {
 	display: block;
 	width: 100%;
 	background: #e6e6e6;
-	height: 62px;
+	height: 55px;
 	border-radius: 3px;
 	padding: 0 30px 0 65px;
 	font-size: 14px;
@@ -428,7 +429,7 @@ keyframes anim-shadow {to { box-shadow:0px0px60px20px;
 	color: #fff;
 	text-transform: uppercase;
 	width: 92%;
-	height: 57px;
+	height: 53px;
 	border-radius: 3px;
 	background: #303960;
 	display: -webkit-box;
@@ -458,7 +459,7 @@ keyframes anim-shadow {to { box-shadow:0px0px60px20px;
 	color: #fff;
 	text-transform: uppercase;
 	width: 92%;
-	height: 57px;
+	height: 53px;
 	border-radius: 3px;
 	background: #303960;
 	display: -webkit-box;

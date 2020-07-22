@@ -141,7 +141,16 @@ public class MemberController {
 	@RequestMapping(value = "/nickcheck.net", method = RequestMethod.GET)
 	public void nickcheck(@RequestParam("m_nickname") String m_nickname, HttpServletResponse response) throws Exception {
 		int result = memberSerivce.isNick(m_nickname);
-		//부터 시작
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(result);
+	}
+	
+	// 휴대폰체크
+	@RequestMapping(value = "/phonecheck.net", method = RequestMethod.GET)
+	public void phonecheck(@RequestParam("m_phone") String m_phone, HttpServletResponse response)
+			throws Exception {
+		int result = memberSerivce.isPhone(m_phone);
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(result);

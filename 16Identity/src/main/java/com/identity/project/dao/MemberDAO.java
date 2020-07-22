@@ -84,5 +84,9 @@ public class MemberDAO {
 		return sqlSession.update("Members.new_pass", member);
 	}
 
+	public Member isPhone(String m_phone) {
+		return sqlSession.selectOne("Members.phonecheck",m_phone);
+	}
+
 	
 }

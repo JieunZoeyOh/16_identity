@@ -92,12 +92,8 @@
 				</div>
 			</c:if>
 		</div>
-		<!-- card_wrap -->
 	</div>
-	<!-- #container -->
-	<footer>
-		<h3>footer</h3>
-	</footer>
+	<jsp:include page="../main/footer.jsp" />
 </body>
 
 <script>
