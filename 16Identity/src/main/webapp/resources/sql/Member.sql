@@ -38,3 +38,4 @@ ALTER TABLE member ADD(substate varchar2(20));
 
 alter table member add season number(3);
 alter table member add subend date;
+alter table member add subsdate date;

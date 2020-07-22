@@ -139,5 +139,9 @@ public class AdminDAO {
 	public List<Comments> getCList() {
 		return sqlSession.selectList("Comments.getAllComments");
 	}
+
+	public int ad_com_delete(String cmt_no) {
+		return sqlSession.delete("Comments.comments_delete",cmt_no);
+	}
 	
 }

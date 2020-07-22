@@ -42,4 +42,5 @@ public interface AdminService {
 	int getMonthSub();
 	int getYearSub();
 	List<Comments> getCList();
+	int ad_com_delete(String cmt_no);
 }

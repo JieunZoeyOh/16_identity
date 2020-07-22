@@ -168,4 +168,9 @@ public class AdminServiceImpl implements AdminService {
 		return dao.getCList();
 	}
 
+	@Override
+	public int ad_com_delete(String cmt_no) {
+		return dao.ad_com_delete(cmt_no);
+	}
+
 }
