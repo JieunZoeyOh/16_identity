@@ -98,7 +98,7 @@
 		  </div>
           <div class="form-group">
               <div class="form-line" style="width: 900px;">
-                   <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글 남겨보세요 - 100자 제한" style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
+                   <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글 남겨보세요 - 10자 이상 100자 제한" style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
               </div>
 		  </div>
             <button type="button"  id="button_addcomment" class="btn bg-cyan btn-block btn-lg waves-effect">등록</button><br><br><br>

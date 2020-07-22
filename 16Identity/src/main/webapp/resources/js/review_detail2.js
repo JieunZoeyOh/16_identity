@@ -114,9 +114,13 @@ $(function() {
 		console.log(translators)
 		console.log("버튼 여부"+button_text);
 		//console.log("댓글 번호"+cmt_no);
-		
-		
 		console.log(authors.join());
+		
+		if(content.length<10){
+			alert('10자 이상 쓰세요');
+			$("#book_comment").focus().val();
+			return false;
+		}
 		
 		//여기서 if 시작
 		if(button_text=='등록'){

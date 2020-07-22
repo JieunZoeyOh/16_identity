@@ -30,14 +30,15 @@ position: absolute;
 	<div id="comment" class="hangelfont">
                	<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
                		<div class='card'>
-               			<div class='body bg-orange' id='each_comment'>
+               			<div class='body bg-orange' id='each_comment'  onclick="closemethod(this);">
              			  	<div id='#comment_avatar' style='display:inline-block;'><img src='resources/image/avatar1.png' style='width: 90px;border-radius: 50%;'/></div>
              				  	<p class='card_header' class='hangelfont'>${nickname}</p>
              				  	<p class='cmt_content'>${com.cmt_content}</p>
            				    	<p class='none_cmtno'>${com.cmt_no}</p>
+           				    	<p class='none_cmtno' id='getisbn'>${com.isbn}</p>
                					<br>
               				 	<br>
-              				 	<p>${com.cmt_date}</p>
+              				 	${com.cmt_date}
                		 </div></div><br><br>
            </div>     
            </div>
@@ -64,5 +65,14 @@ position: absolute;
 	    </div>
 	  </div>
 	</div>
+	
+<script>
+function closemethod(t){
+	var isbn =$(t).children().next().next().next().next().text();
+	console.log('isbn값'+isbn);
+	opener.location.href="reviewpost.minji?isbn="+isbn; 
+	window.close();
+}
+</script>
 </body>
 </html>

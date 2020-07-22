@@ -166,9 +166,9 @@
 	
 	<select id="someoneCommentList" parameterType="map" resultType="C">
 		select * 
-		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, isbn
 			   from (
-					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, isbn
 					  from comments where cmt_id=#{id}
 					 )		   
 		   )
