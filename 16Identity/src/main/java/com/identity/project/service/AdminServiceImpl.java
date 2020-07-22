@@ -116,8 +116,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public int warnDelete(int cmt_no) {
-		return dao.warnDelete(cmt_no);
+	public int warnDelete(int wc_no) {
+		return dao.warnDelete(wc_no);
 	}
 
 	@Override
@@ -176,6 +176,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int[] getchartValues() {
 		return dao.ChartValues();
+	}
+
+	@Override
+	public int newWarnCount() {
+		return dao.newWarnCount();
 	}
 
 }

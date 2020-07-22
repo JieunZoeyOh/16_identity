@@ -78,7 +78,8 @@
                     <li>
                         <a href="report.net">
                             <i class="material-icons">gavel</i>
-                            <span class="icon-name">신고 댓글 관리</span>
+                            <span class="icon-name">신고 댓글 관리 &nbsp;
+                            <button type="button" class="btn btn-danger waves-effect" style="padding:3px 5px;">${warnCount }</button> </span>
                         </a>
                     </li>
                     <li>

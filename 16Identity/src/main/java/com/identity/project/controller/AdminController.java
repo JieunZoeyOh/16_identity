@@ -23,7 +23,6 @@ import com.identity.project.domain.Member;
 import com.identity.project.domain.Suborder;
 import com.identity.project.domain.Subscribe;
 import com.identity.project.domain.Warn;
-import com.identity.project.domain.Warn_Check;
 import com.identity.project.service.AdminService;
 
 @Controller
@@ -167,24 +166,20 @@ public class AdminController {
 	@RequestMapping(value = "/report.net")
 	public ModelAndView subscribe(ModelAndView mv) {
 		List<Warn> list = adminService.warnList();
-		for (Warn w : list) {
-			System.out.println(w.getCmt_no() + ", " + w.getM_id() + ", " + w.getW_count());
-			for (Warn_Check wc : w.getWarn_check()) {
-				System.out.println(wc.getWc_date() + ", " + wc.getM_id() + ", " + wc.getWc_reason());
-			}
-		}
 		mv.setViewName("admin/admin_report");
 		mv.addObject("data", list);
 		return mv;
 	}
 	
 	@GetMapping(value="/reportDelete.net")
-	public void reportDelete(int cmt_no,HttpServletResponse response) throws Exception {
-		int result = adminService.warnDelete(cmt_no);
+	public void reportDelete(int wc_no,HttpServletResponse response, HttpSession session) throws Exception {
+		int result = adminService.warnDelete(wc_no);
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		if(result != 0) {
+			int count = adminService.newWarnCount();
+			session.setAttribute("warnCount", count);
 			out.println("alert('반려 성공');");
 			out.println("location.href='report.net'");
 		} else {
@@ -196,14 +191,15 @@ public class AdminController {
 	}
 	
 	@GetMapping(value="/reportAccept.net")
-	public void reportAccept(int cmt_no,HttpServletResponse response, String m_id) throws Exception {
-		System.out.println("댓글 번호:"+cmt_no);
+	public void reportAccept(int cmt_no,int wc_no,HttpServletResponse response, String m_id, HttpSession session) throws Exception {
 		int result = adminService.commentDelete(cmt_no);
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		if(result != 0) {
 			adminService.memberWarn(m_id);
+			int count = adminService.newWarnCount();
+			session.setAttribute("warnCount", count);
 			out.println("alert('접수 성공');");
 			out.println("location.href='report.net'");
 		} else {

@@ -57,7 +57,7 @@
 	</select>
 	
 	<insert id="wc_insert" parameterType="warn_check">
-		insert into warn_check values(wc_seq.nextval, #{m_id}, #{cmt_no}, sysdate, #{wc_reason})
+		insert into warn_check values(wc_seq.nextval, #{m_id}, #{cmt_no}, sysdate, #{wc_reason}, '접수대기')
 	</insert>
 	<select id="getCommentCount" resultType="int">
 		select count(*) from comments

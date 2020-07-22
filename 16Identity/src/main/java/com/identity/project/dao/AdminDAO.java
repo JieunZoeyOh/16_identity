@@ -83,6 +83,10 @@ public class AdminDAO {
 	public int getWarnCount() {
 		return sqlSession.selectOne("Warns.getWarnCount");
 	}
+	
+	public int newWarnCount() {
+		return sqlSession.selectOne("Warns.newWarnCount");
+	}
 
 	public int getCommentCount() {
 		return sqlSession.selectOne("Comments.getCommentCount");
@@ -96,8 +100,8 @@ public class AdminDAO {
 		return sqlSession.selectList("Warns.getWarnList");
 	}
 
-	public int warnDelete(int cmt_no) {
-		return sqlSession.delete("Warns.warnDel",cmt_no);
+	public int warnDelete(int wc_no) {
+		return sqlSession.update("Warns.warnDel",wc_no);
 	}
 
 	public int commentDelete(int cmt_no) {
@@ -148,7 +152,6 @@ public class AdminDAO {
 		int[] chart = new int[14];
 		for(int i=chart.length-1; i>=0; i--) {
 			chart[i] = sqlSession.selectOne("Subscribe.ChartValues",i);
-			System.out.println(i+","+chart[i]);
 		}
 		return chart;
 	}
