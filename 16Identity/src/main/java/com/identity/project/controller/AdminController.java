@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.identity.project.domain.Comments;
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
@@ -98,8 +99,11 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/comment.net", method = RequestMethod.GET)
-	public String comment() {
-		return "admin/admin_comment";
+	public ModelAndView comment(ModelAndView mv) {
+		List<Comments> comments_list = adminService.getCList();
+		mv.setViewName("admin/admin_comment");
+		mv.addObject("list", comments_list);
+		return mv;
 	}
 
 	@RequestMapping(value = "/subscribe.net")

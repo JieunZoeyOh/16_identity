@@ -2,6 +2,7 @@ package com.identity.project.service;
 
 import java.util.List;
 
+import com.identity.project.domain.Comments;
 import com.identity.project.domain.Deliver;
 import com.identity.project.domain.Joinlist;
 import com.identity.project.domain.Member;
@@ -34,4 +35,5 @@ public interface AdminService {
 	int commentDelete(int cmt_no);
 	void memberWarn(String m_id);
 	int subDrop(String m_id);
+	List<Comments> getCList();
 }

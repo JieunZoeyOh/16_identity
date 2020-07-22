@@ -195,9 +195,7 @@ ul#subMenu {
 #chart{
 	padding-left:140px;
 }    
-#chart > svg > g:nth-child(1) > g.brush-fullstackbar > g:nth-child(1) > text:nth-child(4){
-	font-size:30px;	
-}
+
 #review_warn{
 	width:20px; height:20px; float:right;
 }

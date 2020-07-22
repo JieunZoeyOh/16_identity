@@ -176,7 +176,7 @@ public class CommentDAO {
 	}
 
 
-	public int getSomeoneListCount(String nickname) {
-		return sqlSession.selectOne("Comments.someoneListCount",nickname);
+	public int getSomeoneListCount(String id) {
+		return sqlSession.selectOne("Comments.someoneListCount",id);
 	}
 }
