@@ -21,6 +21,11 @@
       </div>
       <div class="footermenu">
         <h6 class="menu_h6">
+          <a>Terms of Service</a>
+        </h6>
+      </div>
+      <div class="footermenu">
+        <h6 class="menu_h6">
           <a href="contact.net">Contact</a>
         </h6>
       </div>
