@@ -74,7 +74,7 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
 									<thead>
 										<tr>
-											<th>신고글</th>
+											<th style="width: 20%;">신고글</th>
 											<th>작성자</th>
 											<th>총 신고수</th>
 											<th style="text-align: center">
