@@ -6,22 +6,17 @@
     <div class="footer_box">
       <div class="footermenu">
         <h6 class="menu_h6">
+          <a>Developers</a>
+        </h6>
+      </div>
+      <div class="footermenu">
+        <h6 class="menu_h6">
           <a>About us</a>
         </h6>
       </div>
       <div class="footermenu">
         <h6 class="menu_h6">
-          <a>Products</a>
-        </h6>
-      </div>
-      <div class="footermenu">
-        <h6 class="menu_h6">
-          <a>Awards</a>
-        </h6>
-      </div>
-      <div class="footermenu">
-        <h6 class="menu_h6">
-          <a>Help</a>
+          <a>Terms of Service</a>
         </h6>
       </div>
       <div class="footermenu">

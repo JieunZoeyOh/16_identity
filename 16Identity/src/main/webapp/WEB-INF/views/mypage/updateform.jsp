@@ -59,7 +59,7 @@
       <input type="text" placeholder="change your nick name" name="m_nickname" id="m_nickname" value="${m.m_nickname}" required>
        
       <b style="display: inline-block; width: auto">MBTI</b>
-      <button type="button" class="changembti" onclick="location.href='https://www.16personalities.com/ko'">변경</button>
+      <button type="button" class="changembti" onclick="openInNewTab();">변경</button>
       <input type="text" placeholder="change your MBTI" name="m_mbti" id="m_mbti" value="${m.m_mbti}" required>
 
 	  <b style="display: inline-block; width: auto">Address</b>
@@ -92,6 +92,11 @@
          }
      }
  });
+ 
+ function openInNewTab() {
+     var win = window.open('https://www.16personalities.com/ko');
+     win.focus();
+ }
  </script>
 </body>
 </html>

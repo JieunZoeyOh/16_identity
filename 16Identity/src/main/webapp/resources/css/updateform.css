@@ -7,11 +7,6 @@
 body {
     padding: 0;
     margin: 0 auto;
-    background: url(../image/bookstore3.jpg);
-    background-size: 50% 100%;
-    background-repeat: no-repeat;
-    background-position-x: center;
-   
 
 }
 
@@ -87,6 +82,17 @@ input[type=text]:focus, input[type=password]:focus {
 
 }
 
+.postcode {
+    background-color: #f8b24f;
+    color: white;
+    border-radius: 2em;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    margin:3px 0;
+
+}
+
    .submitbtn {
     background-color: #303960;
     color: white;
@@ -96,7 +102,6 @@ input[type=text]:focus, input[type=password]:focus {
     cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占  */
     width: 50%;
     opacity: 0.9;
-    border-radius: 30em;
 }
 
 .dropbtn {
@@ -109,7 +114,6 @@ input[type=text]:focus, input[type=password]:focus {
     cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占  */
     width: 50%;
     opacity: 0.9;
-    border-radius: 30em;
 }
 
 button:hover {
