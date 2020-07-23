@@ -59,12 +59,16 @@
 	</table>
 <div id="book_contents" class="hangelfont"></div>	
 <div class="button_container">
+	<c:if test="${empty like_check}">
+        <i id="btn" class="fa fa-heart-o" onclick="likeaction()">&nbsp${bookvalue.like_count}</i>
+	</c:if>
 	<c:if test="${like_check==0}">
         <i id="btn" class="fa fa-heart-o" onclick="likeaction()">&nbsp${bookvalue.like_count}</i>
 	</c:if>
 	<c:if test="${like_check==1}">
         <i id="btn" class="fa fa-heart" onclick="likeaction()">&nbsp${bookvalue.like_count}</i>
 	</c:if>
+	
 </div>
 <div class="title hangelfont">
 	<span style="line-height: 145px;">통계</span>

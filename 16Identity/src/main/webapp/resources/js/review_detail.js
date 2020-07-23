@@ -163,7 +163,7 @@ $(function() {
 
 		// 예) 총 리스트가 5개이면 최대 페이지는 2입니다.
 		// int maxpage = (listcount + limit - 1) / limit;
-		return parseInt((count + 3 - 1) / 3);
+		return parseInt((count + 4 - 1) / 4);
 	}
 
 	$("#message").click(function() {
