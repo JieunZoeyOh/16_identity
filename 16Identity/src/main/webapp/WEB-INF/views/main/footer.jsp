@@ -6,12 +6,17 @@
     <div class="footer_box">
       <div class="footermenu">
         <h6 class="menu_h6">
-          <a>Developers</a>
+          <a href="developers.net">Developers</a>
         </h6>
       </div>
       <div class="footermenu">
         <h6 class="menu_h6">
-          <a>About us</a>
+          <a href="aboutUS.net">About Us</a>
+        </h6>
+      </div>
+      <div class="footermenu">
+        <h6 class="menu_h6">
+          <a href="termsOfService.net">Terms of Service</a>
         </h6>
       </div>
       <div class="footermenu">
@@ -21,7 +26,7 @@
       </div>
       <div class="footermenu">
         <h6 class="menu_h6">
-          <a>Contact</a>
+          <a href="contact.net">Contact</a>
         </h6>
       </div>
     </div>

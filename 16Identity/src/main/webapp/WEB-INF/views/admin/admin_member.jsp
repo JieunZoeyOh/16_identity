@@ -61,7 +61,7 @@ tbody > tr > td {text-align : center;}
 												<td class = "memberinfo" style = "cursor:pointer;">${m.m_id }</td>
 												<td>${m.m_name }</td>
 												<td>${m.m_nickname }</td>
-												<td>${m.m_mbti }</td>
+												<td>${fn:toUpperCase(m.m_mbti)}</td>
 												<td>${m.m_phone }</td>
 												<td>${m.m_address }</td>
 												<td>${m.substate }</td>
