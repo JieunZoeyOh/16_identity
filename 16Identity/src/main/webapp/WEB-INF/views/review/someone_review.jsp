@@ -22,7 +22,7 @@ position: absolute;
 .gray{color:gray}
 
 .pagination{
-	padding-top: 20px;
+	padding-top: 135%;
 }
 </style>
 <link href="resources/css/test.css" rel="stylesheet">

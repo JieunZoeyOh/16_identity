@@ -181,14 +181,14 @@ height: 200px;
 }
 
 .cmt_content{
-	height: 150px;
-	width: 500px;
+	height: 100%;
+	width: 95%;
     padding: 10px 20px 0 20px;
     line-height: 24px;
 }
 .cmt_content2{
 	height: 100px;
-	width: 300px;
+	width: 95%;
     padding: 10px 20px 0 20px;
     overflow: auto;
 }
