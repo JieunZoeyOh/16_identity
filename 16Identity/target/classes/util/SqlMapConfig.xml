@@ -16,11 +16,9 @@
       <typeAlias alias="warn" type="com.identity.project.domain.Warn"/>
       <typeAlias alias="warn_check" type="com.identity.project.domain.Warn_Check"/>
       <typeAlias alias="c_like" type="com.identity.project.domain.Comments_Like"/>
-      <typeAlias alias="member2" type="com.identity.project.domain.MyBatisTestVO"/>
    </typeAliases>
    
    <mappers>
-   	<mapper resource="sql/member2.xml"/>
    	  <mapper resource="sql/deliver.xml"/>
    	  <mapper resource="sql/suborder.xml"/>
    	  <mapper resource="sql/subscribe.xml"/>
