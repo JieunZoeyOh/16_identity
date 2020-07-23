@@ -16,7 +16,7 @@
     <!-- Bootstrap Core Css -->
     <link href="resources/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Waves Effect Css -->
+    <!-- Waves Effect Css -->ㅌ
     <link href="resources/plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
@@ -102,7 +102,7 @@
 		  </div>
           <div class="form-group">
               <div class="form-line" style="width: 900px;">
-                   <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글 남겨보세요 - 10자 이상 100자 제한" style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
+                   <textarea rows="4" id="book_comment" class="form-control no-resize auto-growth" placeholder="리뷰 댓글 남겨보세요 - 10자 이상 300자 제한" style="overflow: hidden; overflow-wrap: break-word; height: 92px;"></textarea>
               </div>
 		  </div>
             <button type="button"  id="button_addcomment" class="btn bg-cyan btn-block btn-lg waves-effect">등록</button><br><br><br>
@@ -318,8 +318,8 @@
  	$('#book_comment').keyup(function(e){
  		var content = $(this).val();
  		
- 		if(content.length>100){
- 			alert('최대 100자까지 입력 가능합니다.');
+ 		if(content.length>300){
+ 			alert('최대 300자까지 입력 가능합니다.');
  			$(this).val(content.substring(0,100));
  		}
  	})
