@@ -40,7 +40,7 @@ footer {height : 200px; background-color : #f8b24f; }
 							border-radius:15px; background-image: url(../image/note.png); background-repeat: no-repeat;background-position-x: center; background-position-y: center;}
 .flip-card-back>span {margin: 8px;}
 
-.slider{padding:30px 60px; width: 80%; margin-left: 450px; bottom: 322px;; background-color:#e5e5e5; border-radius : 15px;}
+.slider{padding:30px 60px; width: 80%; margin-left: 450px; bottom: 322px; background: #f5f6fa;box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2); border-radius : 15px;}
 .slider .slick-slide{height:auto;}
 .slider .slick-slide > div{margin:0;}
 .slider .slick-arrow{position: absolute;top:50%;width:19px;height:31px;font-size:0;background-repeat: no-repeat;background-position: center;background: transparent;border:none;}

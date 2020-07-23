@@ -42,7 +42,8 @@ form#updateform {
     border-radius: 2em;
     position:relative;
    	top: -385px;
-   
+    background: #f5f6fa;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 input{border-radius:3px; border:1px solid lightgray}
@@ -102,6 +103,8 @@ input[type=text]:focus, input[type=password]:focus {
     cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占  */
     width: 50%;
     opacity: 0.9;
+    border-top-right-radius: 30em;
+    border-bottom-right-radius: 30em;
 }
 
 .dropbtn {
@@ -114,6 +117,8 @@ input[type=text]:focus, input[type=password]:focus {
     cursor: pointer; /* 占쌌곤옙占쏙옙 커占쏙옙 占쏙옙占  */
     width: 50%;
     opacity: 0.9;
+        border-top-left-radius: 30em;
+    border-bottom-left-radius: 30em;
 }
 
 button:hover {
@@ -133,7 +138,7 @@ button:focus{
 
 
 form#updateform {
-    background-color: #fefefe;
+    background-color: #f5f6fa;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid lightgray;
     width: 700px; /* Could be more or less, depending on screen size */
