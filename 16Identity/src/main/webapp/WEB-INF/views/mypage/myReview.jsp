@@ -68,7 +68,7 @@
 									class='flip-card-inner'>
 
 									<div class='flip-card-front'>
-										<img src="${m.book.b_thumbnail }">
+										<img src="${m.book.b_thumbnail}">
 									</div>
 									<div class='flip-card-back'>
 									<br><br>
@@ -76,7 +76,7 @@
 										<img src = "resources/image/user.png" style="width:26px; z-index:1; display:inline-block" ><span> ${m.cmt_mbti}</span>&nbsp; 
 										<img src = "resources/image/like.png" style="width:27px; z-index:1; display:inline-block;" ><span>${m.cmt_like}</span>  
 									<br><br>
-										<p style = "width: 93%; padding: 0 20px;">${m.cmt_content }</p>
+										<p style = "width: 93%; padding: 0 20px;">${fn:substring(m.cmt_content, 0 , 150)}</p>
 									</div>
 								</a>
 							</div>
