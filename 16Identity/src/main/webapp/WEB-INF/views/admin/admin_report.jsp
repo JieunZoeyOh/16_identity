@@ -77,9 +77,11 @@
 											<th>신고글</th>
 											<th>작성자</th>
 											<th>총 신고수</th>
-											<th style="text-align: center;"><span>신고일시</span>
-												<span>신고자</span>
-												<span>신고사유</span></th>
+											<th style="text-align: center">
+											<span style="margin-right: 15%;">처리상태</span>
+											<span style="margin-right: 15%;">신고일시</span>
+											<span style="margin-right: 15%;">신고자</span>
+											<span>신고사유</span></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -101,7 +103,7 @@
 													</c:if>
 												</li>
 												<li><p>${wc.wc_date }</p></li>
-												<li><p>${wc.m_id }</p></li>
+												<li><p>${wc.wc_id }</p></li>
 												<li><p>${wc.wc_reason }</p></li>
 												</ul>
 												</c:forEach>

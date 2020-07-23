@@ -344,7 +344,7 @@ public class CommentController {
 		System.out.println("신고자 아이디: "+m_id);
 		
 		Warn_Check warn_check= new Warn_Check();
-		warn_check.setM_id(m_id);
+		warn_check.setWc_id(m_id);
 		warn_check.setCmt_no(cmt_no);
 		warn_check.setWc_reason(warn_reason);
 		

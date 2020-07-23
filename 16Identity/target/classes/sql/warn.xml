@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="getWarnList" resultMap="warnMap">
-		select * from warn left join warn_check wc on warn.cmt_no=wc.cmt_no left join comments c on c.cmt_no=warn.cmt_no
+		select * from warn left join warn_check wc on warn.cmt_no=wc.cmt_no left join comments c on c.cmt_no=warn.cmt_no order by wc_date desc
 	</select>
 	
 	<resultMap type="com.identity.project.domain.Warn" id="warnMap">
@@ -27,7 +27,7 @@
 		</association>
 		<collection ofType="com.identity.project.domain.Warn_Check" property="warn_check">
 			<result property="wc_no" column="wc_no"/>
-			<result property="m_id" column="m_id"/>
+			<result property="wc_id" column="wc_id"/>
 			<result property="wc_reason" column="wc_reason"/>
 			<result property="cmt_no" column="cmt_no"/>
 			<result property="wc_date" column="wc_date"/>

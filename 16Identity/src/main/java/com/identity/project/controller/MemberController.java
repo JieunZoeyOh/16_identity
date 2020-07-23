@@ -421,14 +421,14 @@ public class MemberController {
 				savecookie.setMaxAge(0);
 			}
 			response.addCookie(savecookie);
+			//header mbti별명, 닉네임 환영합니다.
+			session.setAttribute("mbti_nickname", mbti_nickname);
+			//Subscribe //구독 신청 상태 값 넘기기
+			session.setAttribute("substate", state);
 			if(m_id.equals("admin@naver.com")) {
 				session.setAttribute("warnCount", count);
 				return "redirect:main.net";
 			} else {
-				//header mbti별명, 닉네임 환영합니다.
-				session.setAttribute("mbti_nickname", mbti_nickname);
-				//Subscribe //구독 신청 상태 값 넘기기
-				session.setAttribute("substate", state);
 				return "redirect:main.com";
 			}
 		} else {
