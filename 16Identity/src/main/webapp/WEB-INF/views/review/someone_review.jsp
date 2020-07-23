@@ -20,6 +20,10 @@ position: absolute;
 }
 
 .gray{color:gray}
+
+.pagination{
+	padding-top: 20px;
+}
 </style>
 <link href="resources/css/test.css" rel="stylesheet">
 </head>
