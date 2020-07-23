@@ -139,3 +139,7 @@ a{
     font-weight: 100;
     opacity: 0;
 }
+
+.city pre{
+	white-space: pre-wrap;
+}

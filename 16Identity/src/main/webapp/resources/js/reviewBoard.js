@@ -272,11 +272,11 @@ window.onload = function(){
                       var shortTitle = result.documents[i].title.slice(0,30)+'...';
                       var isbn13 = result.documents[i].isbn;
                       var isbn0 = result.documents[0].isbn;
-                      if(original_title.length<30){ //글자수 제한
-                         autoOutput += `<div class="auto_result"><a href="reviewpost.minji?isbn=${isbn13}">${original_title}</a>`;
-                      }else{
+                     /* if(original_title.length<30){ //글자수 제한
+*/                         autoOutput += `<div class="auto_result"><a href="reviewpost.minji?isbn=${isbn13}">${original_title}</a>`;
+                      /*}else{
                          autoOutput += `<div class="auto_result"><a href="reviewpost.minji?isbn=${isbn13}">${shortTitle}</a>`;
-                      }
+                      }*/
                       autoOutput += `<input type="hidden" class="thumImg" value='${result.documents[i].thumbnail}'>`;
                       autoOutput += `<input type="hidden" class="isbnNo" value='${isbn13}'>`;
                       autoOutput += `</div>`;

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.identity.project.domain.Book_Like;
+import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Book_Like_List;
+import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Review_Like_List;
 import com.identity.project.service.BoardService;
@@ -33,7 +36,7 @@ public class BoardController {
 	private MemberService memberSerivce;
 	
 	@Autowired
-	private CommentServiceImpl commentService;
+	private CommentService commentService;
 	
 	@RequestMapping(value="/review.net", method=RequestMethod.GET)
 	public String review() {
@@ -156,5 +159,23 @@ public class BoardController {
 	@RequestMapping(value="/termsOfService.net")
 	public String termsOfService() {
 		return "info/TOS";
+	}
+	
+	@ResponseBody
+	@PostMapping(value = "/bookLikeCancle.net")
+	public int bookLikeCancle(HttpSession session, String isbn) {
+		String m_id = (String) session.getAttribute("m_id");
+		Book_Like_Date bld = new Book_Like_Date();
+		bld.setM_id(m_id);
+		bld.setIsbn(isbn);
+		int result = boardService.cancel_like(bld);
+		return result;
+	}
+	
+	@ResponseBody
+	@PostMapping(value = "/reviewLikeCancle.net")
+	public int reviewLikeCancle(int cmt_like_no) {
+		int result = commentService.cancel_like(cmt_like_no);
+		return result;
 	}
 }

@@ -1,5 +1,6 @@
 package com.identity.project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,7 +8,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Member;
@@ -178,5 +178,21 @@ public class CommentDAO {
 
 	public int getSomeoneListCount(String id) {
 		return sqlSession.selectOne("Comments.someoneListCount",id);
+	}
+
+
+	public int cancel_like_fromLikeDate(HashMap<String, Object> cmtinfo) {
+		return sqlSession.delete("Comments.cancelLike");
+	}
+
+
+	public int cancle_like(int cmt_like_no) {
+		int cmt_no = sqlSession.selectOne("Comments.find_cmt_no", cmt_like_no);
+		int result1= sqlSession.delete("Comments.cmt_like_delete", cmt_like_no);
+		if(result1 == 1) {
+			return sqlSession.update("Comments.minusLikeFromComments", cmt_no);
+		}else {
+			return 0;
+		}
 	}
 }
