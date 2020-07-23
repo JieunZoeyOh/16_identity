@@ -150,6 +150,23 @@ td>a:active, td>a:visited{
 	text-decoration: none;
 	color: black;
 }
+.content_table .fa-heart{
+	font-size: 17px;
+    color: #f50057;
+    padding: 0 6px;
+    cursor: pointer;
+}
+.heart_tooltip{
+	display:none;
+}
+.content_table .fa-heart:hover>.heart_tooltip{
+	display: inline-block;
+    color: black;
+    border: 1px solid lightgrey;
+    font-size: 12px;
+    padding: 4px;
+    position: fixed;
+}
 
 .review_list>thead td:nth-child(1){width:10%} 
 .review_list>thead td:nth-child(6){width:10%} 

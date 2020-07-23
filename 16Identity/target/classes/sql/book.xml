@@ -128,9 +128,9 @@
 	
 	<select id="getReviewLikeList" resultType="com.identity.project.domain.Review_Like_List" parameterType="map">
 	<![CDATA[
-		select b_thumbnail, b_title, b_authors, cmt_like_date, cmt_like, cmt_content, m_nickname, cmt_id, isbn
+		select b_thumbnail, b_title, b_authors, cmt_like_date, cmt_like, cmt_content, m_nickname, cmt_id, isbn, cmt_like_no
 		from (select ROWNUM rnum, x.*
-	          from (select b_thumbnail, b_title, b_authors, cmt_like_date, cmt_like, cmt_content, m_nickname, cmt_id, comments.isbn
+	          from (select b_thumbnail, b_title, b_authors, cmt_like_date, cmt_like, cmt_content, m_nickname, cmt_id, comments.isbn, cmt_like_no
 	                from comments_like, book, comments, member
 					where cmt_id=member.m_id
 					and comments_like.cmt_no = comments.cmt_no

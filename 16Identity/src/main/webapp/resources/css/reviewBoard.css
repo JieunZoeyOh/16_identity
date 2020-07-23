@@ -78,9 +78,10 @@
   height: 100%;
   border: 0px;
   font-size: 16px;
-  padding-left: 20px;
+  padding: 0 20px;
   color: #6f768d;
   font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+  overflow: hidden;
 }
 
 .wrapper .search_box .search_field .input:focus {
@@ -129,6 +130,7 @@
 	box-sizing: border-box;
     padding: 4px 8px;
     font-weight: 100;
+    overflow: hidden;
 }
 .auto_result:hover {
 	cursor:pointer;
@@ -137,6 +139,7 @@
 .auto_result a{
 	text-decoration:none;
 	color:black;
+	line-height: 26px;
 }
 .auto_result a:active, .auto_result a:visited, .auto_result a:focus{
 	color:black;

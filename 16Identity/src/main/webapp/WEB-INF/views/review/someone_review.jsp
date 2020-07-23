@@ -20,6 +20,10 @@ position: absolute;
 }
 
 .gray{color:gray}
+
+.pagination{
+	padding-top: 20px;
+}
 </style>
 <link href="resources/css/test.css" rel="stylesheet">
 </head>
@@ -31,9 +35,9 @@ position: absolute;
                	<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
                		<div class='card'>
                			<div class='body bg-orange' id='each_comment'  onclick="closemethod(this);">
-             			  	<div id='#comment_avatar' style='display:inline-block;'><img src='resources/image/avatar1.png' style='width: 90px;border-radius: 50%;'/></div>
+             			  	<div id='#comment_avatar' style='display:inline-block;'><img src='resources/upload${com.m_file}' style='width: 90px;border-radius: 50%;'/></div>
              				  	<p class='card_header' class='hangelfont'>${nickname}</p>
-             				  	<p class='cmt_content'>${com.cmt_content}</p>
+             				  	<p class='cmt_content2'>${com.cmt_content}</p>
            				    	<p class='none_cmtno'>${com.cmt_no}</p>
            				    	<p class='none_cmtno' id='getisbn'>${com.isbn}</p>
                					<br>

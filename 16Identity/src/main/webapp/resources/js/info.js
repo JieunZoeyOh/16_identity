@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	
-	$(".info1").on("click", function(){
+
+	$(".info").on("click", function(){
 	    console.log("click")
 	    $(".overlay").addClass("on");
 	    $(".modal").addClass("on");
@@ -22,7 +22,7 @@ $(document).ready(function() {
 	$('#subscribe').on('click', function(){
 		$('#subMenu').toggle();
 	})
-	
+});
 	/*header js 부분*/
     const mypageMenu = document.querySelector("#mypageMenu");
     const mypageMenuList = mypageMenu.children;
@@ -43,4 +43,3 @@ $(document).ready(function() {
 	function menulist_out(){
 	    this.children[0].style.visibility = "hidden";
 	}
-});

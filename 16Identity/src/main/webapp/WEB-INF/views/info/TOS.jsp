@@ -16,7 +16,7 @@
 
   <div class="w3-row">
     <a href="javascript:void(0)" onclick="openCity(event, 'London');">
-      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">이용약관</div>
+      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-black">이용약관</div>
     </a>
     <a href="javascript:void(0)" onclick="openCity(event, 'Paris');">
       <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">개인정보처리방침</div>

@@ -181,9 +181,16 @@ height: 200px;
 }
 
 .cmt_content{
-	height: 80px;
+	height: 150px;
 	width: 500px;
     padding: 10px 20px 0 20px;
+    line-height: 24px;
+}
+.cmt_content2{
+	height: 100px;
+	width: 300px;
+    padding: 10px 20px 0 20px;
+    overflow: auto;
 }
 
 .none_cmtno{
@@ -193,7 +200,7 @@ height: 200px;
 ul#subMenu {
     width:107px;
 }
-#chart{
+#chart{;
 	padding-left:140px;
 }    
 

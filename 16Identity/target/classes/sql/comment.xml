@@ -18,10 +18,10 @@
 	
 	<select id="comments_list" parameterType="map" resultType="C">
 		select * 
-		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, m_file
 			   from (
-					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
-					  from comments where isbn = #{isbn}			   
+					  select c.cmt_no, c.cmt_nickname, c.cmt_content, c.cmt_date, c.cmt_mbti, c.cmt_id, c.cmt_like, m.m_file
+					 from comments c inner join member m on c.cmt_id = m.m_id where isbn = #{isbn}			   
 			  		   order by cmt_date desc
 					 )		   
 		   )
@@ -138,10 +138,10 @@
   
 	<select id="comments_list_popular" parameterType="map" resultType="C">
 		select * 
-		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, m_file
 			   from (
-					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
-					  from comments where isbn = #{isbn}			   
+					   select c.cmt_no, c.cmt_nickname, c.cmt_content, c.cmt_date, c.cmt_mbti, c.cmt_id, c.cmt_like, m.m_file
+					 from comments c inner join member m on c.cmt_id = m.m_id where isbn = #{isbn}			   
 			  		   order by cmt_like desc
 					 )		   
 		   )
@@ -150,10 +150,10 @@
 	
 	<select id="comments_list_mine" parameterType="map" resultType="C">
 		select * 
-		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, m_file
 			   from (
-					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like
-					  from comments where isbn = #{isbn} and cmt_id = #{id}		   
+					  select c.cmt_no, c.cmt_nickname, c.cmt_content, c.cmt_date, c.cmt_mbti, c.cmt_id, c.cmt_like, m.m_file
+					 from comments c inner join member m on c.cmt_id = m.m_id where isbn = #{isbn} and cmt_id = #{id}		   
 			  		   order by cmt_like desc
 					 )		   
 		   )
@@ -166,10 +166,10 @@
 	
 	<select id="someoneCommentList" parameterType="map" resultType="C">
 		select * 
-		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, isbn
+		from ( select rownum rnum, cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, isbn, m_file
 			   from (
-					  select cmt_no, cmt_nickname, cmt_content, cmt_date, cmt_mbti, cmt_id, cmt_like, isbn
-					  from comments where cmt_id=#{id}
+					  select c.cmt_no, c.cmt_nickname, c.cmt_content, c.cmt_date, c.cmt_mbti, c.cmt_id, c.cmt_like, c.isbn, m.m_file
+					 from comments c inner join member m on c.cmt_id = m.m_id where cmt_id=#{id}
 					 )		   
 		   )
 		   where rnum &gt;=#{start} and rnum &lt;= #{end}
@@ -182,4 +182,20 @@
 	<select id="getAllComments" resultType="C">
 		select * from comments order by cmt_no
 	</select>
+	
+	<delete id="cmt_like_delete" parameterType="int">
+		delete from comments_like where cmt_like_no = #{cmt_like_no}
+	</delete>
+	
+	<select id="find_cmt_no" parameterType="int" resultType="int">
+		select cmt_no from comments_like where cmt_like_no = #{cmt_like_no}
+	</select>
+	
+	<update id="minusLikeFromComments" parameterType="int">
+		update comments 
+		set cmt_like = (select count(*) 
+						from comments_like 
+						where cmt_no = #{cmt_no})
+		where cmt_no = #{cmt_no}
+	</update>
 </mapper>
