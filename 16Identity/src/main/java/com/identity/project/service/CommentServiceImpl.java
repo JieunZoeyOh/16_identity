@@ -32,8 +32,8 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public List<Comments> getCommentList(String isbn, int page) {
-		int startrow = (page-1)*3+1;
-		int endrow = startrow+3-1;
+		int startrow = (page-1)*4+1;
+		int endrow = startrow+4-1;
 		
 		Map<String, Object> map= new HashMap<String, Object>();
 		//map.put("page", page);
@@ -83,8 +83,8 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public List<Comments> getCommentList_popular(String isbn, int page) {
-		int startrow = (page-1)*3+1;
-		int endrow = startrow+3-1;
+		int startrow = (page-1)*4+1;
+		int endrow = startrow+4-1;
 		
 		Map<String, Object> map= new HashMap<String, Object>();
 		//map.put("page", page);
@@ -96,8 +96,8 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public List<Comments> getCommentList_mine(String isbn, int page, String m_id) {
-		int startrow = (page-1)*3+1;
-		int endrow = startrow+3-1;
+		int startrow = (page-1)*4+1;
+		int endrow = startrow+4-1;
 		
 		Map<String, Object> map= new HashMap<String, Object>();
 		//map.put("page", page);

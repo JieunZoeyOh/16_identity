@@ -10,7 +10,15 @@ public class Comments {
 	private int cmt_like;
 	private String cmt_nickname;
 	private Book book;
+	private String m_file;
 	
+	
+	public String getM_file() {
+		return m_file;
+	}
+	public void setM_file(String m_file) {
+		this.m_file = m_file;
+	}
 	public String getCmt_nickname() {
 		return cmt_nickname;
 	}

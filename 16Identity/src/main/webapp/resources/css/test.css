@@ -185,6 +185,11 @@ height: 200px;
 	width: 500px;
     padding: 10px 20px 0 20px;
 }
+.cmt_content2{
+	height: 80px;
+	width: 300px;
+    padding: 10px 20px 0 20px;
+}
 
 .none_cmtno{
 	display:none;

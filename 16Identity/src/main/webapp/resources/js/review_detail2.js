@@ -38,7 +38,7 @@ $(function() {
 					output = '';
 					if(cm_align==3){
 						console.log('js에서 내 댓글 갯수'+$("#my_review_count").text());
-						maxPage=Math.floor((parseInt($("#my_review_count").text()) + 3 - 1) / 3);
+						maxPage=Math.floor((parseInt($("#my_review_count").text()) + 4 - 1) / 4);
 					}
 					else{
 						maxPage=getMaxPage(); 
@@ -50,7 +50,7 @@ $(function() {
 							
 							output += "<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>  <div class='card'>";
 							output += "<div class='body bg-orange' id='each_comment'>";
-							output += "<div id='#comment_avatar' style='display:inline-block;'><img src='resources/image/avatar1.png' style='width: 90px;border-radius: 50%;'/></div>"
+							output += "<div id='#comment_avatar' style='display:inline-block;'><img src='resources/upload"+this.m_file+"' style='width: 90px;border-radius: 50%;'/></div>"
 							output += "<span style='display:none'>"+this.cmt_id+"</span>";
 							output += "<p class='card_header' class='hangelfont'><a href='#' onclick='see_view2(this)'>"
 									+ this.cmt_nickname
@@ -177,7 +177,7 @@ $(function() {
 
 		// 예) 총 리스트가 5개이면 최대 페이지는 2입니다.
 		// int maxpage = (listcount + limit - 1) / limit;
-		return parseInt((count + 3 - 1) / 3);
+		return parseInt((count + 4 - 1) / 4);
 	}
 	cm_align_real=1;
 	$("#message").click(function() {
