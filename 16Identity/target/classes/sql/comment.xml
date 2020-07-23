@@ -53,7 +53,7 @@
 	</update>
 	
 	<select id="wc_check" parameterType="warn_check" resultType="warn_check" >
-		select * from warn_check where m_id=#{m_id} and cmt_no=#{cmt_no}
+		select * from warn_check where wc_id=#{m_id} and cmt_no=#{cmt_no}
 	</select>
 	
 	<insert id="wc_insert" parameterType="warn_check">
