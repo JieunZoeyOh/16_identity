@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.identity.project.dao.CommentDAO;
-import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Warn;
@@ -128,6 +127,11 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public int getSomeoneListCount(String id) {
 		return dao.getSomeoneListCount(id);
+	}
+
+	@Override
+	public int cancel_like(int cmt_like_no) {
+		return dao.cancle_like(cmt_like_no);
 	}
 
 }

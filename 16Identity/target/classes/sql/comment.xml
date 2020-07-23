@@ -182,4 +182,20 @@
 	<select id="getAllComments" resultType="C">
 		select * from comments order by cmt_no
 	</select>
+	
+	<delete id="cmt_like_delete" parameterType="int">
+		delete from comments_like where cmt_like_no = #{cmt_like_no}
+	</delete>
+	
+	<select id="find_cmt_no" parameterType="int" resultType="int">
+		select cmt_no from comments_like where cmt_like_no = #{cmt_like_no}
+	</select>
+	
+	<update id="minusLikeFromComments" parameterType="int">
+		update comments 
+		set cmt_like = (select count(*) 
+						from comments_like 
+						where cmt_no = #{cmt_no})
+		where cmt_no = #{cmt_no}
+	</update>
 </mapper>

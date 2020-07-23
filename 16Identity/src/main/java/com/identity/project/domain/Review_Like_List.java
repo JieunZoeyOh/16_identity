@@ -10,8 +10,15 @@ public class Review_Like_List {
 	private String m_nickname;
 	private String cmt_id;
 	private String isbn;
+	private int cmt_like_no;
 	
 	
+	public int getCmt_like_no() {
+		return cmt_like_no;
+	}
+	public void setCmt_like_no(int cmt_like_no) {
+		this.cmt_like_no = cmt_like_no;
+	}
 	public String getIsbn() {
 		return isbn;
 	}

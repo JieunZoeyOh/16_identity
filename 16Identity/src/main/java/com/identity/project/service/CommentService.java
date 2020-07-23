@@ -2,7 +2,6 @@ package com.identity.project.service;
 
 import java.util.List;
 
-import com.identity.project.domain.Book;
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Warn;
@@ -52,5 +51,9 @@ public interface CommentService {
 
 
 	int getSomeoneListCount(String nickname);
+
+
+	int cancel_like(int cmt_like_no);
+
 
 }

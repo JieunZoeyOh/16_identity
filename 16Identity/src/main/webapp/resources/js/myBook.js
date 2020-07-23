@@ -6,6 +6,49 @@ $(document).on('click','.likeReview',function(){
 $(document).on('click','.likeBook',function(){
 	go(1, 'book');
 })
+$(document).on('click', '.book-heart', function(){
+	if(confirm('좋아요 취소하시겠습니까?') == true){
+		book_like_cancle($(this)[0].id);
+		alert('좋아요 취소되었습니다.');
+	}else{
+		return;
+	}
+	go(1, 'book');
+})
+
+$(document).on('click', '.review-heart', function(){
+	if(confirm('좋아요 취소하시겠습니까?') == true){
+		review_like_cancle($(this)[0].id);
+		alert('좋아요 취소되었습니다.');
+	}else{
+		return;
+	}
+	go(1, 'review');
+})
+function review_like_cancle(input_cmt_like_no){
+	$.ajax({
+		method: "POST",
+		url : "reviewLikeCancle.net",
+		data : {
+			cmt_like_no : input_cmt_like_no
+		},
+		success : function(data){
+			return data;
+		}
+	})
+}
+function book_like_cancle(input_isbn){
+	$.ajax({
+		method: "POST",
+		url : "bookLikeCancle.net",
+		data : {
+			isbn : input_isbn
+		},
+		success : function(data){
+			return data;
+		}
+	})
+}
 function go(page, search) {
 	if(search == 'book'){
 		bookajax(page);
@@ -39,7 +82,7 @@ function bookajax(inputpage){
         					   + '<td><a href="./reviewpost.minji?isbn='+item.isbn+'">'+item.b_title+'</a></td>';
         				output += '<td>'+ item.b_authors +'</td>';
         				output += '<td>'+ item.like_date +'</td>';
-        				output += '<td>'+ item.like_count +'</td>';
+        				output += '<td><i class="fa fa-heart book-heart" aria-hidden="true" id="'+item.isbn+'"><span class="heart_tooltip">좋아요 취소</span></i>'+ item.like_count +'</td>';
         				output += '</tr>'
         			})
         			output += '</tbody></table>';
@@ -107,7 +150,7 @@ function reviewajax(inputpage){
         				output += '<td>'+ item.b_authors +'</td>';
         				output += '<td>'+ item.cmt_like_date +'</td>';
         				output += '<td>'+ item.m_nickname +'</td>';
-        				output += '<td>'+ item.cmt_like +'</td>';
+        				output += '<td><i class="fa fa-heart review-heart" aria-hidden="true" id="'+item.cmt_like_no+'"><span class="heart_tooltip">좋아요 취소</span></i>'+ item.cmt_like +'</td>';
         				output += '</tr><tr><td colspan="5">'+item.cmt_content+'</td></tr>'
         			})
         			output += '</tbody></table>';
@@ -194,4 +237,24 @@ $(document).ready(function() {
 	function menulist_out(){
 	    this.children[0].style.visibility = "hidden";
 	}
+	
+	var heart_tooltip;
+	window.onmousemove = function(e){
+		x = e.clientX;
+		y = e.clientY;
+	}
+	$(document).on('mouseover','.fa-heart',function(){
+		$(this)[0].lastChild.style.display='inline-block';
+		$(this)[0].lastChild.style.position='fixed';
+		$(this)[0].lastChild.style.border='1px solid lightgrey';
+		$(this)[0].lastChild.style.fontSize = '4px';
+		$(this)[0].lastChild.style.top = (y + 20) + 'px';
+		$(this)[0].lastChild.style.left = (x + 20) + 'px';
+	})
+	
+	$(document).on('mouseout','.fa-heart',function(){
+		$(this)[0].lastChild.style.display='none';
+	})
+	
+	
 });
