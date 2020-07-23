@@ -320,7 +320,7 @@
  		
  		if(content.length>300){
  			alert('최대 300자까지 입력 가능합니다.');
- 			$(this).val(content.substring(0,100));
+ 			$(this).val(content.substring(0,300));
  		}
  	})
     </script>
