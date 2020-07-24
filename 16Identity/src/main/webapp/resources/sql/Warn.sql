@@ -17,7 +17,7 @@ create table warn_check(
 	wc_no number primary key,
 	m_id varchar2(50) REFERENCES member(m_id) on delete cascade,
     cmt_no number REFERENCES comments(cmt_no) on delete cascade,
-    wc_reason varchar2(50),
+    wc_reason varchar2(1000),
     wc_date date not null
 );
 
@@ -26,4 +26,5 @@ create sequence wc_seq;
 ALTER TABLE WARN_CHECK ADD(W_REASON VARCHAR2(50));
 alter table warn_check rename column w_reason to wc_reason;
 alter table warn_check ADD wc_state varchar2(30) default '접수 대기';
-alter table warn_check RENAME COLUMN M_ID TO WC_ID;
+
+ALTER TABLE WARN_CHECK RENAME COLUMN m_id to wc_id;
