@@ -16,7 +16,7 @@
     <!-- Bootstrap Core Css -->
     <link href="resources/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Waves Effect Css -->ㅌ
+    <!-- Waves Effect Css -->
     <link href="resources/plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
