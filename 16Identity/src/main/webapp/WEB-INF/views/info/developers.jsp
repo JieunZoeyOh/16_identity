@@ -152,8 +152,8 @@
 															<table>
 												<tr>
 													<td><img src= "resources/image/email.png" class="mail"/></td>
-													<td><span>rlagofl9580@naver.com</span>
-														<img src= "resources/image/copy.png" class="copy" onClick='copyEmail("rlagofl9580@naver.com")'/>
+													<td><span>haeri98@icloud.com</span>
+														<img src= "resources/image/copy.png" class="copy" onClick='copyEmail("haeri98@icloud.com")'/>
 													<div class="copy_alert">COPY!</div>
 													</td>
 												</tr>

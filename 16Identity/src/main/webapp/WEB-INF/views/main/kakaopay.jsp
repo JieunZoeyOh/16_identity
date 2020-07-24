@@ -29,7 +29,6 @@ $(function(){
 	    if ( rsp.success ) {
 	        msg = '${substate} 결제가 완료되었습니다.';
 	        location.href="/16Identity/kakaopaySuccess.com?m_id=${m_id}&substate=${substate}&price=${price}"; 
-	   
 	    } else {
 	    	msg = '${substate} 결제에 실패하였습니다.';
 	    	self.close();

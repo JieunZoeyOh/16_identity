@@ -45,19 +45,19 @@
 	</select>
 	
 	<insert id="insert_warn"  parameterType="warn">
-		insert into warn values(warn_seq.nextval,#{m_id},#{cmt_no},#{w_reason},sysdate, 1)
+		insert into warn values(warn_seq.nextval,#{m_id},#{cmt_no},sysdate, 1)
 	</insert>
 	
 	<update id="update_warn" parameterType="warn">
-		update warn set w_count=#{w_count}, w_reason=#{w_reason}, w_date=sysdate where cmt_no=#{cmt_no} and m_id=#{m_id}
+		update warn set w_count=#{w_count}, w_date=sysdate where cmt_no=#{cmt_no} and m_id=#{m_id}
 	</update>
 	
 	<select id="wc_check" parameterType="warn_check" resultType="warn_check" >
-		select * from warn_check where m_id=#{m_id} and cmt_no=#{cmt_no}
+		select * from warn_check where wc_id=#{wc_id} and cmt_no=#{cmt_no}
 	</select>
 	
 	<insert id="wc_insert" parameterType="warn_check">
-		insert into warn_check values(wc_seq.nextval, #{m_id}, #{cmt_no}, sysdate, #{wc_reason}, '접수대기')
+		insert into warn_check values(wc_seq.nextval, #{wc_id}, #{cmt_no}, sysdate, #{wc_reason}, '접수대기')
 	</insert>
 	<select id="getCommentCount" resultType="int">
 		select count(*) from comments

@@ -81,18 +81,15 @@ public class MainController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/kakaopaySuccess.com", method = RequestMethod.GET)
+	@RequestMapping(value = "/kakaopaySuccess.com")
 	public void kakaopaySuccess(String m_id,int price, String substate,HttpSession session) {
-		System.out.println("kakaopaySuccess.com");
 		int season=0;
 		if(price==9900) season=1;
 		else if(price==29000) season=3;
 		else if(price==55000) season=6;
 		else if(price==100000) season=12;
 		else ;
-		System.out.println("1");
 		memberService.updateSub(m_id, substate, season);
-		System.out.println("2");
 		String state = memberService.getState(m_id);
 		session.setAttribute("substate", state);
 	}

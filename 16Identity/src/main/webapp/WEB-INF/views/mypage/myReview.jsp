@@ -12,14 +12,10 @@
 <script type="text/javascript" src="resources/js/slick.min.js"></script>
 
 <style>
-#sidebar_list {
-	margin-top: 16px !important;
-}
-
+#sidebar_list {margin-top: 16px !important;}
 .modal > p {margin:16px 0px !important;}
 .form_wrap > form { margin-bottom : 16px !important;} 
-.flip-card-back > span {position: relative;
-    bottom: 8px;}
+.flip-card-back > span {position: relative;  bottom: 8px;}
 </style>
 </head>
 <body>
@@ -68,15 +64,15 @@
 									class='flip-card-inner'>
 
 									<div class='flip-card-front'>
-										<img src="${m.book.b_thumbnail }">
+										<img src="${m.book.b_thumbnail}">
 									</div>
 									<div class='flip-card-back'>
 									<br><br>
-										<img src = "resources/image/cal.png" style="width:32px; z-index:1; display:inline-block" ><span>${m.cmt_date}</span>&nbsp;  
-										<img src = "resources/image/user.png" style="width:26px; z-index:1; display:inline-block" ><span> ${m.cmt_mbti}</span>&nbsp; 
-										<img src = "resources/image/like.png" style="width:27px; z-index:1; display:inline-block;" ><span>${m.cmt_like}</span>  
+										<img src = "resources/image/calendar.png" style="width: 30px;z-index: 1;display: inline-block;margin-left: -6%;" ><span>${m.cmt_date}</span>&nbsp;  
+										<img src = "resources/image/problem.png" style="width:26px; z-index:1; display:inline-block" ><span> ${m.cmt_mbti}</span>&nbsp; 
+										<img src = "resources/image/good.png" style="width:27px; z-index:1; display:inline-block;" ><span>${m.cmt_like}</span>  
 									<br><br>
-										<p style = "width: 93%; padding: 0 20px;">${m.cmt_content }</p>
+										<p style = "width: 93%; padding: 0 20px;">${fn:substring(m.cmt_content, 0 , 150)}</p>
 									</div>
 								</a>
 							</div>

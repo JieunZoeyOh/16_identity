@@ -3,7 +3,7 @@ package com.identity.project.domain;
 public class Warn_Check {
 
 	private int wc_no;
-	private String m_id;
+	private String wc_id;
 	private int cmt_no;
 	private String wc_date;
 	private String wc_reason;
@@ -25,12 +25,12 @@ public class Warn_Check {
 		this.wc_no = wc_no;
 	}
 
-	public String getM_id() {
-		return m_id;
+	public String getWc_id() {
+		return wc_id;
 	}
 
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
+	public void setWc_id(String wc_id) {
+		this.wc_id = wc_id;
 	}
 
 	public int getCmt_no() {
