@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.identity.project.dao.CommentDAO;
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Comments_Like;
+import com.identity.project.domain.Review_Like_List;
 import com.identity.project.domain.Warn;
 import com.identity.project.domain.Warn_Check;
 
@@ -132,6 +133,16 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public int cancel_like(int cmt_like_no) {
 		return dao.cancle_like(cmt_like_no);
+	}
+
+	@Override
+	public int getListCount(String sort, List<String> mbtilist) {
+		return dao.getListCount(sort, mbtilist);
+	}
+
+	@Override
+	public List<Review_Like_List> getReviewList(int page, int limit, String sort, List<String> mbtilist) {
+		return dao.getReviewList(page, limit, sort, mbtilist);
 	}
 
 }

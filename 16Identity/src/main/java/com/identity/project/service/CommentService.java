@@ -1,9 +1,11 @@
 package com.identity.project.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Comments_Like;
+import com.identity.project.domain.Review_Like_List;
 import com.identity.project.domain.Warn;
 import com.identity.project.domain.Warn_Check;
 
@@ -54,6 +56,12 @@ public interface CommentService {
 
 
 	int cancel_like(int cmt_like_no);
+
+
+	int getListCount(String sort, List<String> mbtilist);
+
+
+	List<Review_Like_List> getReviewList(int page, int limit, String sort, List<String> mbtilist);
 
 
 }

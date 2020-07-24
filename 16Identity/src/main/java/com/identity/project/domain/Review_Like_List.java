@@ -11,8 +11,36 @@ public class Review_Like_List {
 	private String cmt_id;
 	private String isbn;
 	private int cmt_like_no;
+	private String cmt_date;
+	private String cmt_mbti;
+	private String cmt_nickname;
+	private String pluscount;
 	
 	
+	public String getPluscount() {
+		return pluscount;
+	}
+	public void setPluscount(String pluscount) {
+		this.pluscount = pluscount;
+	}
+	public String getCmt_nickname() {
+		return cmt_nickname;
+	}
+	public void setCmt_nickname(String cmt_nickname) {
+		this.cmt_nickname = cmt_nickname;
+	}
+	public String getCmt_date() {
+		return cmt_date;
+	}
+	public void setCmt_date(String cmt_date) {
+		this.cmt_date = cmt_date.substring(0, 10);
+	}
+	public String getCmt_mbti() {
+		return cmt_mbti;
+	}
+	public void setCmt_mbti(String cmt_mbti) {
+		this.cmt_mbti = cmt_mbti;
+	}
 	public int getCmt_like_no() {
 		return cmt_like_no;
 	}

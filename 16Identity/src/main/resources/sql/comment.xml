@@ -198,4 +198,65 @@
 						where cmt_no = #{cmt_no})
 		where cmt_no = #{cmt_no}
 	</update>
+	
+	<select id="getListCountRecency" resultType="int">
+		select count(*) from comments where cmt_mbti in
+		<foreach item="item" index="index" collection="list"
+      		open="(" separator="," close=")">
+        #{item}
+  		</foreach>
+	</select>
+	
+	<select id="getListCountPopular" resultType="int">
+	select count(*)
+	from (select cmt_mbti, b.*
+		  from comments, (select cmt_no
+						from comments_like
+						where cmt_like_date between to_char(sysdate-7) and sysdate
+						group by cmt_no
+						) b
+		where comments.cmt_no = b.cmt_no
+		and cmt_mbti in
+		<foreach item="item" index="index" collection="list"
+      		open="(" separator="," close=")">
+        #{item}
+  		</foreach>
+	)
+	</select>
+	
+	<select id="getReviewListRecency" resultType="com.identity.project.domain.Review_Like_List" parameterType="map">
+			select b_thumbnail, b_title, b_authors, cmt_like, cmt_content, cmt_nickname, isbn, cmt_date, cmt_mbti
+            from (select ROWNUM rnum, x.*
+         		  from (select b_thumbnail, b_title, b_authors, cmt_like, cmt_content, cmt_nickname, comments.isbn, cmt_date, cmt_mbti
+	  					from book, comments
+	  					where comments.isbn = book.isbn
+	  					and cmt_mbti in
+						<foreach item="item" index="index" collection="list"
+      						open="(" separator="," close=")">
+        				#{item}
+  						</foreach>
+	  					order by cmt_date desc) x
+       			)
+			where rnum &gt;= #{start} and rnum &lt;= #{end}
+	</select>
+	
+	<select id="getReviewListPopular" resultType="com.identity.project.domain.Review_Like_List" parameterType="map">
+			select b_thumbnail, b_title, b_authors, cmt_like, cmt_content, cmt_nickname, isbn, cmt_date, cmt_mbti, pluscount
+			from (select ROWNUM rnum, y.*
+				from (select b_thumbnail, b_title, b_authors, cmt_like, cmt_content, cmt_nickname, comments.isbn, cmt_mbti, cmt_date, b.*
+					  from comments, (select cmt_no, count(*) pluscount, max(cmt_like_date) recent
+					  				  from comments_like
+					  				  where cmt_like_date between to_char(sysdate-7) and sysdate
+					  				  group by cmt_no) b, book
+					  where comments.cmt_no = b.cmt_no and book.isbn = comments.isbn
+					  and cmt_mbti in
+					  <foreach item="item" index="index" collection="list"
+      						open="(" separator="," close=")">
+        				#{item}
+  					  </foreach>
+					  order by pluscount desc, recent desc
+					  ) y
+				)
+			where rnum &gt;= #{start} and rnum &lt;= #{end}	
+	</select>
 </mapper>

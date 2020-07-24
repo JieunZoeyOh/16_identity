@@ -25,8 +25,8 @@ import com.identity.project.domain.Review_Like_List;
 import com.identity.project.service.BoardService;
 import com.identity.project.service.CommentService;
 import com.identity.project.service.CommentServiceImpl;
+import com.identity.project.service.MainService;
 import com.identity.project.service.MemberService;
-
 @Controller
 public class BoardController {
 	@Autowired
@@ -38,10 +38,8 @@ public class BoardController {
 	@Autowired
 	private CommentService commentService;
 	
-	@RequestMapping(value="/review.net", method=RequestMethod.GET)
-	public String review() {
-		return "review/review_search";
-	}
+	@Autowired
+	private MainService mainService;
 	
 	@ResponseBody
 	@RequestMapping(value="/reviewLikeCmt.net", method=RequestMethod.POST)
@@ -177,5 +175,63 @@ public class BoardController {
 	public int reviewLikeCancle(int cmt_like_no) {
 		int result = commentService.cancel_like(cmt_like_no);
 		return result;
+	}
+	
+	@RequestMapping(value="/review.net", method=RequestMethod.GET)
+	public String review() {
+		return "review/review_board";
+	}
+	
+	@RequestMapping(value="/reviewSearch.net", method=RequestMethod.POST)
+    public ModelAndView reviewSearch(String searchWord, ModelAndView mv,
+	         @RequestParam(value="category",defaultValue="전체", required=false) String category) {
+      
+    	mv.setViewName("review/review_search");
+    	mv.addObject("searchWord", searchWord);
+    	mv.addObject("category", category);
+    	System.out.println(searchWord);
+    	System.out.println(category);
+    	return mv;
+    }
+	
+	@ResponseBody
+	@RequestMapping(value="/reviewBoardAjax.net")
+	public Map<String, Object> reviewBoard(String sort, @RequestParam(value="mbti[]") List<String> mbti,
+					@RequestParam(value="page", defaultValue="1", required=false) int page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		int limit = 10;
+		List<String> mbtilist = new ArrayList<String>();
+
+		for (String a:mbti) {
+			if(!a.contains("all")) {
+				mbtilist.add(a);
+				System.out.println(a);
+			}
+		}
+		
+		int listcount = commentService.getListCount(sort, mbtilist);
+		System.out.println(listcount);
+		System.out.println(sort+"sort는");
+		List<Review_Like_List> reviewlist = new ArrayList<Review_Like_List>();
+		reviewlist = commentService.getReviewList(page, limit, sort, mbtilist);
+		
+		//총 페이지 수
+		int maxpage = (listcount + limit -1 ) / limit;
+		int startpage = ((page -1) / 10) * 10 + 1;
+		int endpage=startpage + 10 - 1 ;
+		if(endpage > maxpage) {
+			endpage = maxpage;
+		}
+		
+		map.put("listcount", listcount);
+		map.put("reviewlist", reviewlist);
+		map.put("page", page); 
+		map.put("sort", sort); 
+		map.put("maxpage", maxpage); 
+		map.put("startpage", startpage);
+		map.put("endpage", endpage); 
+		map.put("limit", limit);
+		map.put("mbti", mbti);
+		return map;
 	}
 }

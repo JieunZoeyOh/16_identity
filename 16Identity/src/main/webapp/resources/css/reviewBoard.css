@@ -1,302 +1,325 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-.wrapper {
-  width: 670px;
-  margin: 50px auto;
-  margin-bottom: 100px;
+*{font-family: font-family :'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif' !important;}
+
+table {
+	width: 100%;
 }
 
-.wrapper .search_box{
-  width: 670px;
-  background: #fff;
-  border-radius: 5px;
-  height: 40px;
-  display: flex;
-  padding: 10px;
-  box-shadow: 0 8px 6px -10px #b3c6ff;
-}
-
-.wrapper .search_box .dropdown{
-  width: 150px;
-  border-right: 2px solid #dde2f1;
-  color: #9fa3b1;
-  position: relative;
-  cursor: pointer;
-}
-
-.wrapper .search_box .dropdown .default_option{
-  padding: 9px 15px 17px 15px;
-  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-  font-size: 16px;
-}
-
-.wrapper .search_box .dropdown ul{
-  position: absolute;
-  top: 37px;
-  left: -10px;
-  background: #fff;
-  width: 125px;
-  border-radius: 5px;
-  padding: 20px;
-  display: none;
-  box-shadow: 8px 8px 6px -10px #b3c6ff;
-}
-
-.wrapper .search_box .dropdown ul.active{
-  display: block;
-}
-
-.wrapper .search_box .dropdown ul li{
-  padding-bottom: 20px;
-}
-
-.wrapper .search_box .dropdown ul li:last-child{
-  padding-bottom: 0;
-}
-
-.wrapper .search_box .dropdown ul li:hover{
-  color: #6f768d;
-}
-
-.wrapper .search_box .dropdown:before{
-  content: "";
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  border: 8px solid;
-  border-color: #6273a5 transparent transparent transparent;
-}
-
-.wrapper .search_box .search_field{
-  width: 500px;
-  height: 100%;
-  position: relative;
-}
-
-.wrapper .search_box .search_field .input{
-  width: 93%;
-  height: 100%;
-  border: 0px;
-  font-size: 16px;
-  padding: 0 20px;
-  color: #6f768d;
-  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-  overflow: hidden;
-}
-
-.wrapper .search_box .search_field .input:focus {
-	outline: none;
-}
-
-.wrapper .search_box .search_field .fa{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 22px;
-  color: #6273a5;
-  cursor: pointer;
-}
-
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #9fa3b1;
-}
-::-moz-placeholder { /* Firefox 19+ */
- color: #9fa3b1;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #9fa3b1;
-}
-
-#autoComplete_box {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    width: 526px;
-    height: 182px;
-    box-sizing: border-box;
-    position: relative;
-    bottom: -14px;
-    left: 160px;
-    box-shadow: 10px 8px 6px -11px #b3c6ff;
-}
-
-.auto_result{
-	margin:0px;
-	display: inline-block;
-	width:400px;
-	height: 34.5px;
-	float:left;
-	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
-	box-sizing: border-box;
-    padding: 4px 8px;
-    font-weight: 100;
-    overflow: hidden;
-}
-.auto_result:hover {
-	cursor:pointer;
-	text-decoration:underline;
-}
-.auto_result a{
-	text-decoration:none;
-	color:black;
-	line-height: 26px;
-}
-.auto_result a:active, .auto_result a:visited, .auto_result a:focus{
-	color:black;
-}
-.auto_result_focus {
-    background-color: whitesmoke;
-    outline: none;
-}
-#autoComplete_box img{
-	margin:0;
-	padding:0;
-	width:120px;
-	height:174px;
-	background-color:white;
-}
-
-.board_container{
-	clear:both;
-	width:100%;
-	height:auto;
+.content_table td{
 	text-align:center;
-	padding-bottom:200px
-}
-.board_wrap {
-	display: inline-block;
-	width:1000px;
-	height:auto;
+    font-size: 16px;
+    padding: 9px 0;
+} 
+
+.content_table>thead td{
+	font-weight: 500;
+} 
+
+.content_table>tbody td{
+	font-weight: 200;
+} 
+
+td>a {
+	text-decoration: none;
+	color: black;
 }
 
-/* height: auto로 바꾸기*/
-.book_article {
-	float:left;
-	display: inline-block;
-    width: 273px;
-    height: 505px;
-    margin: 30px;
-    box-sizing: border-box;
-    padding: 20px 25px;
-}
-.book_img_box {
-	width:200px;
-	height:350px;
-	background-size:100%;
-	margin: 0 auto;
-}
-.book_img_box>a {
-	width:200px;
-	height:auto;
-}
-.book_img_box img {
-	width:200px;
-	height:auto;
-	box-shadow: 10px 12px 13px -6px rgba(0, 0, 0, 0.42);
+td>a:hover{
+	text-decoration: underline;
 }
 
-.book_article {
-	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
+td>a:active, td>a:visited{
+	text-decoration: none;
+	color: black;
 }
-.book_article dt{
-	text-align: left;
-    font-weight: 800;
-    margin-bottom: 7px;
-}
-.book_article dd{
-	margin-inline-start: 0;
-    text-align: left;
-    font-weight: 300;
+.content_table .fa-heart{
+	font-size: 17px;
+    color: #f50057;
+    padding: 0 6px;
+    cursor: pointer;
 }
 
-.likeCmnt {
+.content_table .fa-long-arrow-up{
+	padding: 0 2px;
+    font-size: 14px;
+    position: relative;
+    top: -1.6px;
+    color: #2c3fc6;
+}
+.content_table .fa-plus{
+	padding: 0 1px 0 10px;
+    font-size: 7px;
+    position: relative;
+    top: -3px;
+    color: #2c3fc6;
+}
+
+.content_table .fa-plus+span{
+	color: #2c3fc6;
+    font-weight: 700;
+    font-size: 12px;
+    position: relative;
+    top: -1.6px;
+}
+
+.content_table>thead td:nth-child(1){width:19%} 
+.content_table>thead td:nth-child(2){width:35%} 
+.content_table>thead td:nth-child(3){width:13%} 
+.content_table>thead td:nth-child(4){width:9%} 
+.content_table>thead td:nth-child(5){width:8%} 
+.content_table>thead td:nth-child(6){width:8%} 
+.content_table>thead td:nth-child(7){width:10%} 
+.content_table>tbody td:nth-child(1){width:4%} 
+.content_table>tbody td:nth-child(2){width:11%} 
+.content_table>tbody tr:nth-child(odd){height:70px;}
+.content_table>tbody tr td:nth-child(3){
+	padding: 10px;
+}
+.content_table>tbody tr:nth-child(even) > td{
+	padding: 6px 17px 6px 35px;
 	text-align:left;
 }
-
-.like_section, .comment_section {
-	display: inline-block;
-    width: 30px;
-    position: relative;
-    top: -4px;
-    padding-left: 4px;
+tr>td>img {
+	width: 104px;
+    height: 144px;
 }
 
-.likeCmnt>img {
-	width: 20px; height:20px
-}
-
-#board_more_action{
-	height:150px;
-	width:1000px;
-	display: inline-block;
-	padding:50px 300px;
+#filtering_wrap{
 	box-sizing: border-box;
+	display: inline-block;
+    width: 1000px;
+    height: auto;
 }
 
-button.more_button {
-	width: 110px;
+#filtering_box{
+	box-sizing: border-box;
+    width: 94%;
+    display: inline-block;
     height: 50px;
-    border: 2px solid #303960;
-    background-color: white;
-    border-radius: 30px;
-    font-size: 14px;
-    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-	transition: 0.3s;
+    padding: 13px 46px;
+    text-align: left;
 }
 
-button.more_button:hover {
-	cursor: pointer;
-	background-color: #303960;
-	color: white;
+#filtering_wrap .fa-filter{
+	font-size: 20px;
+    color: #b0b9cc94;
+    position: relative;
+    top: 5px;
+}
+#filtering_wrap .fa-filter:hover{
+	cursor:pointer;
+	color:#303960;
 }
 
-button.more_button:focus {
-	outline: none;
-}
-
-#book_total_count {
-	width: 1000px;
-	margin: 0 auto;
-}
-
-#book_total_count>span {
-	padding-left: 55px;
-	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-	color : #747474;
-	font-weight: 300;
-	float:left;
-}
-
-#book_search_category {
+.filter{
 	display:inline-block;
-	float:right;
+	height: 20px;
+    width: auto;
+    border: 2px solid #bfbcbc38;
+    border-radius: 20px;
+    padding:6px 5px 6px 12px;
+    text-align: center;
+    font-size: 13px;
+    min-width: 50px;
 }
 
-#category_option {
-	width: 94px;
-    height: 28px;
-    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    font-size: 15px;
+.filter>i{
+	font-size: 12px;
+    padding: 0 2px;
+    color: #b0b9cc94;
+    margin-left: 4px;
+}
+
+.filter>i:hover {
+	color:#303960;
+	cursor:pointer;
+}
+
+#filtering_detail{
+	box-sizing: border-box;
+    width: 94%;
+    height: auto;
+    margin-left: 45px;
+    display:none;
+    padding: 15px;
+    text-align: left;
+}
+
+.filter_bar{
+	display: inline-block;
+    width: 3px;
+    height: 24px;
+    margin: 0 10px;
+    background: #f3f3f7;
+    position: relative;
+    top: 6px;
+}
+
+#filter_form input[type=checkbox]{
+	margin-left: 4px;
+}
+#filter_form label{
+	width: 48px;
+    display: inline-block;
+	
+}
+
+#filter_button{
+	width: 95px;
+    height: 34px;
     border: none;
-    border-bottom: 2px solid #0000000d;
+    background: #303960;
+    color: white;
+    position: relative;
+    left: 800px;
 }
 
-select#category_option:active, select#category_option:focus {
-    outline: none;
+
+.r-list{
+    --uirListPaddingLeft: var(--rListPaddingLeft, 0);
+    --uirListMarginTop: var(--rListMarginTop, 0);
+    --uirListMarginBottom: var(--rListMarginBottom, 0);
+    --uirListListStyle: var(--rListListStyle, none);
+  
+    padding-left: var(--uirListPaddingLeft) !important;
+    margin-top: var(--uirListMarginTop) !important;
+    margin-bottom: var(--uirListMarginBottom) !important;
+    list-style: var(--uirListListStyle) !important;
+  }
+  
+  .r-link{
+    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+    --uirLinkTextColor: var(--rLinkTextColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkTextColor) !important;
+    text-decoration: var(--uirLinkTextDecoration) !important;
+  }
+  
+  .pagination{
+    --uiPaginationDisplay: var(--paginationDisplay, flex);
+    --uiPaginationAlignmentX: var(--paginationAlignmentX, flex-start);
+    --uiPaginationAlignmentY: var(--paginationAlignmentY, center);
+  
+    --uiPaginationGroupMargin: var(--paginationGroupMargin, .25em);
+    --uiPaginationPointPadding: var(--paginationPointPadding, .5875em .8em);  
+    
+    display: var(--uiPaginationDisplay);
+    flex-wrap: wrap;
+    align-items: var(--uiPaginationAlignmentY);
+    justify-content: var(--uiPaginationAlignmentX);  
+  }
+  
+  .pagination__list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: var(--uiPaginationAlignmentY);
+    justify-content: var(--uiPaginationAlignmentX);  
+  }
+  
+  .pagination__group:nth-child(n+2){
+    margin-left: var(--uiPaginationGroupMargin);
+  }
+  
+  .pagination__point{
+    padding: var(--uiPaginationPointPadding);
+    line-height: 1;  
+  }
+  
+  .pagination{
+    --uiPaginationPointBorderRadius: var(--paginationPointBorderRadius);
+    --uiPaginationPointBgColor: var(--paginationPointBgColor);
+    --uiPaginationPointBorderWidth: var(--paginationPointBorderWidth);
+    --uiPaginationPointBorderColor: var(--paginationPointBorderColor);
+    --uiPaginationPointFontWeight: var(--paginationPointFontWeight);
+    --uiPaginationPointTextColor: var(--paginationPointTextColor);  
+    
+    --rLinkTextColor: var(--paginationPointTextColor);
+    
+    --uiPaginationActivePointTextColor: var(--paginationActivePointTextColor);  
+    --uiPaginationActivePointFontWeight: var(--paginationActivePointFontWeight, 700);
+    --uiPaginationActivePointBgColor: var(--paginationActivePointBgColor);
+    --uiPaginationActivePointBorderWidth: var(--paginationActivePointBorderWidth, 0);
+    --uiPaginationActivePointBorderColor: var(--paginationActivePointBorderColor, transparent);  
+  
+    --uiPaginationArrowSize: var(--paginationArrowSize, 22px);
+    --uiPaginationArrowMargin: var(--paginationArrowMargin, .25em);
+    --uiPaginationArrowDisplay: var(--paginationArrowDisplay, inline-flex);  
+  }
+  
+  .pagination__point{
+    background-color: var(--uiPaginationPointBgColor);
+    border: var(--uiPaginationPointBorderWidth) solid var(--uiPaginationPointBorderColor);
+    border-radius: var(--uiPaginationPointBorderRadius);  
+  
+    font-weight: var(--uiPaginationPointFontWeight);
+    color: var(--uiPaginationPointTextColor);    
+  }
+  
+  span.pagination__point{
+    --uiPaginationPointBgColor: var(--uiPaginationActivePointBgColor);
+    --uiPaginationPointBorderWidth: var(--uiPaginationActivePointBorderWidth);
+    --uiPaginationPointBorderColor: var(--uiPaginationActivePointBorderColor);
+    --uiPaginationPointFontWeight: var(--uiPaginationActivePointFontWeight);
+    --uiPaginationPointTextColor: var(--uiPaginationActivePointTextColor);
+    
+    display: inline-flex;  
+  }
+  
+  .pagination__control{
+    position: relative;
+    align-items: center;
+  }
+  
+  .pagination__control::before, 
+  .pagination__control::after{
+    display: var(--uiPaginationArrowDisplay);
+    height: 1em;
+    font-size: var(--uiPaginationArrowSize);
+    line-height: 1;
+  }
+  
+  .pagination__control_prev{
+    margin-right: 10px;
+  }
+  
+  .pagination__control_prev::before{
+    content: "←";
+    margin-right: var(--uiPaginationArrowMargin);
+  }
+  
+  .pagination__control_next{
+    margin-left: 10px;
+  }
+  
+  .pagination__control_next::after{
+    content: "→";
+    margin-left: var(--uiPaginationArrowMargin);
+  }
+  
+  :root{
+    --paginationFontSize: 1.6rem;
+    --paginationActivePointBgColor: rgba(0, 0, 0, .3);
+    --paginationPointTextColor: #fff;
+    --paginationActivePointTextColor: #fff;
+  }
+  
+.demo{
+    --paginationPointTextColor: #303960;
+    --paginationActivePointBgColor: #303960;
+    --paginationAlignmentX: center;  
 }
 
-span#message {
-	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-	color : #747474;
-	font-weight: 300;
+
+.section{
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    font-size: 1rem;
+}
+  
+.demo{
+    box-sizing: border-box;
+    position: relative;
+    padding: 5rem 3rem;
 }
 
-#review_main_image {
-	text-align: center;
-	margin-bottom: 200px;
-}
-#review_main_image>img {
-	width: 500px;
-}
