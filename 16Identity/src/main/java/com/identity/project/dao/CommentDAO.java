@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.identity.project.domain.Comments;
 import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Member;
+import com.identity.project.domain.Review_Like_List;
 import com.identity.project.domain.Warn;
 import com.identity.project.domain.Warn_Check;
 
@@ -192,6 +193,31 @@ public class CommentDAO {
 			return sqlSession.update("Comments.minusLikeFromComments", cmt_no);
 		}else {
 			return 0;
+		}
+	}
+
+
+	public int getListCount(String sort, List<String> mbtilist) {
+		if(sort.equals("recency")) {
+			return sqlSession.selectOne("Comments.getListCountRecency", mbtilist);
+		}else {
+			return sqlSession.selectOne("Comments.getListCountPopular", mbtilist);
+		}
+	}
+
+
+	public List<Review_Like_List> getReviewList(int page, int limit, String sort, List<String> mbtilist) {
+		Map<String, Object> map= new HashMap<String, Object>();
+		int startrow = (page-1)*limit+1;
+		int endrow = startrow+limit-1;
+		
+		map.put("start", startrow);
+		map.put("end", endrow);
+		map.put("list", mbtilist);
+		if(sort.equals("recency")) {
+			return sqlSession.selectList("Comments.getReviewListRecency", map);
+		} else {
+			return sqlSession.selectList("Comments.getReviewListPopular", map);
 		}
 	}
 }

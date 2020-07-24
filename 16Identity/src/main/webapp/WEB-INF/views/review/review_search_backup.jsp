@@ -13,7 +13,7 @@
 	<div class="wrapper">
 	    <div class="search_box">
 	        <div class="dropdown">
-	            <div class="default_option">${category}</div>  
+	            <div class="default_option">전체</div>  
 	            <ul>
 	              <li>전체</li>
 	              <li>도서명</li>
@@ -22,14 +22,18 @@
 	            </ul>
 	        </div>
 	        <div class="search_field">
-	          <input type="text" class="input" id="searchBook" placeholder="16 Identity" value="${searchWord}">
+	          <input type="text" class="input" id="searchBook" placeholder="16 Identity">
 	          <i class="fa fa-search"></i>
 	      </div>
 	    </div>
 	    <div id="autoComplete_box">
     	</div>
 	</div>
-
+	<div id="image_part">
+		<div id="review_main_image" >
+			<img src="resources/image/reviewPageMainImg.jpg" />
+		</div>
+	</div>
 	<div id="book_total_count_part">
 		<div id="book_total_count">
 			<span>검색 결과 : 총  <span id="book_count"></span>권</span>			
@@ -51,6 +55,5 @@
 		</section>
 	</div>
    <jsp:include page="../main/footer.jsp" />
-
 </body>
 </html>

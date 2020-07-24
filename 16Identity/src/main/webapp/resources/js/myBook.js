@@ -67,14 +67,14 @@ function bookajax(inputpage){
         dataType : "json",
         success : function(data){
         	$('#content').empty();
-        	$('#right_Container').children().eq(0).addClass('like_focus');
+        	$('#right_Container').children().eq(0).addClass('like_focus');//좋아요 한 책 탭 선택
         	$('#right_Container').children().eq(1).removeClass('like_focus');
         	output ='';
         	if(data.listcount > 0){
         		$(data).each(function(){
         			var num = data.listcount - (data.page - 1) * data.limit;
         			output ='<table class="content_table"><thead><tr>'
-        				+ '<td td colspan="2">NO.</td><td>책 제목</td><td>저자</td><td>날짜</td><td>좋아요 수</td>'
+        				+ '<td colspan="2">NO.</td><td>책 제목</td><td>저자</td><td>날짜</td><td>좋아요 수</td>'
         				+ '</tr></thead><tbody>';
         			$(data.bookLikelist).each(function(index, item){
         				output += '<tr><td>'+ (num--) + '</td>'
@@ -139,7 +139,7 @@ function reviewajax(inputpage){
         		$(data).each(function(){
         			var num = data.listcount - (data.page - 1) * data.limit;
         			output ='<table class="content_table review_list"><thead><tr>'
-        				+ '<td td colspan="2" rowspan="2">NO.</td><td>책 제목</td><td>저자</td><td rowspan="2">날짜</td><td rowspan="2">작성자</td><td rowspan="2">좋아요 수</td>'
+        				+ '<td colspan="2" rowspan="2">NO.</td><td>책 제목</td><td>저자</td><td rowspan="2">날짜</td><td rowspan="2">작성자</td><td rowspan="2">좋아요 수</td>'
         				+ '</tr><tr>'
         				+ '<td colspan="2">리뷰 댓글</td> '
         				+'</tr></thead><tbody>';
