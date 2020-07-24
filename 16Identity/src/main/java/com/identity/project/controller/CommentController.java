@@ -340,11 +340,11 @@ public class CommentController {
 		System.out.println("댓글번호: "+cmt_no);
 		System.out.println("신고사유: "+warn_reason);
 		
-		String m_id = (String) session.getAttribute("m_id");
-		System.out.println("신고자 아이디: "+m_id);
+		String wc_id = (String) session.getAttribute("m_id");
+		System.out.println("신고자 아이디: "+wc_id);
 		
 		Warn_Check warn_check= new Warn_Check();
-		warn_check.setWc_id(m_id);
+		warn_check.setWc_id(wc_id);
 		warn_check.setCmt_no(cmt_no);
 		warn_check.setWc_reason(warn_reason);
 		

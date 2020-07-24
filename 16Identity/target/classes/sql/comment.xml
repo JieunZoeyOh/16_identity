@@ -53,11 +53,11 @@
 	</update>
 	
 	<select id="wc_check" parameterType="warn_check" resultType="warn_check" >
-		select * from warn_check where wc_id=#{m_id} and cmt_no=#{cmt_no}
+		select * from warn_check where wc_id=#{wc_id} and cmt_no=#{cmt_no}
 	</select>
 	
 	<insert id="wc_insert" parameterType="warn_check">
-		insert into warn_check values(wc_seq.nextval, #{m_id}, #{cmt_no}, sysdate, #{wc_reason}, '접수대기')
+		insert into warn_check values(wc_seq.nextval, #{wc_id}, #{cmt_no}, sysdate, #{wc_reason}, '접수대기')
 	</insert>
 	<select id="getCommentCount" resultType="int">
 		select count(*) from comments

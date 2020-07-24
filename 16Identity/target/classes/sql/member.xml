@@ -16,8 +16,8 @@
 	</select>
 	
 	<insert id="insert" parameterType="member">
-		insert into member (m_id, m_name, m_nickname, m_original, m_file, m_password, m_mbti, m_phone, m_address_no, m_address)
-		values (#{m_id}, #{m_name}, #{m_nickname}, #{m_original}, #{m_file}, #{m_password}, #{m_mbti}, #{m_phone}, #{m_address_no}, #{m_address})
+		insert into member (m_id, m_name, m_nickname, m_original, m_file, m_password, m_mbti, m_phone, m_address_no, m_address, substate)
+		values (#{m_id}, #{m_name}, #{m_nickname}, #{m_original}, #{m_file}, #{m_password}, #{m_mbti}, #{m_phone}, #{m_address_no}, #{m_address}, '구독안함')
 	</insert>
 	
 	<update id = "update" parameterType = "member">
