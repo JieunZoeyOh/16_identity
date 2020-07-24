@@ -70,7 +70,6 @@ public class CommentDAO {
 		else {
 			System.out.println("신고된 게시물 -update 진행");
 			warn_check.setW_count(warn_check.getW_count()+1);
-			warn_check.setW_reason(warn_check.getW_reason()+"/"+warn.getW_reason());
 			int result2= sqlSession.update("Comments.update_warn", warn_check);
 			System.out.println("결과"+result2);
 		}
