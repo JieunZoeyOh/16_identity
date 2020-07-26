@@ -12,7 +12,6 @@ public class Comments {
 	private Book book;
 	private String m_file;
 	
-	
 	public String getM_file() {
 		return m_file;
 	}
