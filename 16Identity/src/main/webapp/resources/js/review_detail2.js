@@ -38,7 +38,14 @@ $(function() {
 					output = '';
 					if(cm_align==3){
 						console.log('js에서 내 댓글 갯수'+$("#my_review_count").text());
-						maxPage=Math.floor((parseInt($("#my_review_count").text()) + 4 - 1) / 4);
+						var myreviewcount = $("#my_review_count").text();
+						console.log('isnan : '+isNaN(myreviewcount));
+						if(myreviewcount ==0){
+							maxPage = 0;
+						}
+						else{
+						maxPage=Math.floor((parseInt(myreviewcount) + 4 - 1) / 4);
+						}
 					}
 					else{
 						maxPage=getMaxPage(); 
