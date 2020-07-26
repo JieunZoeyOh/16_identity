@@ -251,7 +251,7 @@ public class MemberController {
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
 		if (result == 1) {
-			out.println("location.href='updateForm.net'");
+			out.println("location.href='updateForm.net?id="+id+"'");
 		} else {
 			String message = "비밀번호가 일치하지 않습니다.";
 			out.println("alert('" + message + "');");
@@ -263,8 +263,7 @@ public class MemberController {
 
 	// updateForm.net
 	@RequestMapping(value = "/updateForm.net")
-	public ModelAndView member_update(HttpSession session, ModelAndView mv) throws Exception {
-		String id = (String) session.getAttribute("m_id");
+	public ModelAndView member_update(String id,HttpSession session, ModelAndView mv) throws Exception {
 		System.out.println("확인:" + id);
 		Member m = memberSerivce.member_info(id);
 		System.out.println("확인:" + m.getM_file());
