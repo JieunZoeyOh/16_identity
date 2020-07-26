@@ -108,6 +108,7 @@ function openWin(){
             <div class="form_wrap">
                 <form action = "passchk.net" method=post id="passchk">
                     <label>
+                    	 <input type="hidden" id="id" name="id" value="${m_id}">
                         <input type="password" name = "password" placeholder="비밀번호를 입력하세요"/>
                     </label>
                     <div class="btn_wrap">
