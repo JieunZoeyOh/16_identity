@@ -1,7 +1,7 @@
 
 window.onload = function(){
-	var category =  categoryFunc($('.default_option').prevObject[0].all[82].innerText);//전체
-	let searchWord = $('.default_option').prevObject[0].all[89].value;//검색어
+    var category =  categoryFunc($('.default_option')[0].innerText);//전체
+	let searchWord = $('#searchBook')[0].value;//검색어
 	searchBookFunc(searchWord, 1, category, 'accuracy');
    $(".loader-wrapper").fadeOut(1000);
    $('#mypage').on('click', function(){
