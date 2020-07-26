@@ -4,11 +4,12 @@
 
 table {
 	width: 100%;
+	border-collapse: collapse;
 }
 
 .content_table td{
 	text-align:center;
-    font-size: 16px;
+    font-size: 15px;
     padding: 9px 0;
 } 
 
@@ -75,6 +76,12 @@ td>a:active, td>a:visited{
 .content_table>tbody tr:nth-child(odd){height:70px;}
 .content_table>tbody tr td:nth-child(3){
 	padding: 10px;
+}
+.content_table>tbody tr:nth-child(odd) > td{
+	border-top: 1px solid #00000005;
+}
+.content_table>tbody tr:nth-child(1) > td{
+	border-top: none;
 }
 .content_table>tbody tr:nth-child(even) > td{
 	padding: 6px 17px 6px 35px;
