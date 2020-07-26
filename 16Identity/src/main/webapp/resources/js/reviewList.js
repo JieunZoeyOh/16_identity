@@ -177,7 +177,7 @@ function getListReviewBoardAjax(input_page, input_sort){
 						output += '<td>'+ item.cmt_date +'</td>';
 						output += '<td>'+ item.cmt_nickname +'</td>';
 						output += '<td>'+ item.cmt_mbti.toUpperCase() +'</td>';
-						output += '<td><i class="fa fa-heart" aria-hidden="true"></i>'+ item.cmt_like;
+						output += '<td><img src="resources/image/comment_like.png" style="width:20px; height:20px;" />&nbsp;'+ item.cmt_like;
 						if(data.sort == 'popular'){
 							output += '<i class="fa fa-plus" aria-hidden="true"></i><span>'+item.pluscount+'</span><i class="fa fa-long-arrow-up" aria-hidden="true"></i>'
 						}

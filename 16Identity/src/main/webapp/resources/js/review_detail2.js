@@ -238,8 +238,8 @@ $(function() {
 	
 			$("#book_image").on('error', function(){
 				$(this).prop('src', $(this).next().val());
-				$('#book_image').on('error', function(){
-                $(this).prop('src', 'resources/image/bookerror.PNG');
+				$(this).on('error', function(){
+					$(this).prop('src', 'resources/image/bookerror.PNG');
                 })
 			})
 				});

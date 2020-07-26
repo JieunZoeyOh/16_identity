@@ -214,7 +214,7 @@ window.onload = function(){
                     $('section.board_wrap').append(output);
                      $('.bookImgSrc').on('error', function(){//img src 없는 경우 xlarge->lagre로 대체
                          $(this).prop('src', $(this).next().val());//input type=hidden의 value => img2
-                         $('.bookImgSrc').on('error', function(){
+                         $(this).on('error', function(){
                         	 $(this).prop('src', 'resources/image/bookerror.PNG');
                          })
                      })

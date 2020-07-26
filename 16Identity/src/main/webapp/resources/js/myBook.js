@@ -207,14 +207,12 @@ $(document).ready(function() {
 	    
 	})
 	
-	$(window).on("load",function(){
-		$(".loader-wrapper").fadeOut(1000);
-		$('#mypage').on('click', function(){
-			$('#mypageMenu').toggle();
-		})
-		$('#subscribe').on('click', function(){
-			$('#subMenu').toggle();
-		})
+	$(".loader-wrapper").fadeOut(1000);
+	$('#mypage').on('click', function(){
+		$('#mypageMenu').toggle();
+	})
+	$('#subscribe').on('click', function(){
+		$('#subMenu').toggle();
 	})
 	
 	/*header js 부분*/

@@ -123,7 +123,7 @@ a:hover{color:#fff}
 			location.href = "main.net";
 		});
 		//$(".login").click(function() {
-		//	location.href = "login2.net";
+		//	location.href = "login.net";
 		//});
 	})
 </script>
