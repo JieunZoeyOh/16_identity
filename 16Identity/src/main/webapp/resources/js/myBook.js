@@ -73,7 +73,7 @@ function bookajax(inputpage){
         	if(data.listcount > 0){
         		$(data).each(function(){
         			var num = data.listcount - (data.page - 1) * data.limit;
-        			output ='<table class="content_table"><thead><tr>'
+        			output ='<table class="content_table like_book_table"><thead><tr>'
         				+ '<td colspan="2">NO.</td><td>책 제목</td><td>저자</td><td>날짜</td><td>좋아요 수</td>'
         				+ '</tr></thead><tbody>';
         			$(data.bookLikelist).each(function(index, item){
@@ -149,7 +149,7 @@ function reviewajax(inputpage){
         					   + '<td><a href="./reviewpost.minji?isbn='+item.isbn+'">'+item.b_title+'</a></td>';
         				output += '<td>'+ item.b_authors +'</td>';
         				output += '<td>'+ item.cmt_like_date +'</td>';
-        				output += '<td>'+ item.m_nickname +'</td>';
+        				output += '<td>'+ item.cmt_nickname +'</td>';
         				output += '<td><i class="fa fa-heart review-heart" aria-hidden="true" id="'+item.cmt_like_no+'"><span class="heart_tooltip">좋아요 취소</span></i>'+ item.cmt_like +'</td>';
         				output += '</tr><tr><td colspan="5">'+item.cmt_content+'</td></tr>'
         			})

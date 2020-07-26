@@ -19,13 +19,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Book_Like_List;
-import com.identity.project.domain.Comments_Like;
 import com.identity.project.domain.Member;
 import com.identity.project.domain.Review_Like_List;
 import com.identity.project.service.BoardService;
 import com.identity.project.service.CommentService;
-import com.identity.project.service.CommentServiceImpl;
-import com.identity.project.service.MainService;
 import com.identity.project.service.MemberService;
 @Controller
 public class BoardController {
@@ -38,8 +35,6 @@ public class BoardController {
 	@Autowired
 	private CommentService commentService;
 	
-	@Autowired
-	private MainService mainService;
 	
 	@ResponseBody
 	@RequestMapping(value="/reviewLikeCmt.net", method=RequestMethod.POST)

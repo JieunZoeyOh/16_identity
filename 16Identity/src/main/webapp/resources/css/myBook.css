@@ -110,6 +110,7 @@ footer {
 
 .content_table {
 	width: 100%;
+	border-collapse: collapse;
 }
 
 .content_table td{
@@ -135,6 +136,18 @@ footer {
 .content_table>tbody td>img {
 	width: 120px;
 	height: 174px;
+}
+
+.content_table>tbody tr:nth-child(odd) > td{
+	border-top: 1px solid #00000005;
+}
+
+.like_book_table>tbody td{
+	border-top: 1px solid #00000005;
+}
+
+.content_table>tbody tr:nth-child(1) > td{
+	border-top: none;
 }
 
 td>a {
@@ -324,6 +337,5 @@ td>a:active, td>a:visited{
     box-sizing: border-box;
     position: relative;
     padding: 5rem 3rem;
-    background-color: #fefefe;
 }
 
