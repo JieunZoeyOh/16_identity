@@ -78,7 +78,11 @@ $(function() {
 					// 현재 페이지가 마지막 페이지면 "더보기"는 나타나지 않습니다.
 					if (currentPage == maxPage) {
 						$("#message").text("");
-					} else {
+					} 
+					else if(currentPage == 1 && maxPage == 0){
+						$("#message").text("");
+					}
+					else {
 						$("#message").text("더보기");
 					}
 					// 더 보기를 클릭할 경우 현재 페이지에서 1증가된 페이지를 보여주기 위해 값을 설정합니다.
@@ -156,6 +160,7 @@ $(function() {
 				$("#comment tbody").empty();
 				document.getElementById("comment_align2").options[0].selected = "selected";
 				getList(1);
+				
 			}
 		});// ajax end
 	});
