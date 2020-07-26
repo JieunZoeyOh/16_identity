@@ -134,21 +134,14 @@
 			$('#subscribe').on('click', function(){
 				$('#subMenu').toggle();
 			})
-			/* $(document).mouseup(function(e){
-				if($('#mypageMenu').has(e.target).length==0){
-					$('#mypageMenu').hide();
-				}	
-			}) */
+			$('.best_review_wrap').find('article').hover();
+		})
 			$('.recom_img_src').on('error', function(){
 				$(this).prop('src', $(this).next().val());
-				$('.recom_img_src').on('error', function(){
+				$(this).on('error', function(){
                		$(this).prop('src', 'resources/image/bookerror.PNG');
                 })
 			})
-			$('.best_review_wrap').find('article').hover();
-			
-			$('')
-		})
 	</script>
 </body>
 </html>

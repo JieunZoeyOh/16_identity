@@ -219,7 +219,7 @@ public class MemberController {
 				sendMail.sendMail(vo);
 				out.println("<script>");
 				out.println("alert('비밀번호 변경에 성공했습니다. 이메일을 확인해주세요');");
-				out.println("location.href='login2.net'");
+				out.println("location.href='login.net'");
 				out.println("</script>");
 			}
 		}
