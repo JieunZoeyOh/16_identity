@@ -8,7 +8,7 @@
 
 <script src="resources/js/jquery-3.5.0.js"></script>
 <script src="resources/js/review_detail2.js"></script>
-<title>메인페이지</title>
+<title>16 Identity</title>
 <link rel="icon" href="resources/favicon.ico" type="image/x-icon">  
 <!-- Waves Effect Plugin Js -->
     <script src="resources/plugins/node-waves/waves.js"></script>
