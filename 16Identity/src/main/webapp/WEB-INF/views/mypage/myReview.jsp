@@ -71,7 +71,7 @@
 									<div class='flip-card-back'>
 									<br><br>
 										<img src = "resources/image/calendar.png" style="width: 30px;z-index: 1;display: inline-block;margin-left: -6%;" ><span>${m.cmt_date}</span>&nbsp;  
-										<img src = "resources/image/problem.png" style="width:26px; z-index:1; display:inline-block" ><span> ${m.cmt_mbti}</span>&nbsp; 
+										<img src = "resources/image/problem.png" style="width:26px; z-index:1; display:inline-block" ><span> ${fn:toUpperCase(m.cmt_mbti)}</span>&nbsp; 
 										<img src = "resources/image/good.png" style="width:27px; z-index:1; display:inline-block;" ><span>${m.cmt_like}</span>  
 									<br><br>
 										<p style = "width: 93%; padding: 0 20px;">${fn:substring(m.cmt_content, 0 , 150)}</p>
