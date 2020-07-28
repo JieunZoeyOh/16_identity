@@ -59,6 +59,10 @@ public class AdminDAO {
 	public void deliveryInsert(String m_id) {
 		sqlSession.insert("Deliver.insert",m_id);
 	}
+	
+	public List<Deliver> allList() {
+		return sqlSession.selectList("Deliver.allList");
+	}
 
 	public int deliveryUpdate() {
 		return sqlSession.update("Deliver.update");
@@ -66,6 +70,10 @@ public class AdminDAO {
 
 	public List<Subscribe> getM_id() {
 		return sqlSession.selectList("Subscribe.getM_id");
+	}
+	
+	public List<Subscribe> getM_id_date() {
+		return sqlSession.selectList("Subscribe.getM_id_date");
 	}
 
 	public List<Deliver> getDList() {

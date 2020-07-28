@@ -8,6 +8,10 @@
 		select m_id from subscribe
 	</select>
 	
+	<select id="getM_id_date" resultType="subscribe">
+		select m_id from subscribe where updatedate=sysdate
+	</select>
+	
 	<select id="isbnList" parameterType="String" resultType="String">
 		select isbn from subscribe where m_id=#{m_id}
 	</select>
@@ -17,10 +21,10 @@
 	</insert>
 	
 	<select id="distinctSub" resultType="subscribe">
-		select distinct isbn,updatedate from subscribe
+		select distinct isbn,updatedate from subscribe where substr(updatedate,0,5) = substr(sysdate,0,5)
 	</select>
 	<insert id="subOrder" parameterType="String">
-		insert into suborder values (order_seq.NEXTVAL, #{isbn}, (select count(*) from subscribe where isbn=#{isbn} and substr(updatedate,0,7)=substr(sysdate,0,7) group by isbn), sysdate, '발주 예정')
+		insert into suborder values (order_seq.NEXTVAL, #{isbn}, (select count(*) from subscribe where isbn=#{isbn} and substr(updatedate,0,5)=substr(sysdate,0,5) group by isbn), sysdate, '발주 예정')
 	</insert> 
 	
 	<select id="joinlist" resultMap="joinresultMap" >

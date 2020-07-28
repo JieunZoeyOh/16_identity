@@ -21,7 +21,7 @@ $(function() {
       
       if (!checkpasscheck) {
          alert("비밀번호가 맞지않습니다");
-         $("input:eq(4)").focus();
+         $("input:eq(3)").focus();
          return false;
       }
       

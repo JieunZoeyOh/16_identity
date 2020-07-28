@@ -69,6 +69,11 @@ public class AdminServiceImpl implements AdminService {
 	public void deliveryInsert(String m_id) {
 		dao.deliveryInsert(m_id);
 	}
+	
+	@Override
+	public List<Deliver> allList() {
+		return dao.allList();
+	}
 
 	@Override
 	public int deliveryUpdate() {
@@ -78,6 +83,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<Subscribe> getM_id() {
 		return dao.getM_id();
+	}
+	
+	@Override
+	public List<Subscribe> getM_id_date() {
+		return dao.getM_id_date();
 	}
 
 	@Override

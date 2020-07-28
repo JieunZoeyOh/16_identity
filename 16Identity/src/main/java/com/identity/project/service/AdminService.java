@@ -46,4 +46,6 @@ public interface AdminService {
 	int[] getchartValues();
 	int ad_com_delete(String cmt_no);
 	int newWarnCount();
+	List<Deliver> allList();
+	List<Subscribe> getM_id_date();
 }

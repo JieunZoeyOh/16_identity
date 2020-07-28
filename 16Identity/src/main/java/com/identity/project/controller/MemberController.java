@@ -323,6 +323,7 @@ public class MemberController {
 		int result = memberSerivce.update(member);
 		String mbti_nickname = memberSerivce.getMbtiNickname(member.getM_id());
 		session.setAttribute("mbti_nickname", mbti_nickname);
+		session.setAttribute("m_nickname", member.getM_nickname());
 		// 삽입이 된 경우
 		if (result == 1) {
 			out.println("alert('수정되었습니다');");

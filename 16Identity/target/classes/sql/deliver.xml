@@ -4,7 +4,7 @@
 
 <mapper namespace="Deliver">
 	<insert id="insert" parameterType="String">
-		insert into deliver values (del_seq.nextval, #{m_id}, (select isbn from subscribe where m_id=#{m_id}), sysdate,'배송 예정')
+		insert into deliver values (del_seq.nextval, #{m_id}, (select isbn from subscribe where m_id=#{m_id} and substr(updatedate,0,5)=substr(sysdate,0,5)), sysdate,'배송 예정')
 	</insert>
 	
 	<update id="update">
@@ -14,6 +14,11 @@
 	<select id="list" resultMap="deliverMap">
 		select * from deliver left join book on book.isbn=deliver.isbn 
 		left join member on member.m_id=deliver.m_id where substr(deliver_date,0,5)=substr(sysdate,0,5)
+	</select>
+	
+	<select id="allList" resultMap="deliverMap">
+		select * from deliver left join book on book.isbn=deliver.isbn 
+		left join member on member.m_id=deliver.m_id
 	</select>
 	
 	<resultMap type="com.identity.project.domain.Deliver" id="deliverMap">

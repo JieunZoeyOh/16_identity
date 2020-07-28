@@ -42,7 +42,7 @@
 	width: 18%
 }
 
-#nickcheck, #postcode, #mbti_check {
+#nickcheck, #postcode, #mbti_check, #phonecheck {
 	width: 71px;
     padding: 4px 6px;
     display: inline-block;
