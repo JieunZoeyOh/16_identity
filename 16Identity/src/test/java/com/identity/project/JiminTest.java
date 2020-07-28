@@ -51,7 +51,7 @@ public class JiminTest {
 		try {
 			mockMvc.perform(post("/passchk.net")
 					.param("password","1111")
-					.param("id", "potato101@gmail.com"))
+					.param("id", "jimin1@gmail.com"))
 					.andDo(print())
 					.andExpect(status().isOk());
 			logger.info(">>> MemberController - passchk() 수행 성공 <<<");
@@ -64,7 +64,7 @@ public class JiminTest {
 	public void member_update() throws Exception{
 		try {
 			 mockMvc.perform(post("/updateForm.net")
-					.param("id","potato101@gmail.com"))
+					.param("id","jimin1@gmail.com"))
 				    .andDo(print())
 				    .andExpect(model().attributeExists("memberinfo"))
 				    .andExpect(status().isOk());
@@ -78,7 +78,7 @@ public class JiminTest {
 	public void review() throws Exception{
 		try {
 			mockMvc.perform(get("/myReview.net")
-					.sessionAttr("m_id", "potato101@gmail.com"))
+					.sessionAttr("id", "jimin1@gmail.com"))
 					.andDo(print())
 					.andExpect(model().attributeExists("profile"))
 					.andExpect(model().attributeExists("listcount"))
