@@ -263,7 +263,8 @@ public class MemberController {
 
 	// updateForm.net
 	@RequestMapping(value = "/updateForm.net")
-	public ModelAndView member_update(String id,HttpSession session, ModelAndView mv) throws Exception {
+	public ModelAndView member_update(HttpSession session, ModelAndView mv) throws Exception {
+		String id = (String) session.getAttribute("m_id");
 		System.out.println("확인:" + id);
 		Member m = memberSerivce.member_info(id);
 		System.out.println("확인:" + m.getM_file());

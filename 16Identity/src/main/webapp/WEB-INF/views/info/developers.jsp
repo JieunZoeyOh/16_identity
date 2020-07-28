@@ -96,7 +96,7 @@
 												<h3 class="myname">Jimin KIM</h3>
 												<span>ENTJ</span>
 												<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing
+												    Lorem ipsum dolor sit amet, consectetur adipiscing
 													elit. Integer nec odio. Praesent libero. Sed cursus ante
 													dapibus diam.
 												</p>
@@ -135,9 +135,8 @@
 												<h3 class="myname">Minji LEE</h3>
 												<span>ISTJ</span>
 												<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing
-													elit. Integer nec odio. Praesent libero. Sed cursus ante
-													dapibus diam.
+												<strong>"에러는 나의 원동력!"</strong> <br>
+												나만의 코드를 나만의 속도로 작성하고자 합니다.
 												</p>
 											</div>
 										</div>
@@ -174,9 +173,8 @@
 												<h3 class="myname">Haeri KIM</h3>
 												<span>ISTP</span>
 												<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing
-													elit. Integer nec odio. Praesent libero. Sed cursus ante
-													dapibus diam.
+												<strong>"주석을 생활화 하자"</strong><br>
+												개발을 하더라도 다른 사람들도 보고 무슨 기능인지 한눈에 알아볼 수 있도록 개발을 해야 유지보수가 좋습니다.
 												</p>
 											</div>
 										</div>

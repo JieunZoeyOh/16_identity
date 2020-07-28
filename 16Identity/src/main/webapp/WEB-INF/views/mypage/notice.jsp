@@ -32,7 +32,7 @@
 				<option value="updateForm.net">My Info</option>
 				<option value="myReview.net">My Review</option>
 				<option value="myBook.net">My Books</option>
-				<option value="notice.net">Notice</option>
+				<option value="notice.net" selected>Notice</option>
 			</select>
 		</div>
 	</div>
