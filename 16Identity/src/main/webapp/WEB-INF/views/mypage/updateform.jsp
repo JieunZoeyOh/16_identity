@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -62,7 +63,7 @@
        
       <b style="display: inline-block; width: auto">MBTI</b>
       <button type="button" class="changembti" onclick="openInNewTab();">변경</button>
-      <input type="text" placeholder="change your MBTI" name="m_mbti" id="m_mbti" value="${m.m_mbti}" required>
+      <input type="text" placeholder="change your MBTI" name="m_mbti" id="m_mbti" value="${fn:toUpperCase(m.m_mbti)}" required>
 
 	  <b style="display: inline-block; width: auto">Address</b>
 	  <button type="button" class="postcode">우편검색</button>

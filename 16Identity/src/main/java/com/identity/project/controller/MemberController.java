@@ -276,7 +276,7 @@ public class MemberController {
 	// updateProcess.net
 	@ResponseBody
 	@RequestMapping(value = "/updateProcess.net", method = RequestMethod.POST)
-	public void updateProcess(Member member, HttpServletResponse response, HttpServletRequest request, String check)
+	public void updateProcess(Member member, HttpServletResponse response, HttpServletRequest request, String check, HttpSession session)
 			throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 
@@ -318,8 +318,11 @@ public class MemberController {
 		System.out.println(encPassword);
 		member.setM_password(encPassword);
 		out.println("<script>");
+		String imsi_mbti = member.getM_mbti().toLowerCase();//소문자 변환
+		member.setM_mbti(imsi_mbti);
 		int result = memberSerivce.update(member);
-		
+		String mbti_nickname = memberSerivce.getMbtiNickname(member.getM_id());
+		session.setAttribute("mbti_nickname", mbti_nickname);
 		// 삽입이 된 경우
 		if (result == 1) {
 			out.println("alert('수정되었습니다');");
