@@ -1,5 +1,7 @@
 package com.identity.project.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Notice {
 	private int no;
 	private String m_id;
@@ -10,7 +12,7 @@ public class Notice {
 	private String content;
 	private String n_date;
 	private int viewcount;
-	
+	private MultipartFile uploadfile;
 	
 	public int getViewcount() {
 		return viewcount;
@@ -66,6 +68,10 @@ public class Notice {
 	public void setN_date(String n_date) {
 		this.n_date = n_date;
 	}
-	
-	
+	public MultipartFile getUploadfile() {
+		return uploadfile;
+	}
+	public void setUploadfile(MultipartFile uploadfile) {
+		this.uploadfile = uploadfile;
+	}
 }

@@ -1,13 +1,7 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 
 @charset "UTF-8";
-button{
-	width: 95px;
-    height: 40px;
-    border: none;
-    background: #303960;
-    color: white;
-}
+
 dl, ol, ul{
     margin-top: 16px;
 }
@@ -75,12 +69,11 @@ footer {
 	display:inline-block;
 	width:30%;
 	float:left;
+	height:100%;
 }
 
 #right_Container{
 	display:inline-block;
-	width: 30%;
-	margin-left: 142px;
 }
 
 .menu {
@@ -109,7 +102,11 @@ footer {
 
 
 #content{
+	width: 855px;
     height: auto;
+    border:none;
+    border-top: 1.5px solid #303960;
+    margin-bottom: 130px;
     display:inline-block;
 }
 #content table {
@@ -298,6 +295,9 @@ td>a:active, td>a:visited{
     box-sizing: border-box;
     position: relative;
     padding: 5rem 3rem;
-    background-color: #fefefe;
 }
 
+#main_Container {
+	display: inline-block;
+    width: 100%;
+}

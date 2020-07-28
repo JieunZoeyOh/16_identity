@@ -2,6 +2,7 @@ package com.identity.project.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Book_Like_List;
 import com.identity.project.domain.MBTI;
+import com.identity.project.domain.Notice;
 import com.identity.project.domain.Review_Like_List;
 
 @Repository
@@ -267,5 +269,37 @@ public class BoardDAO {
 
 	public List<Review_Like_List> getReviewLikeList(HashMap<String, Object> map) {
 		return sqlSession.selectList("Books.getReviewLikeList", map);
+	}
+
+	public int getNoticeListCount() {
+		return sqlSession.selectOne("Notices.count");
+	}
+
+	public List<Notice> getNoticeList(HashMap<String, Integer> map) {
+		return sqlSession.selectList("Notices.list", map);
+	}
+
+	public void insertNotice(Notice notice) {
+		sqlSession.insert("Notices.insert", notice);
+	}
+
+	public Notice getDetail(int num) {
+		return sqlSession.selectOne("Notices.Detail", num);
+	}
+
+	public int setReadCountUpdate(int num) {
+		return sqlSession.update("Notices.ReadCountUpdate",num);
+	}
+
+	public Notice ismodifyWriter(Map<String, Object> map) {
+		return sqlSession.selectOne("Notices.modifyWriter", map);
+	}
+
+	public int NoticeModify(Notice notice) {
+		return sqlSession.update("Notices.modify", notice);
+	}
+
+	public int Noticedelete(Notice notice) {
+		return sqlSession.delete("Notices.delete", notice);
 	}
 }

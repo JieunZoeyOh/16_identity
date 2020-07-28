@@ -2,6 +2,7 @@ package com.identity.project.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import com.identity.project.domain.Book;
 import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Book_Like_List;
+import com.identity.project.domain.Notice;
 import com.identity.project.domain.Review_Like_List;
 
 @Service
@@ -101,5 +103,75 @@ public class BoardServiceImpl implements BoardService {
 		return dao.getReviewLikeList(map);
 	}
 
+	@Override
+	public List<Notice> getNoticeList(int page, int limit) {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		int startrow=(page-1)*limit+1;
+		int endrow=startrow+limit-1;
+		map.put("start", startrow);
+		map.put("end", endrow);
+		return dao.getNoticeList(map);
+	}
 
+	@Override
+	public int getNoticeListCount() {
+		return dao.getNoticeListCount();
+	}
+
+	@Override
+	public void insertNotice(Notice notice) {
+		dao.insertNotice(notice);
+	}
+
+	@Override
+	public Notice getDetail(int num) {
+		if(setReadCountUpdate(num)!=1)
+			return null;
+		return dao.getDetail(num);
+	}
+
+	private int setReadCountUpdate(int num) {
+		return dao.setReadCountUpdate(num);
+	}
+
+	@Override
+	public boolean ismodifyWriter(int no, String password) {
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("no", no);
+		map.put("password", password);
+		Notice result = dao.ismodifyWriter(map);
+		if(result != null ) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public int boardModify(Notice notice) {
+		return dao.NoticeModify(notice);
+	}
+
+	@Override
+	public boolean isBoardWriter(int no, String password) {
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("no", no);
+		map.put("password", password);
+		Notice result = dao.ismodifyWriter(map);
+		if(result != null ) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public int deleteNotice(int no) {
+		int result = 0;
+		Notice notice = dao.getDetail(no);
+		if(notice != null) {
+			result = dao.Noticedelete(notice);
+		}
+		return result;
+	}
 }

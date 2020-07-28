@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Notices">
+
+	<select id="count" resultType="int">
+		select count(*) from NOTICE
+	</select>
+
+	<select id="list" parameterType="java.util.Map"
+		resultType="notice">
+		select * from
+		(select rownum rnum, b. *
+		from
+		(select * from notice
+		order by no desc) b
+		)
+		where
+		rnum &gt;= #{start} and rnum &lt;= #{end}
+	</select>
+
+	<insert id="insert" parameterType="notice">
+		<selectKey resultType="int" order="BEFORE" keyProperty="no">
+			select nvl(max(no),0)+1 from notice
+		</selectKey>
+		insert into notice
+		(no, m_id, password, n_original,
+		n_file, subject,
+		content, viewcount, n_DATE)
+		values
+		(#{no}, #{m_id}, #{password},
+		#{n_original, jdbcType=VARCHAR},
+		#{n_file, jdbcType=VARCHAR},
+		#{subject}, #{content},#{viewcount},sysdate)
+	</insert>
+
+	<update id="ReadCountUpdate" parameterType="int">
+		update notice
+		set
+		Viewcount = viewcount+1
+		where no = #{no}
+	</update>
+
+	<select id="Detail" parameterType="int" resultType="notice">
+		select * from
+		notice where no = #{no}
+	</select>
+	
+	<update id="modify" parameterType="notice">
+		update notice set subject=#{subject},
+		content=#{content},
+		n_file=#{n_file, jdbcType=VARCHAR}, n_original=#{ n_original,
+		jdbcType=VARCHAR}
+		where no=#{no}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM notice WHERE no = #{no}
+	</delete>
+	
+	<select id="Writer" parameterType="map" resultType="notice">
+		select * from notice where no=#{no} and password=#{password}
+	</select>
+	
+	<select id="modifyWriter" parameterType="map" resultType="notice">
+		select * from notice where no=#{no} and password=#{password}
+	</select>
+</mapper>

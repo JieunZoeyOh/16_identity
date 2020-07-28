@@ -1,0 +1,334 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+@charset "UTF-8";
+button{
+	width: 95px;
+    height: 40px;
+    border: none;
+    background: #303960;
+    color: white;
+}
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #fff;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	border: 1px solid;
+	border-radius: .25em;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.filebox label:hover {
+	background-color: white;
+	color: black;
+}
+
+.filebox label:active {
+	background-color: #f8b24f;
+}
+
+fieldset {
+	padding: 30px;
+	margin-bottom: 56px;
+}
+
+#name, #pass, #subject {
+	width: 100%;
+	height: 33px
+}
+
+#content {
+	width: 100%
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP',
+		'Sans-serif' !important;
+}
+
+footer {
+	clear: both;
+	height: 200px;
+	background-color: #f8b24f;
+}
+
+.uploadimg {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+}
+
+.hero {
+	display: inline-block;
+	width: 100%;
+	height: 352px;
+	position: relative;
+}
+
+.diagonal-hero-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 350px;
+	background: #2b5876;
+	background: -webkit-linear-gradient(to right, #1f0d0d, #271404);
+	background: linear-gradient(to right, #1f0d0d, #1f0d0d);
+	z-index: -1;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'
+}
+
+#bContainer {
+	width: 100%;
+	height: auto;
+}
+
+#left_Container {
+	display: inline-block;
+	width: 30%;
+	float: left;
+}
+
+#right_Container {
+	display: inline-block;
+	width: 70%;
+}
+
+.menu {
+	display: inline-block;
+	position: relative;
+	right: -51px;
+	top: 80px;
+}
+
+.logoimg {
+	margin-top: 37px;
+	width: 300px;
+	margin-left: 59px;
+}
+
+.menu-control {
+	margin: 0 140;
+	border: none;
+	border-bottom: 1px solid black;
+	padding: 13px;
+	font-size: 18;
+}
+
+.menu-control>option {
+	text-align: center;
+	line-height: 5px;
+}
+
+.imgcontainer {
+	bottom: 120;
+	width: 300px;
+	display: inline-block;
+	margin-left: 166px;
+}
+
+#content table {
+	width: 100%;
+}
+
+#content td {
+	text-align: center;
+	font-size: 16px;
+	padding: 9px 0;
+}
+
+#content thead td:nth-child(1) {
+	width: 15%
+}
+
+#content thead td:nth-child(3) {
+	width: 20%
+}
+
+#content thead td:nth-child(4) {
+	width: 15%
+}
+
+#content thead td {
+	font-weight: 500;
+}
+
+#content tbody td {
+	font-weight: 200;
+}
+
+td>a {
+	text-decoration: none;
+	color: black;
+}
+
+td>a:hover {
+	text-decoration: underline;
+}
+
+td>a:active, td>a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.r-list { -
+	-uirListPaddingLeft: var(- -rListPaddingLeft, 0); -
+	-uirListMarginTop: var(- -rListMarginTop, 0); -
+	-uirListMarginBottom: var(- -rListMarginBottom, 0); -
+	-uirListListStyle: var(- -rListListStyle, none);
+	padding-left: var(- -uirListPaddingLeft) !important;
+	margin-top: var(- -uirListMarginTop) !important;
+	margin-bottom: var(- -uirListMarginBottom) !important;
+	list-style: var(- -uirListListStyle) !important;
+}
+
+.r-link { -
+	-uirLinkDisplay: var(- -rLinkDisplay, inline-flex); -
+	-uirLinkTextColor: var(- -rLinkTextColor); -
+	-uirLinkTextDecoration: var(- -rLinkTextDecoration, none);
+	display: var(- -uirLinkDisplay) !important;
+	color: var(- -uirLinkTextColor) !important;
+	text-decoration: var(- -uirLinkTextDecoration) !important;
+}
+
+.pagination { -
+	-uiPaginationDisplay: var(- -paginationDisplay, flex); -
+	-uiPaginationAlignmentX: var(- -paginationAlignmentX, flex-start); -
+	-uiPaginationAlignmentY: var(- -paginationAlignmentY, center); -
+	-uiPaginationGroupMargin: var(- -paginationGroupMargin, .25em); -
+	-uiPaginationPointPadding: var(- -paginationPointPadding, .5875em .8em);
+	display: var(- -uiPaginationDisplay);
+	flex-wrap: wrap;
+	align-items: var(- -uiPaginationAlignmentY);
+	justify-content: var(- -uiPaginationAlignmentX);
+}
+
+.pagination__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: var(- -uiPaginationAlignmentY);
+	justify-content: var(- -uiPaginationAlignmentX);
+}
+
+.pagination__group:nth-child(n+2) {
+	margin-left: var(- -uiPaginationGroupMargin);
+}
+
+.pagination__point {
+	padding: var(- -uiPaginationPointPadding);
+	line-height: 1;
+}
+
+.pagination { -
+	-uiPaginationPointBorderRadius: var(- -paginationPointBorderRadius); -
+	-uiPaginationPointBgColor: var(- -paginationPointBgColor); -
+	-uiPaginationPointBorderWidth: var(- -paginationPointBorderWidth); -
+	-uiPaginationPointBorderColor: var(- -paginationPointBorderColor); -
+	-uiPaginationPointFontWeight: var(- -paginationPointFontWeight); -
+	-uiPaginationPointTextColor: var(- -paginationPointTextColor); -
+	-rLinkTextColor: var(- -paginationPointTextColor); -
+	-uiPaginationActivePointTextColor: var(- -paginationActivePointTextColor);
+	-
+	-uiPaginationActivePointFontWeight: var(- -paginationActivePointFontWeight, 700);
+	-
+	-uiPaginationActivePointBgColor: var(- -paginationActivePointBgColor);
+	-
+	-uiPaginationActivePointBorderWidth: var(- -paginationActivePointBorderWidth, 0);
+	-
+	-uiPaginationActivePointBorderColor: var(- -paginationActivePointBorderColor, transparent);
+	-
+	-uiPaginationArrowSize: var(- -paginationArrowSize, 22px); -
+	-uiPaginationArrowMargin: var(- -paginationArrowMargin, .25em); -
+	-uiPaginationArrowDisplay: var(- -paginationArrowDisplay, inline-flex);
+}
+
+.pagination__point {
+	background-color: var(- -uiPaginationPointBgColor);
+	border: var(- -uiPaginationPointBorderWidth) solid
+		var(- -uiPaginationPointBorderColor);
+	border-radius: var(- -uiPaginationPointBorderRadius);
+	font-weight: var(- -uiPaginationPointFontWeight);
+	color: var(- -uiPaginationPointTextColor);
+}
+
+span.pagination__point { -
+	-uiPaginationPointBgColor: var(- -uiPaginationActivePointBgColor); -
+	-uiPaginationPointBorderWidth: var(- -uiPaginationActivePointBorderWidth);
+	-
+	-uiPaginationPointBorderColor: var(- -uiPaginationActivePointBorderColor);
+	-
+	-uiPaginationPointFontWeight: var(- -uiPaginationActivePointFontWeight);
+	-
+	-uiPaginationPointTextColor: var(- -uiPaginationActivePointTextColor);
+	display: inline-flex;
+}
+
+.pagination__control {
+	position: relative;
+	align-items: center;
+}
+
+.pagination__control::before, .pagination__control::after {
+	display: var(- -uiPaginationArrowDisplay);
+	height: 1em;
+	font-size: var(- -uiPaginationArrowSize);
+	line-height: 1;
+}
+
+.pagination__control_prev {
+	margin-right: 10px;
+}
+
+.pagination__control_prev::before {
+	content: "占쎈�";
+	margin-right: var(- -uiPaginationArrowMargin);
+}
+
+.pagination__control_next {
+	margin-left: 10px;
+}
+
+.pagination__control_next::after {
+	content: "占쎈꼥";
+	margin-left: var(- -uiPaginationArrowMargin);
+}
+
+:root { -
+	-paginationFontSize: 1.6rem; -
+	-paginationActivePointBgColor: rgba(0, 0, 0, .3); -
+	-paginationPointTextColor: #fff; -
+	-paginationActivePointTextColor: #fff;
+}
+
+.demo { -
+	-paginationPointTextColor: #303960; -
+	-paginationActivePointBgColor: #303960; -
+	-paginationAlignmentX: center;
+}
+
+.section {
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+	font-size: 1rem;
+}
+
+.demo {
+	box-sizing: border-box;
+	position: relative;
+	padding: 5rem 3rem;
+}
