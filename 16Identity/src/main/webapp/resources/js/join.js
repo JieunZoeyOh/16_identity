@@ -65,7 +65,7 @@ $(function() {
             }
 
             $.ajax({
-               url : "idcheck.net",
+               url : "idcheck.com",
                data : {
                   "m_id" : email
                },
@@ -148,7 +148,7 @@ $(function() {
       }
       
             $.ajax({
-               url : "nickcheck.net",
+               url : "nickcheck.com",
                data : {
                   "m_nickname" : nick
                },
@@ -176,7 +176,7 @@ $(function() {
       var phone = $("#m_phone").val();
       
             $.ajax({
-               url : "phonecheck.net",
+               url : "phonecheck.com",
                data : {
                   "m_phone" : phone
                },

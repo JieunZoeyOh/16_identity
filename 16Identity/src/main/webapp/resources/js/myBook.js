@@ -150,7 +150,7 @@ function reviewajax(inputpage){
         				output += '<td>'+ item.b_authors +'</td>';
         				output += '<td>'+ item.cmt_like_date +'</td>';
         				output += '<td>'+ item.cmt_nickname +'</td>';
-        				output += '<td><i class="fa fa-heart review-heart" aria-hidden="true" id="'+item.cmt_like_no+'"><span class="heart_tooltip">좋아요 취소</span></i>'+ item.cmt_like +'</td>';
+        				output += '<td><img src="resources/image/comment_like.png" class="review-heart" style="width:20px; height:20px;" id="'+item.cmt_like_no+'">&nbsp;<span class="heart_tooltip">좋아요 취소</span></i>'+ item.cmt_like +'</td>';
         				output += '</tr><tr><td colspan="5">'+item.cmt_content+'</td></tr>'
         			})
         			output += '</tbody></table>';
@@ -254,5 +254,18 @@ $(document).ready(function() {
 		$(this)[0].lastChild.style.display='none';
 	})
 	
+	$(document).on('mouseover','.review-heart',function(){
+		console.log($(this))
+		$(this).next().css('display','inline-block');
+		$(this).next().css('position','fixed');
+		$(this).next().css('border','1px solid lightgrey');
+		$(this).next().css('font-size','4px');
+		$(this).next().css('top',(y + 20) + 'px');
+		$(this).next().css('left',(x + 20) + 'px');
+	})
+	
+	$(document).on('mouseout','.review-heart',function(){
+		$(this).next().css('display','none');
+	})
 	
 });
