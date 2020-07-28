@@ -30,7 +30,7 @@ import com.identity.project.service.AdminService;
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
-
+	
 	@RequestMapping(value = "/main.net", method = RequestMethod.GET)
 	public ModelAndView main(ModelAndView mv) {
 		int membercount = adminService.memberCount();

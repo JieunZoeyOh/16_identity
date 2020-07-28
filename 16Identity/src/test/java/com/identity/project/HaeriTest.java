@@ -51,7 +51,6 @@ public class HaeriTest {
 			e.printStackTrace();
 		}
 	}
-	
 	@Test // 관리자 - 배송목록 배송완료 버튼 클릭시 구독 기간이 끝난 사람을 자동으로 구독상태를 구독중에서 구독안함으로 바꿈
 	public void deliverSucess() throws Exception {
 		try {
@@ -63,8 +62,7 @@ public class HaeriTest {
 			e.printStackTrace();
 		}
 	}
-	
-	//@Test // 회원 - 정기구독 결제 완료시 수행화면
+	@Test // 회원 - 정기구독 결제 완료시 수행화면
 	public void kakaopaySuccess() throws Exception {
 		try {
 			mockMvc.perform(get("/kakaopaySuccess.com")
