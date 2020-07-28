@@ -26,7 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 public class MinjiTest {
 
-	private static final Logger logger =  LoggerFactory.getLogger(HaeriTest.class);
+	private static final Logger logger =  LoggerFactory.getLogger(MinjiTest.class);
 	
 	@Autowired
 	private WebApplicationContext wac;
@@ -66,7 +66,7 @@ public class MinjiTest {
 					.param("isbn","1157841112 9791157841110")
 					.param("authors","이민지")
 					.param("publisher","출판사")
-					.param("book_price","15,000")
+					.param("book_price","15000")
 					.param("book_date","2020-07-24")
 					.param("book_contents","책소개입니당")
 					.param("book_image","http://image.kyobobook.co.kr/images/book/xlarge/110/x9791157841110.jpg")
