@@ -31,7 +31,9 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="resources/css/themes/all-themes.css" rel="stylesheet" />
     <style>
-    
+    	.menu_h6{
+    		font-size: 16px;
+    	}
     </style>
 	<link href="resources/css/test.css" rel="stylesheet">
 <jsp:include page="../main/header.jsp"/> 
