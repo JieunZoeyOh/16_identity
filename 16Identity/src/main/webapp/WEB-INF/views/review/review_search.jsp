@@ -42,13 +42,13 @@
 		</div>
 	</div>
 	<div class="board_container">
-		<section class="board_wrap">
-			
-		</section>
-		<section id="board_more_action">
-			<span id="message"></span>
-			<button class="more_button">더 보 기</button>
-		</section>
+			<section class="board_wrap">
+				
+			</section>
+			<section id="board_more_action">
+				<span id="message"></span>
+				<button class="more_button">더 보 기</button>
+			</section>
 	</div>
    <jsp:include page="../main/footer.jsp" />
 

@@ -94,9 +94,9 @@ tr>td>img {
 
 #filtering_wrap{
 	box-sizing: border-box;
-	display: inline-block;
     width: 1000px;
     height: auto;
+    margin: 0 auto;
 }
 
 #filtering_box{

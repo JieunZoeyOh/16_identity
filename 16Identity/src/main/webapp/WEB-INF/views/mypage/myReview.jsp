@@ -38,8 +38,10 @@
 			<div class="menu">
 				<select class="menu-control" onchange="location = this.value;">
 					<option value="updateForm.net">My Info</option>
-					<option value="myReivew.net" selected>My Review</option>
-					<option value="myBook.net">My Books</option>
+					<c:if test="${m_id != 'admin@naver.com' }">
+						<option value="myReivew.net" selected>My Review</option>
+						<option value="myBook.net">My Books</option>
+					</c:if>
 					<option value="notice.net">Notice</option>
 				</select>
 			</div>

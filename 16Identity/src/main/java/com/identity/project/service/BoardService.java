@@ -6,6 +6,7 @@ import com.identity.project.domain.Book;
 import com.identity.project.domain.Book_Like;
 import com.identity.project.domain.Book_Like_Date;
 import com.identity.project.domain.Book_Like_List;
+import com.identity.project.domain.Notice;
 import com.identity.project.domain.Review_Like_List;
 
 public interface BoardService {
@@ -37,5 +38,21 @@ public interface BoardService {
 	int getReviewLikeCount(String m_id);
 
 	List<Review_Like_List> getReviewLikeList(int page, int limit, String m_id);
+
+	List<Notice> getNoticeList(int page, int limit);
+
+	int getNoticeListCount();
+
+	void insertNotice(Notice notice);
+
+	Notice getDetail(int num);
+
+	boolean ismodifyWriter(int no, String password);
+
+	int boardModify(Notice notice);
+
+	boolean isBoardWriter(int no, String password);
+
+	int deleteNotice(int no);
 
 }

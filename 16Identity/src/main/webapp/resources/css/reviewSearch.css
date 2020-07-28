@@ -164,9 +164,9 @@
 	padding-bottom:200px
 }
 .board_wrap {
-	display: inline-block;
 	width:1000px;
 	height:auto;
+	margin: 0 auto;
 }
 
 /* height: auto로 바꾸기*/
@@ -299,4 +299,10 @@ span#message {
 }
 #review_main_image>img {
 	width: 500px;
+}
+
+#board_box{
+	width:1000px;
+	display:inline-block;
+	margin: 0 auto;
 }

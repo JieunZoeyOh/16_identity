@@ -16,6 +16,7 @@
       <typeAlias alias="warn" type="com.identity.project.domain.Warn"/>
       <typeAlias alias="warn_check" type="com.identity.project.domain.Warn_Check"/>
       <typeAlias alias="c_like" type="com.identity.project.domain.Comments_Like"/>
+      <typeAlias alias="notice" type="com.identity.project.domain.Notice"/>
    </typeAliases>
    
    <mappers>
@@ -26,5 +27,6 @@
       <mapper resource="sql/book.xml"/>
       <mapper resource="sql/comment.xml"/>
       <mapper resource="sql/warn.xml"/>
+      <mapper resource="sql/notice.xml"/>
    </mappers>
 </configuration>
