@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="resources/js/jquery-3.5.0.js"></script>
-<title>누군가의 리뷰페이지 </title>
+<title>16 Identity </title>
 <!-- Custom Css -->
 <link href="resources/css/style.css" rel="stylesheet">
 <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
