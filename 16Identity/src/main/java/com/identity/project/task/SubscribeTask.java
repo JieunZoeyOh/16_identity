@@ -23,17 +23,17 @@ public class SubscribeTask {
 	@Autowired
 	private MemberService memberService;
 	
-	@Scheduled(cron="0 0 0 1 * *")
+	@Scheduled(cron="0 0 0 * * *")
 	public void checkBook() throws Exception {
 		List<Member> memberList = memberService.getStateList();
 		String isbn = "";
 		for(int i=0; i<memberList.size();i++) {
+			System.out.println("회원의 ID: "+memberList.get(i).getM_id());
 			if(memberList.get(i).getSubstate().equals("MBTI 구독중")) {
 				System.out.println("회원의 mbti: "+memberList.get(i).getM_mbti());
 				List<String> bookList = boardService.getBookISBN_mbti(memberList.get(i).getM_mbti());
 				List<String> adminList = adminService.getBookISBN(memberList.get(i).getM_id());
 				bookList.removeAll(adminList);
-				
 				for(int j=0; j<bookList.size(); j++) {
 					double randomValue = Math.random();
 			        int ran = (int)(randomValue * bookList.size()+1)-1;
@@ -46,10 +46,10 @@ public class SubscribeTask {
 			}
 			
 			else if(memberList.get(i).getSubstate().equals("RANDOM 구독중")){
+				System.out.println("회원의 mbti: "+memberList.get(i).getM_mbti());
 				List<String> bookList = boardService.getBookISBN();
 				List<String> adminList = adminService.getBookISBN(memberList.get(i).getM_id());
 				bookList.removeAll(adminList);
-				
 				for(int j=0; j<bookList.size(); j++) {
 					double randomValue = Math.random();
 			        int ran = (int)(randomValue * bookList.size()+1)-1;

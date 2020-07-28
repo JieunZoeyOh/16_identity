@@ -81,8 +81,9 @@ public class AdminController {
 	public void orderSucess(HttpServletResponse response) throws Exception {
 		int result = adminService.orderUpdate();
 		List<Deliver> Dlist = adminService.getDList();
+		System.out.println("list:"+Dlist);
 		if (Dlist.size() == 0) {
-			List<Subscribe> list = adminService.getM_id();
+			List<Subscribe> list = adminService.getM_id_date();
 			for (int i = 0; i < list.size(); i++) {
 				adminService.deliveryInsert(list.get(i).getM_id());
 			}
@@ -92,7 +93,8 @@ public class AdminController {
 
 	@RequestMapping(value = "/delivery.net", method = RequestMethod.GET)
 	public ModelAndView delivery(ModelAndView mv, HttpSession session) {
-		List<Deliver> list = adminService.getDList();
+		List<Deliver> list = adminService.allList();
+		System.out.println("deliverList"+list);
 		mv.setViewName("admin/admin_delivery");
 		mv.addObject("list", list);
 		return mv;
@@ -104,7 +106,6 @@ public class AdminController {
 		int result = adminService.deliveryUpdate();
 		List<Deliver> list = adminService.getDList();
 		for(Deliver d:list) {
-			System.out.println("m_id:"+d.getM_id());
 			int res = adminService.subDrop(d.getM_id());
 			if(res != 0) System.out.println("해지");
 			else System.out.println("구독중");

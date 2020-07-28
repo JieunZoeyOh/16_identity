@@ -81,8 +81,9 @@
                             <i class="material-icons">gavel</i>
                             <span class="icon-name">신고 댓글 관리 &nbsp;
                             <c:if test="${warnCount != 0}">
-                            <button type="button" class="btn btn-danger waves-effect" style="padding:3px 5px;">${warnCount }</button> </span>
-                            </c:if>
+                            <button type="button" class="btn btn-danger waves-effect" style="padding:3px 5px;">${warnCount }</button>
+                            </c:if> </span>
+                            
                         </a>
                     </li>
                     <li>

@@ -161,7 +161,8 @@
 	width:100%;
 	height:auto;
 	text-align:center;
-	padding-bottom:200px
+	padding-bottom:200px;
+	display:inline-block;
 }
 .board_wrap {
 	width:1000px;
