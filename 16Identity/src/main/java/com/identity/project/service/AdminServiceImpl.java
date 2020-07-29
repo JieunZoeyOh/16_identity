@@ -199,4 +199,9 @@ public class AdminServiceImpl implements AdminService {
 		return dao.newWarnCount();
 	}
 
+	@Override
+	public int CheckSubscribe() {
+		return dao.checkSubscribe();
+	}
+
 }

@@ -44,6 +44,7 @@ public class AdminController {
 		int year = adminService.getYearSub();
 		int all = adminService.getAllSub();
 		int[] chart = adminService.getchartValues();
+		int subscribe = adminService.CheckSubscribe();
 		mv.setViewName("admin/main");
 		mv.addObject("membercount", membercount);
 		mv.addObject("warncount", warncount);
@@ -56,6 +57,7 @@ public class AdminController {
 		mv.addObject("all", all);
 		mv.addObject("subcount", subcount);
 		mv.addObject("chart", chart);
+		mv.addObject("check",subscribe);
 		return mv;
 	}
 

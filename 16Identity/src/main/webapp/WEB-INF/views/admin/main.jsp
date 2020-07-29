@@ -41,17 +41,24 @@
 	<c:set var="month" value="${month}"/>
 	<c:set var="year" value="${year}"/>
 	<c:set var="all" value="${all}"/>
+	<c:set var="check" value="${check }"/>
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
                 <h2>DASHBOARD</h2>
             </div>
+            <c:if test="${check==1 }">
+            <p style="font-weight: bold; font-size: 20px;">"오늘은 책 발주날 입니다." &nbsp;
+            <button class="btn bg-blue-grey waves-effect" data-type="basic" onclick="javascript:location.href='order.net'" style="font-size: 20px;">발주 관리</button></p>
+            </c:if>
 			<c:set var="member" value="${membercount}"/>
 			<c:set var="subscribe" value="${subcount}"/>
 			<c:set var="comment" value="${commentcount}"/>
 			<c:set var="warn" value="${warncount}"/>
             <!-- Widgets -->
             <div class="row clearfix">
+        
+            
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-pink hover-expand-effect">
                         <div class="icon">

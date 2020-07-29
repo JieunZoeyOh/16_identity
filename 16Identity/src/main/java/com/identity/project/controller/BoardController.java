@@ -509,11 +509,11 @@ public class BoardController {
 	public Map<String, Object> reviewBoard(String sort, @RequestParam(value="mbti[]") List<String> mbti,
 					@RequestParam(value="page", defaultValue="1", required=false) int page) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		int limit = 10;
+		int limit = 10; //한 페이지 10개의 게시물
 		List<String> mbtilist = new ArrayList<String>();
 
 		for (String a:mbti) {
-			if(!a.contains("all")) {
+			if(!a.contains("all")) {//value값에 all이 없는 값만 list에 추가
 				mbtilist.add(a);
 				System.out.println(a);
 			}
