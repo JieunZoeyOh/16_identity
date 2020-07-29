@@ -9,11 +9,7 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
-<title>Jquery DataTable | Bootstrap Based Admin Template -
-	Material Design</title>
-<!-- Favicon-->
-<link rel="icon" href="resources/favicon.ico" type="image/x-icon">
-
+<title>16 Identity</title>
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext"

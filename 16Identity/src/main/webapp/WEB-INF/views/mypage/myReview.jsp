@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>16 identity MY_INFO PAGE</title>
+<title>16 identity</title>
 <link href="resources/css/slick.css" type="text/css" rel="stylesheet">
 <link href="resources/css/myReview.css" type="text/css" rel="stylesheet">
 <jsp:include page="../main/header_mypageVersion.jsp" />
