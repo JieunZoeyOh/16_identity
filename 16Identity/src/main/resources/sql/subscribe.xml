@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="getM_id_date" resultType="subscribe">
-		select m_id from subscribe where updatedate=sysdate
+		select m_id from subscribe where substr(updatedate,0,5)=substr(sysdate,0,5)
 	</select>
 	
 	<select id="isbnList" parameterType="String" resultType="String">

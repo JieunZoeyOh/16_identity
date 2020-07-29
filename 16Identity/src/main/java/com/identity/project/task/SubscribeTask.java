@@ -23,7 +23,7 @@ public class SubscribeTask {
 	@Autowired
 	private MemberService memberService;
 	
-	@Scheduled(cron="0 0 0 * * *")
+	@Scheduled(cron="0 0 0 1 * *")
 	public void checkBook() throws Exception {
 		List<Member> memberList = memberService.getStateList();
 		String isbn = "";
