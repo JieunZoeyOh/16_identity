@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>16 identity MY_INFO PAGE</title>
+<title>16 identity</title>
 <jsp:include page="../main/header_mypageVersion.jsp" />
 <link href="resources/css/updateform.css" type="text/css" rel="stylesheet">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

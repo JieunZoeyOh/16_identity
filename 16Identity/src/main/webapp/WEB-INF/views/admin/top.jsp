@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>16 Identity</title>
 </head>
 <body class="theme-brown">
     <!-- Page Loader -->
@@ -34,7 +34,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="main.net">ADMINBSB - IDENTIFY16</a>
+                <a class="navbar-brand" href="main.net">IDENTIFY16</a>
             </div>
 
         </div>
