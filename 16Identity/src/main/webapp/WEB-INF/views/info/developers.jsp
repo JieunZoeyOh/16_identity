@@ -55,9 +55,8 @@
 												<h3 class="myname">Jieun OH</h3>
 												<span>INFP</span>
 												<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing
-													elit. Integer nec odio. Praesent libero. Sed cursus ante
-													dapibus diam.
+												<strong>"가장 해로운 벌레는 대충이다"</strong><br>
+												할 수 없던 것을 할 수 있다고 말할 수 있는 개발자가 되자
 												</p>
 											</div>
 										</div>
@@ -96,9 +95,8 @@
 												<h3 class="myname">Jimin KIM</h3>
 												<span>ENTJ</span>
 												<p>
-												    Lorem ipsum dolor sit amet, consectetur adipiscing
-													elit. Integer nec odio. Praesent libero. Sed cursus ante
-													dapibus diam.
+												    <strong>"포기하지 않는다!"</strong><br>
+												    끊임없이 공부하고 마지막엔 웃는다 !
 												</p>
 											</div>
 										</div>
@@ -211,9 +209,8 @@
 												<h3 class="myname">Jaeseong KIM</h3>
 												<span>INFP</span>
 												<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing
-													elit. Integer nec odio. Praesent libero. Sed cursus ante
-													dapibus diam.
+												<strong>"혼자보단 둘이서 !"</strong><br>
+												혼자하는것보다 남들과 함께 하는것이 훨씬 빠르게 좋구나 라는걸 느꼈습니다.
 												</p>
 											</div>
 										</div>
