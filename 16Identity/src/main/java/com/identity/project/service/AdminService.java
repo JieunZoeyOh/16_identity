@@ -48,4 +48,5 @@ public interface AdminService {
 	int newWarnCount();
 	List<Deliver> allList();
 	List<Subscribe> getM_id_date();
+	int CheckSubscribe();
 }

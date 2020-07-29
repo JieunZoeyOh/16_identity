@@ -167,5 +167,11 @@ public class AdminDAO {
 	public int ad_com_delete(String cmt_no) {
 		return sqlSession.delete("Comments.comments_delete",cmt_no);
 	}
+
+	public int checkSubscribe() {
+		List<Subscribe> list = sqlSession.selectList("Subscribe.checkSubscribe");
+		if(list.size()==0) return 0;
+		else return 1;
+	}
 	
 }

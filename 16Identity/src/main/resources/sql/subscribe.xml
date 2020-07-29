@@ -4,6 +4,10 @@
 
 <mapper namespace="Subscribe">
 
+	<select id="checkSubscribe" resultType="subscribe">
+		select * from subscribe where substr(updatedate,0,8)=substr(sysdate,0,8)
+	</select>
+	
 	<select id="getM_id" resultType="subscribe">
 		select m_id from subscribe
 	</select>
@@ -82,19 +86,19 @@
 		select count(*) from member where substr(subsdate,0,8)=substr(sysdate,0,8) and subend >= sysdate
 	</select>
 	<select id="yesterSub" resultType="int">
-		select count(*) from member where subend >= sysdate and substr(subsdate,0,8) between substr(sysdate-1,0,8) and substr(sysdate,0,8)
+		select count(*) from member where substr(subsdate,0,8) between substr(sysdate-1,0,8) and substr(sysdate,0,8)
 	</select>
 	<select id="weekSub" resultType="int">
-		select count(*) from member where subend >= sysdate and substr(subsdate,0,8) between substr(sysdate-7,0,8) and substr(sysdate,0,8)
+		select count(*) from member where substr(subsdate,0,8) between substr(sysdate-7,0,8) and substr(sysdate,0,8)
 	</select>
 	<select id="monthSub" resultType="int">
-		select count(*) from member where subend >= sysdate and substr(subsdate,0,8) between substr(add_months(sysdate,-1),0,8) and substr(sysdate,0,8)
+		select count(*) from member where substr(subsdate,0,8) between substr(add_months(sysdate,-1),0,8) and substr(sysdate,0,8)
 	</select>
 	<select id="yearSub" resultType="int">
-		select count(*) from member where subend >= sysdate and substr(subsdate,0,8) between substr(add_months(sysdate,-12),0,8) and substr(sysdate,0,8)
+		select count(*) from member where substr(subsdate,0,8) between substr(add_months(sysdate,-12),0,8) and substr(sysdate,0,8)
 	</select>
 	<select id="allSub" resultType="int">
-		select count(*) from member where subend >= sysdate
+		select count(*) from member where subsdate is not null
 	</select>
 	<select id="ChartValues" parameterType="int" resultType="int">
 		select count(*) from member where substr(subsdate,0,8) = (substr(sysdate - #{i},0,8))

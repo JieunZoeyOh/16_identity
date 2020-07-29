@@ -30,7 +30,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/main.com", method = RequestMethod.GET)
 	public ModelAndView main(ModelAndView mv) {
-		//1. mbti 목록 불러오기
+		//1. mbti 유형 이름 목록 불러오기
 		List<String> mbti_list = mainService.getMbtiList();
 		//2. mbti recommend 불러오기 (각 mbti별 4권)
 		Map<String, List<Book>> mbtiRecommendList = mainService.getMbtiRecommendList(mbti_list); 

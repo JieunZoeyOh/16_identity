@@ -25,12 +25,12 @@ public class MainDAO {
 	public Map<String, List<Book>> mbtiRecommendList(List<String> mbti_list) {
 		Map<String, List<Book>> mbtiRecommendList = new HashMap<String, List<Book>>();
 		for(String mbti : mbti_list) {
-			List<String> book_isbn = sqlSession.selectList("Books.recommend_book_isbn_list", mbti);
+			List<String> book_isbn = sqlSession.selectList("Books.recommend_book_isbn_list", mbti);//추천 수 높은 isbn 값을 받고
 			List<Book> list = new ArrayList<Book>();
 			for(int i=0; i<book_isbn.size(); i++) {
-				list.add(sqlSession.selectOne("Books.getbookInfoFromisbn", book_isbn.get(i)));
+				list.add(sqlSession.selectOne("Books.getbookInfoFromisbn", book_isbn.get(i)));//isbn의 책 정보를 리스트에 add
 			}
-			mbtiRecommendList.put(mbti, list);
+			mbtiRecommendList.put(mbti, list); //key값은 해당 mbti 유형 이름
 		}
 		return mbtiRecommendList;
 	}

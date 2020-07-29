@@ -96,10 +96,10 @@
 			<p style="color:lightpink">※ 본 정기권은 해지가 불가하니 신중하게 선택하시길 바랍니다. ※</p>
 			<input name="m_id" type="hidden" value="${m_id }">
 			<input name="mbti" type="hidden" value="${mbti }">
-			<label for="price"><input type="radio" name="price" value="9900" id="mbti"> 1개월 </label>
-			<label for="price"><input type="radio" name="price" value="29000" id="mbti"> 3개월</label>
-			<label for="price"><input type="radio" name="price" value="55000" id="mbti"> 6개월</label>
-			<label for="price"><input type="radio" name="price" value="100000" id="mbti"> 1년</label>
+			<label for="price"><input type="radio" name="price" value="9900" id="mbti"> 1개월(9,900원) </label>&nbsp;&nbsp;
+			<label for="price"><input type="radio" name="price" value="29000" id="mbti"> 3개월(29,000원)</label><br><br>
+			<label for="price"><input type="radio" name="price" value="55000" id="mbti"> 6개월(55,000원)</label>&nbsp;&nbsp;
+			<label for="price"><input type="radio" name="price" value="100000" id="mbti"> 1년(100,000원)</label>
 			<div style="margin-top: 50px;">
 			<div class="tooltip">
 				<label for="mbti"><input type="radio" name="substate" value="MBTI 구독중" id="mbti"> MBTI 구독 </label>&nbsp;&nbsp;&nbsp;&nbsp;

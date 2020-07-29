@@ -37,9 +37,9 @@
             <span class="mbti_recommend_arrow m_p_zero" id="mbti_left"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span> 
             <div id="mbti_recommend_box" class="m_p_zero">
                 <div id="mbti_recommend_list" class="m_p_zero">
-                <c:forEach var="mbtiname" items="${mbti_list}">
+                <c:forEach var="mbtiname" items="${mbti_list}"> <!-- mbti 유형 이름 -->
                 	<div id="mbti_recommend_section" class="m_p_zero">
-                    <c:forEach var="list" items="${mbtiRecommendList[mbtiname]}">
+                    <c:forEach var="list" items="${mbtiRecommendList[mbtiname]}"> <!-- map 형식 -->
                     	<c:set var="full_isbn" value="${list.isbn}" />
                     	<c:set var="length" value="${fn:length(full_isbn)}"/>
                     	<c:set var="isbn_original" value="${fn:substring(full_isbn, length -13, length)}" />

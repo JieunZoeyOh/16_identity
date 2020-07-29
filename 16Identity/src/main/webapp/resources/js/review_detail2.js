@@ -57,7 +57,7 @@ $(function() {
 							
 							output += "<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>  <div class='card'>";
 							output += "<div class='body bg-orange' id='each_comment'>";
-							output += "<div id='#comment_avatar' style='display:inline-block;'><img src='resources/upload"+this.m_file+"' style='width: 90px;border-radius: 50%;'/></div>"
+							output += "<div id='#comment_avatar' style='display:inline-block;'><img src='resources/upload"+this.m_file+"' style='width: 90px;border-radius: 50%;height: 90px;'/></div>"
 							output += "<span style='display:none'>"+this.cmt_id+"</span>";
 							output += "<p class='card_header' class='hangelfont'><a href='#' onclick='see_view2(this)'>"
 									+ this.cmt_nickname
